@@ -18,18 +18,18 @@
   <!-- CodeMirror para editor de Python con resaltado de sintaxis real -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/eclipse.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
 
   <!-- Pyodide para ejecución real de Python (NumPy + Matplotlib) en WebAssembly -->
-  <script src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
 
   <style>
     /* ==========================================================================
        SISTEMA DE ESCENARIO 16:9 FIJO (ESTÉTICA DE INGENIERÍA / DRAFTING INDUSTRIAL)
        ========================================================================== */
     :root {
-      --bg-stage: #0a0d12;        /* Fondo oscuro técnico para proyector o pantalla */
+      --bg-stage: #0a0d12;        /* Fondo oscuro técnico para sala o proyector */
       --bg-slide: #fcfcfb;        /* Papel técnico / plano de ingeniería (blanco hueso) */
       --bg-card: #ffffff;         /* Superficie blanca nítida para fórmulas y tablas */
       --bg-card-subtle: #f8fafc;  /* Superficies secundarias de apoyo */
@@ -68,7 +68,7 @@
     html, body {
       width: 100%;
       height: 100%;
-      overflow: hidden; /* Cero barras de scroll en modo presentación */
+      overflow: hidden; /* Cero barras de scroll en presentación */
       background-color: var(--bg-stage);
       font-family: var(--font-sans);
       color: var(--text-main);
@@ -114,14 +114,14 @@
       position: absolute;
       top: 0;
       left: 0;
-      padding: 48px 68px 52px 68px;
+      padding: 44px 64px 48px 64px;
       display: none;
       flex-direction: column;
       justify-content: space-between;
       opacity: 0;
       transform: translateX(12px);
       transition: opacity 0.22s ease-out, transform 0.22s ease-out;
-      background: transparent; /* Permite visualizar el fondo cuadriculado técnico */
+      background: transparent;
     }
 
     .slide.active {
@@ -143,12 +143,12 @@
     }
 
     .slide-header-left {
-      max-width: 1180px;
+      max-width: 1220px;
     }
 
     .slide-meta-tag {
       font-family: var(--font-mono);
-      font-size: 0.82rem;
+      font-size: 0.88rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -161,75 +161,66 @@
 
     .slide-main-title {
       font-family: var(--font-serif);
-      font-size: 2.5rem;
+      font-size: 2.75rem;
       font-weight: 700;
       color: var(--text-main);
-      line-height: 1.18;
+      line-height: 1.16;
       letter-spacing: -0.015em;
     }
 
     .slide-sub-desc {
-      font-size: 1.15rem;
+      font-size: 1.25rem;
       color: var(--text-muted);
       margin-top: 6px;
       line-height: 1.45;
     }
 
-    .slide-header-badges {
+    /* Controles discretos integrados en la cabecera */
+    .slide-header-controls {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       flex-shrink: 0;
     }
 
     .badge-counter {
       font-family: var(--font-mono);
-      font-size: 0.92rem;
+      font-size: 1rem;
       font-weight: 700;
       background: #ffffff;
       border: 1px solid var(--border-dark);
-      padding: 5px 12px;
+      padding: 6px 14px;
       border-radius: var(--radius-sm);
       color: var(--text-main);
+      letter-spacing: 0.04em;
     }
 
-    .pyodide-status-badge {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.8rem;
-      font-family: var(--font-mono);
-      font-weight: 600;
-      padding: 5px 12px;
+    .btn-header-nav {
+      background: #ffffff;
+      border: 1px solid var(--border-dark);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      font-weight: 700;
+      width: 36px;
+      height: 36px;
       border-radius: var(--radius-sm);
-      background: #ffffff;
-      border: 1px solid var(--border-strong);
-      color: var(--text-muted);
-      transition: all 0.2s ease;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s ease, border-color 0.15s ease;
     }
 
-    .pyodide-status-badge .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #d97706;
-      animation: pulse 1.6s infinite;
-    }
-
-    .pyodide-status-badge.ready {
-      color: var(--col-academic);
+    .btn-header-nav:hover:not(:disabled) {
+      background: var(--bg-accent-subtle);
       border-color: var(--col-academic);
-      background: #ffffff;
+      color: var(--col-academic);
     }
 
-    .pyodide-status-badge.ready .dot {
-      background: var(--col-academic);
-      animation: none;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.35; transform: scale(0.85); }
+    .btn-header-nav:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
     }
 
     .slide-content-area {
@@ -240,6 +231,7 @@
       overflow: hidden;
     }
 
+    /* Barra de progreso milimétrica inferior */
     .slide-bottom-progress {
       position: absolute;
       bottom: 0;
@@ -258,7 +250,7 @@
     }
 
     /* ==========================================================================
-       SLIDE 1: PORTADA TÉCNICA
+       PORTADA TÉCNICA (SLIDE 1)
        ========================================================================== */
     .cover-layout {
       display: flex;
@@ -271,33 +263,32 @@
 
     .cover-eyebrow {
       font-family: var(--font-mono);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--col-academic);
-      margin-bottom: 24px;
+      margin-bottom: 26px;
       background: transparent;
       border-left: 3px solid var(--col-academic);
-      padding: 4px 14px;
-      border-radius: 0;
+      padding: 4px 16px;
     }
 
     .cover-title {
       font-family: var(--font-serif);
-      font-size: 4.2rem;
+      font-size: 4.4rem;
       font-weight: 700;
       color: var(--text-main);
       line-height: 1.1;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       letter-spacing: -0.025em;
     }
 
     .cover-subtitle {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       color: var(--text-muted);
-      max-width: 1080px;
-      margin: 0 auto 50px auto;
+      max-width: 1150px;
+      margin: 0 auto 52px auto;
       line-height: 1.5;
     }
 
@@ -306,7 +297,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 36px;
       width: 100%;
-      max-width: 1240px;
+      max-width: 1260px;
       text-align: left;
     }
 
@@ -314,8 +305,7 @@
       background: #ffffff;
       border: 1px solid var(--border-strong);
       border-radius: var(--radius-sm);
-      padding: 28px 32px;
-      box-shadow: none;
+      padding: 30px 36px;
     }
 
     .speaker-card.math {
@@ -328,12 +318,11 @@
 
     .speaker-tag {
       font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       padding: 2px 0;
-      border-radius: 0;
       display: inline-block;
       margin-bottom: 12px;
       background: transparent;
@@ -343,23 +332,31 @@
 
     .speaker-name {
       font-family: var(--font-serif);
-      font-size: 1.5rem;
+      font-size: 1.65rem;
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 6px;
     }
 
     .speaker-role {
-      font-size: 1.02rem;
+      font-size: 1.12rem;
       font-weight: 600;
       color: var(--text-muted);
       margin-bottom: 14px;
     }
 
     .speaker-body {
-      font-size: 1.05rem;
-      line-height: 1.55;
+      font-size: 1.15rem;
+      line-height: 1.6;
       color: var(--text-main);
+    }
+
+    .cover-footer-hint {
+      margin-top: 36px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-light);
+      letter-spacing: 0.05em;
     }
 
     /* ==========================================================================
@@ -368,59 +365,51 @@
     .hero-formula-card {
       background: #ffffff;
       border: 1px solid var(--border-strong);
-      border-left: 4px solid var(--border-dark);
+      border-left: 5px solid var(--border-dark);
       border-radius: var(--radius-sm);
-      padding: 32px 40px;
+      padding: 34px 44px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       margin-bottom: 24px;
-      box-shadow: none;
     }
 
     .hero-formula-card.solution {
-      border-left: 4px solid var(--col-academic);
-      background: #ffffff;
+      border-left: 5px solid var(--col-academic);
     }
 
     .hero-formula-card.problem {
-      border-left: 4px solid var(--col-problem);
-      background: #ffffff;
+      border-left: 5px solid var(--col-problem);
     }
 
     .hero-formula-box {
-      font-size: 1.65rem;
-      margin: 16px 0;
+      font-size: 1.95rem;
+      margin: 18px 0;
       color: var(--text-main);
     }
 
     .hero-concept-banner {
       background: #ffffff;
       border: 1px solid var(--border-strong);
-      border-left: 4px solid var(--col-academic);
+      border-left: 5px solid var(--col-academic);
       border-radius: var(--radius-sm);
-      padding: 20px 28px;
+      padding: 22px 30px;
       display: flex;
       flex-direction: column;
       gap: 6px;
-      box-shadow: none;
     }
 
     .hero-concept-banner.problem {
       border-left-color: var(--col-problem);
-      background: #ffffff;
     }
 
     .banner-text-title {
-      font-size: 1.18rem;
+      font-size: 1.32rem;
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
 
     .banner-text-title.problem {
@@ -428,16 +417,16 @@
     }
 
     .banner-text-desc {
-      font-size: 1.05rem;
+      font-size: 1.18rem;
       color: var(--text-muted);
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
-    /* Grillas comparativas técnicas */
+    /* Grillas comparativas de 2 columnas */
     .two-cols-hero-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 32px;
+      gap: 34px;
       align-items: stretch;
       height: 100%;
     }
@@ -446,49 +435,46 @@
       background: #ffffff;
       border: 1px solid var(--border-strong);
       border-radius: var(--radius-sm);
-      padding: 28px 32px;
+      padding: 30px 34px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: none;
     }
 
     .hero-col-card.left-accent {
-      border-top: 3px solid var(--col-problem);
+      border-top: 4px solid var(--col-problem);
     }
 
     .hero-col-card.right-accent {
-      border-top: 3px solid var(--col-academic);
-      background: #ffffff;
+      border-top: 4px solid var(--col-academic);
     }
 
     .hero-col-title {
       font-family: var(--font-serif);
-      font-size: 1.55rem;
+      font-size: 1.7rem;
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 12px;
     }
 
     .hero-col-desc {
-      font-size: 1.08rem;
+      font-size: 1.18rem;
       color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 18px;
+      line-height: 1.65;
+      margin-bottom: 20px;
     }
 
     /* ==========================================================================
        ESQUEMA GRÁFICO DE LA PARED FÍSICA (SLIDE 6)
        ========================================================================== */
     .wall-diagram-hero {
-      height: 220px;
+      height: 230px;
       background: #ffffff;
       border: 1px solid var(--border-strong);
       border-radius: var(--radius-sm);
       position: relative;
       overflow: hidden;
       margin-bottom: 24px;
-      box-shadow: none;
     }
 
     .solid-hatch-hero {
@@ -496,7 +482,7 @@
       left: 0;
       top: 0;
       bottom: 0;
-      width: 100px;
+      width: 110px;
       background: repeating-linear-gradient(
         45deg,
         #f8fafc,
@@ -514,7 +500,7 @@
       writing-mode: vertical-rl;
       transform: rotate(180deg);
       font-family: var(--font-mono);
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 700;
       letter-spacing: 0.12em;
       color: var(--text-main);
@@ -523,31 +509,30 @@
 
     .fluid-nodes-hero-row {
       position: absolute;
-      left: 100px;
+      left: 110px;
       right: 0;
       top: 0;
       bottom: 0;
       display: flex;
       align-items: center;
       justify-content: space-around;
-      padding: 0 30px;
+      padding: 0 34px;
     }
 
     .node-hero-item {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .node-hero-dot {
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
       background: var(--text-main);
       border: 2px solid #ffffff;
       outline: 1.5px solid var(--border-dark);
-      box-shadow: none;
     }
 
     .node-hero-dot.ghost {
@@ -563,17 +548,17 @@
 
     .node-hero-label {
       font-family: var(--font-mono);
-      font-size: 0.98rem;
+      font-size: 1.05rem;
       font-weight: 700;
       color: var(--text-main);
     }
 
     /* ==========================================================================
-       SLIDES INTERACTIVAS 9 Y 11 (PYODIDE + CODEMIRROR + PLOTS)
+       SLIDES INTERACTIVAS (PYODIDE + CODEMIRROR + PLOTS)
        ========================================================================== */
     .interactive-workspace-hero {
       display: grid;
-      grid-template-columns: 1fr 1.15fr;
+      grid-template-columns: 1fr 1.18fr;
       gap: 28px;
       height: 100%;
       align-items: stretch;
@@ -587,7 +572,6 @@
       border-radius: var(--radius-sm);
       overflow: hidden;
       height: 100%;
-      box-shadow: none;
     }
 
     .editor-header-hero {
@@ -601,7 +585,7 @@
 
     .editor-title-hero {
       font-family: var(--font-mono);
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 700;
       color: var(--text-muted);
       display: flex;
@@ -614,7 +598,7 @@
       color: #ffffff;
       border: 1px solid #172554;
       font-family: var(--font-sans);
-      font-size: 0.84rem;
+      font-size: 0.86rem;
       font-weight: 700;
       padding: 6px 14px;
       border-radius: var(--radius-sm);
@@ -633,7 +617,7 @@
       background: #ffffff;
       border: 1px solid var(--border-strong);
       color: var(--text-muted);
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       font-weight: 600;
       padding: 6px 12px;
       border-radius: var(--radius-sm);
@@ -681,14 +665,14 @@
 
     .ctrl-item-hero label {
       font-family: var(--font-mono);
-      font-size: 0.76rem;
+      font-size: 0.78rem;
       font-weight: 700;
       color: var(--text-muted);
     }
 
     .ctrl-item-hero select, .ctrl-item-hero input[type="range"] {
       font-family: var(--font-mono);
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       padding: 4px 8px;
       border-radius: var(--radius-sm);
       border: 1px solid var(--border-strong);
@@ -699,7 +683,7 @@
       background: #0f172a;
       color: #f8fafc;
       font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       padding: 10px 14px;
       max-height: 95px;
       overflow-y: auto;
@@ -712,7 +696,7 @@
       border-top: 2px solid var(--col-problem);
       color: var(--col-problem);
       font-family: var(--font-mono);
-      font-size: 0.82rem;
+      font-size: 0.84rem;
       padding: 10px 14px;
       display: none;
       white-space: pre-wrap;
@@ -740,7 +724,6 @@
       position: relative;
       overflow: hidden;
       padding: 10px;
-      box-shadow: none;
     }
 
     .plot-canvas-hero svg {
@@ -766,8 +749,8 @@
     }
 
     .spinner-ring-hero {
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       border: 3px solid var(--border-subtle);
       border-top-color: var(--col-academic);
       border-radius: 50%;
@@ -784,19 +767,18 @@
       border: 1px solid var(--border-strong);
       border-radius: var(--radius-sm);
       padding: 14px 18px;
-      box-shadow: none;
     }
 
     .cfd-results-table-hero {
       width: 100%;
       border-collapse: collapse;
-      font-size: 1rem;
+      font-size: 1.05rem;
     }
 
     .cfd-results-table-hero th {
       background: #f1f5f9;
       font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
@@ -810,7 +792,7 @@
       padding: 10px 14px;
       border-bottom: 1px solid var(--border-subtle);
       font-family: var(--font-mono);
-      font-size: 0.95rem;
+      font-size: 0.98rem;
     }
 
     .cfd-results-table-hero tr.highlight-cfd {
@@ -822,140 +804,6 @@
       color: var(--col-academic);
     }
 
-    /* ==========================================================================
-       BARRA FLOTANTE DE CONTROL TÉCNICA
-       ========================================================================== */
-    .floating-deck-controls {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #0f172a;
-      border: 1px solid #334155;
-      border-radius: var(--radius-sm);
-      padding: 6px 14px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
-      z-index: 100;
-    }
-
-    .btn-deck-nav {
-      background: transparent;
-      border: 1px solid transparent;
-      color: #f8fafc;
-      font-family: var(--font-sans);
-      font-size: 0.88rem;
-      font-weight: 700;
-      padding: 6px 12px;
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: background 0.15s ease, border-color 0.15s ease;
-    }
-
-    .btn-deck-nav:hover:not(:disabled) {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: #475569;
-    }
-
-    .btn-deck-nav:disabled {
-      opacity: 0.3;
-      cursor: not-allowed;
-    }
-
-    .deck-counter-indicator {
-      font-family: var(--font-mono);
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: #94a3b8;
-      padding: 0 6px;
-    }
-
-    .btn-deck-icon {
-      background: transparent;
-      border: 1px solid #475569;
-      color: #f8fafc;
-      font-size: 0.84rem;
-      padding: 6px 12px;
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: background 0.15s ease;
-    }
-
-    .btn-deck-icon:hover {
-      background: rgba(255, 255, 255, 0.15);
-    }
-
-    /* ==========================================================================
-       DRAWER DE NOTAS DEL ORADOR (MODO 'N')
-       ========================================================================== */
-    .speaker-drawer-modal {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #ffffff;
-      border-top: 3px solid var(--col-academic);
-      box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.25);
-      max-height: 330px;
-      transform: translateY(100%);
-      transition: transform 0.24s ease-out;
-      z-index: 200;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .speaker-drawer-modal.open {
-      transform: translateY(0);
-    }
-
-    .drawer-header-bar {
-      background: #f8fafc;
-      border-bottom: 1px solid var(--border-strong);
-      padding: 10px 28px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .drawer-columns-body {
-      padding: 20px 28px;
-      overflow-y: auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 24px;
-    }
-
-    .drawer-col-box {
-      background: #ffffff;
-      border: 1px solid var(--border-strong);
-      border-radius: var(--radius-sm);
-      padding: 14px 18px;
-      font-size: 0.92rem;
-      line-height: 1.55;
-    }
-
-    .drawer-col-box h5 {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 8px;
-      color: var(--col-academic);
-      border-bottom: 1px solid var(--border-subtle);
-      padding-bottom: 4px;
-    }
-
-    /* ==========================================================================
-       IMPRESIÓN / EXPORTACIÓN A PDF (@media print)
-       ========================================================================== */
     @media print {
       html, body {
         width: auto !important;
@@ -963,13 +811,11 @@
         overflow: visible !important;
         background: #ffffff !important;
       }
-
       #stageWrapper {
         display: block !important;
         width: 100% !important;
         height: auto !important;
       }
-
       #slideDeck {
         transform: none !important;
         width: 100% !important;
@@ -979,7 +825,6 @@
         border-radius: 0 !important;
         background-image: none !important;
       }
-
       .slide {
         position: relative !important;
         display: flex !important;
@@ -991,9 +836,7 @@
         padding: 40px !important;
         background: #ffffff !important;
       }
-
-      .floating-deck-controls,
-      .speaker-drawer-modal,
+      .slide-header-controls,
       .editor-actions-group,
       .controls-shelf-hero {
         display: none !important;
@@ -1031,6 +874,8 @@
               <p class="speaker-body">Cancelación sustractiva catastrófica en precisión doble (64 bits), búsqueda del paso óptimo \(h^*\) y arquitectura interna de <code>numpy.gradient</code>.</p>
             </div>
           </div>
+
+          <div class="cover-footer-hint">Navegar con flechas del teclado [←] [→] o Barra Espaciadora</div>
         </div>
       </section>
 
@@ -1044,18 +889,20 @@
             <h2 class="slide-main-title">El Motor Teórico: Serie de Taylor</h2>
             <p class="slide-sub-desc">La diferenciación numérica nace formalmente de truncar la serie infinita de Taylor.</p>
           </div>
-          <div class="slide-header-badges">
+          <div class="slide-header-controls">
+            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
             <span class="badge-counter">02 / 13</span>
+            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente">→</button>
           </div>
         </div>
 
         <div class="slide-content-area">
           <div class="hero-formula-card">
-            <span style="font-family:var(--font-mono); font-size:0.95rem; font-weight:700; color:var(--col-academic); text-transform:uppercase;">Ecuación Base en el Espacio Continuo</span>
+            <span style="font-family:var(--font-mono); font-size:1rem; font-weight:700; color:var(--col-academic); text-transform:uppercase;">Ecuación Base en el Espacio Continuo</span>
             <div class="hero-formula-box">
               $$f(x_i + h) = f(x_i) + h f'(x_i) + \frac{h^2}{2!} f''(x_i) + \frac{h^3}{3!} f'''(x_i) + \dots$$
             </div>
-            <p style="font-size:1.15rem; color:var(--text-muted); max-width:900px; line-height:1.5;">
+            <p style="font-size:1.25rem; color:var(--text-muted); max-width:980px; line-height:1.6;">
               Permite predecir el valor de la variable de estado en el nodo contiguo \(x_{i+1}\) conociendo el valor y las infinitas derivadas en el nodo local \(x_i\).
             </p>
           </div>
@@ -1063,8 +910,8 @@
           <div class="hero-concept-banner">
             <div class="banner-text-title">El Puente entre el Continuo y lo Discreto</div>
             <div class="banner-text-desc">
-                En ingeniería no disponemos de infinitas derivadas. Aproximar la función en una malla computacional <strong>exige cortar la serie</strong>. Ese descarte no es ruido aleatorio: es el residuo determinístico del modelo matemático.
-              </div>
+              En ingeniería no disponemos de infinitas derivadas. Aproximar la función en una malla computacional <strong>exige cortar la serie</strong>. Ese descarte no es ruido aleatorio: es el residuo determinístico del modelo matemático.
+            </div>
           </div>
         </div>
       </section>
@@ -1079,33 +926,35 @@
             <h2 class="slide-main-title">Aislamiento Algebraico del Error de Truncamiento</h2>
             <p class="slide-sub-desc">Cómo el resto de Lagrange define exactamente el orden asintótico \(\mathcal{O}(h)\).</p>
           </div>
-          <div class="slide-header-badges">
+          <div class="slide-header-controls">
+            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
             <span class="badge-counter">03 / 13</span>
+            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente">→</button>
           </div>
         </div>
 
         <div class="slide-content-area">
           <div class="hero-formula-card solution">
-            <span style="font-family:var(--font-mono); font-size:0.95rem; font-weight:700; color:var(--col-solution); text-transform:uppercase;">Aislamiento de la Derivada Primera \(f'_i\)</span>
-            <div class="hero-formula-box" style="font-size:1.85rem;">
+            <span style="font-family:var(--font-mono); font-size:1rem; font-weight:700; color:var(--col-academic); text-transform:uppercase;">Aislamiento de la Derivada Primera \(f'_i\)</span>
+            <div class="hero-formula-box" style="font-size:2.05rem;">
               $$f'_i = \underbrace{\frac{f_{i+1} - f_i}{h}}_{\text{Cociente Incremental Discreto}} - \underbrace{\frac{h}{2} f''(\xi)}_{\text{Error de Truncamiento } E(h)}$$
             </div>
-            <p style="font-size:1.15rem; color:var(--text-main); font-weight:600;">
+            <p style="font-size:1.25rem; color:var(--text-main); font-weight:600;">
               \(\implies f'_i = \frac{f_{i+1} - f_i}{h} + \mathcal{O}(h)\)
             </p>
           </div>
 
           <div class="two-cols-hero-grid" style="height:auto;">
-            <div class="hero-col-card" style="padding:22px 28px;">
-              <h4 class="hero-col-title" style="font-size:1.35rem; margin-bottom:8px;">Dependencia de la Curvatura</h4>
-              <p class="hero-col-desc" style="font-size:1.05rem; margin-bottom:0;">
+            <div class="hero-col-card" style="padding:26px 32px;">
+              <h4 class="hero-col-title" style="font-size:1.45rem; margin-bottom:10px;">Dependencia de la Curvatura</h4>
+              <p class="hero-col-desc" style="font-size:1.15rem; margin-bottom:0;">
                 El error depende directamente de \(f''(\xi)\). En zonas con gradientes térmicos suaves el error es mínimo; en zonas con alta curvatura (capas límite), el error se dispara.
               </p>
             </div>
 
-            <div class="hero-col-card" style="padding:22px 28px; border-left:4px solid var(--col-problem); background:#ffffff;">
-              <h4 class="hero-col-title" style="font-size:1.35rem; color:var(--col-problem); margin-bottom:8px;">Convergencia Lineal \(\mathcal{O}(h)\)</h4>
-              <p class="hero-col-desc" style="font-size:1.05rem; color:var(--text-muted); margin-bottom:0;">
+            <div class="hero-col-card left-accent" style="padding:26px 32px;">
+              <h4 class="hero-col-title" style="font-size:1.45rem; color:var(--col-problem); margin-bottom:10px;">Convergencia Lineal \(\mathcal{O}(h)\)</h4>
+              <p class="hero-col-desc" style="font-size:1.15rem; color:var(--text-muted); margin-bottom:0;">
                 Si reducís el paso de malla a la mitad (\(h \to h/2\)), el error cae solo al 50%. Para ganar un solo dígito de precisión necesitás \(10\times\) más nodos.
               </p>
             </div>
@@ -1123,8 +972,10 @@
             <h2 class="slide-main-title">Diferencias Finitas: Hacia Adelante y Hacia Atrás</h2>
             <p class="slide-sub-desc">Dos aproximaciones de 2 puntos con idéntica velocidad de convergencia asintótica.</p>
           </div>
-          <div class="slide-header-badges">
+          <div class="slide-header-controls">
+            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
             <span class="badge-counter">04 / 13</span>
+            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente">→</button>
           </div>
         </div>
 
@@ -1133,12 +984,12 @@
             <!-- Columna Adelante -->
             <div class="hero-col-card left-accent">
               <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
                   <h3 class="hero-col-title">Hacia Adelante (Forward)</h3>
-                  <span style="font-family:var(--font-mono); font-size:0.82rem; font-weight:700; color:var(--col-problem); text-transform:uppercase; letter-spacing:0.04em;">Orden \(\mathcal{O}(h)\)</span>
+                  <span style="font-family:var(--font-mono); font-size:0.85rem; font-weight:700; color:var(--col-problem); letter-spacing:0.04em; text-transform:uppercase;">Orden \(\mathcal{O}(h)\)</span>
                 </div>
-                <div class="hero-formula-card" style="padding:20px; margin-bottom:16px;">
-                  <div style="font-size:1.45rem;">
+                <div class="hero-formula-card" style="padding:22px; margin-bottom:18px;">
+                  <div style="font-size:1.65rem;">
                     $$f'_i \approx \frac{f_{i+1} - f_i}{h}$$
                   </div>
                 </div>
@@ -1147,20 +998,20 @@
                   <strong>Término de Error:</strong> \(-\frac{h}{2} f''(\xi)\).
                 </p>
               </div>
-              <div style="font-family:var(--font-mono); font-size:0.95rem; color:var(--text-muted); background:#ffffff; padding:12px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
+              <div style="font-family:var(--font-mono); font-size:1rem; color:var(--text-muted); background:#f8fafc; padding:12px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
                 Nodo de cálculo: <strong>x_i</strong> | Vecino: <strong>x_{i+1}</strong>
               </div>
             </div>
 
             <!-- Columna Atrás -->
-            <div class="hero-col-card" style="border-top:6px solid var(--col-academic);">
+            <div class="hero-col-card" style="border-top:4px solid var(--border-dark);">
               <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
                   <h3 class="hero-col-title">Hacia Atrás (Backward)</h3>
-                  <span style="font-family:var(--font-mono); font-size:0.82rem; font-weight:700; color:var(--col-problem); text-transform:uppercase; letter-spacing:0.04em;">Orden \(\mathcal{O}(h)\)</span>
+                  <span style="font-family:var(--font-mono); font-size:0.85rem; font-weight:700; color:var(--col-problem); letter-spacing:0.04em; text-transform:uppercase;">Orden \(\mathcal{O}(h)\)</span>
                 </div>
-                <div class="hero-formula-card" style="padding:20px; margin-bottom:16px;">
-                  <div style="font-size:1.45rem;">
+                <div class="hero-formula-card" style="padding:22px; margin-bottom:18px;">
+                  <div style="font-size:1.65rem;">
                     $$f'_i \approx \frac{f_i - f_{i-1}}{h}$$
                   </div>
                 </div>
@@ -1169,7 +1020,7 @@
                   <strong>Término de Error:</strong> \(+\frac{h}{2} f''(\xi)\).
                 </p>
               </div>
-              <div style="font-family:var(--font-mono); font-size:0.95rem; color:var(--text-muted); background:#ffffff; padding:12px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
+              <div style="font-family:var(--font-mono); font-size:1rem; color:var(--text-muted); background:#f8fafc; padding:12px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
                 Nodo de cálculo: <strong>x_i</strong> | Vecino: <strong>x_{i-1}</strong>
               </div>
             </div>
@@ -1187,18 +1038,20 @@
             <h2 class="slide-main-title">Diferencia Central: El Superpoder de la Simetría \(\mathcal{O}(h^2)\)</h2>
             <p class="slide-sub-desc">Restar dos series de Taylor elimina algebraicamente los términos pares sin costo extra.</p>
           </div>
-          <div class="slide-header-badges">
+          <div class="slide-header-controls">
+            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
             <span class="badge-counter">05 / 13</span>
+            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente">→</button>
           </div>
         </div>
 
         <div class="slide-content-area">
           <div class="hero-formula-card solution">
-            <span style="font-family:var(--font-mono); font-size:0.95rem; font-weight:700; color:var(--col-solution); text-transform:uppercase;">Aproximación por Diferencia Central</span>
-            <div class="hero-formula-box" style="font-size:1.95rem;">
+            <span style="font-family:var(--font-mono); font-size:1rem; font-weight:700; color:var(--col-academic); text-transform:uppercase;">Aproximación por Diferencia Central</span>
+            <div class="hero-formula-box" style="font-size:2.15rem;">
               $$f'_i \approx \frac{f_{i+1} - f_{i-1}}{2h}$$
             </div>
-            <p style="font-size:1.15rem; color:var(--col-solution); font-weight:700;">
+            <p style="font-size:1.25rem; color:var(--col-academic); font-weight:700;">
               Error de Truncamiento: \(-\frac{h^2}{6} f'''(\xi) \implies \mathcal{O}(h^2)\)
             </p>
           </div>
@@ -1206,9 +1059,9 @@
           <div class="hero-concept-banner">
             <div class="banner-text-title">La Ventaja Cuadrática en Producción (Ganancia 4×)</div>
             <div class="banner-text-desc">
-                Al restar \(f(x+h) - f(x-h)\), los términos en \(h^2 f''(x)\) <strong>se cancelan exactamente por simetría</strong>.<br>
-                Por el mismo costo aritmético (1 resta y 1 división), al reducir el paso \(h\) a la mitad, <strong>el error cae al 25% (un cuarto)</strong>.
-              </div>
+              Al restar \(f(x+h) - f(x-h)\), los términos en \(h^2 f''(x)\) <strong>se cancelan exactamente por simetría</strong>.<br>
+              Por el mismo costo aritmético (1 resta y 1 división), al reducir el paso \(h\) a la mitad, <strong>el error cae al 25% (un cuarto)</strong>.
+            </div>
           </div>
         </div>
       </section>
@@ -1223,8 +1076,10 @@
             <h2 class="slide-main-title">El Problema de las Fronteras Físicas</h2>
             <p class="slide-sub-desc">En una pared sólida (\(y=0\)) no existen nodos exteriores: la diferencia central falla.</p>
           </div>
-          <div class="slide-header-badges">
+          <div class="slide-header-controls">
+            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
             <span class="badge-counter">06 / 13</span>
+            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente">→</button>
           </div>
         </div>
 
@@ -1240,7 +1095,7 @@
               </div>
               <div class="node-hero-item">
                 <div class="node-hero-dot wall"></div>
-                <div class="node-hero-label" style="color:var(--col-solution);">\(y_0\) (Pared Sólida)</div>
+                <div class="node-hero-label" style="color:var(--col-academic);">\(y_0\) (Pared Sólida)</div>
               </div>
               <div class="node-hero-item">
                 <div class="node-hero-dot"></div>
@@ -1256,8 +1111,8 @@
           <div class="hero-concept-banner problem">
             <div class="banner-text-title problem">Restricción de Borde: La Trampa de Usar 2 Puntos en la Pared</div>
             <div class="banner-text-desc">
-                Usar forward simple \(\frac{f_1 - f_0}{h}\) en el contorno <strong>degrada toda la simulación a orden \(\mathcal{O}(h)\)</strong> justo donde los esfuerzos cortantes y los flujos de calor son máximos.
-              </div>
+              Usar forward simple \(\frac{f_1 - f_0}{h}\) en el contorno <strong>degrada toda la simulación a orden \(\mathcal{O}(h)\)</strong> justo donde los esfuerzos cortantes y los flujos de calor son máximos.
+            </div>
           </div>
         </div>
       </section>
@@ -1272,18 +1127,20 @@
             <h2 class="slide-main-title">Fórmula Hacia Adelante de 3 Puntos (Nakamura)</h2>
             <p class="slide-sub-desc">Recuperar el orden cuadrático \(\mathcal{O}(h^2)\) en la pared mirando hacia el interior del fluido.</p>
           </div>
-          <div class="slide-header-badges">
+          <div class="slide-header-controls">
+            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
             <span class="badge-counter">07 / 13</span>
+            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente">→</button>
           </div>
         </div>
 
         <div class="slide-content-area">
           <div class="hero-formula-card solution">
-            <span style="font-family:var(--font-mono); font-size:0.95rem; font-weight:700; color:var(--col-solution); text-transform:uppercase;">Fórmula de 3 Puntos en Pared (\(i=0\))</span>
-            <div class="hero-formula-box" style="font-size:2rem;">
+            <span style="font-family:var(--font-mono); font-size:1rem; font-weight:700; color:var(--col-academic); text-transform:uppercase;">Fórmula de 3 Puntos en Pared (\(i=0\))</span>
+            <div class="hero-formula-box" style="font-size:2.2rem;">
               $$f'_0 \approx \frac{-3 f_0 + 4 f_1 - f_2}{2h}$$
             </div>
-            <p style="font-size:1.15rem; color:var(--col-solution); font-weight:700;">
+            <p style="font-size:1.25rem; color:var(--col-academic); font-weight:700;">
               Orden de Precisión Recuperado: \(\mathcal{O}(h^2)\)
             </p>
           </div>
@@ -1291,9 +1148,9 @@
           <div class="hero-concept-banner">
             <div class="banner-text-title">Consistencia de Signos y Coeficientes \((-3, +4, -1)\)</div>
             <div class="banner-text-desc">
-                Combinando las series de Taylor en \(f_1\) y \(f_2\) con pesos adecuados, el término cuadrático \(h^2 f''_0\) se cancela exactamente.<br>
-                <strong>Resultado:</strong> Segundo orden estricto en la frontera sin necesidad de inventar nodos fantasmas.
-              </div>
+              Combinando las series de Taylor en \(f_1\) y \(f_2\) con pesos adecuados, el término cuadrático \(h^2 f''_0\) se cancela exactamente.<br>
+              <strong>Resultado:</strong> Segundo orden estricto en la frontera sin necesidad de inventar nodos fantasmas.
+            </div>
           </div>
         </div>
       </section>
@@ -1308,15 +1165,17 @@
             <h2 class="slide-main-title">La Paradoja del Error: Truncamiento vs. Redondeo</h2>
             <p class="slide-sub-desc">El choque entre el modelo matemático continuo y los límites físicos del hardware IEEE-754.</p>
           </div>
-          <div class="slide-header-badges">
+          <div class="slide-header-controls">
+            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
             <span class="badge-counter">08 / 13</span>
+            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente">→</button>
           </div>
         </div>
 
         <div class="slide-content-area">
           <div class="two-cols-hero-grid">
             <!-- Truncamiento -->
-            <div class="hero-col-card left-accent" style="background:#ffffff;">
+            <div class="hero-col-card left-accent">
               <div>
                 <h3 class="hero-col-title" style="color:var(--col-problem);">1. Error de Truncamiento (\(E_t\))</h3>
                 <p class="hero-col-desc">
@@ -1325,13 +1184,13 @@
                   • <strong>Al achicar \(h\):</strong> <strong>DISMINUYE</strong> hacia cero.
                 </p>
               </div>
-              <div style="font-family:var(--font-mono); font-size:1.05rem; font-weight:700; color:var(--col-problem); text-align:center; padding:10px; background:#f8fafc; border:1px solid var(--border-subtle); border-radius:var(--radius-sm);">
+              <div style="font-family:var(--font-mono); font-size:1.15rem; font-weight:700; color:var(--col-problem); text-align:center; padding:12px; background:#f8fafc; border:1px solid var(--border-subtle); border-radius:var(--radius-sm);">
                 \(\lim_{h \to 0} E_t(h) = 0\)
               </div>
             </div>
 
             <!-- Redondeo -->
-            <div class="hero-col-card" style="border-top:3px solid var(--col-academic); background:#ffffff;">
+            <div class="hero-col-card" style="border-top:4px solid var(--col-academic);">
               <div>
                 <h3 class="hero-col-title" style="color:var(--col-academic);">2. Error de Redondeo (\(E_r\))</h3>
                 <p class="hero-col-desc">
@@ -1340,13 +1199,13 @@
                   • <strong>Al achicar \(h\):</strong> <strong>AUMENTA</strong> como \(\sim \frac{\varepsilon_m}{h}\).
                 </p>
               </div>
-              <div style="font-family:var(--font-mono); font-size:1.05rem; font-weight:700; color:var(--col-academic); text-align:center; padding:10px; background:#f8fafc; border:1px solid var(--border-subtle); border-radius:var(--radius-sm);">
+              <div style="font-family:var(--font-mono); font-size:1.15rem; font-weight:700; color:var(--col-academic); text-align:center; padding:12px; background:#f8fafc; border:1px solid var(--border-subtle); border-radius:var(--radius-sm);">
                 \(\lim_{h \to 0} E_r(h) = \infty\)
               </div>
             </div>
           </div>
 
-          <div style="margin-top:20px; text-align:center; font-size:1.15rem; font-weight:700; color:var(--text-main); background:#ffffff; padding:14px; border-radius:var(--radius-sm); border:1px solid var(--border-dark);">
+          <div style="margin-top:22px; text-align:center; font-size:1.25rem; font-weight:700; color:var(--text-main); background:#ffffff; padding:16px; border-radius:var(--radius-sm); border:1px solid var(--border-dark);">
             Error Total: \(E_{\text{total}}(h) \approx C_1 h^p + \frac{C_2 \varepsilon_m}{h} \implies \text{Existe un paso óptimo } h^* \text{ finito}\)
           </div>
         </div>
@@ -1362,8 +1221,10 @@
             <h2 class="slide-main-title">La Curva en 'V': Visualización en Escala Log-Log</h2>
             <p class="slide-sub-desc">Código Python real ejecutado con Pyodide. Probá diferentes funciones y observá el mínimo óptimo.</p>
           </div>
-          <div class="slide-header-badges">
+          <div class="slide-header-controls">
+            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
             <span class="badge-counter">09 / 13</span>
+            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente">→</button>
           </div>
         </div>
 
@@ -1372,21 +1233,27 @@
             <!-- Editor Python -->
             <div class="editor-column-hero">
               <div class="editor-header-hero">
-                <span class="editor-title-hero">curva_en_v.py</span>
+                <span class="editor-title-hero">curva_en_v_taylor.py</span>
                 <div style="display:flex; gap:8px;">
-                  <button id="btnResetS9" class="btn-reset-hero"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg><span>Reset</span></button>
-                  <button id="btnRunS9" class="btn-py-hero"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg><span>Ejecutar Python</span></button>
+                  <button id="btnResetS5" class="btn-reset-hero">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                    <span>Reset</span>
+                  </button>
+                  <button id="btnRunS5" class="btn-py-hero">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    <span>Ejecutar Python</span>
+                  </button>
                 </div>
               </div>
 
               <div class="cm-wrapper-hero">
-                <textarea id="codeEditorS9"></textarea>
+                <textarea id="codeEditorS5"></textarea>
               </div>
 
               <div class="controls-shelf-hero">
                 <div class="ctrl-item-hero">
-                  <label for="selectFuncS9">Función \(f(x)\):</label>
-                  <select id="selectFuncS9">
+                  <label for="selectFuncS5">Función \(f(x)\):</label>
+                  <select id="selectFuncS5">
                     <option value="sin(x)">sin(x)</option>
                     <option value="cos(x)">cos(x)</option>
                     <option value="exp(x)">exp(x)</option>
@@ -1395,33 +1262,49 @@
                 </div>
 
                 <div class="ctrl-item-hero">
-                  <label for="inputX0S9">Punto \(x_0\): <span id="valX0S9" style="color:var(--col-academic); font-weight:700;">1.0</span></label>
-                  <input type="range" id="inputX0S9" min="0.2" max="3.0" step="0.1" value="1.0" style="width:130px;">
+                  <label for="inputX0S5">Punto \(x_0\): <span id="valX0S5" style="color:var(--col-academic); font-weight:700;">1.0</span></label>
+                  <input type="range" id="inputX0S5" min="0.2" max="3.0" step="0.1" value="1.0" style="width:130px;">
+                </div>
+
+                <div class="ctrl-item-hero">
+                  <label for="selectHRangeS5">Rango de \(h\):</label>
+                  <select id="selectHRangeS5">
+                    <option value="1e-1_1e-15">10⁻¹ a 10⁻¹⁵ (Estándar)</option>
+                    <option value="1e-1_1e-18">10⁻¹ a 10⁻¹⁸ (Extremo)</option>
+                    <option value="1e-1_1e-8">10⁻¹ a 10⁻⁸ (Taylor puro)</option>
+                  </select>
                 </div>
               </div>
 
-              <div id="consoleS9" class="console-box-hero"></div>
-              <div id="errorBoxS9" class="error-box-hero"></div>
+              <div id="consoleS5" class="console-box-hero"></div>
+              <div id="errorBoxS5" class="error-box-hero"></div>
             </div>
 
             <!-- Gráfico Matplotlib en Vivo -->
             <div class="display-column-hero">
-              <div class="plot-canvas-hero" id="plotContainerS9">
-                <div id="loaderS9" class="spinner-overlay-hero">
+              <div class="plot-canvas-hero" id="plotContainerS5">
+                <div id="loaderS5" class="spinner-overlay-hero">
                   <div class="spinner-ring-hero"></div>
-                  <span style="font-size:0.9rem; font-family:var(--font-mono); color:var(--text-muted);">Calculando con Pyodide en WebAssembly...</span>
+                  <span style="font-size:0.92rem; font-family:var(--font-mono); color:var(--text-muted);">Calculando con Pyodide en WebAssembly...</span>
                 </div>
-                <div id="svgHostS9" style="width:100%; height:100%; display:flex; align-items:center; justify-content:center;"></div>
+                <div id="svgHostS5" style="width:100%; height:100%; display:flex; align-items:center; justify-content:center;"></div>
               </div>
 
-              <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+              <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;">
                 <div style="background:#ffffff; border:1px solid var(--border-strong); border-left:3px solid var(--col-problem); padding:10px 16px; border-radius:var(--radius-sm);">
-                  <div style="font-size:0.76rem; font-family:var(--font-mono); text-transform:uppercase; color:var(--text-muted);">Óptimo Forward \(\mathcal{O}(h)\)</div>
-                  <div id="metFwdOpt" style="font-family:var(--font-mono); font-weight:700; color:var(--col-problem); font-size:1.1rem;">h ≈ 1.0e-08 | Error ~1e-08</div>
+                  <div style="font-size:0.78rem; font-family:var(--font-mono); text-transform:uppercase; color:var(--text-muted);">Óptimo Forward</div>
+                  <div id="metFwdOpt" style="font-family:var(--font-mono); font-weight:700; color:var(--col-problem); font-size:1.1rem;">h ≈ 1.0e-08</div>
+                  <div style="font-size:0.78rem; color:var(--text-muted);">Error: ~1.2e-08</div>
                 </div>
                 <div style="background:#ffffff; border:1px solid var(--border-strong); border-left:3px solid var(--col-academic); padding:10px 16px; border-radius:var(--radius-sm);">
-                  <div style="font-size:0.76rem; font-family:var(--font-mono); text-transform:uppercase; color:var(--col-academic);">Óptimo Central \(\mathcal{O}(h^2)\)</div>
-                  <div id="metCentOpt" style="font-family:var(--font-mono); font-weight:700; color:var(--col-academic); font-size:1.1rem;">h ≈ 2.1e-05 | Error ~3e-12</div>
+                  <div style="font-size:0.78rem; font-family:var(--font-mono); text-transform:uppercase; color:var(--col-academic);">Óptimo Central</div>
+                  <div id="metCentOpt" style="font-family:var(--font-mono); font-weight:700; color:var(--col-academic); font-size:1.1rem;">h ≈ 2.1e-05</div>
+                  <div style="font-size:0.78rem; color:var(--text-muted);">Error: ~3.5e-12</div>
+                </div>
+                <div style="background:#ffffff; border:1px solid var(--border-strong); border-left:3px solid var(--border-dark); padding:10px 16px; border-radius:var(--radius-sm);">
+                  <div style="font-size:0.78rem; font-family:var(--font-mono); text-transform:uppercase; color:var(--text-muted);">Ganancia Central</div>
+                  <div id="metGainOpt" style="font-family:var(--font-mono); font-weight:700; color:var(--col-academic); font-size:1.1rem;">3,400×</div>
+                  <div style="font-size:0.78rem; color:var(--text-muted);">Mayor precisión con paso más seguro</div>
                 </div>
               </div>
             </div>
@@ -1439,38 +1322,40 @@
             <h2 class="slide-main-title">Mecánica de Fluidos: Ley de Newton de la Viscosidad</h2>
             <p class="slide-sub-desc">Cálculo de arrastre viscoso en placa plana: \(\tau_w = \mu \left.\frac{du}{dy}\right|_{y=0}\).</p>
           </div>
-          <div class="slide-header-badges">
+          <div class="slide-header-controls">
+            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
             <span class="badge-counter">10 / 13</span>
+            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente">→</button>
           </div>
         </div>
 
         <div class="slide-content-area">
-          <div class="hero-formula-card solution" style="margin-bottom:20px;">
-            <span style="font-family:var(--font-mono); font-size:0.95rem; font-weight:700; color:var(--col-solution); text-transform:uppercase;">Ley Constitutiva de Newton</span>
-            <div class="hero-formula-box" style="font-size:2rem;">
+          <div class="hero-formula-card solution" style="margin-bottom:22px;">
+            <span style="font-family:var(--font-mono); font-size:1rem; font-weight:700; color:var(--col-academic); text-transform:uppercase;">Ley Constitutiva de Newton</span>
+            <div class="hero-formula-box" style="font-size:2.2rem;">
               $$\tau_w = \mu \left. \frac{du}{dy} \right|_{y=0}$$
             </div>
-            <p style="font-size:1.15rem; color:var(--text-main);">
+            <p style="font-size:1.25rem; color:var(--text-main);">
               El gradiente en la pared define la tensión de corte tangencial y la potencia de fricción disipada.
             </p>
           </div>
 
           <div class="two-cols-hero-grid" style="height:auto;">
-            <div class="hero-col-card" style="padding:24px;">
-              <h4 class="hero-col-title" style="font-size:1.35rem; margin-bottom:10px;">Datos de Retícula Experimental</h4>
-              <p style="font-family:var(--font-mono); font-size:1rem; line-height:1.6; color:var(--text-main);">
+            <div class="hero-col-card" style="padding:28px 32px;">
+              <h4 class="hero-col-title" style="font-size:1.45rem; margin-bottom:12px;">Datos de Retícula Experimental</h4>
+              <p style="font-family:var(--font-mono); font-size:1.05rem; line-height:1.7; color:var(--text-main);">
                 y = [0.0, 0.002, 0.004, 0.006, 0.008] m<br>
                 u = [0.0, 0.006180, 0.011756, 0.016180, 0.019021] m/s<br>
                 h = 0.002 m (Espaciado de malla constante)
               </p>
             </div>
 
-            <div class="hero-col-card" style="padding:24px; border:1px solid var(--border-strong); border-left:4px solid var(--col-problem); background:#ffffff;">
-              <h4 class="hero-col-title" style="font-size:1.35rem; color:var(--col-problem); margin-bottom:10px;">La Discrepancia del Modelo</h4>
-              <p style="font-size:1.05rem; color:var(--text-muted); line-height:1.55;">
+            <div class="hero-col-card left-accent" style="padding:28px 32px;">
+              <h4 class="hero-col-title" style="font-size:1.45rem; color:var(--col-problem); margin-bottom:12px;">La Discrepancia del Modelo</h4>
+              <p style="font-size:1.15rem; color:var(--text-muted); line-height:1.65;">
                 • <strong>Forward 2 Puntos \(\mathcal{O}(h)\):</strong> \(du/dy = 3.0900 \text{ s}^{-1}\)<br>
                 • <strong>Forward 3 Puntos \(\mathcal{O}(h^2)\):</strong> \(du/dy = 3.2410 \text{ s}^{-1}\)<br>
-                <strong>¡Una subestimación de casi el 5% en la fuerza de arrastre!</strong>
+                <strong style="color:var(--col-problem);">¡Una subestimación de casi el 5% en la fuerza de arrastre!</strong>
               </p>
             </div>
           </div>
@@ -1487,8 +1372,10 @@
             <h2 class="slide-main-title">Laboratorio: Cálculo de Gradientes y Tensión en Pared</h2>
             <p class="slide-sub-desc">Python en vivo con la tabla estilizada comparativa que demuestra por qué 3 puntos es el estándar CFD.</p>
           </div>
-          <div class="slide-header-badges">
+          <div class="slide-header-controls">
+            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
             <span class="badge-counter">11 / 13</span>
+            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente">→</button>
           </div>
         </div>
 
@@ -1497,21 +1384,27 @@
             <!-- Editor Python -->
             <div class="editor-column-hero">
               <div class="editor-header-hero">
-                <span class="editor-title-hero">capa_limite.py</span>
+                <span class="editor-title-hero">capa_limite_pared.py</span>
                 <div style="display:flex; gap:8px;">
-                  <button id="btnResetS11" class="btn-reset-hero"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg><span>Reset</span></button>
-                  <button id="btnRunS11" class="btn-py-hero"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg><span>Ejecutar Python</span></button>
+                  <button id="btnResetS6" class="btn-reset-hero">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                    <span>Reset</span>
+                  </button>
+                  <button id="btnRunS6" class="btn-py-hero">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    <span>Ejecutar Python</span>
+                  </button>
                 </div>
               </div>
 
               <div class="cm-wrapper-hero">
-                <textarea id="codeEditorS11"></textarea>
+                <textarea id="codeEditorS6"></textarea>
               </div>
 
               <div class="controls-shelf-hero">
                 <div class="ctrl-item-hero">
-                  <label for="selectFluidMuS11">Fluido (\(\mu\)):</label>
-                  <select id="selectFluidMuS11">
+                  <label for="selectFluidMu">Fluido (\(\mu\)):</label>
+                  <select id="selectFluidMu">
                     <option value="0.29">Aceite SAE 30 (0.29 Pa·s)</option>
                     <option value="0.001">Agua a 20°C (0.001 Pa·s)</option>
                     <option value="0.000018">Aire a 20°C (1.8e-5 Pa·s)</option>
@@ -1519,60 +1412,63 @@
                 </div>
 
                 <div class="ctrl-item-hero" style="flex:1;">
-                  <label for="inputU1ModS11">Perturbar \(u_1\) [m/s]:</label>
-                  <input type="range" id="inputU1ModS11" min="0.0040" max="0.0080" step="0.0002" value="0.00618" style="width:100%;">
+                  <label for="inputU1Mod">Perturbación \(u_1\) [m/s]:</label>
+                  <input type="range" id="inputU1Mod" min="0.0040" max="0.0080" step="0.0002" value="0.00618" style="width:100%;">
                 </div>
               </div>
 
-              <div id="consoleS11" class="console-box-hero"></div>
-              <div id="errorBoxS11" class="error-box-hero"></div>
+              <div id="consoleS6" class="console-box-hero"></div>
+              <div id="errorBoxS6" class="error-box-hero"></div>
             </div>
 
             <!-- TABLA ESTILIZADA + Gráfico -->
             <div class="display-column-hero">
               <div class="styled-table-card-hero">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                  <h5 style="font-family:var(--font-serif); font-size:1.2rem; font-weight:700; color:var(--text-main);">
-                    Comparativa en la Pared (\(y=0\), \(h=0.002\) m)
+                  <h5 style="font-family:var(--font-serif); font-size:1.25rem; font-weight:700; color:var(--text-main);">
+                    Resultados en la Pared (\(y=0\), paso \(h=0.002\) m)
                   </h5>
-                  <span id="labelViscosityS11" style="font-family:var(--font-mono); font-size:0.88rem; font-weight:700; color:var(--col-academic);">\(\mu = 0.290\) Pa·s</span>
+                  <span id="labelViscosity" style="font-family:var(--font-mono); font-size:0.92rem; font-weight:700; color:var(--col-academic);">\(\mu = 0.290\) Pa·s</span>
                 </div>
 
                 <table class="cfd-results-table-hero">
                   <thead>
                     <tr>
                       <th>Método</th>
+                      <th>Stencil</th>
                       <th>Orden</th>
                       <th>Gradiente \(du/dy\)</th>
-                      <th>Tensión \(\tau_w\)</th>
-                      <th>Diagnóstico</th>
+                      <th>Tensión \(\tau\) [Pa]</th>
+                      <th>Evaluación</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td><strong>Forward 2 Pts</strong></td>
+                      <td>\([y_0, y_1]\)</td>
                       <td>\(\mathcal{O}(h)\)</td>
-                      <td id="tdFwdGradS11">3.0900 s⁻¹</td>
-                      <td id="tdFwdTauS11">0.8961 Pa</td>
+                      <td id="tdFwdGrad">3.0900 s⁻¹</td>
+                      <td id="tdFwdTau">0.8961 Pa</td>
                       <td style="color:var(--col-problem); font-weight:700;">Subestima ~4.7%</td>
                     </tr>
                     <tr class="highlight-cfd">
                       <td><strong>Forward 3 Pts</strong></td>
+                      <td>\([y_0, y_1, y_2]\)</td>
                       <td>\(\mathcal{O}(h^2)\)</td>
-                      <td id="tdNakGradS11">3.2410 s⁻¹</td>
-                      <td id="tdNakTauS11">0.9399 Pa</td>
+                      <td id="tdNakGrad">3.2410 s⁻¹</td>
+                      <td id="tdNakTau">0.9399 Pa</td>
                       <td>Estándar CFD</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
 
-              <div class="plot-canvas-hero" id="plotContainerS11">
-                <div id="loaderS11" class="spinner-overlay-hero">
+              <div class="plot-canvas-hero" id="plotContainerS6">
+                <div id="loaderS6" class="spinner-overlay-hero">
                   <div class="spinner-ring-hero"></div>
-                  <span style="font-size:0.9rem; font-family:var(--font-mono); color:var(--text-muted);">Calculando con NumPy en Pyodide...</span>
+                  <span style="font-size:0.92rem; font-family:var(--font-mono); color:var(--text-muted);">Calculando con NumPy en Pyodide...</span>
                 </div>
-                <div id="svgHostS11" style="width:100%; height:100%; display:flex; align-items:center; justify-content:center;"></div>
+                <div id="svgHostS6" style="width:100%; height:100%; display:flex; align-items:center; justify-content:center;"></div>
               </div>
             </div>
           </div>
@@ -1589,8 +1485,10 @@
             <h2 class="slide-main-title">Síntesis Visual: El Orden según la Posición en el Dominio</h2>
             <p class="slide-sub-desc">Mismo principio físico-computacional: adecuar el stencil a la geometría del problema.</p>
           </div>
-          <div class="slide-header-badges">
+          <div class="slide-header-controls">
+            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
             <span class="badge-counter">12 / 13</span>
+            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente">→</button>
           </div>
         </div>
 
@@ -1599,32 +1497,32 @@
             <!-- Zona Interior -->
             <div class="hero-col-card right-accent">
               <div>
-                <span style="font-family:var(--font-mono); font-size:0.84rem; font-weight:700; color:var(--col-solution); text-transform:uppercase;">Zona I: Interior del Dominio</span>
-                <h3 class="hero-col-title" style="font-size:1.75rem; margin-top:6px;">Simetría & Paso Óptimo</h3>
-                <p class="hero-col-desc" style="font-size:1.15rem;">
+                <span style="font-family:var(--font-mono); font-size:0.88rem; font-weight:700; color:var(--col-academic); text-transform:uppercase;">Zona I: Interior del Dominio</span>
+                <h3 class="hero-col-title" style="font-size:1.85rem; margin-top:8px;">Simetría & Selección del Paso \(h\)</h3>
+                <p class="hero-col-desc" style="font-size:1.2rem;">
                   • <strong>Operador:</strong> Diferencia Central \(\mathcal{O}(h^2)\).<br>
-                  • <strong>Simetría:</strong> Cancela términos pares de Taylor gratis.<br>
-                  • <strong>Compromiso:</strong> Trabajar en \(h \approx 10^{-5}\) para evitar la explosión de redondeo (\(\varepsilon_m/h\)).
+                  • <strong>Simetría:</strong> Existen vecinos a ambos lados (\(x_{i-1}, x_{i+1}\)). La cancelación par de Taylor es exacta.<br>
+                  • <strong>Gestión del Paso:</strong> Trabajar en torno a \(h^* \approx 10^{-5}\). No achicar \(h\) por debajo de \(10^{-6}\) para evitar la explosión de redondeo (\(\varepsilon_m/h\)).
                 </p>
               </div>
-              <div style="font-family:var(--font-mono); font-size:0.95rem; font-weight:700; color:var(--col-academic); background:#f8fafc; padding:12px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
-                Máxima precisión con bajo costo de CPU
+              <div style="font-family:var(--font-mono); font-size:1.05rem; font-weight:700; color:var(--col-academic); background:#f8fafc; padding:14px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
+                Máxima precisión con bajo costo de cálculo
               </div>
             </div>
 
             <!-- Zona Frontera -->
             <div class="hero-col-card left-accent">
               <div>
-                <span style="font-family:var(--font-mono); font-size:0.84rem; font-weight:700; color:var(--col-problem); text-transform:uppercase;">Zona II: Frontera Física</span>
-                <h3 class="hero-col-title" style="font-size:1.75rem; margin-top:6px;">Asimetría & 3 Puntos</h3>
-                <p class="hero-col-desc" style="font-size:1.15rem;">
-                  • <strong>Operador:</strong> Fórmula Hacia Adelante de 3 Puntos.<br>
-                  • <strong>Restricción:</strong> Pared sólida sin nodos exteriores.<br>
-                  • <strong>Preservación:</strong> Mirar 2 nodos hacia el interior garantiza no degradar la convergencia global a \(\mathcal{O}(h)\).
+                <span style="font-family:var(--font-mono); font-size:0.88rem; font-weight:700; color:var(--col-problem); text-transform:uppercase;">Zona II: Frontera Física</span>
+                <h3 class="hero-col-title" style="font-size:1.85rem; margin-top:8px;">Asimetría & Preservación del Orden</h3>
+                <p class="hero-col-desc" style="font-size:1.2rem;">
+                  • <strong>Operador:</strong> Fórmula Hacia Adelante de 3 Puntos \(\mathcal{O}(h^2)\).<br>
+                  • <strong>Restricción:</strong> Pared sólida impermeable en \(y=0\). No hay nodos exteriores.<br>
+                  • <strong>Preservación:</strong> Mirar 2 pasos hacia el interior (\(y_0, y_1, y_2\)) garantiza no degradar el orden global a \(\mathcal{O}(h)\).
                 </p>
               </div>
-              <div style="font-family:var(--font-mono); font-size:0.95rem; font-weight:700; color:var(--col-problem); background:#f8fafc; padding:12px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
-                Preserva la precisión en las leyes de borde
+              <div style="font-family:var(--font-mono); font-size:1.05rem; font-weight:700; color:var(--col-problem); background:#f8fafc; padding:14px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
+                Leyes constitutivas de pared exactas (\(\tau = \mu \frac{du}{dy}\))
               </div>
             </div>
           </div>
@@ -1641,42 +1539,44 @@
             <h2 class="slide-main-title">Cuatro Mandamientos para la Práctica de la Ingeniería</h2>
             <p class="slide-sub-desc">Criterios fundamentales para simulación y cálculo diferencial robusto.</p>
           </div>
-          <div class="slide-header-badges">
+          <div class="slide-header-controls">
+            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
             <span class="badge-counter">13 / 13</span>
+            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente" disabled>→</button>
           </div>
         </div>
 
         <div class="slide-content-area">
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px; height:100%; align-content:center;">
-            <div class="hero-col-card" style="padding:26px 30px;">
-              <span style="font-family:var(--font-mono); font-size:0.8rem; font-weight:700; color:var(--col-problem); text-transform:uppercase;">Criterio 1</span>
-              <h4 style="font-family:var(--font-serif); font-size:1.45rem; margin:6px 0 10px 0;">El Mito de \(h \to 0\)</h4>
-              <p style="font-size:1.05rem; color:var(--text-muted); line-height:1.55;">
-                En hardware real, \(h \to 0\) destruye el cálculo por cancelación en coma flotante. El paso óptimo \(h^*\) siempre es finito.
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:30px; height:100%; align-content:center;">
+            <div class="hero-col-card" style="padding:28px 32px; border-top:4px solid var(--col-problem);">
+              <span style="font-family:var(--font-mono); font-size:0.85rem; font-weight:700; color:var(--col-problem); text-transform:uppercase;">Criterio 1</span>
+              <h4 style="font-family:var(--font-serif); font-size:1.55rem; margin:8px 0 10px 0;">El Mito Analítico de \(h \to 0\)</h4>
+              <p style="font-size:1.15rem; color:var(--text-muted); line-height:1.6;">
+                En hardware real, \(h \to 0\) destruye el cálculo por cancelación en coma flotante. El paso óptimo \(h^*\) siempre es finito y debe planificarse.
               </p>
             </div>
 
-            <div class="hero-col-card" style="padding:26px 30px; border-top:3px solid var(--col-academic); background:#ffffff;">
-              <span style="font-family:var(--font-mono); font-size:0.8rem; font-weight:700; color:var(--col-solution); text-transform:uppercase;">Criterio 2</span>
-              <h4 style="font-family:var(--font-serif); font-size:1.45rem; margin:6px 0 10px 0;">Simetría Gratuita</h4>
-              <p style="font-size:1.05rem; color:var(--text-main); line-height:1.55;">
-                La diferencia central cuadruplica la velocidad de convergencia (\(\mathcal{O}(h^2)\)) cancelando términos pares sin costo extra.
+            <div class="hero-col-card" style="padding:28px 32px; border-top:4px solid var(--col-academic);">
+              <span style="font-family:var(--font-mono); font-size:0.85rem; font-weight:700; color:var(--col-academic); text-transform:uppercase;">Criterio 2</span>
+              <h4 style="font-family:var(--font-serif); font-size:1.55rem; margin:8px 0 10px 0;">La Simetría es Precisión Gratuita</h4>
+              <p style="font-size:1.15rem; color:var(--text-main); line-height:1.6;">
+                La diferencia central cuadruplica la velocidad de convergencia (\(\mathcal{O}(h^2)\)) cancelando algebraicamente los términos pares sin costo extra.
               </p>
             </div>
 
-            <div class="hero-col-card" style="padding:26px 30px; border-top:3px solid var(--col-academic); background:#ffffff;">
-              <span style="font-family:var(--font-mono); font-size:0.8rem; font-weight:700; color:var(--col-academic); text-transform:uppercase;">Criterio 3</span>
-              <h4 style="font-family:var(--font-serif); font-size:1.45rem; margin:6px 0 10px 0;">La Frontera Manda</h4>
-              <p style="font-size:1.05rem; color:var(--text-muted); line-height:1.55;">
-                La precisión de una simulación la define su frontera. Usar la fórmula de 3 puntos en paredes preserva \(\mathcal{O}(h^2)\) en todo el dominio.
+            <div class="hero-col-card" style="padding:28px 32px; border-top:4px solid var(--border-dark);">
+              <span style="font-family:var(--font-mono); font-size:0.85rem; font-weight:700; color:var(--col-academic); text-transform:uppercase;">Criterio 3</span>
+              <h4 style="font-family:var(--font-serif); font-size:1.55rem; margin:8px 0 10px 0;">La Frontera Preserva el Interior</h4>
+              <p style="font-size:1.15rem; color:var(--text-muted); line-height:1.6;">
+                En paredes sólidas no se debe sacrificar el orden. La fórmula hacia adelante de 3 puntos rescata el orden \(\mathcal{O}(h^2)\) mirando hacia el interior del fluido.
               </p>
             </div>
 
-            <div class="hero-col-card" style="padding:26px 30px;">
-              <span style="font-family:var(--font-mono); font-size:0.8rem; font-weight:700; color:var(--col-solution); text-transform:uppercase;">Criterio 4</span>
-              <h4 style="font-family:var(--font-serif); font-size:1.45rem; margin:6px 0 10px 0;">Auditoría de Bibliotecas</h4>
-              <p style="font-size:1.05rem; color:var(--text-muted); line-height:1.55;">
-                <code>np.gradient</code> implementa este diseño híbrido exacto (central interior + 3 puntos en bordes). Conocer el stencil permite auditar resultados.
+            <div class="hero-col-card" style="padding:28px 32px; border-top:4px solid var(--col-academic);">
+              <span style="font-family:var(--font-mono); font-size:0.85rem; font-weight:700; color:var(--col-academic); text-transform:uppercase;">Criterio 4</span>
+              <h4 style="font-family:var(--font-serif); font-size:1.55rem; margin:8px 0 10px 0;">Auditoría de Herramientas (`numpy`)</h4>
+              <p style="font-size:1.15rem; color:var(--text-muted); line-height:1.6;">
+                Las funciones de biblioteca como <code>np.gradient</code> no son cajas negras; aplican exactamente este diseño híbrido (Central interior + Nakamura en bordes).
               </p>
             </div>
           </div>
@@ -1691,51 +1591,12 @@
     </div>
   </div>
 
-  <!-- Controles flotantes de presentación -->
-  <div class="floating-deck-controls">
-    <button id="btnDeckPrev" class="btn-deck-nav"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg><span>Anterior</span></button>
-    <div id="deckCounterLabel" class="deck-counter-indicator">1 / 13</div>
-    <button id="btnDeckNext" class="btn-deck-nav"><span>Siguiente</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
-    <button id="btnDeckNotes" class="btn-deck-icon" title="Alternar Notas del Orador (Tecla N)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg><span>Notas [N]</span></button>
-    <button id="btnDeckFullscreen" class="btn-deck-icon" title="Pantalla Completa 16:9 (Tecla F)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg><span>Pantalla completa [F]</span></button>
-    <div id="pyodidePill" class="pyodide-status-badge">
-      <span class="dot"></span>
-      <span id="pyodidePillText">Pyodide Wasm...</span>
-    </div>
-  </div>
-
-  <!-- Drawer de Notas del Orador (Modo 'N') -->
-  <div id="speakerDrawerModal" class="speaker-drawer-modal">
-    <div class="drawer-header-bar">
-      <div style="font-family:var(--font-serif); font-size:1.1rem; font-weight:700; display:flex; align-items:center; gap:8px;">
-        <span>Guion y Notas Técnicas del Orador</span>
-        <span id="notesIndicatorTag" style="font-family:var(--font-mono); font-size:0.9rem; color:var(--text-muted);">(Diapositiva 1 / 13)</span>
-      </div>
-      <button id="btnCloseDrawer" class="btn-reset-hero" style="padding:5px 14px; font-weight:700; display:flex; align-items:center; gap:6px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>Cerrar [Esc]</span></button>
-    </div>
-
-    <div class="drawer-columns-body">
-      <div class="drawer-col-box">
-        <h5>Orador 1: Planteo Teórico & Físico</h5>
-        <div id="notesTextCol1" style="color:var(--text-main);"></div>
-      </div>
-      <div class="drawer-col-box">
-        <h5>Orador 2: Cómputo & Hardware</h5>
-        <div id="notesTextCol2" style="color:var(--text-main);"></div>
-      </div>
-      <div class="drawer-col-box">
-        <h5>Pregunta Clave del Tribunal Docente</h5>
-        <div id="notesTextCol3" style="color:var(--text-main);"></div>
-      </div>
-    </div>
-  </div>
-
   <!-- ==========================================================================
        SCRIPTS JAVASCRIPT: ESCALADO 16:9, NAVEGACIÓN & MOTOR PYODIDE
        ========================================================================== -->
   <script>
     /* ==========================================================================
-       1. ESCALADO PERFECTO 16:9 AUTOMÁTICO (RESPONSIVE SIN SCROLL)
+       1. ESCALADO PERFECTO 16:9 AUTOMÁTICO
        ========================================================================== */
     function resizePresentationDeck() {
       const deck = document.getElementById('slideDeck');
@@ -1754,89 +1615,16 @@
     }
 
     window.addEventListener('resize', resizePresentationDeck);
-    window.addEventListener('DOMContentLoaded', resizePresentationDeck);
 
     /* ==========================================================================
-       2. NOTAS DEL ORADOR POR DIAPOSITIVA (NIVEL INGENIERÍA ELECTROMECÁNICA)
+       2. CÓDIGOS PYTHON POR DEFECTO PARA SLIDES INTERACTIVAS (EXACTOS SIN MODIFICAR)
        ========================================================================== */
-    const speakerNotesData = {
-      1: {
-        orador1: "Iniciar la exposición planteando el contexto electromecánico: la simulación de intercambiadores, motores y bombas requiere resolver ecuaciones diferenciales en derivadas parciales continuas. En el pizarrón el límite h->0 es perfecto, pero en ingeniería de diseño el cálculo se ejecuta en hardware discreto.",
-        orador2: "Alertar sobre la naturaleza finita de los procesadores: los registros de 64 bits bajo la norma IEEE-754 tienen 53 bits de mantisa (~16 dígitos decimales). Cada discretización introduce un compromiso inevitable entre precisión matemática y redondeo binario.",
-        pregunta: "¿Por qué no podemos calcular derivadas simplemente evaluando h = 1e-20 en Python? R: Porque la mantisa finita produce cancelación total (f(x+h) == f(x)) y división por cero o NaN."
-      },
-      2: {
-        orador1: "Presentar la serie de Taylor como la piedra angular del cálculo diferencial numérico. Explicar que representa el comportamiento local de cualquier función suave mediante un polinomio infinito de potencias.",
-        orador2: "Hacer notar que en computación es imposible evaluar infinitos términos: truncar la serie es obligatorio para poder calcular con recursos finitos.",
-        pregunta: "¿Qué condiciones debe cumplir f(x)? R: Suavidad y diferenciabilidad continua (clase C^n) en el entorno del punto."
-      },
-      3: {
-        orador1: "Guiar el despeje algebraico: mostrar cómo el descarte del resto de Lagrange f''(xi) produce el término lineal h/2 * f''. Explicar que la notación O(h) formaliza la velocidad de convergencia.",
-        orador2: "Enfatizar el costo práctico: O(h) significa que ganar un dígito de precisión exige multiplicar por 10 los nodos en 1D, por 100 en 2D y por 1000 en 3D.",
-        pregunta: "¿Por qué importa la segunda derivada en el error? R: Porque representa la curvatura: a mayor curvatura, mayor es la desviación entre la recta secante y la tangente real."
-      },
-      4: {
-        orador1: "Contrastar las fórmulas hacia adelante y hacia atrás: ambas usan solo dos nodos contiguos y tienen exactamente el mismo orden de error lineal O(h).",
-        orador2: "Explicar su uso en problemas dependientes del tiempo o flujos convectivos: hacia atrás (backward) es el estándar incondicionalmente estable para esquemas implícitos en el tiempo.",
-        pregunta: "¿Cuándo se prefiere backward sobre forward? R: En problemas parabólicos (conducción transitoria de calor) para evitar restricciones severas en el paso de tiempo (criterio CFL)."
-      },
-      5: {
-        orador1: "Resaltar el milagro algebraico: al restar las dos series de Taylor simétricas, todos los términos cuadráticos pares h^2 * f'' se anulan exactamente.",
-        orador2: "Subrayar la relación costo-beneficio: el esquema central tiene exactamente el mismo costo aritmético que adelante o atrás (1 resta, 1 división), pero cuadruplica la velocidad de convergencia (error cae al 25% al partir h al medio).",
-        pregunta: "¿Por qué no usamos siempre diferencia central en todas partes? R: Porque requiere un stencil simétrico; en las paredes o fronteras del dominio el nodo vecino exterior no existe."
-      },
-      6: {
-        orador1: "Presentar el conflicto de la pared física: en y=0 (pared de conducto o álabe) el nodo es i=0 y no existe y_{-1}. Explicar por qué usar forward de 2 puntos contamina la convergencia cuadrática del resto de la malla.",
-        orador2: "Mostrar que el contorno gobierna la precisión global: en sistemas elípticos (Poisson, Laplace), un error O(h) en la frontera se propaga hacia el interior arruinando la precisión global.",
-        pregunta: "¿Qué es un nodo fantasma? R: Un nodo ficticio fuera del dominio físico introducido artificialmente para poder evaluar diferencias centrales, pero que requiere extrapolar condiciones de contorno."
-      },
-      7: {
-        orador1: "Demostrar la fórmula de 3 puntos de Nakamura: combina 3 nodos interiores (-3, 4, -1)/(2h) para anular el residuo cuadrático sin recurrir a nodos ficticios.",
-        orador2: "Explicar que esta fórmula recupera O(h^2) de forma limpia, permitiendo acoplar la frontera directamente con el esquema central del interior.",
-        pregunta: "¿Cómo se deducen los coeficientes -3, 4, -1? R: Mediante el método de coeficientes indeterminados igualando a cero las derivadas no deseadas en la combinación lineal de series de Taylor."
-      },
-      8: {
-        orador1: "Contrastar las dos fuerzas antagónicas: la matemática analítica (que pide h->0) frente a la aritmética binaria IEEE-754 (que explota cuando h->0).",
-        orador2: "Explicar la cancelación catastrófica: cuando h < 1e-8, f(x+h) y f(x) coinciden en sus primeros 10-12 dígitos, perdiéndose la precisión y amplificándose el ruido al dividir por h.",
-        pregunta: "¿Qué es el épsilon de máquina? R: El número positivo más pequeño tal que 1.0 + eps != 1.0 en coma flotante (~2.22e-16 en float64)."
-      },
-      9: {
-        orador1: "Invitar a mirar la rama derecha de la curva en V: domina el truncamiento de Taylor con pendiente positiva. Explicar cómo el error disminuye a medida que h se reduce.",
-        orador2: "Invitar a mirar la rama izquierda: domina la cancelación sustractiva en IEEE-754 con pendiente negativa. Resaltar que el óptimo central (h ~ 1e-5) no solo es 4 órdenes de magnitud más preciso que forward (1e-12 vs 1e-8), sino que se alcanza con un h mucho más grande y seguro.",
-        pregunta: "¿Por qué el óptimo de h no es el mismo para primer y segundo orden? R: Porque al igualar a cero la derivada de C1*h^p + C2*eps/h, el exponente óptimo depende de p: h* ~ eps^(1/(p+1))."
-      },
-      10: {
-        orador1: "Plantear la ley física: tau = mu * (du/dy) en la pared. Mostrar que un error del 4.7% en el gradiente de velocidad impacta directamente en el cálculo de pérdida de carga y potencia de bombeo requerida.",
-        orador2: "Presentar los datos de retícula discretos: y = [0, 0.002, 0.004, ...] y u = [0, 0.00618, ...]. Mostrar cómo se aplican las dos fórmulas numéricas en el nodo y=0.",
-        pregunta: "¿Por qué la derivada en la pared es la más difícil de calcular? R: Porque allí los gradientes son más empinados y se carece de simetría geométrica hacia el exterior."
-      },
-      11: {
-        orador1: "Analizar la tabla estilizada: mostrar que la fórmula de 3 puntos predice 3.2410 s^-1 contra 3.0900 s^-1 de forward 2 puntos. Explicar que np.gradient implementa internamente este mismo stencil de 3 puntos.",
-        orador2: "Demostrar en vivo cómo al mover la viscosidad o perturbar los datos la tabla se actualiza al instante con Python real ejecutándose en Pyodide.",
-        pregunta: "¿Por qué en perfiles parabólicos la fórmula de 3 puntos es exacta? R: Porque para una parábola f'''(xi) = 0, de modo que el residuo de Taylor (h^2/3)*f''' se anula idénticamente."
-      },
-      12: {
-        orador1: "Resumir la visión unificada: el ingeniero debe reconocer si está discretizando en el interior simétrico o en la frontera asimétrica, y adaptar el stencil en consecuencia.",
-        orador2: "Recorrer la matriz 2x2: interior vs frontera y truncamiento vs redondeo. Enfatizar que una simulación confiable nunca usa esquemas dispares sin verificar el orden global de convergencia.",
-        pregunta: "¿Cómo afecta una malla no uniforme a estos esquemas? R: Rompe la cancelación simétrica en el esquema central, requiriendo coeficientes adaptativos ponderados por h_i y h_{i-1}."
-      },
-      13: {
-        orador1: "Cerrar con los 4 criterios de ingeniería. Recomendar siempre validar la malla con un estudio de convergencia (grid independence test) antes de dar por válido un resultado de simulación.",
-        orador2: "Agradecer a la cátedra y al tribunal. Destacar que el código fuente de herramientas como NumPy o OpenFOAM transparenta exactamente estas ecuaciones discretas.",
-        pregunta: "¿Qué técnica permite mejorar aún más la precisión sin achicar h? R: La extrapolación de Richardson o el uso de mallas estiradas exponencialmente cerca de la pared."
-      }
-    };
-
-    /* ==========================================================================
-       3. CÓDIGOS PYTHON POR DEFECTO PARA SLIDES 9 Y 11
-       ========================================================================== */
-    const defaultPythonCodeS9 = `# Diapositiva 9: La Curva en 'V' en Escala Log-Log
+    const defaultPythonCodeS5 = `# Diapositiva 5: La Paradoja del Error - Curva en 'V' en Escala Log-Log
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Parámetros interactivos
-x0 = 1.0              # Punto de evaluación
-func_name = 'sin(x)'  # 'sin(x)', 'cos(x)', 'exp(x)', 'x**3'
+x0 = 1.0
+func_name = 'sin(x)'
 
 if func_name == 'sin(x)':
     f = np.sin
@@ -1851,15 +1639,12 @@ else:
     f = lambda x: x**3
     df_exact = 3.0 * (x0**2)
 
-# Rango de pasos h desde 10^-1 hasta 10^-15
 exponents = np.linspace(-1, -15, 120)
 h_vals = 10.0 ** exponents
 
-# Esquema Forward O(h)
 df_forward = (f(x0 + h_vals) - f(x0)) / h_vals
 err_forward = np.abs(df_forward - df_exact)
 
-# Esquema Central O(h²)
 df_central = (f(x0 + h_vals) - f(x0 - h_vals)) / (2.0 * h_vals)
 err_central = np.abs(df_central - df_exact)
 
@@ -1869,39 +1654,24 @@ err_central = np.maximum(err_central, 1e-19)
 idx_f = np.nanargmin(err_forward)
 idx_c = np.nanargmin(err_central)
 
-fig, ax = plt.subplots(figsize=(7.0, 4.2), dpi=110)
+fig, ax = plt.subplots(figsize=(6.8, 4.0), dpi=110)
 fig.patch.set_facecolor('#ffffff')
 ax.set_facecolor('#faf9f6')
 
-ax.loglog(h_vals, err_forward, label=r"Forward $\mathcal{O}(h)$", color="#b91c1c", lw=2.2)
-ax.loglog(h_vals, err_central, label=r"Central $\mathcal{O}(h^2)$", color="#1e3a8a", lw=2.0)
+ax.loglog(h_vals, err_forward, label=r"Forward $\\mathcal{O}(h)$", color="#b91c1c", lw=2.2)
+ax.loglog(h_vals, err_central, label=r"Central $\\mathcal{O}(h^2)$", color="#0f766e", lw=2.2)
 
 eps_m = 2.22e-16
-ax.axhline(eps_m, color="#64748b", ls="--", lw=1.2, label=r"Épsilon máquina $\varepsilon_m \approx 2.22 \times 10^{-16}$")
+ax.axhline(eps_m, color="#64748b", ls="--", lw=1.2, label=r"Épsilon máquina")
 
-ax.scatter([h_vals[idx_f]], [err_forward[idx_f]], color="#7f1d1d", s=65, zorder=5)
-ax.scatter([h_vals[idx_c]], [err_central[idx_c]], color="#172554", s=60, zorder=5)
+ax.scatter([h_vals[idx_f]], [err_forward[idx_f]], color="#7f1d1d", s=60, zorder=5)
+ax.scatter([h_vals[idx_c]], [err_central[idx_c]], color="#044e46", s=60, zorder=5)
 
-ax.annotate(f"Óptimo Forward\\nh ≈ {h_vals[idx_f]:.1e}", 
-            xy=(h_vals[idx_f], err_forward[idx_f]),
-            xytext=(h_vals[idx_f]*15, err_forward[idx_f]*40),
-            arrowprops=dict(arrowstyle="->", color="#b91c1c", lw=1.4),
-            fontsize=9, fontweight='bold', color="#b91c1c")
-
-ax.annotate(f"Óptimo Central\\nh ≈ {h_vals[idx_c]:.1e}", 
-            xy=(h_vals[idx_c], err_central[idx_c]),
-            xytext=(h_vals[idx_c]/400, err_central[idx_c]*60),
-            arrowprops=dict(arrowstyle="->", color="#1e3a8a", lw=1.2),
-            fontsize=9, fontweight='bold', color="#1e3a8a")
-
-ax.text(1e-3, 1e-11, "Zona Truncamiento\\n(Taylor dominante)", fontsize=9, color="#475569", style='italic')
-ax.text(1e-14, 1e-6, "Zona Redondeo\\n(Cancelación IEEE-754)", fontsize=9, color="#475569", style='italic')
-
-ax.set_xlabel("Paso de discretización h (escala log)", fontsize=10, fontweight='bold')
-ax.set_ylabel("Error absoluto |f'(x) - f'_{num}|", fontsize=10, fontweight='bold')
-ax.set_title(f"La Curva en 'V' en {func_name} (x0 = {x0})", fontsize=11.5, fontweight='bold', pad=8)
+ax.set_xlabel("Paso de discretización h (escala log)", fontsize=9.5, fontweight='bold')
+ax.set_ylabel("Error absoluto", fontsize=9.5, fontweight='bold')
+ax.set_title(f"Curva en 'V' en {func_name} (x0 = {x0})", fontsize=11, fontweight='bold', pad=8)
 ax.grid(True, which="both", ls=":", color="#e2e8f0", alpha=0.9)
-ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.16), ncol=3, fontsize=8.5, frameon=True)
+ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.16), ncol=3, fontsize=8, frameon=True)
 
 print(f"ANÁLISIS NUMÉRICO (x0 = {x0}):")
 print(f"Forward: h_opt = {h_vals[idx_f]:.2e} | Error = {err_forward[idx_f]:.2e}")
@@ -1909,143 +1679,88 @@ print(f"Central: h_opt = {h_vals[idx_c]:.2e} | Error = {err_central[idx_c]:.2e}"
 print(f"Ganancia Central vs Forward: {err_forward[idx_f]/err_central[idx_c]:.0f}x veces más preciso")
 `;
 
-    const defaultPythonCodeS11 = `# Diapositiva 11: Esfuerzo de Corte en Pared (Capa Límite)
+    const defaultPythonCodeS6 = `# Diapositiva 6: Esfuerzo de Corte tau = mu * (du/dy) en Capa Límite
 import numpy as np
 import matplotlib.pyplot as plt
 
-# 1. Datos exactos de retícula en pared
 y = np.array([0.0, 0.002, 0.004, 0.006, 0.008])
 u = np.array([0.0, 0.006180, 0.011756, 0.016180, 0.019021])
 
-# Viscosidad dinámica [Pa·s] (Aceite SAE 30)
 mu = 0.29
-
 h = y[1] - y[0]
 
-# 2. Forward 2 puntos en pared (y=0) - O(h)
 du_dy_2pts = (u[1] - u[0]) / h
 tau_2pts = mu * du_dy_2pts
 
-# 3. Forward 3 puntos en pared (y=0) - O(h²)
 du_dy_3pts = (-3.0 * u[0] + 4.0 * u[1] - u[2]) / (2.0 * h)
 tau_3pts = mu * du_dy_3pts
 
-# 4. Vectorización completa con np.gradient
-du_dy_all = np.gradient(u, y)
-tau_all = mu * du_dy_all
-
-fig, ax = plt.subplots(figsize=(6.8, 2.8), dpi=110)
+fig, ax = plt.subplots(figsize=(6.4, 2.7), dpi=110)
 fig.patch.set_facecolor('#ffffff')
 ax.set_facecolor('#faf9f6')
-
-ax.plot(u * 1000, y * 1000, 'o-', color="#1e3a8a", lw=2.0, markersize=5, label=f"Nodos Malla (h={h*1000:.1f} mm)")
-
+ax.plot(u * 1000, y * 1000, 'o-', color="#0f766e", lw=2, markersize=5.5, label=f"Nodos (h={h*1000:.1f} mm)")
 y_tang = np.linspace(0, 0.004, 50)
-u_tang_2pts = du_dy_2pts * y_tang
-u_tang_3pts = du_dy_3pts * y_tang
-
-ax.plot(u_tang_2pts * 1000, y_tang * 1000, '--', color="#b91c1c", lw=1.8, label=f"Tangente 2 pts: {du_dy_2pts:.2f} s⁻¹")
-ax.plot(u_tang_3pts * 1000, y_tang * 1000, '-', color="#1e3a8a", lw=2.0, label=f"Tangente 3 pts: {du_dy_3pts:.2f} s⁻¹")
-
-ax.axhline(0, color="#0f172a", lw=2.8, label="Pared sólida (y=0)")
-
-ax.set_xlabel("Velocidad u [mm/s]", fontsize=9, fontweight='bold')
-ax.set_ylabel("Distancia normal y [mm]", fontsize=9, fontweight='bold')
-ax.set_title("Perfil de Velocidad y Pendientes en Pared (y=0)", fontsize=10, fontweight='bold')
+ax.plot(du_dy_2pts*y_tang*1000, y_tang*1000, '--', color="#b91c1c", lw=1.6, label=f"2 pts: {du_dy_2pts:.2f} s-1")
+ax.plot(du_dy_3pts*y_tang*1000, y_tang*1000, '-', color="#0f766e", lw=1.8, label=f"3 pts: {du_dy_3pts:.2f} s-1")
+ax.axhline(0, color="#0f172a", lw=2.5, label="Pared (y=0)")
+ax.set_xlabel("Velocidad u [mm/s]", fontsize=8.5, fontweight='bold')
+ax.set_ylabel("Distancia y [mm]", fontsize=8.5, fontweight='bold')
 ax.grid(True, ls=":", alpha=0.7)
-ax.legend(fontsize=7.8, loc="lower right")
+ax.legend(fontsize=7.2, loc="lower right")
 plt.tight_layout()
 
 diff_rel = abs(tau_3pts - tau_2pts) / tau_3pts * 100
-
-print(f"--- RESULTADOS FLUIDODINÁMICOS (mu = {mu} Pa·s) ---")
+print(f"--- RESULTADOS FLUIDODINÁMICOS (mu = {mu} Pa s) ---")
 print(f"Paso de discretización: h = {h:.4f} m")
 print(f"Forward 2 puntos O(h):  du/dy = {du_dy_2pts:.4f} s^-1 | tau = {tau_2pts:.4f} Pa")
-print(f"Forward 3 puntos O(h²): du/dy = {du_dy_3pts:.4f} s^-1 | tau = {tau_3pts:.4f} Pa")
-print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimación con 2 puntos")
+print(f"Forward 3 puntos O(h2): du/dy = {du_dy_3pts:.4f} s^-1 | tau = {tau_3pts:.4f} Pa")
+print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimacion con 2 puntos")
 `;
 
     /* ==========================================================================
-       4. GRÁFICOS PRECALCULADOS VECTORIALES (FALLBACK DE ALTA FIDELIDAD)
+       3. GRÁFICOS PRECALCULADOS VECTORIALES (EXACTOS SIN MODIFICAR)
        ========================================================================== */
-    const precomputedSvgS9 = `
-    <svg viewBox="0 0 740 430" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="font-family:'Plus Jakarta Sans', sans-serif;">
+    const precomputedSvgS5 = `<svg viewBox="0 0 740 430" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="font-family:'Plus Jakarta Sans', sans-serif;">
       <rect width="740" height="430" fill="#ffffff"/>
       <rect x="75" y="38" width="620" height="322" fill="#faf9f6" stroke="#e2e8f0" stroke-width="1"/>
-      
-      <line x1="75" y1="95" x2="695" y2="95" stroke="#e2e8f0" stroke-dasharray="3,3"/>
-      <line x1="75" y1="155" x2="695" y2="155" stroke="#e2e8f0" stroke-dasharray="3,3"/>
-      <line x1="75" y1="215" x2="695" y2="215" stroke="#e2e8f0" stroke-dasharray="3,3"/>
-      <line x1="75" y1="275" x2="695" y2="275" stroke="#e2e8f0" stroke-dasharray="3,3"/>
-      <line x1="75" y1="335" x2="695" y2="335" stroke="#e2e8f0" stroke-dasharray="3,3"/>
-      
-      <line x1="175" y1="38" x2="175" y2="360" stroke="#e2e8f0" stroke-dasharray="3,3"/>
-      <line x1="275" y1="38" x2="275" y2="360" stroke="#e2e8f0" stroke-dasharray="3,3"/>
-      <line x1="375" y1="38" x2="375" y2="360" stroke="#e2e8f0" stroke-dasharray="3,3"/>
-      <line x1="475" y1="38" x2="475" y2="360" stroke="#e2e8f0" stroke-dasharray="3,3"/>
-      <line x1="575" y1="38" x2="575" y2="360" stroke="#e2e8f0" stroke-dasharray="3,3"/>
-
       <line x1="75" y1="340" x2="695" y2="340" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4,4"/>
-      <text x="85" y="335" font-size="10.5" fill="#475569" font-weight="700">Épsilon de máquina IEEE-754 (ε_m ≈ 2.22e-16)</text>
-
-      <path d="M 90,75 Q 220,165 375,235 T 530,155 T 680,60" fill="none" stroke="#b91c1c" stroke-width="2.6"/>
-      <path d="M 90,75 Q 220,175 460,310 T 580,180 T 680,60" fill="none" stroke="#1e3a8a" stroke-width="2.4"/>
-
-      <circle cx="375" cy="235" r="6" fill="#7f1d1d"/>
-      <circle cx="460" cy="310" r="6" fill="#1e3a8a"/>
-
-      <text x="260" y="210" font-size="11.5" font-weight="bold" fill="#b91c1c">Óptimo Forward (h ≈ 1e-8)</text>
-      <line x1="330" y1="215" x2="370" y2="233" stroke="#b91c1c" stroke-width="1.4"/>
-
-      <text x="375" y="345" font-size="11.5" font-weight="bold" fill="#1e3a8a">Óptimo Central (h ≈ 2e-5)</text>
-      <line x1="435" y1="335" x2="456" y2="315" stroke="#1e3a8a" stroke-width="1.2"/>
-
-      <text x="110" y="65" font-size="11" fill="#475569" font-style="italic">Zona Redondeo (Cancelación 1/h)</text>
-      <text x="510" y="65" font-size="11" fill="#475569" font-style="italic">Zona Truncamiento (Taylor h y h²)</text>
-
-      <text x="385" y="395" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">Paso de discretización h (10⁻¹ a 10⁻¹⁵)</text>
-      <text x="24" y="200" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a" transform="rotate(-90, 24, 200)">Error absoluto |f'(x) - f'_{num}|</text>
-      <text x="385" y="24" text-anchor="middle" font-size="13" font-weight="bold" fill="#0f172a">La Curva en "V" de la Diferenciación Numérica en sin(x)</text>
+      <text x="85" y="335" font-size="10" fill="#475569" font-weight="700">Épsilon de máquina (≈2.22e-16)</text>
+      <path d="M 90,75 Q 220,165 375,235 T 530,155 T 680,60" fill="none" stroke="#b91c1c" stroke-width="2.5"/>
+      <path d="M 90,75 Q 220,175 460,310 T 580,180 T 680,60" fill="none" stroke="#0f766e" stroke-width="2.5"/>
+      <circle cx="375" cy="235" r="5.5" fill="#7f1d1d"/>
+      <circle cx="460" cy="310" r="5.5" fill="#044e46"/>
+      <text x="270" y="210" font-size="11" font-weight="bold" fill="#b91c1c">Óptimo Forward (h ≈ 1e-8)</text>
+      <text x="375" y="345" font-size="11" font-weight="bold" fill="#0f766e">Óptimo Central (h ≈ 2e-5)</text>
+      <text x="110" y="65" font-size="11" fill="#475569" font-style="italic">Zona Redondeo</text>
+      <text x="510" y="65" font-size="11" fill="#475569" font-style="italic">Zona Truncamiento</text>
+      <text x="385" y="395" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">Paso de discretización h</text>
+      <text x="385" y="24" text-anchor="middle" font-size="13" font-weight="bold" fill="#0f172a">La Curva en "V" en sin(x)</text>
     </svg>`;
 
-    const precomputedSvgS11 = `
-    <svg viewBox="0 0 680 340" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="font-family:'Plus Jakarta Sans', sans-serif;">
+    const precomputedSvgS6 = `<svg viewBox="0 0 680 340" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="font-family:'Plus Jakarta Sans', sans-serif;">
       <rect width="680" height="340" fill="#ffffff"/>
       <rect x="70" y="25" width="560" height="260" fill="#faf9f6" stroke="#e2e8f0" stroke-width="1"/>
-      
-      <line x1="70" y1="285" x2="630" y2="285" stroke="#0f172a" stroke-width="3.5"/>
-      <text x="80" y="275" font-size="11.5" font-weight="bold" fill="#0f172a">Pared sólida estática (y=0)</text>
-
-      <line x1="70" y1="85" x2="630" y2="85" stroke="#e2e8f0" stroke-dasharray="3,3"/>
-      <line x1="70" y1="145" x2="630" y2="145" stroke="#e2e8f0" stroke-dasharray="3,3"/>
-      <line x1="70" y1="205" x2="630" y2="205" stroke="#e2e8f0" stroke-dasharray="3,3"/>
-
-      <path d="M 70,285 L 235,227 L 385,170 L 505,112 L 585,55" fill="none" stroke="#1e3a8a" stroke-width="2.4"/>
-      <circle cx="70" cy="285" r="5.5" fill="#1e3a8a"/>
-      <circle cx="235" cy="227" r="5.5" fill="#1e3a8a"/>
-      <circle cx="385" cy="170" r="5.5" fill="#1e3a8a"/>
-      <circle cx="505" cy="112" r="5.5" fill="#1e3a8a"/>
-      <circle cx="585" cy="55" r="5.5" fill="#1e3a8a"/>
-
-      <line x1="70" y1="285" x2="390" y2="175" stroke="#b91c1c" stroke-width="2.2" stroke-dasharray="5,4"/>
-      <text x="320" y="200" font-size="11" font-weight="bold" fill="#b91c1c">Tangente 2 pts: 3.090 s⁻¹</text>
-
-      <line x1="70" y1="285" x2="415" y2="162" stroke="#1e3a8a" stroke-width="2.0"/>
-      <text x="320" y="150" font-size="11" font-weight="bold" fill="#1e3a8a">Tangente 3 pts (Nakamura): 3.241 s⁻¹</text>
-
-      <text x="350" y="320" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">Velocidad u [mm/s]</text>
-      <text x="25" y="155" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a" transform="rotate(-90, 25, 155)">Distancia y [mm]</text>
-      <text x="350" y="18" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#0f172a">Perfil de Capa Límite y Gradientes en la Pared</text>
+      <line x1="70" y1="285" x2="630" y2="285" stroke="#0f172a" stroke-width="3"/>
+      <text x="80" y="275" font-size="11" font-weight="bold" fill="#0f172a">Pared sólida (y=0)</text>
+      <path d="M 70,285 L 235,227 L 385,170 L 505,112 L 585,55" fill="none" stroke="#0f766e" stroke-width="2.5"/>
+      <circle cx="70" cy="285" r="5.5" fill="#0f766e"/><circle cx="235" cy="227" r="5" fill="#0f766e"/>
+      <circle cx="385" cy="170" r="5" fill="#0f766e"/><circle cx="505" cy="112" r="5" fill="#0f766e"/><circle cx="585" cy="55" r="5" fill="#0f766e"/>
+      <line x1="70" y1="285" x2="390" y2="175" stroke="#b91c1c" stroke-width="2" stroke-dasharray="5,4"/>
+      <text x="320" y="200" font-size="10.5" font-weight="bold" fill="#b91c1c">Tangente 2 pts: 3.090 s⁻¹</text>
+      <line x1="70" y1="285" x2="415" y2="162" stroke="#0f766e" stroke-width="2.2"/>
+      <text x="320" y="150" font-size="10.5" font-weight="bold" fill="#0f766e">Tangente 3 pts: 3.241 s⁻¹</text>
+      <text x="350" y="320" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#0f172a">Velocidad u [mm/s]</text>
+      <text x="350" y="18" text-anchor="middle" font-size="12" font-weight="bold" fill="#0f172a">Perfil de Capa Límite en la Pared</text>
     </svg>`;
 
     /* ==========================================================================
-       5. CONTROLADOR DE LA PRESENTACIÓN (NAVEGACIÓN DIAPOSITIVAS)
+       4. CONTROLADOR DE LA PRESENTACIÓN (13 DIAPOSITIVAS)
        ========================================================================== */
     const totalSlidesCount = 13;
     let currentActiveSlide = 1;
 
-    let editorInstanceS9 = null;
-    let editorInstanceS11 = null;
+    let editorInstanceS5 = null;
+    let editorInstanceS6 = null;
 
     function initPresentationEngine() {
       const hash = window.location.hash;
@@ -2058,11 +1773,11 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimación con 2 puntos")
       setupPresentationEvents();
       setupCodeMirrorInstances();
 
-      document.getElementById('svgHostS9').innerHTML = precomputedSvgS9;
-      document.getElementById('svgHostS11').innerHTML = precomputedSvgS11;
+      document.getElementById('svgHostS5').innerHTML = precomputedSvgS5;
+      document.getElementById('svgHostS6').innerHTML = precomputedSvgS6;
 
-      initPyodideWasm();
       resizePresentationDeck();
+      if (currentActiveSlide === 9 || currentActiveSlide === 11) ensurePyodideLoading();
     }
 
     function updateSlideState() {
@@ -2074,18 +1789,20 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimación con 2 puntos")
         }
       }
 
-      document.getElementById('deckCounterLabel').textContent = `${currentActiveSlide} / ${totalSlidesCount}`;
       const fillPercent = ((currentActiveSlide - 1) / (totalSlidesCount - 1)) * 100;
       document.getElementById('slideProgressFill').style.width = `${fillPercent}%`;
 
-      document.getElementById('btnDeckPrev').disabled = (currentActiveSlide === 1);
-      document.getElementById('btnDeckNext').disabled = (currentActiveSlide === totalSlidesCount);
+      document.querySelectorAll('.btn-header-nav').forEach(btn => {
+        if (btn.title === "Anterior") btn.disabled = (currentActiveSlide === 1);
+        if (btn.title === "Siguiente") btn.disabled = (currentActiveSlide === totalSlidesCount);
+      });
 
       history.replaceState(null, null, `#slide-${currentActiveSlide}`);
-      updateNotesView();
 
-      if (currentActiveSlide === 9 && editorInstanceS9) setTimeout(() => editorInstanceS9.refresh(), 50);
-      if (currentActiveSlide === 11 && editorInstanceS11) setTimeout(() => editorInstanceS11.refresh(), 50);
+      if (currentActiveSlide === 9 && editorInstanceS5) setTimeout(() => editorInstanceS5.refresh(), 50);
+      if (currentActiveSlide === 11 && editorInstanceS6) setTimeout(() => editorInstanceS6.refresh(), 50);
+
+      if (currentActiveSlide === 9 || currentActiveSlide === 11) ensurePyodideLoading();
 
       if (window.renderMathInElement) {
         const activeSlideEl = document.getElementById(`slide-${currentActiveSlide}`);
@@ -2118,18 +1835,6 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimación con 2 puntos")
       if (currentActiveSlide > 1) goToSlideNum(currentActiveSlide - 1);
     }
 
-    function updateNotesView() {
-      const data = speakerNotesData[currentActiveSlide] || { orador1: "", orador2: "", pregunta: "" };
-      document.getElementById('notesIndicatorTag').textContent = `(Diapositiva ${currentActiveSlide} / ${totalSlidesCount})`;
-      document.getElementById('notesTextCol1').textContent = data.orador1;
-      document.getElementById('notesTextCol2').textContent = data.orador2;
-      document.getElementById('notesTextCol3').textContent = data.pregunta;
-    }
-
-    function toggleNotesDrawer() {
-      document.getElementById('speakerDrawerModal').classList.toggle('open');
-    }
-
     function toggleFullscreenDeck() {
       if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen().then(resizePresentationDeck).catch(err => console.warn(err));
@@ -2138,21 +1843,9 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimación con 2 puntos")
       }
     }
 
-    /* ==========================================================================
-       6. GESTIÓN DE EVENTOS DE TECLADO Y TOUCH (SWIPE)
-       ========================================================================== */
     function setupPresentationEvents() {
-      document.getElementById('btnDeckNext').addEventListener('click', goNextSlide);
-      document.getElementById('btnDeckPrev').addEventListener('click', goPrevSlide);
-      document.getElementById('btnDeckNotes').addEventListener('click', toggleNotesDrawer);
-      document.getElementById('btnCloseDrawer').addEventListener('click', toggleNotesDrawer);
-      document.getElementById('btnDeckFullscreen').addEventListener('click', toggleFullscreenDeck);
-
       window.addEventListener('keydown', (e) => {
-        if (e.target.closest('.CodeMirror')) {
-          if (e.key === 'Escape') toggleNotesDrawer();
-          return;
-        }
+        if (e.target.closest('.CodeMirror')) return;
 
         switch (e.key) {
           case 'ArrowRight':
@@ -2180,14 +1873,6 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimación con 2 puntos")
             e.preventDefault();
             toggleFullscreenDeck();
             break;
-          case 'n':
-          case 'N':
-            e.preventDefault();
-            toggleNotesDrawer();
-            break;
-          case 'Escape':
-            document.getElementById('speakerDrawerModal').classList.remove('open');
-            break;
         }
       });
 
@@ -2208,115 +1893,130 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimación con 2 puntos")
       }, { passive: true });
     }
 
-    /* ==========================================================================
-       7. CONFIGURACIÓN DE CODEMIRROR
-       ========================================================================== */
+    function getCode(slideNum) {
+      const editor = slideNum === 9 ? editorInstanceS5 : editorInstanceS6;
+      if (editor) return editor.getValue();
+      return document.getElementById(slideNum === 9 ? 'codeEditorS5' : 'codeEditorS6').value;
+    }
+
+    function setCode(slideNum, value) {
+      const editor = slideNum === 9 ? editorInstanceS5 : editorInstanceS6;
+      if (editor) editor.setValue(value);
+      else document.getElementById(slideNum === 9 ? 'codeEditorS5' : 'codeEditorS6').value = value;
+    }
+
     function setupCodeMirrorInstances() {
-      const txtS9 = document.getElementById('codeEditorS9');
-      txtS9.value = defaultPythonCodeS9;
-      editorInstanceS9 = CodeMirror.fromTextArea(txtS9, {
-        mode: 'python',
-        theme: 'eclipse',
-        lineNumbers: true,
-        indentUnit: 4,
-        tabSize: 4,
-        indentWithTabs: false,
-        lineWrapping: false
+      const txtS5 = document.getElementById('codeEditorS5');
+      txtS5.value = defaultPythonCodeS5;
+      const txtS6 = document.getElementById('codeEditorS6');
+      txtS6.value = defaultPythonCodeS6;
+
+      try {
+        if (typeof CodeMirror === 'undefined') throw new Error('CodeMirror en espera');
+        editorInstanceS5 = CodeMirror.fromTextArea(txtS5, {
+          mode: 'python',
+          theme: 'eclipse',
+          lineNumbers: true,
+          indentUnit: 4,
+          tabSize: 4,
+          indentWithTabs: false,
+          lineWrapping: false
+        });
+        editorInstanceS6 = CodeMirror.fromTextArea(txtS6, {
+          mode: 'python',
+          theme: 'eclipse',
+          lineNumbers: true,
+          indentUnit: 4,
+          tabSize: 4,
+          indentWithTabs: false,
+          lineWrapping: false
+        });
+      } catch (err) {
+        editorInstanceS5 = null;
+        editorInstanceS6 = null;
+      }
+
+      document.getElementById('btnRunS5').addEventListener('click', () => runPythonSlide(9));
+      document.getElementById('btnResetS5').addEventListener('click', () => {
+        setCode(9, defaultPythonCodeS5);
+        runPythonSlide(9);
       });
 
-      const txtS11 = document.getElementById('codeEditorS11');
-      txtS11.value = defaultPythonCodeS11;
-      editorInstanceS11 = CodeMirror.fromTextArea(txtS11, {
-        mode: 'python',
-        theme: 'eclipse',
-        lineNumbers: true,
-        indentUnit: 4,
-        tabSize: 4,
-        indentWithTabs: false,
-        lineWrapping: false
+      document.getElementById('btnRunS6').addEventListener('click', () => runPythonSlide(11));
+      document.getElementById('btnResetS6').addEventListener('click', () => {
+        setCode(11, defaultPythonCodeS6);
+        runPythonSlide(11);
       });
 
-      document.getElementById('btnRunS9').addEventListener('click', () => runSlide9Python());
-      document.getElementById('btnResetS9').addEventListener('click', () => {
-        editorInstanceS9.setValue(defaultPythonCodeS9);
-        runSlide9Python();
+      document.getElementById('selectFuncS5').addEventListener('change', (e) => {
+        updateCodeParam(9, 'func_name', `'${e.target.value}'`);
+        runPythonSlide(9);
       });
 
-      document.getElementById('btnRunS11').addEventListener('click', () => runSlide11Python());
-      document.getElementById('btnResetS11').addEventListener('click', () => {
-        editorInstanceS11.setValue(defaultPythonCodeS11);
-        runSlide11Python();
+      document.getElementById('inputX0S5').addEventListener('input', (e) => {
+        document.getElementById('valX0S5').textContent = e.target.value;
+        updateCodeParam(9, 'x0', parseFloat(e.target.value).toFixed(1));
+        runPythonSlide(9);
       });
 
-      document.getElementById('selectFuncS9').addEventListener('change', (e) => {
-        updateCodeParamS9('func_name', `'${e.target.value}'`);
-        runSlide9Python();
+      document.getElementById('selectHRangeS5').addEventListener('change', (e) => {
+        let code = getCode(9);
+        if (e.target.value === '1e-1_1e-15') code = code.replace(/np\.linspace\([^\)]+\)/, 'np.linspace(-1, -15, 120)');
+        else if (e.target.value === '1e-1_1e-18') code = code.replace(/np\.linspace\([^\)]+\)/, 'np.linspace(-1, -18, 120)');
+        else code = code.replace(/np\.linspace\([^\)]+\)/, 'np.linspace(-1, -8, 80)');
+        setCode(9, code);
+        runPythonSlide(9);
       });
 
-      document.getElementById('inputX0S9').addEventListener('input', (e) => {
-        document.getElementById('valX0S9').textContent = e.target.value;
-        updateCodeParamS9('x0', parseFloat(e.target.value).toFixed(1));
-        runSlide9Python();
-      });
-
-      document.getElementById('selectFluidMuS11').addEventListener('change', (e) => {
+      document.getElementById('selectFluidMu').addEventListener('change', (e) => {
         const newMu = e.target.value;
-        updateCodeParamS11('mu', newMu);
-        document.getElementById('labelViscosityS11').textContent = `\\mu = ${parseFloat(newMu).toFixed(3)} Pa·s`;
-        if (window.renderMathInElement) renderMathInElement(document.getElementById('labelViscosityS11'));
-        runSlide11Python();
+        updateCodeParam(11, 'mu', newMu);
+        document.getElementById('labelViscosity').textContent = `\\mu = ${parseFloat(newMu).toFixed(3)} Pa·s`;
+        if (window.renderMathInElement) renderMathInElement(document.getElementById('labelViscosity'));
+        runPythonSlide(11);
       });
 
-      document.getElementById('inputU1ModS11').addEventListener('input', (e) => {
+      document.getElementById('inputU1Mod').addEventListener('input', (e) => {
         const newU1 = parseFloat(e.target.value).toFixed(6);
-        let code = editorInstanceS11.getValue();
+        let code = getCode(11);
         code = code.replace(/(u\s*=\s*np\.array\(\[0\.0,\s*)([0-9\.]+)/, `$1${newU1}`);
-        editorInstanceS11.setValue(code);
-        runSlide11Python();
+        setCode(11, code);
+        runPythonSlide(11);
       });
     }
 
-    function updateCodeParamS9(paramName, newValue) {
-      let code = editorInstanceS9.getValue();
+    function updateCodeParam(slideNum, paramName, newValue) {
+      let code = getCode(slideNum);
       const regex = new RegExp(`(${paramName}\\s*=\\s*)([^\\n#]+)`);
-      if (regex.test(code)) {
-        code = code.replace(regex, `$1${newValue}`);
-        editorInstanceS9.setValue(code);
-      }
-    }
-
-    function updateCodeParamS11(paramName, newValue) {
-      let code = editorInstanceS11.getValue();
-      const regex = new RegExp(`(${paramName}\\s*=\\s*)([^\\n#]+)`);
-      if (regex.test(code)) {
-        code = code.replace(regex, `$1${newValue}`);
-        editorInstanceS11.setValue(code);
-      }
+      if (regex.test(code)) setCode(slideNum, code.replace(regex, `$1${newValue}`));
     }
 
     /* ==========================================================================
-       8. MOTOR PYODIDE (PYTHON REAL EN WEBASSEMBLY)
+       5. MOTOR PYODIDE (PYTHON REAL EN WEBASSEMBLY)
        ========================================================================== */
     let pyodideInstance = null;
     let pyodideReadyFlag = false;
     let isPyodideLoadingFlag = false;
 
+    function ensurePyodideLoading() {
+      if (isPyodideLoadingFlag || pyodideReadyFlag) return;
+      initPyodideWasm();
+    }
+
     async function initPyodideWasm() {
       if (isPyodideLoadingFlag || pyodideReadyFlag) return;
       isPyodideLoadingFlag = true;
-      setPyodideStatus('loading', 'Cargando Pyodide Wasm...');
 
       try {
+        if (typeof loadPyodide !== 'function') throw new Error('Script de Pyodide no disponible todavía');
         pyodideInstance = await loadPyodide({
           indexURL: "https://cdn.jsdelivr.net/pyodide/v0.26.4/full/"
         });
 
-        setPyodideStatus('loading', 'Cargando NumPy & Matplotlib...');
         await pyodideInstance.loadPackage(["numpy", "matplotlib"]);
 
         await pyodideInstance.runPythonAsync(`
 import sys, io, traceback
-import numpy as np
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -2326,13 +2026,10 @@ def execute_user_script(script_code):
     stdout_capture = io.StringIO()
     sys.stdout = stdout_capture
     sys.stderr = stdout_capture
-    
-    loc = {}
     try:
-        exec(script_code, globals(), loc)
+        exec(script_code, {})
         sys.stdout = sys.__stdout__
         sys.stderr = sys.__stderr__
-        
         svg_content = None
         if plt.get_fignums():
             fig = plt.gcf()
@@ -2340,136 +2037,77 @@ def execute_user_script(script_code):
             fig.savefig(svg_buf, format='svg', bbox_inches='tight')
             plt.close('all')
             svg_content = svg_buf.getvalue()
-            
-        return {
-            "success": True,
-            "stdout": stdout_capture.getvalue(),
-            "svg": svg_content,
-            "error": None,
-            "traceback": None,
-            "data": {k: float(v) for k, v in loc.items() if isinstance(v, (int, float, np.floating, np.integer))}
-        }
+        return {"success": True, "stdout": stdout_capture.getvalue(), "svg": svg_content, "error": None, "traceback": None}
     except Exception as e:
         sys.stdout = sys.__stdout__
         sys.stderr = sys.__stderr__
-        return {
-            "success": False,
-            "stdout": stdout_capture.getvalue(),
-            "svg": None,
-            "error": str(e),
-            "traceback": traceback.format_exc(),
-            "data": {}
-        }
+        return {"success": False, "stdout": stdout_capture.getvalue(), "svg": None, "error": str(e), "traceback": traceback.format_exc()}
 `);
 
         pyodideReadyFlag = true;
         isPyodideLoadingFlag = false;
-        setPyodideStatus('ready', 'Python 3.12 (NumPy) Listo');
 
-        if (currentActiveSlide === 9) runSlide9Python();
-        if (currentActiveSlide === 11) runSlide11Python();
+        if (currentActiveSlide === 9) runPythonSlide(9);
+        if (currentActiveSlide === 11) runPythonSlide(11);
       } catch (err) {
-        console.error("Pyodide offline:", err);
+        console.error("Pyodide no disponible:", err);
         isPyodideLoadingFlag = false;
-        setPyodideStatus('error', 'Pyodide Offline (Modo Estático)');
       }
     }
 
-    function setPyodideStatus(state, msg) {
-      const pill = document.getElementById('pyodidePill');
-      const text = document.getElementById('pyodidePillText');
-      pill.className = `pyodide-status-badge ${state}`;
-      text.textContent = msg;
-    }
-
-    async function runSlide9Python() {
-      const code = editorInstanceS9 ? editorInstanceS9.getValue() : defaultPythonCodeS9;
-      const loader = document.getElementById('loaderS9');
-      const consoleEl = document.getElementById('consoleS9');
-      const errorBox = document.getElementById('errorBoxS9');
-      const svgHost = document.getElementById('svgHostS9');
+    async function runPythonSlide(slideNum) {
+      const code = getCode(slideNum);
+      const isS9 = (slideNum === 9);
+      const loader = document.getElementById(isS9 ? 'loaderS5' : 'loaderS6');
+      const consoleEl = document.getElementById(isS9 ? 'consoleS5' : 'consoleS6');
+      const errorBox = document.getElementById(isS9 ? 'errorBoxS5' : 'errorBoxS6');
+      const svgHost = document.getElementById(isS9 ? 'svgHostS5' : 'svgHostS6');
+      const runBtn = document.getElementById(isS9 ? 'btnRunS5' : 'btnRunS6');
 
       errorBox.classList.remove('active');
       errorBox.textContent = '';
 
       if (!pyodideReadyFlag) {
-        consoleEl.textContent = "[AVISO]: Pyodide cargándose desde CDN. Mostrando gráfico vectorial precalculado de referencia.";
+        consoleEl.textContent = "[AVISO]: Pyodide cargándose en segundo plano. Mostrando gráfico de referencia precalculado.";
+        ensurePyodideLoading();
         return;
       }
 
+      if (runBtn) runBtn.disabled = true;
       loader.classList.add('active');
 
       try {
-        pyodideInstance.globals.set("temp_code_s9", code);
-        const resProxy = await pyodideInstance.runPythonAsync("execute_user_script(temp_code_s9)");
+        pyodideInstance.globals.set("temp_code", code);
+        const resProxy = await pyodideInstance.runPythonAsync("execute_user_script(temp_code)");
         const res = resProxy.toJs({ dict_converter: Object.fromEntries });
         resProxy.destroy();
 
         loader.classList.remove('active');
-
         if (res.stdout) consoleEl.textContent = res.stdout;
 
         if (res.success) {
           if (res.svg) svgHost.innerHTML = res.svg;
 
-          const out = res.stdout || "";
-          const mFwd = out.match(/Forward:\s*h_opt\s*=\s*([^\s|]+)\s*\|\s*Error\s*=\s*([^\n]+)/);
-          const mCent = out.match(/Central:\s*h_opt\s*=\s*([^\s|]+)\s*\|\s*Error\s*=\s*([^\n]+)/);
-
-          if (mFwd) document.getElementById('metFwdOpt').textContent = `h ≈ ${mFwd[1]} | Error ~${parseFloat(mFwd[2]).toExponential(1)}`;
-          if (mCent) document.getElementById('metCentOpt').textContent = `h ≈ ${mCent[1]} | Error ~${parseFloat(mCent[2]).toExponential(1)}`;
-        } else {
-          errorBox.textContent = `Error en script Python:\n${res.traceback || res.error}`;
-          errorBox.classList.add('active');
-        }
-      } catch (err) {
-        loader.classList.remove('active');
-        errorBox.textContent = `Error Pyodide: ${err.message}`;
-        errorBox.classList.add('active');
-      }
-    }
-
-    async function runSlide11Python() {
-      const code = editorInstanceS11 ? editorInstanceS11.getValue() : defaultPythonCodeS11;
-      const loader = document.getElementById('loaderS11');
-      const consoleEl = document.getElementById('consoleS11');
-      const errorBox = document.getElementById('errorBoxS11');
-      const svgHost = document.getElementById('svgHostS11');
-
-      errorBox.classList.remove('active');
-      errorBox.textContent = '';
-
-      if (!pyodideReadyFlag) {
-        consoleEl.textContent = "[AVISO]: Pyodide cargándose desde CDN. Mostrando cálculo fluidodinámico de referencia.";
-        return;
-      }
-
-      loader.classList.add('active');
-
-      try {
-        pyodideInstance.globals.set("temp_code_s11", code);
-        const resProxy = await pyodideInstance.runPythonAsync("execute_user_script(temp_code_s11)");
-        const res = resProxy.toJs({ dict_converter: Object.fromEntries });
-        resProxy.destroy();
-
-        loader.classList.remove('active');
-
-        if (res.stdout) consoleEl.textContent = res.stdout;
-
-        if (res.success) {
-          if (res.svg) svgHost.innerHTML = res.svg;
-
-          const out = res.stdout || "";
-          const mFwd = out.match(/Forward 2 puntos O\(h\):\s*du\/dy\s*=\s*([^\s]+)\s*s\^-1\s*\|\s*tau\s*=\s*([^\s]+)\s*Pa/);
-          const mNak = out.match(/Forward 3 puntos O\(h²\):\s*du\/dy\s*=\s*([^\s]+)\s*s\^-1\s*\|\s*tau\s*=\s*([^\s]+)\s*Pa/);
-
-          if (mFwd) {
-            document.getElementById('tdFwdGradS11').textContent = `${parseFloat(mFwd[1]).toFixed(4)} s⁻¹`;
-            document.getElementById('tdFwdTauS11').textContent = `${parseFloat(mFwd[2]).toFixed(4)} Pa`;
-          }
-          if (mNak) {
-            document.getElementById('tdNakGradS11').textContent = `${parseFloat(mNak[1]).toFixed(4)} s⁻¹`;
-            document.getElementById('tdNakTauS11').textContent = `${parseFloat(mNak[2]).toFixed(4)} Pa`;
+          if (isS9) {
+            const out = res.stdout || "";
+            const mFwd = out.match(/Forward:\s*h_opt\s*=\s*([^\s|]+)\s*\|\s*Error\s*=\s*([^\n]+)/);
+            const mCent = out.match(/Central:\s*h_opt\s*=\s*([^\s|]+)\s*\|\s*Error\s*=\s*([^\n]+)/);
+            const mGain = out.match(/Ganancia Central vs Forward:\s*([^\n]+)/);
+            if (mFwd) document.getElementById('metFwdOpt').textContent = `h ≈ ${mFwd[1]}`;
+            if (mCent) document.getElementById('metCentOpt').textContent = `h ≈ ${mCent[1]}`;
+            if (mGain) document.getElementById('metGainOpt').textContent = mGain[1].replace(' veces más preciso', '×');
+          } else {
+            const out = res.stdout || "";
+            const mFwd = out.match(/Forward 2 puntos O\(h\):\s*du\/dy\s*=\s*([^\s]+)\s*s\^-1\s*\|\s*tau\s*=\s*([^\s]+)\s*Pa/);
+            const mNak = out.match(/Forward 3 puntos O\(h2\):\s*du\/dy\s*=\s*([^\s]+)\s*s\^-1\s*\|\s*tau\s*=\s*([^\s]+)\s*Pa/);
+            if (mFwd) {
+              document.getElementById('tdFwdGrad').textContent = `${parseFloat(mFwd[1]).toFixed(4)} s⁻¹`;
+              document.getElementById('tdFwdTau').textContent = `${parseFloat(mFwd[2]).toFixed(4)} Pa`;
+            }
+            if (mNak) {
+              document.getElementById('tdNakGrad').textContent = `${parseFloat(mNak[1]).toFixed(4)} s⁻¹`;
+              document.getElementById('tdNakTau').textContent = `${parseFloat(mNak[2]).toFixed(4)} Pa`;
+            }
           }
         } else {
           errorBox.textContent = `Error en script Python:\n${res.traceback || res.error}`;
@@ -2479,6 +2117,8 @@ def execute_user_script(script_code):
         loader.classList.remove('active');
         errorBox.textContent = `Error Pyodide: ${err.message}`;
         errorBox.classList.add('active');
+      } finally {
+        if (runBtn) runBtn.disabled = false;
       }
     }
 
