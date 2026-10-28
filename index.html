@@ -28,6 +28,7 @@
   <script defer src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
 
       <style>
+
     /* ==========================================================================
        ESTILO VISUAL: CORPORATIVO INDUSTRIAL (INSPIRADO EN PLANTILLAS DE REFERENCIA)
        Paleta: Blanco dominante (#FFFFFF), Negro carbón (#1E1E1E) y Amarillo oro (#FCC10B)
@@ -994,6 +995,61 @@
 
     .cfd-results-table-hero tr.highlight-cfd td {
       color: var(--text-main);
+    }
+  
+    /* ==========================================================================
+       FONDO CORPORATIVO GEOMÉTRICO AMARILLO Y NEGRO (INSPIRADO EN PLANTILLA DE REFERENCIA)
+       Aplicado a diapositivas 2 a 19 (EXCLUIDAS Diapositiva 14 y 16 por ser laboratorios interactivos)
+       ========================================================================== */
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16) {
+      background-color: #201E1F !important;
+      background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%201600%20900%27%20width%3D%271600%27%20height%3D%27900%27%20preserveAspectRatio%3D%27none%27%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%27bgDark%27%20x1%3D%270%25%27%20y1%3D%270%25%27%20x2%3D%27100%25%27%20y2%3D%27100%25%27%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27%23262425%27/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%2750%25%27%20stop-color%3D%27%23201E1F%27/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%27100%25%27%20stop-color%3D%27%23191819%27/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3Cfilter%20id%3D%27shadow%27%20x%3D%27-20%25%27%20y%3D%27-20%25%27%20width%3D%27140%25%27%20height%3D%27140%25%27%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%27-8%27%20dy%3D%2710%27%20stdDeviation%3D%2712%27%20flood-color%3D%27%23000000%27%20flood-opacity%3D%270.65%27/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%0A%20%20%3C%21--%20Deep%20dark%20base%20--%3E%0A%20%20%3Crect%20width%3D%271600%27%20height%3D%27900%27%20fill%3D%27url%28%23bgDark%29%27/%3E%0A%0A%20%20%3C%21--%20%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%20LEFT%20GEOMETRIC%20SLABS%20%28IMAGE%203%29%20%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%20--%3E%0A%20%20%3Cg%20id%3D%27left-group%27%3E%0A%20%20%20%20%3C%21--%20Dark%20background%20slab%20under%20yellow%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%27-120%2C-80%20180%2C-80%20-60%2C540%20-260%2C540%27%20fill%3D%27%23141314%27%20filter%3D%27url%28%23shadow%29%27/%3E%0A%0A%20%20%20%20%3C%21--%20Secondary%20dark%20gray%20slab%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%27-40%2C-80%20130%2C-80%20-110%2C500%20-220%2C500%27%20fill%3D%27%232A2829%27/%3E%0A%0A%20%20%20%20%3C%21--%20Primary%20bold%20yellow%20diagonal%20band%20%28narrowed%20at%20top%20to%20avoid%20title%20collision%29%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%27-90%2C-80%2042%2C-80%20-160%2C520%20-280%2C520%27%20fill%3D%27%23FCC10B%27%20filter%3D%27url%28%23shadow%29%27/%3E%0A%0A%20%20%20%20%3C%21--%20Overlapping%20charcoal%20accent%20polygon%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%27-60%2C-80%2015%2C-80%20-185%2C460%20-250%2C460%27%20fill%3D%27%231E1D1E%27/%3E%0A%0A%20%20%20%20%3C%21--%20Lower-left%20thin%20diagonal%20stripes%20from%20Image%203%20--%3E%0A%20%20%20%20%3Cline%20x1%3D%27-40%27%20y1%3D%27620%27%20x2%3D%27110%27%20y2%3D%27840%27%20stroke%3D%27%23FCC10B%27%20stroke-width%3D%274.5%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%27-15%27%20y1%3D%27660%27%20x2%3D%2785%27%20y2%3D%27810%27%20stroke%3D%27%23FCC10B%27%20stroke-width%3D%273.5%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%27-80%27%20y1%3D%27730%27%20x2%3D%2735%27%20y2%3D%27900%27%20stroke%3D%27%23706E70%27%20stroke-width%3D%272.5%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%27-50%27%20y1%3D%27780%27%20x2%3D%2750%27%20y2%3D%27930%27%20stroke%3D%27%23FCC10B%27%20stroke-width%3D%272%27/%3E%0A%20%20%3C/g%3E%0A%0A%20%20%3C%21--%20%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%20RIGHT%20GEOMETRIC%20SLABS%20%28IMAGE%203%29%20%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%20--%3E%0A%20%20%3Cg%20id%3D%27right-group%27%3E%0A%20%20%20%20%3C%21--%20Major%20dark%20underlay%20slab%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%271260%2C950%201720%2C950%201720%2C120%201440%2C120%27%20fill%3D%27%23131213%27%20filter%3D%27url%28%23shadow%29%27/%3E%0A%0A%20%20%20%20%3C%21--%20Upper%20right%20thin%20gray%20accent%20lines%20--%3E%0A%20%20%20%20%3Cline%20x1%3D%271420%27%20y1%3D%2740%27%20x2%3D%271550%27%20y2%3D%27220%27%20stroke%3D%27%237A7879%27%20stroke-width%3D%273%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%271455%27%20y1%3D%2730%27%20x2%3D%271580%27%20y2%3D%27205%27%20stroke%3D%27%23FCC10B%27%20stroke-width%3D%274.5%27/%3E%0A%0A%20%20%20%20%3C%21--%20Major%20bold%20yellow%20diagonal%20band%20running%20down%20right%20edge%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%271490%2C-60%201660%2C-60%201880%2C950%201700%2C950%27%20fill%3D%27%23FCC10B%27%20filter%3D%27url%28%23shadow%29%27/%3E%0A%0A%20%20%20%20%3C%21--%20Lower%20right%20yellow%20triangle%20/%20polygon%20filling%20bottom%20right%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%271370%2C950%201750%2C950%201750%2C380%201510%2C380%27%20fill%3D%27%23FCC10B%27%20filter%3D%27url%28%23shadow%29%27/%3E%0A%0A%20%20%20%20%3C%21--%20Charcoal%20slab%20overlay%20slicing%20through%20the%20yellow%20on%20right%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%271610%2C-40%201740%2C-40%201490%2C950%201350%2C950%27%20fill%3D%27%23242223%27%20filter%3D%27url%28%23shadow%29%27/%3E%0A%0A%20%20%20%20%3C%21--%20Lower%20right%20thin%20accent%20lines%20--%3E%0A%20%20%20%20%3Cline%20x1%3D%271240%27%20y1%3D%27780%27%20x2%3D%271360%27%20y2%3D%27950%27%20stroke%3D%27%23FCC10B%27%20stroke-width%3D%273.5%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%271210%27%20y1%3D%27810%27%20x2%3D%271300%27%20y2%3D%27940%27%20stroke%3D%27%23686667%27%20stroke-width%3D%272.5%27/%3E%0A%20%20%3C/g%3E%0A%3C/svg%3E") !important;
+      background-size: 100% 100% !important;
+      background-repeat: no-repeat !important;
+    }
+
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16)::before,
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16)::after {
+      display: none !important;
+    }
+
+    /* Título de las páginas adaptado al fondo oscuro con máxima legibilidad */
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .slide-main-title {
+      color: #FFFFFF !important;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+    }
+
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .slide-sub-desc {
+      color: #D6D6D6 !important;
+    }
+
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .slide-meta-tag {
+      color: #A4A4A4 !important;
+    }
+
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .slide-top-header {
+      border-bottom: 2px solid rgba(255, 255, 255, 0.22) !important;
+    }
+
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .slide-top-header::after {
+      background: #FCC10B !important;
+    }
+
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .badge-counter {
+      background: #161516 !important;
+      color: #FCC10B !important;
+      border: 1px solid #383838 !important;
+      border-left: 3.5px solid #FCC10B !important;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.4) !important;
+    }
+
+    /* Cuadrados / Tarjetas preservados exactamente como están (blancos con acento amarillo y sombra flotante) */
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .single-focus-card,
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .hero-col-card,
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .table-card-hero {
+      background: #FFFFFF !important;
+      border: 1.5px solid #1E1E1E !important;
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.45) !important;
     }
   </style>
 </head>
