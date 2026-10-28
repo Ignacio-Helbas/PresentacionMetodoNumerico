@@ -299,47 +299,49 @@
 
     .cover-bottom-left-integrantes {
       position: absolute;
-      bottom: 30px;
-      left: 40px;
+      bottom: 34px;
+      left: 44px;
       text-align: left;
-      font-family: var(--font-penmanship);
-      background: var(--bg-dark);
-      color: var(--text-on-dark);
-      padding: 14px 24px;
-      border-left: 6px solid var(--col-yellow);
+      background: #0f172a;
+      color: #ffffff;
+      padding: 16px 26px;
+      border: 1px solid #1e293b;
+      border-left: 6px solid var(--col-yellow-bright);
       border-radius: var(--radius-sm);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
 
     .integrantes-heading {
-      font-size: 0.92rem;
+      font-size: 0.82rem;
       font-weight: 800;
       text-transform: uppercase;
       color: var(--col-yellow-bright);
-      letter-spacing: 0.08em;
-      margin-bottom: 4px;
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
       font-family: var(--font-mono);
+    }
+
+    .integrantes-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
 
     .integrantes-item {
-      font-size: 1.25rem;
+      font-size: 1.22rem;
       font-weight: 700;
       color: #ffffff;
-      line-height: 1.4;
+      font-family: var(--font-sans);
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      line-height: 1.3;
     }
 
-    .cover-bottom-right-hint {
-      position: absolute;
-      bottom: 34px;
-      right: 40px;
-      font-family: var(--font-mono);
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--text-main);
-      background: #ffffff;
-      padding: 6px 16px;
-      border: 2px solid var(--border-dark);
-      border-radius: var(--radius-sm);
+    .integrantes-dot {
+      color: var(--col-yellow-bright);
+      font-size: 0.9rem;
     }
 
     /* ==========================================================================
@@ -851,13 +853,11 @@
           </div>
 
           <div class="cover-bottom-left-integrantes">
-            <div class="integrantes-heading">Integrantes</div>
-            <div class="integrantes-item">* Adrian Arenas</div>
-            <div class="integrantes-item">* Ignacio Helbas</div>
-          </div>
-
-          <div class="cover-bottom-right-hint">
-            Navegar con flechas [←] [→] o Barra Espaciadora
+            <div class="integrantes-heading">INTEGRANTES</div>
+            <div class="integrantes-list">
+              <div class="integrantes-item"><span class="integrantes-dot">▪</span> Adrián Arenas</div>
+              <div class="integrantes-item"><span class="integrantes-dot">▪</span> Ignacio Helbas</div>
+            </div>
           </div>
         </div>
       </section>
