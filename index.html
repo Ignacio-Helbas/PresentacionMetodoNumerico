@@ -24,54 +24,53 @@
   <!-- Pyodide para ejecución real de Python en WebAssembly -->
   <script defer src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
 
-    <style>
+      <style>
     /* ==========================================================================
-       ESTILO VISUAL: BLUEPRINT DE INGENIERÍA (ELECTROMECÁNICA UTN)
-       Tipografía: STIX Two Text (Cuerpo/Títulos) + JetBrains Mono (Técnico/Código)
-       Paleta: Papel técnico cálido (#F2F0E6), Azul Tinta (#12233C) y Cobre apagado (#C87F3B)
+       ESTILO VISUAL: EDITORIAL CORPORATIVO & DINÁMICO (CURVAS Y DIAGONALES)
+       Tipografía: STIX Two Text (Títulos/Cuerpo) + JetBrains Mono (Técnico/Código)
+       Paleta: Blanco dominante (#FFFFFF), Negro carbón (#111111) y Amarillo oro (#E8B320)
        ========================================================================== */
     :root {
-      /* Lienzo y superficies de plano de ingeniería */
-      --bg-stage: #12233C;          /* Azul tinta profundo para marco exterior */
-      --bg-slide: #F2F0E6;          /* Base de papel técnico cálido */
-      --bg-card: #FFFFFF;           /* Blanco puro de soporte documental */
-      --bg-card-subtle: #EBE7DC;    /* Panel técnico secundario */
-      --bg-dark: #12233C;           /* Azul tinta estructural */
-      --bg-dark-card: #182C4A;      /* Consola y editor */
+      /* Lienzo blanco luminoso y superficies */
+      --bg-stage: #141414;          /* Fondo exterior oscuro para enmarcar la lámina */
+      --bg-slide: #FFFFFF;          /* Base de la diapositiva en blanco puro */
+      --bg-card: #FFFFFF;           /* Tarjeta principal blanca */
+      --bg-card-subtle: #F9F9F6;    /* Fondo secundario tenue */
+      --bg-dark: #111111;           /* Negro carbón profundo */
+      --bg-dark-card: #1A1A1A;      /* Consola y editor */
 
-      /* Tinta y legibilidad técnica (sin negros sintéticos ni grises lavados) */
-      --text-main: #141E28;         /* Tinta carbón técnica oscura */
-      --text-muted: #334155;        /* Azul pizarra técnico para descripciones */
-      --text-light: #5A6A80;        /* Metadatos y etiquetas secundarias */
-      --text-on-dark: #F2F0E6;      /* Off-white sobre azul tinta */
-      --text-on-accent: #FFFFFF;    /* Blanco sobre acento */
-      --text-on-yellow: #FFFFFF;
+      /* Jerarquía tipográfica de alta legibilidad */
+      --text-main: #111111;         /* Negro carbón principal */
+      --text-muted: #383838;        /* Gris oscuro neutro para explicaciones */
+      --text-light: #6A6A6A;        /* Metadatos y etiquetas secundarias */
+      --text-on-dark: #FFFFFF;      /* Blanco puro sobre fondos oscuros */
+      --text-on-yellow: #111111;    /* Texto oscuro sobre amarillo */
 
-      /* Trazos finos y precisos de dibujo de ingeniería */
-      --border-subtle: #D8D4C5;     /* Guía técnica de 1px */
-      --border-strong: #12233C;     /* Trazo azul tinta estructural */
-      --border-dark: #12233C;       /* Borde de plano */
+      /* Trazos finos y sutiles */
+      --border-subtle: #EAEAE4;     /* Delimitador suave de 1px */
+      --border-strong: #111111;     /* Trazo de alto contraste */
+      --border-dark: #111111;       /* Contorno principal */
 
-      /* Único color de acento: Cobre / Ámbar técnico apagado */
-      --col-accent: #C87F3B;        /* Cobre apagado */
-      --col-accent-light: #FAF5EE;  /* Resalte sutil de fórmulas */
-      --col-accent-border: #9E5D24; /* Trazo de énfasis */
+      /* Único acento vivo: Amarillo Oro / Mostaza cálido */
+      --col-yellow: #E8B320;        /* Amarillo oro corporativo */
+      --col-yellow-bright: #F2C230; /* Amarillo mostaza vibrante */
+      --col-yellow-light: #FEF9EB;  /* Fondo suave de destaque */
+      --col-yellow-border: #C8950E; /* Borde y texto en amarillo */
 
-      /* Mapeos de compatibilidad con selectores existentes */
-      --col-yellow: #C87F3B;
-      --col-yellow-bright: #DDA15E;
-      --col-yellow-light: #FAF5EE;
-      --col-yellow-border: #9E5D24;
+      --col-accent: #E8B320;
+      --col-accent-light: #FEF9EB;
+      --col-accent-border: #C8950E;
 
-      /* Solo 2 familias tipográficas (estricto) */
+      /* Solo 2 familias tipográficas */
       --font-serif: 'STIX Two Text', Georgia, serif;
       --font-mono: 'JetBrains Mono', monospace;
       --font-sans: 'STIX Two Text', Georgia, serif;
       --font-penmanship: 'STIX Two Text', Georgia, serif;
 
-      /* Esquinas de plano técnico (sin redondeos excesivos de IA) */
-      --radius-sm: 2px;
-      --radius-md: 2px;
+      /* Esquinas redondeadas y orgánicas */
+      --radius-sm: 8px;
+      --radius-md: 18px;
+      --radius-lg: 28px;
     }
 
     * {
@@ -104,13 +103,14 @@
       overflow: hidden;
     }
 
-    /* Lienzo 16:9 estricto (1600 x 900) con borde fino de plano */
+    /* Lienzo 16:9 estricto (1600 x 900) con bordes suaves */
     #slideDeck {
       width: 1600px;
       height: 900px;
       background-color: var(--bg-slide);
-      border: 1.5px solid var(--border-dark);
-      box-shadow: 0 16px 45px rgba(10, 18, 30, 0.45);
+      border-radius: 12px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
       position: relative;
       overflow: hidden;
       transform-origin: center center;
@@ -125,14 +125,14 @@
       position: absolute;
       top: 0;
       left: 0;
-      padding: 36px 56px 40px 56px;
+      padding: 38px 64px 42px 64px;
       display: none;
       flex-direction: column;
       justify-content: space-between;
       opacity: 0;
       transform: translateX(12px);
-      transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-      background: transparent;
+      transition: opacity 0.22s ease-out, transform 0.22s ease-out;
+      background: #FFFFFF;
       overflow: hidden;
     }
 
@@ -143,33 +143,34 @@
       z-index: 10;
     }
 
-    /* Encabezado técnico sobrio */
+    /* Encabezado con línea dinámica y acento curvado */
     .slide-top-header {
       position: relative;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       border-bottom: 1.5px solid var(--border-subtle);
-      padding-bottom: 14px;
-      margin-bottom: 22px;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
       flex-shrink: 0;
     }
 
     .slide-top-header::after {
       content: '';
       position: absolute;
-      bottom: -1.5px;
+      bottom: -2px;
       left: 0;
-      width: 120px;
-      height: 2.5px;
-      background: var(--col-accent);
+      width: 150px;
+      height: 3.5px;
+      background: var(--col-yellow);
+      border-radius: 0 4px 4px 0;
     }
 
     .slide-header-left {
       max-width: 1350px;
     }
 
-    /* Eyebrow técnico sutil (sin cajas estridentes ni mayúsculas infladas) */
+    /* Eyebrow técnico con punto circular mostaza */
     .slide-meta-tag {
       font-family: var(--font-mono);
       font-size: 0.8rem;
@@ -185,7 +186,7 @@
 
     .meta-tag-badge {
       background: transparent !important;
-      color: var(--col-accent) !important;
+      color: var(--col-yellow-border) !important;
       font-family: var(--font-mono) !important;
       font-size: 0.8rem !important;
       font-weight: 600 !important;
@@ -198,6 +199,16 @@
       align-items: center;
     }
 
+    .meta-tag-badge::before {
+      content: '';
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--col-yellow);
+      margin-right: 8px;
+    }
+
     .meta-tag-badge::after {
       content: " ·";
       color: var(--border-subtle);
@@ -206,11 +217,11 @@
 
     .slide-main-title {
       font-family: var(--font-serif);
-      font-size: 2.3rem;
+      font-size: 2.35rem;
       font-weight: 700;
       color: var(--text-main);
       line-height: 1.15;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.015em;
     }
 
     .slide-sub-desc {
@@ -226,21 +237,32 @@
     .slide-header-controls {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       flex-shrink: 0;
     }
 
-    /* Contador técnico de lámina: 02 / 19 */
+    /* Contador de diapositiva en cápsula redondeada (Pill) */
     .badge-counter {
       font-family: var(--font-mono);
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       font-weight: 600;
-      background: transparent;
+      background: #F8F8F5;
       border: 1px solid var(--border-subtle);
-      padding: 4px 12px;
-      border-radius: 2px;
-      color: var(--text-muted);
-      letter-spacing: 0.05em;
+      padding: 6px 16px;
+      border-radius: 999px;
+      color: var(--text-main);
+      letter-spacing: 0.06em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge-counter::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--col-yellow);
     }
 
     .slide-content-area {
@@ -252,26 +274,27 @@
       min-height: 0;
     }
 
-    /* Barra de progreso inferior fina */
+    /* Barra de progreso inferior fluida */
     .slide-bottom-progress {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      height: 3px;
-      background: var(--border-subtle);
+      height: 4px;
+      background: #F2F2ED;
       z-index: 20;
     }
 
     .slide-progress-fill {
       height: 100%;
       width: 5.2%;
-      background: var(--col-accent);
-      transition: width 0.25s ease-out;
+      background: var(--col-yellow);
+      border-radius: 0 4px 4px 0;
+      transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     /* ==========================================================================
-       PORTADA TÉCNICA (SLIDE 1)
+       PORTADA TÉCNICA (SLIDE 1) CON ARCO ORGÁNICO
        ========================================================================== */
     .cover-layout-minimal {
       position: relative;
@@ -284,46 +307,63 @@
       text-align: center;
     }
 
+    /* Elemento decorativo curvo en esquina superior derecha */
+    .cover-layout-minimal::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232, 179, 32, 0.09) 0%, rgba(232, 179, 32, 0.02) 65%, transparent 75%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
     .cover-center-content {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       margin: auto 0;
+      position: relative;
+      z-index: 1;
     }
 
     .cover-univ-logo {
-      height: 96px;
+      height: 100px;
       width: auto;
       object-fit: contain;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
       display: block;
       opacity: 0.95;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05));
     }
 
     .cover-eyebrow-badge {
-      background: transparent;
-      color: var(--col-accent);
+      background: var(--col-yellow-light);
+      color: var(--col-yellow-border);
       font-family: var(--font-mono);
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      padding: 4px 14px;
-      border: 1px solid var(--col-accent);
-      border-radius: 2px;
+      padding: 5px 20px;
+      border: 1px solid rgba(232, 179, 32, 0.35);
+      border-radius: 999px;
       margin-bottom: 24px;
       box-shadow: none;
     }
 
     .cover-title-hero {
       font-family: var(--font-serif);
-      font-size: 4.1rem;
+      font-size: 4.2rem;
       font-weight: 700;
       color: var(--text-main);
-      line-height: 1.12;
-      margin-bottom: 20px;
-      letter-spacing: -0.01em;
+      line-height: 1.1;
+      margin-bottom: 22px;
+      letter-spacing: -0.015em;
     }
 
     .cover-subtitle-univ {
@@ -336,25 +376,27 @@
       line-height: 1.45;
     }
 
+    /* Tarjeta de integrantes con curvatura diagonal asimétrica */
     .cover-bottom-left-integrantes {
       position: absolute;
-      bottom: 34px;
-      left: 44px;
+      bottom: 40px;
+      left: 54px;
       text-align: left;
       background: #FFFFFF;
       color: var(--text-main);
-      padding: 16px 26px;
+      padding: 18px 30px;
       border: 1px solid var(--border-subtle);
-      border-left: 4px solid var(--col-accent);
-      border-radius: 2px;
-      box-shadow: none;
+      border-left: 5px solid var(--col-yellow);
+      border-radius: 22px 6px 22px 6px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      z-index: 1;
     }
 
     .integrantes-heading {
       font-size: 0.78rem;
       font-weight: 700;
       text-transform: uppercase;
-      color: var(--col-accent);
+      color: var(--col-yellow-border);
       letter-spacing: 0.12em;
       margin-bottom: 8px;
       font-family: var(--font-mono);
@@ -367,7 +409,7 @@
     }
 
     .integrantes-item {
-      font-size: 1.15rem;
+      font-size: 1.16rem;
       font-weight: 600;
       color: var(--text-main);
       font-family: var(--font-serif);
@@ -379,48 +421,48 @@
     }
 
     .integrantes-dot {
-      color: var(--col-accent);
-      font-size: 0.85rem;
+      color: var(--col-yellow);
+      font-size: 0.9rem;
     }
 
     /* ==========================================================================
-       TARJETAS Y CONTENEDORES (SIN SOMBRAS SAAS, TRAZO TÉCNICO LIMPIO)
+       TARJETAS Y CONTENEDORES (CURVAS ASIMÉTRICAS Y MÁXIMO WHITESPACE)
        ========================================================================== */
     .single-focus-card {
-      background: var(--bg-card);
+      background: #FFFFFF;
       border: 1px solid var(--border-subtle);
-      border-top: 3.5px solid var(--col-accent);
-      border-radius: 2px;
-      padding: 34px 44px;
-      box-shadow: none;
+      border-top: 4px solid var(--col-yellow);
+      border-radius: 28px 8px 28px 8px;
+      padding: 38px 48px;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.035);
     }
 
     .focus-card-header {
       margin-bottom: 16px;
     }
 
-    /* Etiqueta técnica sobria en monoespaciada */
+    /* Etiqueta suave en cápsula ovalada */
     .focus-card-tag {
       font-family: var(--font-mono) !important;
-      font-size: 0.8rem !important;
+      font-size: 0.78rem !important;
       font-weight: 600 !important;
+      letter-spacing: 0.06em !important;
       text-transform: uppercase !important;
-      letter-spacing: 0.05em !important;
-      background: transparent !important;
-      color: var(--col-accent) !important;
-      border: none !important;
-      border-left: 2px solid var(--col-accent) !important;
-      padding: 0 0 0 8px !important;
-      border-radius: 0 !important;
+      background: var(--col-yellow-light) !important;
+      color: var(--col-yellow-border) !important;
+      border: 1px solid rgba(232, 179, 32, 0.35) !important;
+      padding: 4px 14px !important;
+      border-radius: 999px !important;
       display: inline-block;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .focus-card-title {
       font-family: var(--font-serif);
-      font-size: 2.2rem;
+      font-size: 2.25rem;
       font-weight: 700;
       color: var(--text-main);
+      letter-spacing: -0.01em;
     }
 
     .focus-card-lead {
@@ -429,21 +471,22 @@
       font-weight: 400;
       color: var(--text-main);
       line-height: 1.5;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
+    /* Bloque de fórmula principal con esquinas redondeadas fluidas */
     .focus-formula-pill {
-      background: #FFFFFF;
+      background: #FAFAF7;
       color: var(--text-main);
       border: 1px solid var(--border-subtle);
-      border-left: 4px solid var(--col-accent);
-      padding: 16px 24px;
-      font-size: 1.65rem;
+      border-left: 5px solid var(--col-yellow);
+      padding: 20px 30px;
+      font-size: 1.7rem;
       text-align: center;
-      border-radius: 2px;
-      margin-bottom: 16px;
+      border-radius: 20px;
+      margin-bottom: 18px;
       overflow: hidden;
-      box-shadow: none;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.015);
     }
 
     .focus-card-desc {
@@ -451,27 +494,28 @@
       font-size: 1.15rem;
       font-weight: 400;
       color: var(--text-muted);
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     .hero-formula-card {
-      background: var(--bg-card);
+      background: #FFFFFF;
       border: 1px solid var(--border-subtle);
-      border-left: 4px solid var(--border-dark);
-      border-radius: 2px;
-      padding: 22px 32px;
+      border-left: 5px solid var(--border-dark);
+      border-radius: 22px 6px 22px 6px;
+      padding: 24px 34px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      margin-bottom: 16px;
-      box-shadow: none;
+      margin-bottom: 18px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.02);
     }
 
     .hero-formula-card.yellow-accent {
-      border-left: 4px solid var(--col-accent);
-      background: var(--col-accent-light);
+      border-left: 5px solid var(--col-yellow);
+      border-radius: 6px 22px 6px 22px;
+      background: var(--col-yellow-light);
     }
 
     .hero-formula-box {
@@ -481,15 +525,15 @@
     }
 
     .hero-concept-banner {
-      background: var(--bg-card);
+      background: #FAFAF7;
       border: 1px solid var(--border-subtle);
-      border-left: 4px solid var(--col-accent);
-      border-radius: 2px;
-      padding: 18px 24px;
+      border-left: 5px solid var(--col-yellow);
+      border-radius: 18px;
+      padding: 20px 28px;
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      box-shadow: none;
+      gap: 5px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.015);
     }
 
     .banner-text-title {
@@ -511,30 +555,32 @@
     .two-cols-hero-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 26px;
+      gap: 28px;
       align-items: stretch;
       height: 100%;
     }
 
     .hero-col-card {
-      background: var(--bg-card);
+      background: #FFFFFF;
       border: 1px solid var(--border-subtle);
-      border-top: 3px solid var(--border-dark);
-      border-radius: 2px;
-      padding: 24px 28px;
+      border-top: 4px solid var(--border-dark);
+      border-radius: 26px 8px 26px 8px;
+      padding: 26px 32px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: none;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.025);
     }
 
     .hero-col-card.yellow-accent {
-      border-top: 3px solid var(--col-accent);
+      border-top: 4px solid var(--col-yellow);
+      border-radius: 8px 26px 8px 26px;
+      background: #FFFDF9;
     }
 
     .hero-col-title {
       font-family: var(--font-serif);
-      font-size: 1.8rem;
+      font-size: 1.85rem;
       font-weight: 700;
       color: var(--text-main);
       margin-bottom: 8px;
@@ -545,7 +591,7 @@
       font-size: 1.12rem;
       font-weight: 400;
       color: var(--text-muted);
-      line-height: 1.5;
+      line-height: 1.55;
       margin-bottom: 14px;
     }
 
@@ -553,12 +599,12 @@
     .wall-diagram-hero {
       height: 200px;
       background: #FFFFFF;
-      border: 1px solid var(--border-dark);
-      border-radius: 2px;
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
       position: relative;
       overflow: hidden;
       margin-bottom: 18px;
-      box-shadow: none;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.02);
     }
 
     .solid-hatch-hero {
@@ -569,12 +615,12 @@
       width: 110px;
       background: repeating-linear-gradient(
         45deg,
-        #12233C,
-        #12233C 6px,
-        #1E3A5F 6px,
-        #1E3A5F 10px
+        #111111,
+        #111111 6px,
+        #222222 6px,
+        #222222 10px
       );
-      border-right: 2px solid var(--border-dark);
+      border-right: 2px solid var(--border-subtle);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -587,7 +633,7 @@
       font-size: 0.85rem;
       font-weight: 600;
       letter-spacing: 0.08em;
-      color: #F2F0E6;
+      color: #FFFFFF;
       text-transform: uppercase;
     }
 
@@ -626,8 +672,9 @@
     }
 
     .node-hero-dot.wall {
-      background: var(--col-accent);
-      outline: 1.5px solid var(--border-dark);
+      background: var(--col-yellow);
+      outline: 2px solid #FFFFFF;
+      box-shadow: 0 0 0 1.5px var(--col-yellow-border);
     }
 
     .node-hero-label {
@@ -641,7 +688,7 @@
     .interactive-workspace-hero {
       display: grid;
       grid-template-columns: 1fr 1.18fr;
-      gap: 24px;
+      gap: 26px;
       height: 100%;
       align-items: stretch;
     }
@@ -650,17 +697,17 @@
       display: flex;
       flex-direction: column;
       background: #FFFFFF;
-      border: 1px solid var(--border-dark);
-      border-radius: 2px;
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
       overflow: hidden;
       height: 100%;
-      box-shadow: none;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.035);
     }
 
     .editor-header-hero {
-      background: #12233C;
-      border-bottom: 2px solid var(--col-accent);
-      padding: 8px 16px;
+      background: #111111;
+      border-bottom: 2.5px solid var(--col-yellow);
+      padding: 10px 18px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -670,50 +717,48 @@
       font-family: var(--font-mono);
       font-size: 0.85rem;
       font-weight: 600;
-      color: #F2F0E6;
+      color: #FFFFFF;
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
     .btn-py-hero {
-      background: var(--col-accent);
-      color: #FFFFFF;
-      border: 1px solid var(--col-accent-border);
+      background: var(--col-yellow);
+      color: #111111;
+      border: none;
       font-family: var(--font-mono);
       font-size: 0.85rem;
       font-weight: 600;
-      padding: 5px 14px;
-      border-radius: 2px;
+      padding: 6px 18px;
+      border-radius: 999px;
       cursor: pointer;
       display: flex;
       align-items: center;
       gap: 6px;
-      transition: opacity 0.15s ease;
+      transition: opacity 0.15s ease, transform 0.1s ease;
     }
 
     .btn-py-hero:hover {
       opacity: 0.9;
+      transform: translateY(-1px);
     }
 
     .btn-reset-hero {
-      background: #1E3A5F;
-      border: 1px solid #2B4C7E;
-      color: #F2F0E6;
+      background: #242424;
+      border: 1px solid #383838;
+      color: #FFFFFF;
       font-family: var(--font-mono);
       font-size: 0.82rem;
       font-weight: 500;
-      padding: 5px 12px;
-      border-radius: 2px;
+      padding: 6px 14px;
+      border-radius: 999px;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
       transition: background 0.15s ease;
     }
 
     .btn-reset-hero:hover {
-      background: #254670;
+      background: #333333;
     }
 
     .cm-wrapper-hero {
@@ -731,8 +776,8 @@
     }
 
     .controls-shelf-hero {
-      background: #EBE7DC;
-      padding: 10px 16px;
+      background: #F9F9F6;
+      padding: 10px 18px;
       display: flex;
       flex-wrap: wrap;
       gap: 16px;
@@ -756,18 +801,18 @@
     .ctrl-item-hero select, .ctrl-item-hero input[type="range"] {
       font-family: var(--font-mono);
       font-size: 0.85rem;
-      padding: 4px 8px;
-      border-radius: 2px;
+      padding: 5px 10px;
+      border-radius: 999px;
       border: 1px solid var(--border-subtle);
       background: #FFFFFF;
     }
 
     .console-box-hero {
-      background: #12233C;
-      color: #F2F0E6;
+      background: #111111;
+      color: #F5F5F0;
       font-family: var(--font-mono);
       font-size: 0.82rem;
-      padding: 10px 14px;
+      padding: 12px 16px;
       max-height: 95px;
       overflow-y: auto;
       white-space: pre-wrap;
@@ -792,22 +837,22 @@
     .display-column-hero {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 16px;
       height: 100%;
     }
 
     .plot-canvas-hero {
       flex: 1;
       background: #FFFFFF;
-      border: 1px solid var(--border-dark);
-      border-radius: 2px;
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       overflow: hidden;
-      padding: 8px;
-      box-shadow: none;
+      padding: 10px;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.035);
     }
 
     .plot-canvas-hero svg {
@@ -819,7 +864,7 @@
     .spinner-overlay-hero {
       position: absolute;
       inset: 0;
-      background: rgba(242, 240, 230, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       display: none;
       flex-direction: column;
       align-items: center;
@@ -836,7 +881,7 @@
       width: 32px;
       height: 32px;
       border: 2px solid var(--border-subtle);
-      border-top-color: var(--col-accent);
+      border-top-color: var(--col-yellow);
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
     }
@@ -848,10 +893,10 @@
     /* Tabla CFD Slide 16 */
     .styled-table-card-hero {
       background: #FFFFFF;
-      border: 1px solid var(--border-dark);
-      border-radius: 2px;
-      padding: 12px 16px;
-      box-shadow: none;
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 14px 18px;
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.025);
     }
 
     .cfd-results-table-hero {
@@ -861,20 +906,20 @@
     }
 
     .cfd-results-table-hero th {
-      background: #12233C;
+      background: #111111;
       font-family: var(--font-mono);
       font-size: 0.8rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: #F2F0E6;
-      padding: 8px 12px;
+      letter-spacing: 0.05em;
+      color: #FFFFFF;
+      padding: 9px 14px;
       text-align: left;
-      border-bottom: 2px solid var(--col-accent);
+      border-bottom: 2.5px solid var(--col-yellow);
     }
 
     .cfd-results-table-hero td {
-      padding: 8px 12px;
+      padding: 9px 14px;
       border-bottom: 1px solid var(--border-subtle);
       font-family: var(--font-mono);
       font-size: 0.95rem;
@@ -882,7 +927,7 @@
     }
 
     .cfd-results-table-hero tr.highlight-cfd {
-      background: var(--col-accent-light);
+      background: var(--col-yellow-light);
       font-weight: 600;
     }
 
