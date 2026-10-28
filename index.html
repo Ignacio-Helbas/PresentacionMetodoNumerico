@@ -29,51 +29,51 @@
 
       <style>
     /* ==========================================================================
-       ESTILO VISUAL: EDITORIAL CORPORATIVO & DINÁMICO (CURVAS Y DIAGONALES)
+       ESTILO VISUAL: CORPORATIVO INDUSTRIAL (INSPIRADO EN PLANTILLAS DE REFERENCIA)
+       Paleta: Blanco dominante (#FFFFFF), Negro carbón (#1E1E1E) y Amarillo oro (#FCC10B)
        Tipografía: STIX Two Text (Títulos/Cuerpo) + JetBrains Mono (Técnico/Código)
-       Paleta: Blanco dominante (#FFFFFF), Negro carbón (#111111) y Amarillo oro (#E8B320)
        ========================================================================== */
     :root {
-      /* Lienzo blanco luminoso y superficies */
-      --bg-stage: #141414;          /* Fondo exterior oscuro para enmarcar la lámina */
-      --bg-slide: #FFFFFF;          /* Base de la diapositiva en blanco puro */
+      /* Lienzo blanco luminoso y superficies corporativas */
+      --bg-stage: #141414;          /* Fondo exterior de proyección */
+      --bg-slide: #FFFFFF;          /* Base de diapositivas en blanco puro */
       --bg-card: #FFFFFF;           /* Tarjeta principal blanca */
-      --bg-card-subtle: #F9F9F6;    /* Fondo secundario tenue */
-      --bg-dark: #111111;           /* Negro carbón profundo */
-      --bg-dark-card: #1A1A1A;      /* Consola y editor */
+      --bg-card-subtle: #F9F9F6;    /* Superficie técnica tenue */
+      --bg-dark: #1E1E1E;           /* Negro carbón corporativo */
+      --bg-dark-card: #252525;      /* Consola y tarjetas oscuras de contraste */
 
-      /* Jerarquía tipográfica de alta legibilidad */
-      --text-main: #111111;         /* Negro carbón principal */
-      --text-muted: #383838;        /* Gris oscuro neutro para explicaciones */
-      --text-light: #6A6A6A;        /* Metadatos y etiquetas secundarias */
-      --text-on-dark: #FFFFFF;      /* Blanco puro sobre fondos oscuros */
-      --text-on-yellow: #111111;    /* Texto oscuro sobre amarillo */
+      /* Jerarquía tipográfica de alto contraste */
+      --text-main: #111111;         /* Negro carbón para máxima lectura */
+      --text-muted: #333333;        /* Gris oscuro neutro para párrafos */
+      --text-light: #555555;        /* Metadatos y etiquetas secundarias */
+      --text-on-dark: #FFFFFF;      /* Blanco sobre fondo negro */
+      --text-on-yellow: #111111;    /* Negro sobre fondo amarillo */
 
-      /* Trazos finos y sutiles */
-      --border-subtle: #EAEAE4;     /* Delimitador suave de 1px */
-      --border-strong: #111111;     /* Trazo de alto contraste */
-      --border-dark: #111111;       /* Contorno principal */
+      /* Trazos y bordes de alta definición */
+      --border-subtle: #E2E2DC;     /* Guía sutil de 1px */
+      --border-strong: #1E1E1E;     /* Borde negro corporativo */
+      --border-dark: #1E1E1E;       /* Marco estructural */
 
-      /* Único acento vivo: Amarillo Oro / Mostaza cálido */
-      --col-yellow: #E8B320;        /* Amarillo oro corporativo */
-      --col-yellow-bright: #F2C230; /* Amarillo mostaza vibrante */
-      --col-yellow-light: #FEF9EB;  /* Fondo suave de destaque */
-      --col-yellow-border: #C8950E; /* Borde y texto en amarillo */
+      /* Acento vivo: Amarillo Oro / Mostaza de las referencias */
+      --col-yellow: #FCC10B;        /* Amarillo oro corporativo */
+      --col-yellow-bright: #FDD835; /* Amarillo vibrante */
+      --col-yellow-light: #FFF9E6;  /* Fondo suave amarillo */
+      --col-yellow-border: #D49B00; /* Borde y énfasis en amarillo */
 
-      --col-accent: #E8B320;
-      --col-accent-light: #FEF9EB;
-      --col-accent-border: #C8950E;
+      --col-accent: #FCC10B;
+      --col-accent-light: #FFF9E6;
+      --col-accent-border: #D49B00;
 
-      /* Solo 2 familias tipográficas */
+      /* Solo 2 familias tipográficas (estricto) */
       --font-serif: 'STIX Two Text', Georgia, serif;
       --font-mono: 'JetBrains Mono', monospace;
       --font-sans: 'STIX Two Text', Georgia, serif;
       --font-penmanship: 'STIX Two Text', Georgia, serif;
 
-      /* Esquinas redondeadas y orgánicas */
-      --radius-sm: 8px;
-      --radius-md: 18px;
-      --radius-lg: 28px;
+      /* Esquinas de diseño corporativo moderno (4px a 6px) */
+      --radius-sm: 4px;
+      --radius-md: 6px;
+      --radius-lg: 8px;
     }
 
     * {
@@ -106,14 +106,14 @@
       overflow: hidden;
     }
 
-    /* Lienzo 16:9 estricto (1600 x 900) con bordes suaves */
+    /* Lienzo 16:9 estricto (1600 x 900) con marco sutil */
     #slideDeck {
       width: 1600px;
       height: 900px;
       background-color: var(--bg-slide);
-      border-radius: 12px;
+      border-radius: 4px;
       border: 1px solid var(--border-subtle);
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5);
       position: relative;
       overflow: hidden;
       transform-origin: center center;
@@ -128,7 +128,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      padding: 38px 64px 42px 64px;
+      padding: 38px 64px 40px 64px;
       display: none;
       flex-direction: column;
       justify-content: space-between;
@@ -146,83 +146,103 @@
       z-index: 10;
     }
 
-    /* Encabezado con línea dinámica y acento curvado */
+    /* Detalle geométrico diagonal en las esquinas para diapositivas 2 en adelante (excepto labs 14 y 16) */
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16)::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 220px;
+      height: 90px;
+      background: linear-gradient(135deg, transparent 48%, #1E1E1E 48%, #1E1E1E 58%, #FCC10B 58%, #FCC10B 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16)::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 140px;
+      height: 55px;
+      background: linear-gradient(315deg, transparent 55%, #FCC10B 55%, #FCC10B 68%, #1E1E1E 68%, #1E1E1E 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* ==========================================================================
+       ENCABEZADO CORPORATIVO (SLIDES 2 A 19)
+       ========================================================================== */
     .slide-top-header {
       position: relative;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      border-bottom: 1.5px solid var(--border-subtle);
-      padding-bottom: 16px;
-      margin-bottom: 24px;
+      border-bottom: 2px solid #1E1E1E;
+      padding-bottom: 14px;
+      margin-bottom: 22px;
       flex-shrink: 0;
+      z-index: 5;
     }
 
+    /* Barra de acento amarillo y negro en el encabezado */
     .slide-top-header::after {
       content: '';
       position: absolute;
       bottom: -2px;
       left: 0;
-      width: 150px;
-      height: 3.5px;
-      background: var(--col-yellow);
-      border-radius: 0 4px 4px 0;
+      width: 160px;
+      height: 4.5px;
+      background: #FCC10B;
+      border-radius: 2px;
     }
 
     .slide-header-left {
       max-width: 1350px;
     }
 
-    /* Eyebrow técnico con punto circular mostaza */
+    /* Eyebrow con badge amarillo corporativo */
     .slide-meta-tag {
       font-family: var(--font-mono);
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: none;
-      color: var(--text-light);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #555555;
       margin-bottom: 6px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
 
     .meta-tag-badge {
-      background: transparent !important;
-      color: var(--col-yellow-border) !important;
+      background: #FCC10B !important;
+      color: #111111 !important;
       font-family: var(--font-mono) !important;
-      font-size: 0.8rem !important;
-      font-weight: 600 !important;
-      padding: 0 !important;
-      border: none !important;
-      border-radius: 0 !important;
-      letter-spacing: 0.04em !important;
+      font-size: 0.76rem !important;
+      font-weight: 800 !important;
+      padding: 3px 10px !important;
+      border-radius: 3px !important;
+      letter-spacing: 0.08em !important;
       text-transform: uppercase !important;
       display: inline-flex;
       align-items: center;
     }
 
-    .meta-tag-badge::before {
-      content: '';
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--col-yellow);
-      margin-right: 8px;
+    .meta-tag-badge::after {
+      display: none !important;
     }
 
-    .meta-tag-badge::after {
-      content: " ·";
-      color: var(--border-subtle);
-      margin-left: 6px;
+    .meta-tag-badge::before {
+      display: none !important;
     }
 
     .slide-main-title {
       font-family: var(--font-serif);
       font-size: 2.35rem;
       font-weight: 700;
-      color: var(--text-main);
+      color: #111111;
       line-height: 1.15;
       letter-spacing: -0.015em;
     }
@@ -230,9 +250,9 @@
     .slide-sub-desc {
       font-family: var(--font-serif);
       font-size: 1.15rem;
-      font-weight: 400;
+      font-weight: 500;
       font-style: italic;
-      color: var(--text-muted);
+      color: #4A4A4A;
       margin-top: 4px;
       line-height: 1.35;
     }
@@ -244,28 +264,25 @@
       flex-shrink: 0;
     }
 
-    /* Contador de diapositiva en cápsula redondeada (Pill) */
+    /* Contador de diapositiva: Bloque oscuro corporativo con acento amarillo */
     .badge-counter {
       font-family: var(--font-mono);
-      font-size: 0.84rem;
-      font-weight: 600;
-      background: #F8F8F5;
-      border: 1px solid var(--border-subtle);
-      padding: 6px 16px;
-      border-radius: 999px;
-      color: var(--text-main);
-      letter-spacing: 0.06em;
+      font-size: 0.88rem;
+      font-weight: 700;
+      background: #1E1E1E;
+      color: #FCC10B;
+      border: 1px solid #333333;
+      border-left: 3.5px solid #FCC10B;
+      padding: 6px 14px;
+      border-radius: 4px;
+      letter-spacing: 0.08em;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     .badge-counter::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--col-yellow);
+      display: none !important;
     }
 
     .slide-content-area {
@@ -275,25 +292,26 @@
       justify-content: center;
       overflow: hidden;
       min-height: 0;
+      position: relative;
+      z-index: 4;
     }
 
-    /* Barra de progreso inferior fluida */
+    /* Barra de progreso inferior corporativa */
     .slide-bottom-progress {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      height: 4px;
-      background: #F2F2ED;
+      height: 5px;
+      background: #EAEAE5;
       z-index: 20;
     }
 
     .slide-progress-fill {
       height: 100%;
       width: 5.2%;
-      background: var(--col-yellow);
-      border-radius: 0 4px 4px 0;
-      transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      background: #FCC10B;
+      transition: width 0.25s ease-out;
     }
 
     /* ==========================================================================
@@ -339,7 +357,6 @@
       box-sizing: border-box;
     }
 
-    /* Marco diagonal izquierdo para el logo UTN */
     .cover-frame-col {
       display: flex;
       justify-content: center;
@@ -392,7 +409,6 @@
       margin-top: 4px;
     }
 
-    /* Columna de texto derecha */
     .cover-text-col {
       display: flex;
       flex-direction: column;
@@ -469,42 +485,45 @@
     }
 
     /* ==========================================================================
-       TARJETAS Y CONTENEDORES (CURVAS ASIMÉTRICAS Y MÁXIMO WHITESPACE)
+       TARJETAS Y CONTENEDORES CORPORATIVOS (SLIDES 2 A 19)
+       Inspirado en los bloques de alto contraste, tarjetas limpias y barras amarillas
        ========================================================================== */
     .single-focus-card {
       background: #FFFFFF;
-      border: 1px solid var(--border-subtle);
-      border-top: 4px solid var(--col-yellow);
-      border-radius: 28px 8px 28px 8px;
-      padding: 38px 48px;
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.035);
+      border: 1.5px solid #1E1E1E;
+      border-top: 6px solid #FCC10B;
+      border-radius: var(--radius-md);
+      padding: 36px 46px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      position: relative;
     }
 
     .focus-card-header {
       margin-bottom: 16px;
     }
 
-    /* Etiqueta suave en cápsula ovalada */
+    /* Etiqueta / Tag corporativo en amarillo mostaza */
     .focus-card-tag {
       font-family: var(--font-mono) !important;
-      font-size: 0.78rem !important;
-      font-weight: 600 !important;
-      letter-spacing: 0.06em !important;
+      font-size: 0.8rem !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.08em !important;
       text-transform: uppercase !important;
-      background: var(--col-yellow-light) !important;
-      color: var(--col-yellow-border) !important;
-      border: 1px solid rgba(232, 179, 32, 0.35) !important;
+      background: #FCC10B !important;
+      color: #111111 !important;
+      border: none !important;
       padding: 4px 14px !important;
-      border-radius: 999px !important;
+      border-radius: 3px !important;
       display: inline-block;
       margin-bottom: 12px;
+      box-shadow: 0 2px 8px rgba(252, 193, 11, 0.3);
     }
 
     .focus-card-title {
       font-family: var(--font-serif);
       font-size: 2.25rem;
       font-weight: 700;
-      color: var(--text-main);
+      color: #111111;
       letter-spacing: -0.01em;
     }
 
@@ -517,19 +536,19 @@
       margin-bottom: 16px;
     }
 
-    /* Bloque de fórmula principal con esquinas redondeadas fluidas */
+    /* Bloque protagonista de fórmula: Bloque carbón con acento amarillo */
     .focus-formula-pill {
-      background: #FAFAF7;
-      color: var(--text-main);
-      border: 1px solid var(--border-subtle);
-      border-left: 5px solid var(--col-yellow);
+      background: #1E1E1E;
+      color: #FFFFFF;
+      border: 1px solid #333333;
+      border-left: 6px solid #FCC10B;
       padding: 20px 30px;
       font-size: 1.7rem;
       text-align: center;
-      border-radius: 20px;
+      border-radius: var(--radius-md);
       margin-bottom: 18px;
       overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.015);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     }
 
     .focus-card-desc {
@@ -542,9 +561,9 @@
 
     .hero-formula-card {
       background: #FFFFFF;
-      border: 1px solid var(--border-subtle);
-      border-left: 5px solid var(--border-dark);
-      border-radius: 22px 6px 22px 6px;
+      border: 1.5px solid #1E1E1E;
+      border-left: 6px solid #1E1E1E;
+      border-radius: var(--radius-md);
       padding: 24px 34px;
       display: flex;
       flex-direction: column;
@@ -552,13 +571,12 @@
       justify-content: center;
       text-align: center;
       margin-bottom: 18px;
-      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.02);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
     }
 
     .hero-formula-card.yellow-accent {
-      border-left: 5px solid var(--col-yellow);
-      border-radius: 6px 22px 6px 22px;
-      background: var(--col-yellow-light);
+      border-left: 6px solid #FCC10B;
+      background: #FFFDF7;
     }
 
     .hero-formula-box {
@@ -568,22 +586,22 @@
     }
 
     .hero-concept-banner {
-      background: #FAFAF7;
-      border: 1px solid var(--border-subtle);
-      border-left: 5px solid var(--col-yellow);
-      border-radius: 18px;
+      background: #1E1E1E;
+      color: #FFFFFF;
+      border-left: 6px solid #FCC10B;
+      border-radius: var(--radius-md);
       padding: 20px 28px;
       display: flex;
       flex-direction: column;
       gap: 5px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.015);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     }
 
     .banner-text-title {
       font-family: var(--font-serif);
       font-size: 1.25rem;
       font-weight: 700;
-      color: var(--text-main);
+      color: #FCC10B;
       margin-bottom: 3px;
     }
 
@@ -591,7 +609,7 @@
       font-family: var(--font-serif);
       font-size: 1.12rem;
       font-weight: 400;
-      color: var(--text-muted);
+      color: #E8E8E5;
       line-height: 1.5;
     }
 
@@ -605,27 +623,26 @@
 
     .hero-col-card {
       background: #FFFFFF;
-      border: 1px solid var(--border-subtle);
-      border-top: 4px solid var(--border-dark);
-      border-radius: 26px 8px 26px 8px;
+      border: 1.5px solid #1E1E1E;
+      border-top: 5px solid #1E1E1E;
+      border-radius: var(--radius-md);
       padding: 26px 32px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.025);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
     }
 
     .hero-col-card.yellow-accent {
-      border-top: 4px solid var(--col-yellow);
-      border-radius: 8px 26px 8px 26px;
-      background: #FFFDF9;
+      border-top: 5px solid #FCC10B;
+      background: #FFFDF7;
     }
 
     .hero-col-title {
       font-family: var(--font-serif);
       font-size: 1.85rem;
       font-weight: 700;
-      color: var(--text-main);
+      color: #111111;
       margin-bottom: 8px;
     }
 
@@ -638,16 +655,16 @@
       margin-bottom: 14px;
     }
 
-    /* Diagrama de pared y fluido */
+    /* Diagrama de pared y fluido (Slide 11) */
     .wall-diagram-hero {
       height: 200px;
       background: #FFFFFF;
-      border: 1px solid var(--border-subtle);
-      border-radius: 20px;
+      border: 2px solid #1E1E1E;
+      border-radius: var(--radius-md);
       position: relative;
       overflow: hidden;
       margin-bottom: 18px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.02);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
     }
 
     .solid-hatch-hero {
@@ -663,7 +680,7 @@
         #222222 6px,
         #222222 10px
       );
-      border-right: 2px solid var(--border-subtle);
+      border-right: 2px solid #1E1E1E;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -674,9 +691,9 @@
       transform: rotate(180deg);
       font-family: var(--font-mono);
       font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      color: #FFFFFF;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #FCC10B;
       text-transform: uppercase;
     }
 
@@ -715,9 +732,8 @@
     }
 
     .node-hero-dot.wall {
-      background: var(--col-yellow);
-      outline: 2px solid #FFFFFF;
-      box-shadow: 0 0 0 1.5px var(--col-yellow-border);
+      background: #FCC10B;
+      outline: 2px solid #1E1E1E;
     }
 
     .node-hero-label {
@@ -727,7 +743,9 @@
       color: var(--text-main);
     }
 
-    /* Slides Interactivas (código y elementos conservados intactos) */
+    /* ==========================================================================
+       SLIDES INTERACTIVAS 14 Y 16 (PRESERVADAS AL 100% EN ESTRUCTURA Y CÓDIGO)
+       ========================================================================== */
     .interactive-workspace-hero {
       display: grid;
       grid-template-columns: 1fr 1.18fr;
@@ -740,16 +758,16 @@
       display: flex;
       flex-direction: column;
       background: #FFFFFF;
-      border: 1px solid var(--border-subtle);
-      border-radius: 20px;
+      border: 1.5px solid #1E1E1E;
+      border-radius: var(--radius-md);
       overflow: hidden;
       height: 100%;
-      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.035);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.05);
     }
 
     .editor-header-hero {
-      background: #111111;
-      border-bottom: 2.5px solid var(--col-yellow);
+      background: #1E1E1E;
+      border-bottom: 2.5px solid #FCC10B;
       padding: 10px 18px;
       display: flex;
       justify-content: space-between;
@@ -767,14 +785,14 @@
     }
 
     .btn-py-hero {
-      background: var(--col-yellow);
+      background: #FCC10B;
       color: #111111;
       border: none;
       font-family: var(--font-mono);
       font-size: 0.85rem;
-      font-weight: 600;
+      font-weight: 700;
       padding: 6px 18px;
-      border-radius: 999px;
+      border-radius: 4px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -795,7 +813,7 @@
       font-size: 0.82rem;
       font-weight: 500;
       padding: 6px 14px;
-      border-radius: 999px;
+      border-radius: 4px;
       cursor: pointer;
       transition: background 0.15s ease;
     }
@@ -845,13 +863,13 @@
       font-family: var(--font-mono);
       font-size: 0.85rem;
       padding: 5px 10px;
-      border-radius: 999px;
+      border-radius: 4px;
       border: 1px solid var(--border-subtle);
       background: #FFFFFF;
     }
 
     .console-box-hero {
-      background: #111111;
+      background: #1E1E1E;
       color: #F5F5F0;
       font-family: var(--font-mono);
       font-size: 0.82rem;
@@ -887,15 +905,15 @@
     .plot-canvas-hero {
       flex: 1;
       background: #FFFFFF;
-      border: 1px solid var(--border-subtle);
-      border-radius: 20px;
+      border: 1.5px solid #1E1E1E;
+      border-radius: var(--radius-md);
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       overflow: hidden;
       padding: 10px;
-      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.035);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.04);
     }
 
     .plot-canvas-hero svg {
@@ -936,10 +954,10 @@
     /* Tabla CFD Slide 16 */
     .styled-table-card-hero {
       background: #FFFFFF;
-      border: 1px solid var(--border-subtle);
-      border-radius: 20px;
+      border: 1.5px solid #1E1E1E;
+      border-radius: var(--radius-md);
       padding: 14px 18px;
-      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.025);
+      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.03);
     }
 
     .cfd-results-table-hero {
@@ -949,7 +967,7 @@
     }
 
     .cfd-results-table-hero th {
-      background: #111111;
+      background: #1E1E1E;
       font-family: var(--font-mono);
       font-size: 0.8rem;
       font-weight: 600;
