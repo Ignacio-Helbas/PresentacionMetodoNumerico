@@ -5,57 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diferenciación Numérica y Gestión del Error | Ingeniería Electromecánica</title>
   
-  <!-- Tipografías de alta jerarquía y legibilidad para aula universitaria -->
+  <!-- Tipografías de alta jerarquía y legibilidad -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Lora:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Lora:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- KaTeX para renderizado matemático nítido de libro de texto -->
+  <!-- KaTeX para renderizado matemático nítido -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 
-  <!-- CodeMirror para editor de Python con resaltado de sintaxis real -->
+  <!-- CodeMirror para editor de Python -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/eclipse.min.css">
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
 
-  <!-- Pyodide para ejecución real de Python (NumPy + Matplotlib) en WebAssembly -->
+  <!-- Pyodide para ejecución real de Python en WebAssembly -->
   <script defer src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
 
   <style>
     /* ==========================================================================
-       SISTEMA DE ESCENARIO 16:9 FIJO (ESTÉTICA DE INGENIERÍA / DRAFTING INDUSTRIAL)
+       SISTEMA 16:9 FIJO — PALETA PREDOMINANTE: BLANCO, NEGRO Y AMARILLO
        ========================================================================== */
     :root {
-      --bg-stage: #0a0d12;        /* Fondo oscuro técnico para sala o proyector */
-      --bg-slide: #fcfcfb;        /* Papel técnico / plano de ingeniería (blanco hueso) */
-      --bg-card: #ffffff;         /* Superficie blanca nítida para fórmulas y tablas */
-      --bg-card-subtle: #f8fafc;  /* Superficies secundarias de apoyo */
-      --bg-accent-subtle: #f1f5f9;/* Grises técnicos neutros para cabeceras */
+      --bg-stage: #090c10;          /* Fondo exterior de sala / proyector */
+      --bg-slide: #ffffff;          /* Lienzo principal blanco puro */
+      --bg-card: #ffffff;
+      --bg-card-subtle: #f8fafc;    /* Gris muy claro de apoyo */
+      --bg-dark: #111827;           /* Negro / carbón profundo */
+      --bg-dark-card: #18181b;      /* Tarjeta negra */
       
-      --text-main: #0f172a;       /* Tinta técnica (negro carbón DIN) */
-      --text-muted: #334155;      /* Gris técnico para descripciones y cotas */
-      --text-light: #64748b;      /* Metadatos secundarios */
+      --text-main: #111827;         /* Tinta negra de alta legibilidad */
+      --text-muted: #374151;        /* Gris oscuro de cuerpo */
+      --text-light: #6b7280;        /* Metadatos secundarios */
+      --text-on-dark: #f9fafb;      /* Blanco sobre fondo negro */
+      --text-on-yellow: #111827;    /* Negro sobre fondo amarillo */
       
-      --border-subtle: #e2e8f0;   /* Filete auxiliar 1px */
-      --border-strong: #94a3b8;   /* Línea técnica de cota y contorno */
-      --border-dark: #334155;     /* Borde estructural de dibujo técnico */
+      --border-subtle: #e5e7eb;     /* Línea tenue 1px */
+      --border-strong: #9ca3af;     /* Línea media */
+      --border-dark: #111827;       /* Borde negro estructural */
       
-      /* Acentos reducidos y estrictos (Ingeniería Electromecánica) */
-      --col-academic: #1e3a8a;    /* Azul marino institucional / blueprint */
-      --col-problem: #b91c1c;     /* Rojo óxido: truncamiento / límite / error */
-      --col-steel: #475569;       /* Acero para elementos auxiliares */
+      /* Acentos cromáticos (Estilo de plantilla: Blanco, Negro y Amarillo) */
+      --col-yellow: #f59e0b;        /* Amarillo cálido / ámbar principal */
+      --col-yellow-bright: #fbbf24; /* Amarillo vibrante */
+      --col-yellow-light: #fffbeb;  /* Fondo suave amarillo */
+      --col-yellow-border: #d97706; /* Borde amarillo de contraste */
+      --col-problem: #b91c1c;       /* Rojo puntual para indicar error/desventaja */
 
       --font-serif: 'Lora', Georgia, serif;
       --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --font-mono: 'Fira Code', monospace;
       
-      /* Geometría recta de ingeniería: radio mínimo y consistente (2px) */
       --radius-sm: 2px;
-      --radius-md: 2px;
-      --radius-lg: 3px;
+      --radius-md: 4px;
     }
 
     * {
@@ -68,7 +71,7 @@
     html, body {
       width: 100%;
       height: 100%;
-      overflow: hidden; /* Cero barras de scroll en presentación */
+      overflow: hidden;
       background-color: var(--bg-stage);
       font-family: var(--font-sans);
       color: var(--text-main);
@@ -88,18 +91,13 @@
       overflow: hidden;
     }
 
-    /* Lienzo nativo 16:9 con textura sutil de papel milimetrado / dibujo técnico */
+    /* Lienzo nativo 16:9 estricto (1600 x 900) */
     #slideDeck {
       width: 1600px;
       height: 900px;
       background-color: var(--bg-slide);
-      background-image: 
-        linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
-      background-size: 32px 32px;
-      border: 1px solid var(--border-dark);
-      border-radius: var(--radius-sm);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+      border: 2px solid var(--border-dark);
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.45);
       position: relative;
       overflow: hidden;
       transform-origin: center center;
@@ -114,14 +112,15 @@
       position: absolute;
       top: 0;
       left: 0;
-      padding: 44px 64px 48px 64px;
+      padding: 34px 56px 36px 56px; /* Espaciado ajustado para evitar cualquier desborde */
       display: none;
       flex-direction: column;
       justify-content: space-between;
       opacity: 0;
       transform: translateX(12px);
-      transition: opacity 0.22s ease-out, transform 0.22s ease-out;
+      transition: opacity 0.2s ease-out, transform 0.2s ease-out;
       background: transparent;
+      overflow: hidden;
     }
 
     .slide.active {
@@ -131,51 +130,70 @@
       z-index: 10;
     }
 
-    /* Encabezado técnico tipo rótulo de plano */
+    /* Encabezado técnico con pestaña amarilla y línea negra */
     .slide-top-header {
+      position: relative;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       border-bottom: 2px solid var(--border-dark);
-      padding-bottom: 16px;
-      margin-bottom: 24px;
+      padding-bottom: 12px;
+      margin-bottom: 18px;
       flex-shrink: 0;
     }
 
+    .slide-top-header::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 140px;
+      height: 4px;
+      background: var(--col-yellow);
+    }
+
     .slide-header-left {
-      max-width: 1220px;
+      max-width: 1350px;
     }
 
     .slide-meta-tag {
       font-family: var(--font-mono);
-      font-size: 0.88rem;
+      font-size: 0.82rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--col-academic);
-      margin-bottom: 6px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
+    .meta-tag-badge {
+      background: var(--col-yellow);
+      color: var(--text-on-yellow);
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.08em;
+    }
+
     .slide-main-title {
       font-family: var(--font-serif);
-      font-size: 2.75rem;
+      font-size: 2.25rem;
       font-weight: 700;
       color: var(--text-main);
-      line-height: 1.16;
+      line-height: 1.15;
       letter-spacing: -0.015em;
     }
 
     .slide-sub-desc {
-      font-size: 1.25rem;
+      font-size: 1.12rem;
       color: var(--text-muted);
-      margin-top: 6px;
-      line-height: 1.45;
+      margin-top: 4px;
+      line-height: 1.4;
     }
 
-    /* Controles discretos integrados en la cabecera */
     .slide-header-controls {
       display: flex;
       align-items: center;
@@ -185,42 +203,14 @@
 
     .badge-counter {
       font-family: var(--font-mono);
-      font-size: 1rem;
-      font-weight: 700;
-      background: #ffffff;
-      border: 1px solid var(--border-dark);
-      padding: 6px 14px;
-      border-radius: var(--radius-sm);
-      color: var(--text-main);
-      letter-spacing: 0.04em;
-    }
-
-    .btn-header-nav {
-      background: #ffffff;
-      border: 1px solid var(--border-dark);
-      color: var(--text-main);
-      font-family: var(--font-sans);
       font-size: 0.95rem;
       font-weight: 700;
-      width: 36px;
-      height: 36px;
+      background: var(--bg-dark);
+      border: 1px solid var(--col-yellow);
+      padding: 5px 14px;
       border-radius: var(--radius-sm);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.15s ease, border-color 0.15s ease;
-    }
-
-    .btn-header-nav:hover:not(:disabled) {
-      background: var(--bg-accent-subtle);
-      border-color: var(--col-academic);
-      color: var(--col-academic);
-    }
-
-    .btn-header-nav:disabled {
-      opacity: 0.3;
-      cursor: not-allowed;
+      color: var(--col-yellow-bright);
+      letter-spacing: 0.06em;
     }
 
     .slide-content-area {
@@ -229,134 +219,184 @@
       flex-direction: column;
       justify-content: center;
       overflow: hidden;
+      min-height: 0; /* Asegura contención estricta contra overflow */
     }
 
-    /* Barra de progreso milimétrica inferior */
+    /* Barra de progreso inferior amarilla */
     .slide-bottom-progress {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      height: 3px;
+      height: 4px;
       background: var(--border-subtle);
       z-index: 20;
     }
 
     .slide-progress-fill {
       height: 100%;
-      width: 7.7%;
-      background: var(--col-academic);
-      transition: width 0.3s ease-out;
+      width: 5.8%;
+      background: var(--col-yellow);
+      transition: width 0.25s ease-out;
     }
 
     /* ==========================================================================
        PORTADA TÉCNICA (SLIDE 1)
        ========================================================================== */
-    .cover-layout {
+    .cover-layout-minimal {
+      position: relative;
+      width: 100%;
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100%;
       text-align: center;
     }
 
-    .cover-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--col-academic);
-      margin-bottom: 26px;
-      background: transparent;
-      border-left: 3px solid var(--col-academic);
-      padding: 4px 16px;
+    .cover-center-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: auto 0;
     }
 
-    .cover-title {
+    .cover-eyebrow-badge {
+      background: var(--col-yellow);
+      color: var(--text-on-yellow);
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 22px;
+      box-shadow: 0 2px 8px rgba(245, 158, 11, 0.25);
+    }
+
+    .cover-title-hero {
       font-family: var(--font-serif);
-      font-size: 4.4rem;
+      font-size: 4.1rem;
       font-weight: 700;
       color: var(--text-main);
-      line-height: 1.1;
-      margin-bottom: 22px;
+      line-height: 1.12;
+      margin-bottom: 20px;
       letter-spacing: -0.025em;
     }
 
-    .cover-subtitle {
-      font-size: 1.5rem;
+    .cover-subtitle-univ {
+      font-size: 1.45rem;
       color: var(--text-muted);
-      max-width: 1150px;
-      margin: 0 auto 52px auto;
-      line-height: 1.5;
+      max-width: 1050px;
+      line-height: 1.45;
+      font-weight: 500;
     }
 
-    .speakers-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 36px;
-      width: 100%;
-      max-width: 1260px;
+    .cover-bottom-left-integrantes {
+      position: absolute;
+      bottom: 30px;
+      left: 40px;
       text-align: left;
-    }
-
-    .speaker-card {
-      background: #ffffff;
-      border: 1px solid var(--border-strong);
-      border-radius: var(--radius-sm);
-      padding: 30px 36px;
-    }
-
-    .speaker-card.math {
-      border-top: 4px solid var(--col-academic);
-    }
-
-    .speaker-card.comp {
-      border-top: 4px solid var(--border-dark);
-    }
-
-    .speaker-tag {
       font-family: var(--font-mono);
-      font-size: 0.85rem;
+      background: var(--bg-dark);
+      color: var(--text-on-dark);
+      padding: 14px 22px;
+      border-left: 5px solid var(--col-yellow);
+      border-radius: var(--radius-sm);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    .integrantes-heading {
+      font-size: 0.88rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      padding: 2px 0;
-      display: inline-block;
-      margin-bottom: 12px;
-      background: transparent;
-      color: var(--text-muted);
-      border-bottom: 1px solid var(--border-strong);
-    }
-
-    .speaker-name {
-      font-family: var(--font-serif);
-      font-size: 1.65rem;
-      font-weight: 700;
-      color: var(--text-main);
+      color: var(--col-yellow-bright);
+      letter-spacing: 0.08em;
       margin-bottom: 6px;
     }
 
-    .speaker-role {
-      font-size: 1.12rem;
+    .integrantes-item {
+      font-size: 1.15rem;
       font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: 14px;
+      color: #ffffff;
+      line-height: 1.4;
     }
 
-    .speaker-body {
-      font-size: 1.15rem;
-      line-height: 1.6;
+    .cover-bottom-right-hint {
+      position: absolute;
+      bottom: 34px;
+      right: 40px;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      color: var(--text-light);
+      background: #f8fafc;
+      padding: 6px 14px;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+    }
+
+    /* ==========================================================================
+       TARJETAS DE ENFOQUE ÚNICO (SLIDES 2 & 3)
+       ========================================================================== */
+    .single-focus-card {
+      background: #ffffff;
+      border: 1px solid var(--border-subtle);
+      border-top: 5px solid var(--col-yellow);
+      border-radius: var(--radius-sm);
+      padding: 36px 46px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .focus-card-header {
+      margin-bottom: 18px;
+    }
+
+    .focus-card-tag {
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      background: var(--col-yellow-light);
+      color: #b45309;
+      border: 1px solid #fcd34d;
+      padding: 3px 10px;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .focus-card-title {
+      font-family: var(--font-serif);
+      font-size: 2.15rem;
+      font-weight: 700;
       color: var(--text-main);
     }
 
-    .cover-footer-hint {
-      margin-top: 36px;
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: var(--text-light);
-      letter-spacing: 0.05em;
+    .focus-card-lead {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .focus-formula-pill {
+      background: var(--bg-dark);
+      color: var(--text-on-dark);
+      border-left: 5px solid var(--col-yellow);
+      padding: 16px 26px;
+      font-size: 1.85rem;
+      text-align: center;
+      border-radius: var(--radius-sm);
+      margin-bottom: 18px;
+    }
+
+    .focus-card-desc {
+      font-size: 1.18rem;
+      color: var(--text-main);
+      line-height: 1.6;
     }
 
     /* ==========================================================================
@@ -367,17 +407,21 @@
       border: 1px solid var(--border-strong);
       border-left: 5px solid var(--border-dark);
       border-radius: var(--radius-sm);
-      padding: 34px 44px;
+      padding: 24px 34px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
 
-    .hero-formula-card.solution {
-      border-left: 5px solid var(--col-academic);
+    .hero-formula-card.yellow-accent {
+      border-left: 5px solid var(--col-yellow);
+    }
+
+    .hero-formula-card.dark-accent {
+      border-left: 5px solid var(--border-dark);
     }
 
     .hero-formula-card.problem {
@@ -385,20 +429,20 @@
     }
 
     .hero-formula-box {
-      font-size: 1.95rem;
-      margin: 18px 0;
+      font-size: 2rem;
+      margin: 12px 0;
       color: var(--text-main);
     }
 
     .hero-concept-banner {
-      background: #ffffff;
-      border: 1px solid var(--border-strong);
-      border-left: 5px solid var(--col-academic);
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-subtle);
+      border-left: 5px solid var(--col-yellow);
       border-radius: var(--radius-sm);
-      padding: 22px 30px;
+      padding: 18px 24px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 4px;
     }
 
     .hero-concept-banner.problem {
@@ -406,10 +450,10 @@
     }
 
     .banner-text-title {
-      font-size: 1.32rem;
+      font-size: 1.25rem;
       font-weight: 700;
       color: var(--text-main);
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     .banner-text-title.problem {
@@ -417,64 +461,65 @@
     }
 
     .banner-text-desc {
-      font-size: 1.18rem;
+      font-size: 1.15rem;
       color: var(--text-muted);
-      line-height: 1.6;
+      line-height: 1.55;
     }
 
     /* Grillas comparativas de 2 columnas */
     .two-cols-hero-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 34px;
+      gap: 28px;
       align-items: stretch;
       height: 100%;
     }
 
     .hero-col-card {
       background: #ffffff;
-      border: 1px solid var(--border-strong);
+      border: 1px solid var(--border-subtle);
+      border-top: 4px solid var(--border-dark);
       border-radius: var(--radius-sm);
-      padding: 30px 34px;
+      padding: 24px 28px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
-    .hero-col-card.left-accent {
-      border-top: 4px solid var(--col-problem);
+    .hero-col-card.yellow-accent {
+      border-top: 4px solid var(--col-yellow);
     }
 
-    .hero-col-card.right-accent {
-      border-top: 4px solid var(--col-academic);
+    .hero-col-card.problem-accent {
+      border-top: 4px solid var(--col-problem);
     }
 
     .hero-col-title {
       font-family: var(--font-serif);
-      font-size: 1.7rem;
+      font-size: 1.65rem;
       font-weight: 700;
       color: var(--text-main);
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
 
     .hero-col-desc {
-      font-size: 1.18rem;
+      font-size: 1.15rem;
       color: var(--text-muted);
-      line-height: 1.65;
-      margin-bottom: 20px;
+      line-height: 1.55;
+      margin-bottom: 14px;
     }
 
     /* ==========================================================================
-       ESQUEMA GRÁFICO DE LA PARED FÍSICA (SLIDE 6)
+       ESQUEMA GRÁFICO DE LA PARED FÍSICA (SLIDE 10)
        ========================================================================== */
     .wall-diagram-hero {
-      height: 230px;
+      height: 200px;
       background: #ffffff;
       border: 1px solid var(--border-strong);
       border-radius: var(--radius-sm);
       position: relative;
       overflow: hidden;
-      margin-bottom: 24px;
+      margin-bottom: 18px;
     }
 
     .solid-hatch-hero {
@@ -523,7 +568,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .node-hero-dot {
@@ -542,24 +587,24 @@
     }
 
     .node-hero-dot.wall {
-      background: var(--col-academic);
-      outline: 1.5px solid var(--col-academic);
+      background: var(--col-yellow);
+      outline: 1.5px solid var(--border-dark);
     }
 
     .node-hero-label {
       font-family: var(--font-mono);
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 700;
       color: var(--text-main);
     }
 
     /* ==========================================================================
-       SLIDES INTERACTIVAS (PYODIDE + CODEMIRROR + PLOTS)
+       SLIDES INTERACTIVAS (CONSERVADAS INTACTAS EN CÓDIGO Y ESTRUCTURA)
        ========================================================================== */
     .interactive-workspace-hero {
       display: grid;
       grid-template-columns: 1fr 1.18fr;
-      gap: 28px;
+      gap: 24px;
       height: 100%;
       align-items: stretch;
     }
@@ -575,8 +620,8 @@
     }
 
     .editor-header-hero {
-      background: #f8fafc;
-      border-bottom: 1px solid var(--border-strong);
+      background: #111827;
+      border-bottom: 1px solid var(--col-yellow);
       padding: 8px 16px;
       display: flex;
       justify-content: space-between;
@@ -587,19 +632,19 @@
       font-family: var(--font-mono);
       font-size: 0.88rem;
       font-weight: 700;
-      color: var(--text-muted);
+      color: var(--col-yellow-bright);
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
     .btn-py-hero {
-      background: var(--col-academic);
-      color: #ffffff;
-      border: 1px solid #172554;
+      background: var(--col-yellow);
+      color: var(--text-on-yellow);
+      border: 1px solid var(--col-yellow-border);
       font-family: var(--font-sans);
       font-size: 0.86rem;
-      font-weight: 700;
+      font-weight: 800;
       padding: 6px 14px;
       border-radius: var(--radius-sm);
       cursor: pointer;
@@ -610,13 +655,14 @@
     }
 
     .btn-py-hero:hover {
-      background: #172554;
+      background: #d97706;
+      color: #ffffff;
     }
 
     .btn-reset-hero {
-      background: #ffffff;
-      border: 1px solid var(--border-strong);
-      color: var(--text-muted);
+      background: #374151;
+      border: 1px solid #4b5563;
+      color: #f3f4f6;
       font-size: 0.84rem;
       font-weight: 600;
       padding: 6px 12px;
@@ -625,18 +671,18 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      transition: background 0.15s ease, color 0.15s ease;
+      transition: background 0.15s ease;
     }
 
     .btn-reset-hero:hover {
-      background: #f1f5f9;
-      color: var(--text-main);
+      background: #4b5563;
+      color: #ffffff;
     }
 
     .cm-wrapper-hero {
       flex: 1;
       height: 380px;
-      border-bottom: 1px solid var(--border-strong);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     .CodeMirror {
@@ -649,12 +695,12 @@
 
     .controls-shelf-hero {
       background: #f8fafc;
-      padding: 12px 18px;
+      padding: 10px 16px;
       display: flex;
       flex-wrap: wrap;
       gap: 16px;
       align-items: center;
-      border-bottom: 1px solid var(--border-strong);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     .ctrl-item-hero {
@@ -680,8 +726,8 @@
     }
 
     .console-box-hero {
-      background: #0f172a;
-      color: #f8fafc;
+      background: #111827;
+      color: #f9fafb;
       font-family: var(--font-mono);
       font-size: 0.82rem;
       padding: 10px 14px;
@@ -709,7 +755,7 @@
     .display-column-hero {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
       height: 100%;
     }
 
@@ -723,7 +769,7 @@
       justify-content: center;
       position: relative;
       overflow: hidden;
-      padding: 10px;
+      padding: 8px;
     }
 
     .plot-canvas-hero svg {
@@ -735,7 +781,7 @@
     .spinner-overlay-hero {
       position: absolute;
       inset: 0;
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       display: none;
       flex-direction: column;
       align-items: center;
@@ -752,7 +798,7 @@
       width: 34px;
       height: 34px;
       border: 3px solid var(--border-subtle);
-      border-top-color: var(--col-academic);
+      border-top-color: var(--col-yellow);
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
     }
@@ -761,86 +807,47 @@
       to { transform: rotate(360deg); }
     }
 
-    /* Tabla de resultados CFD (Slide 11) */
+    /* Tabla de resultados CFD (Slide 15) */
     .styled-table-card-hero {
       background: #ffffff;
       border: 1px solid var(--border-strong);
       border-radius: var(--radius-sm);
-      padding: 14px 18px;
+      padding: 12px 16px;
     }
 
     .cfd-results-table-hero {
       width: 100%;
       border-collapse: collapse;
-      font-size: 1.05rem;
+      font-size: 1.02rem;
     }
 
     .cfd-results-table-hero th {
-      background: #f1f5f9;
+      background: #111827;
       font-family: var(--font-mono);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: var(--text-main);
-      padding: 10px 14px;
+      color: #ffffff;
+      padding: 8px 12px;
       text-align: left;
-      border-bottom: 2px solid var(--border-dark);
+      border-bottom: 2px solid var(--col-yellow);
     }
 
     .cfd-results-table-hero td {
-      padding: 10px 14px;
+      padding: 8px 12px;
       border-bottom: 1px solid var(--border-subtle);
       font-family: var(--font-mono);
-      font-size: 0.98rem;
+      font-size: 0.95rem;
     }
 
     .cfd-results-table-hero tr.highlight-cfd {
-      background: #f8fafc;
+      background: #fffbeb;
       font-weight: 700;
     }
 
     .cfd-results-table-hero tr.highlight-cfd td {
-      color: var(--col-academic);
-    }
-
-    @media print {
-      html, body {
-        width: auto !important;
-        height: auto !important;
-        overflow: visible !important;
-        background: #ffffff !important;
-      }
-      #stageWrapper {
-        display: block !important;
-        width: 100% !important;
-        height: auto !important;
-      }
-      #slideDeck {
-        transform: none !important;
-        width: 100% !important;
-        height: auto !important;
-        box-shadow: none !important;
-        border: none !important;
-        border-radius: 0 !important;
-        background-image: none !important;
-      }
-      .slide {
-        position: relative !important;
-        display: flex !important;
-        opacity: 1 !important;
-        transform: none !important;
-        page-break-after: always !important;
-        break-after: page !important;
-        height: 100vh !important;
-        padding: 40px !important;
-        background: #ffffff !important;
-      }
-      .slide-header-controls,
-      .editor-actions-group,
-      .controls-shelf-hero {
-        display: none !important;
-      }
+      color: #92400e;
     }
   </style>
 </head>
@@ -851,111 +858,100 @@
     <div id="slideDeck">
 
       <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 1: PORTADA
+           DIAPOSITIVA 1: PORTADA TÉCNICA (BLANCO, NEGRO Y AMARILLO)
            -------------------------------------------------------------------- -->
       <section class="slide active" id="slide-1" data-index="1">
-        <div class="cover-layout">
-          <div class="cover-eyebrow">Facultad de Ingeniería · 3° Año Ingeniería Electromecánica · Métodos Numéricos</div>
-          <h1 class="cover-title">Diferenciación Numérica y Gestión del Error</h1>
-          <p class="cover-subtitle">Del rigor asintótico de Taylor al condicionamiento físico de fronteras y el límite de máquina IEEE-754.</p>
-
-          <div class="speakers-row">
-            <div class="speaker-card math">
-              <span class="speaker-tag">Orador 1</span>
-              <h3 class="speaker-name">Planteo Físico-Matemático</h3>
-              <div class="speaker-role">Fenómenos de Transporte & Operadores Continuos</div>
-              <p class="speaker-body">Formulación analítica de leyes constitutivas continuas (viscosidad de Newton, conducción de Fourier) y preservación del orden en contornos impermeables.</p>
-            </div>
-
-            <div class="speaker-card comp">
-              <span class="speaker-tag">Orador 2</span>
-              <h3 class="speaker-name">Modelado Computacional</h3>
-              <div class="speaker-role">Aritmética IEEE-754 & Algoritmos Industriales</div>
-              <p class="speaker-body">Cancelación sustractiva catastrófica en precisión doble (64 bits), búsqueda del paso óptimo \(h^*\) y arquitectura interna de <code>numpy.gradient</code>.</p>
-            </div>
+        <div class="cover-layout-minimal">
+          <div class="cover-center-content">
+            <div class="cover-eyebrow-badge">MÉTODOS NUMÉRICOS · TERCER AÑO</div>
+            <h1 class="cover-title-hero">Diferenciación Numérica<br>y Gestión del Error</h1>
+            <p class="cover-subtitle-univ">Catedra Matematica para ingenieria electromecanica UTN Facultad Regional San Rafael</p>
           </div>
 
-          <div class="cover-footer-hint">Navegar con flechas del teclado [←] [→] o Barra Espaciadora</div>
+          <div class="cover-bottom-left-integrantes">
+            <div class="integrantes-heading">Integrantes</div>
+            <div class="integrantes-item">* Adrian Arenas</div>
+            <div class="integrantes-item">* Ignacio Helbas</div>
+          </div>
+
+          <div class="cover-bottom-right-hint">
+            Navegar con flechas [←] [→] o Barra Espaciadora
+          </div>
         </div>
       </section>
 
       <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 2: EL MOTOR TEÓRICO — SERIE DE TAYLOR
+           DIAPOSITIVA 2: PLANTEO FÍSICO-MATEMÁTICO
            -------------------------------------------------------------------- -->
       <section class="slide" id="slide-2" data-index="2">
         <div class="slide-top-header">
           <div class="slide-header-left">
-            <div class="slide-meta-tag">Fundamentación Teórica · Diapositiva 02</div>
-            <h2 class="slide-main-title">El Motor Teórico: Serie de Taylor</h2>
-            <p class="slide-sub-desc">La diferenciación numérica nace formalmente de truncar la serie infinita de Taylor.</p>
+            <div class="slide-meta-tag">
+              <span class="meta-tag-badge">FUNDAMENTO CONTINUO</span>
+              <span>Diapositiva 02</span>
+            </div>
+            <h2 class="slide-main-title">Planteo Físico-Matemático</h2>
+            <p class="slide-sub-desc">Fenómenos de Transporte y Operadores Continuos</p>
           </div>
           <div class="slide-header-controls">
-            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
-            <span class="badge-counter">02 / 13</span>
-            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente">→</button>
+            <span class="badge-counter">02 / 17</span>
           </div>
         </div>
 
-        <div class="slide-content-area">
-          <div class="hero-formula-card">
-            <span style="font-family:var(--font-mono); font-size:1rem; font-weight:700; color:var(--col-academic); text-transform:uppercase;">Ecuación Base en el Espacio Continuo</span>
-            <div class="hero-formula-box">
-              $$f(x_i + h) = f(x_i) + h f'(x_i) + \frac{h^2}{2!} f''(x_i) + \frac{h^3}{3!} f'''(x_i) + \dots$$
+        <div class="slide-content-area" style="display:flex; justify-content:center; align-items:center;">
+          <div class="single-focus-card" style="max-width:1160px; width:100%;">
+            <div class="focus-card-header">
+              <span class="focus-card-tag">Modelado Continuo en Ingeniería</span>
+              <h3 class="focus-card-title">Leyes Constitutivas y Conservación</h3>
             </div>
-            <p style="font-size:1.25rem; color:var(--text-muted); max-width:980px; line-height:1.6;">
-              Permite predecir el valor de la variable de estado en el nodo contiguo \(x_{i+1}\) conociendo el valor y las infinitas derivadas en el nodo local \(x_i\).
-            </p>
-          </div>
-
-          <div class="hero-concept-banner">
-            <div class="banner-text-title">El Puente entre el Continuo y lo Discreto</div>
-            <div class="banner-text-desc">
-              En ingeniería no disponemos de infinitas derivadas. Aproximar la función en una malla computacional <strong>exige cortar la serie</strong>. Ese descarte no es ruido aleatorio: es el residuo determinístico del modelo matemático.
+            <div class="focus-card-body">
+              <p class="focus-card-lead">
+                Formulación analítica de leyes constitutivas continuas en ingeniería electromecánica:
+              </p>
+              <div class="focus-formula-pill">
+                $$\tau = \mu \frac{\partial u}{\partial y} \quad \text{(Viscosidad de Newton)} \qquad\qquad q = -k \frac{\partial T}{\partial n} \quad \text{(Conducción de Fourier)}$$
+              </div>
+              <p class="focus-card-desc">
+                En los modelos analíticos de transferencia de calor y mecánica de fluidos, las variables físicas son campos continuos diferenciables. El desafío ingenieril surge al transformar estos operadores diferenciales en aproximaciones discretas evaluables en mallas de nodos finitos, garantizando la preservación estricta del orden de convergencia en los contornos físicos y paredes sólidas impermeables.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 3: DEDUCCIÓN DEL ERROR DE TRUNCAMIENTO O(h)
+           DIAPOSITIVA 3: MODELADO COMPUTACIONAL
            -------------------------------------------------------------------- -->
       <section class="slide" id="slide-3" data-index="3">
         <div class="slide-top-header">
           <div class="slide-header-left">
-            <div class="slide-meta-tag">Deducción Formal · Diapositiva 03</div>
-            <h2 class="slide-main-title">Aislamiento Algebraico del Error de Truncamiento</h2>
-            <p class="slide-sub-desc">Cómo el resto de Lagrange define exactamente el orden asintótico \(\mathcal{O}(h)\).</p>
+            <div class="slide-meta-tag">
+              <span class="meta-tag-badge">ARITMÉTICA DE MÁQUINA</span>
+              <span>Diapositiva 03</span>
+            </div>
+            <h2 class="slide-main-title">Modelado Computacional</h2>
+            <p class="slide-sub-desc">Aritmética IEEE-754 y Algoritmos Industriales</p>
           </div>
           <div class="slide-header-controls">
-            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
-            <span class="badge-counter">03 / 13</span>
-            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente">→</button>
+            <span class="badge-counter">03 / 17</span>
           </div>
         </div>
 
-        <div class="slide-content-area">
-          <div class="hero-formula-card solution">
-            <span style="font-family:var(--font-mono); font-size:1rem; font-weight:700; color:var(--col-academic); text-transform:uppercase;">Aislamiento de la Derivada Primera \(f'_i\)</span>
-            <div class="hero-formula-box" style="font-size:2.05rem;">
-              $$f'_i = \underbrace{\frac{f_{i+1} - f_i}{h}}_{\text{Cociente Incremental Discreto}} - \underbrace{\frac{h}{2} f''(\xi)}_{\text{Error de Truncamiento } E(h)}$$
+        <div class="slide-content-area" style="display:flex; justify-content:center; align-items:center;">
+          <div class="single-focus-card" style="max-width:1160px; width:100%; border-top-color:var(--border-dark);">
+            <div class="focus-card-header">
+              <span class="focus-card-tag" style="background:#111827; color:#fbbf24; border-color:#f59e0b;">Límites Físicos del Hardware</span>
+              <h3 class="focus-card-title">Precisión Finita y Cancelación Catastrófica</h3>
             </div>
-            <p style="font-size:1.25rem; color:var(--text-main); font-weight:600;">
-              \(\implies f'_i = \frac{f_{i+1} - f_i}{h} + \mathcal{O}(h)\)
-            </p>
-          </div>
-
-          <div class="two-cols-hero-grid" style="height:auto;">
-            <div class="hero-col-card" style="padding:26px 32px;">
-              <h4 class="hero-col-title" style="font-size:1.45rem; margin-bottom:10px;">Dependencia de la Curvatura</h4>
-              <p class="hero-col-desc" style="font-size:1.15rem; margin-bottom:0;">
-                El error depende directamente de \(f''(\xi)\). En zonas con gradientes térmicos suaves el error es mínimo; en zonas con alta curvatura (capas límite), el error se dispara.
+            <div class="focus-card-body">
+              <p class="focus-card-lead">
+                La computadora real no procesa infinitos decimales, sino números representados en coma flotante estándar IEEE-754 (doble precisión de 64 bits):
               </p>
-            </div>
-
-            <div class="hero-col-card left-accent" style="padding:26px 32px;">
-              <h4 class="hero-col-title" style="font-size:1.45rem; color:var(--col-problem); margin-bottom:10px;">Convergencia Lineal \(\mathcal{O}(h)\)</h4>
-              <p class="hero-col-desc" style="font-size:1.15rem; color:var(--text-muted); margin-bottom:0;">
-                Si reducís el paso de malla a la mitad (\(h \to h/2\)), el error cae solo al 50%. Para ganar un solo dígito de precisión necesitás \(10\times\) más nodos.
+              <div class="focus-formula-pill" style="border-left-color:var(--border-dark); background:#18181b;">
+                $$f(x+h) \approx f(x) \implies f(x+h) - f(x) \quad \text{destruye hasta 15 dígitos significativos al achicar } h$$
+              </div>
+              <p class="focus-card-desc">
+                El análisis computacional exige determinar el paso de discretización óptimo \(h^*\) donde se balancean el residuo matemático y el ruido de cuantización del procesador. Es el criterio riguroso que gobierna la arquitectura de solvers industriales y bibliotecas científicas como <code>numpy.gradient</code> y paquetes CFD.
               </p>
             </div>
           </div>
@@ -963,65 +959,97 @@
       </section>
 
       <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 4: ESQUEMAS DE PRIMER ORDEN: ADELANTE Y ATRÁS
+           DIAPOSITIVA 4: EL MOTOR TEÓRICO — SERIE DE TAYLOR
            -------------------------------------------------------------------- -->
       <section class="slide" id="slide-4" data-index="4">
         <div class="slide-top-header">
           <div class="slide-header-left">
-            <div class="slide-meta-tag">Operadores Laterales · Diapositiva 04</div>
-            <h2 class="slide-main-title">Diferencias Finitas: Hacia Adelante y Hacia Atrás</h2>
-            <p class="slide-sub-desc">Dos aproximaciones de 2 puntos con idéntica velocidad de convergencia asintótica.</p>
+            <div class="slide-meta-tag">
+              <span class="meta-tag-badge">DESARROLLO ASINTÓTICO</span>
+              <span>Diapositiva 04</span>
+            </div>
+            <h2 class="slide-main-title">El Motor Teórico: Serie de Taylor</h2>
+            <p class="slide-sub-desc">La diferenciación numérica nace formalmente de truncar la serie infinita de Taylor.</p>
           </div>
           <div class="slide-header-controls">
-            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
-            <span class="badge-counter">04 / 13</span>
-            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente">→</button>
+            <span class="badge-counter">04 / 17</span>
+          </div>
+        </div>
+
+        <div class="slide-content-area" style="display:flex; flex-direction:column; justify-content:center; align-items:center; gap:18px;">
+          <div class="hero-formula-card yellow-accent" style="max-width:1160px; width:100%; padding:26px 36px;">
+            <span style="font-family:var(--font-mono); font-size:0.95rem; font-weight:700; color:var(--col-yellow-border); text-transform:uppercase; letter-spacing:0.06em;">Ecuación Base en el Espacio Continuo</span>
+            <div class="hero-formula-box" style="font-size:2.05rem; margin:14px 0;">
+              $$f(x_i + h) = f(x_i) + h f'(x_i) + \frac{h^2}{2!} f''(x_i) + \frac{h^3}{3!} f'''(x_i) + \dots$$
+            </div>
+            <p style="font-size:1.2rem; color:var(--text-muted); line-height:1.5; text-align:center;">
+              Permite predecir el estado de la variable en el nodo contiguo \(x_{i+1}\) conociendo el valor y las infinitas derivadas en el nodo local \(x_i\).
+            </p>
+          </div>
+
+          <div class="hero-concept-banner" style="max-width:1160px; width:100%; padding:20px 30px;">
+            <div class="banner-text-title" style="font-size:1.3rem;">El Aislamiento Algebraico del Operador Discreto</div>
+            <div class="banner-text-desc" style="font-size:1.15rem;">
+              Al despejar formalmente la derivada primera \(f'(x_i)\), la suma residual de potencias de \(h\) se agrupa en el residuo de Lagrange:
+              <div style="font-size:1.7rem; margin:12px 0 6px 0; text-align:center; color:var(--text-main);">
+                $$f'_i = \underbrace{\frac{f_{i+1} - f_i}{h}}_{\text{Cociente Incremental}} - \underbrace{\frac{h}{2} f''(\xi)}_{\text{Error de Truncamiento } E(h)} \implies f'_i = \frac{f_{i+1} - f_i}{h} + \mathcal{O}(h)$$
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- --------------------------------------------------------------------
+           DIAPOSITIVA 5: PROPIEDADES DEL ERROR DE TRUNCAMIENTO
+           -------------------------------------------------------------------- -->
+      <section class="slide" id="slide-5" data-index="5">
+        <div class="slide-top-header">
+          <div class="slide-header-left">
+            <div class="slide-meta-tag">
+              <span class="meta-tag-badge">ANÁLISIS DE CONVERGENCIA</span>
+              <span>Diapositiva 05</span>
+            </div>
+            <h2 class="slide-main-title">Propiedades del Error de Truncamiento</h2>
+            <p class="slide-sub-desc">Dependencia de la curvatura de la solución y costo computacional en ingeniería.</p>
+          </div>
+          <div class="slide-header-controls">
+            <span class="badge-counter">05 / 17</span>
           </div>
         </div>
 
         <div class="slide-content-area">
           <div class="two-cols-hero-grid">
-            <!-- Columna Adelante -->
-            <div class="hero-col-card left-accent">
+            <div class="hero-col-card yellow-accent" style="padding:28px 32px;">
               <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-                  <h3 class="hero-col-title">Hacia Adelante (Forward)</h3>
-                  <span style="font-family:var(--font-mono); font-size:0.85rem; font-weight:700; color:var(--col-problem); letter-spacing:0.04em; text-transform:uppercase;">Orden \(\mathcal{O}(h)\)</span>
-                </div>
-                <div class="hero-formula-card" style="padding:22px; margin-bottom:18px;">
-                  <div style="font-size:1.65rem;">
-                    $$f'_i \approx \frac{f_{i+1} - f_i}{h}$$
-                  </div>
-                </div>
-                <p class="hero-col-desc">
-                  <strong>Stencil:</strong> \([x_i, x_{i+1}]\) — Muestrea hacia adelante o aguas abajo.<br>
-                  <strong>Término de Error:</strong> \(-\frac{h}{2} f''(\xi)\).
+                <span style="font-family:var(--font-mono); font-size:0.88rem; font-weight:700; color:var(--col-yellow-border); text-transform:uppercase; letter-spacing:0.05em;">Física del Fenómeno</span>
+                <h3 class="hero-col-title" style="font-size:1.75rem; margin-top:6px;">Dependencia de la Curvatura</h3>
+                <p class="hero-col-desc" style="font-size:1.18rem; line-height:1.55;">
+                  El error de truncamiento depende directamente de la segunda derivada \(f''(\xi)\).
                 </p>
+                <div style="background:#f8fafc; border:1px solid var(--border-subtle); padding:16px 20px; border-radius:var(--radius-sm); font-size:1.12rem; line-height:1.55; margin-top:10px;">
+                  • En zonas con gradientes térmicos suaves, el error residual es despreciable.<br>
+                  • En zonas con <strong>alta curvatura</strong> (capas límite aerodinámicas o frentes de reacción), el error se multiplica bruscamente obligando a densificar la malla.
+                </div>
               </div>
-              <div style="font-family:var(--font-mono); font-size:1rem; color:var(--text-muted); background:#f8fafc; padding:12px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
-                Nodo de cálculo: <strong>x_i</strong> | Vecino: <strong>x_{i+1}</strong>
+              <div style="font-family:var(--font-mono); font-size:0.98rem; font-weight:700; color:var(--text-on-dark); background:var(--bg-dark); padding:10px; border-radius:var(--radius-sm); text-align:center;">
+                Magnitud proporcional a \(f''(\xi)\)
               </div>
             </div>
 
-            <!-- Columna Atrás -->
-            <div class="hero-col-card" style="border-top:4px solid var(--border-dark);">
+            <div class="hero-col-card" style="padding:28px 32px; border-top:4px solid var(--border-dark);">
               <div>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-                  <h3 class="hero-col-title">Hacia Atrás (Backward)</h3>
-                  <span style="font-family:var(--font-mono); font-size:0.85rem; font-weight:700; color:var(--col-problem); letter-spacing:0.04em; text-transform:uppercase;">Orden \(\mathcal{O}(h)\)</span>
-                </div>
-                <div class="hero-formula-card" style="padding:22px; margin-bottom:18px;">
-                  <div style="font-size:1.65rem;">
-                    $$f'_i \approx \frac{f_i - f_{i-1}}{h}$$
-                  </div>
-                </div>
-                <p class="hero-col-desc">
-                  <strong>Stencil:</strong> \([x_{i-1}, x_i]\) — Muestrea hacia atrás o aguas arriba.<br>
-                  <strong>Término de Error:</strong> \(+\frac{h}{2} f''(\xi)\).
+                <span style="font-family:var(--font-mono); font-size:0.88rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em;">Costo Computacional</span>
+                <h3 class="hero-col-title" style="font-size:1.75rem; margin-top:6px;">Convergencia Lineal \(\mathcal{O}(h)\)</h3>
+                <p class="hero-col-desc" style="font-size:1.18rem; line-height:1.55;">
+                  Un orden \(\mathcal{O}(h)\) representa una convergencia lenta y sumamente costosa para la ingeniería:
                 </p>
+                <div style="background:#f8fafc; border:1px solid var(--border-subtle); padding:16px 20px; border-radius:var(--radius-sm); font-size:1.12rem; line-height:1.55; margin-top:10px;">
+                  • Reducir el paso a la mitad (\(h \to h/2\)) apenas <strong>reduce el error al 50%</strong>.<br>
+                  • Para ganar un solo dígito decimal de precisión se necesita multiplicar por <strong>10 veces el número de nodos</strong>, disparando el uso de memoria RAM y tiempo de CPU.
+                </div>
               </div>
-              <div style="font-family:var(--font-mono); font-size:1rem; color:var(--text-muted); background:#f8fafc; padding:12px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
-                Nodo de cálculo: <strong>x_i</strong> | Vecino: <strong>x_{i-1}</strong>
+              <div style="font-family:var(--font-mono); font-size:0.98rem; font-weight:700; color:var(--col-problem); background:#fef2f2; border:1px solid #fecaca; padding:10px; border-radius:var(--radius-sm); text-align:center;">
+                Escalamiento computacionalmente ineficiente
               </div>
             </div>
           </div>
@@ -1029,57 +1057,232 @@
       </section>
 
       <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 5: DIFERENCIA CENTRAL Y LA SIMETRÍA O(h²)
-           -------------------------------------------------------------------- -->
-      <section class="slide" id="slide-5" data-index="5">
-        <div class="slide-top-header">
-          <div class="slide-header-left">
-            <div class="slide-meta-tag">Esquemas Simétricos · Diapositiva 05</div>
-            <h2 class="slide-main-title">Diferencia Central: El Superpoder de la Simetría \(\mathcal{O}(h^2)\)</h2>
-            <p class="slide-sub-desc">Restar dos series de Taylor elimina algebraicamente los términos pares sin costo extra.</p>
-          </div>
-          <div class="slide-header-controls">
-            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
-            <span class="badge-counter">05 / 13</span>
-            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente">→</button>
-          </div>
-        </div>
-
-        <div class="slide-content-area">
-          <div class="hero-formula-card solution">
-            <span style="font-family:var(--font-mono); font-size:1rem; font-weight:700; color:var(--col-academic); text-transform:uppercase;">Aproximación por Diferencia Central</span>
-            <div class="hero-formula-box" style="font-size:2.15rem;">
-              $$f'_i \approx \frac{f_{i+1} - f_{i-1}}{2h}$$
-            </div>
-            <p style="font-size:1.25rem; color:var(--col-academic); font-weight:700;">
-              Error de Truncamiento: \(-\frac{h^2}{6} f'''(\xi) \implies \mathcal{O}(h^2)\)
-            </p>
-          </div>
-
-          <div class="hero-concept-banner">
-            <div class="banner-text-title">La Ventaja Cuadrática en Producción (Ganancia 4×)</div>
-            <div class="banner-text-desc">
-              Al restar \(f(x+h) - f(x-h)\), los términos en \(h^2 f''(x)\) <strong>se cancelan exactamente por simetría</strong>.<br>
-              Por el mismo costo aritmético (1 resta y 1 división), al reducir el paso \(h\) a la mitad, <strong>el error cae al 25% (un cuarto)</strong>.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 6: EL PROBLEMA DE LAS FRONTERAS FÍSICAS
+           DIAPOSITIVA 6: DIFERENCIA HACIA ADELANTE (FORWARD)
            -------------------------------------------------------------------- -->
       <section class="slide" id="slide-6" data-index="6">
         <div class="slide-top-header">
           <div class="slide-header-left">
-            <div class="slide-meta-tag">Contornos Impermeables · Diapositiva 06</div>
+            <div class="slide-meta-tag">
+              <span class="meta-tag-badge">ESQUEMA UNILATERAL</span>
+              <span>Diapositiva 06</span>
+            </div>
+            <h2 class="slide-main-title">Diferencias Finitas Hacia Adelante (Forward)</h2>
+            <p class="slide-sub-desc">Muestreo unilateral hacia adelante en el dominio discretizado.</p>
+          </div>
+          <div class="slide-header-controls">
+            <span class="badge-counter">06 / 17</span>
+          </div>
+        </div>
+
+        <div class="slide-content-area" style="display:flex; justify-content:center; align-items:center;">
+          <div class="hero-col-card" style="max-width:1160px; width:100%; padding:34px 44px; border-top:5px solid var(--border-dark);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+              <span style="font-family:var(--font-mono); font-size:1.05rem; font-weight:700; color:var(--text-main); text-transform:uppercase;">Esquema Unilateral a la Derecha</span>
+              <span style="font-family:var(--font-mono); font-size:1.05rem; font-weight:700; color:var(--col-problem); background:#fef2f2; border:1px solid #fecaca; padding:4px 14px; border-radius:var(--radius-sm);">Primer Orden · \(\mathcal{O}(h)\)</span>
+            </div>
+            
+            <div class="hero-formula-card dark-accent" style="padding:22px 34px; margin-bottom:20px;">
+              <div style="font-size:2.4rem;">
+                $$f'_i \approx \frac{f_{i+1} - f_i}{h}$$
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+              <div style="background:#f8fafc; border:1px solid var(--border-subtle); padding:18px 22px; border-radius:var(--radius-sm);">
+                <div style="font-family:var(--font-mono); font-size:0.86rem; font-weight:700; color:var(--text-light); text-transform:uppercase; margin-bottom:4px;">Stencil Computacional</div>
+                <div style="font-size:1.35rem; font-family:var(--font-mono); font-weight:700; color:var(--text-main);">
+                  \([x_i, x_{i+1}]\)
+                </div>
+                <p style="font-size:1.12rem; color:var(--text-muted); margin-top:6px; line-height:1.45;">
+                  Muestrea la función en el nodo actual y en el vecino aguas abajo (o hacia adelante).
+                </p>
+              </div>
+
+              <div style="background:#f8fafc; border:1px solid var(--border-subtle); padding:18px 22px; border-radius:var(--radius-sm);">
+                <div style="font-family:var(--font-mono); font-size:0.86rem; font-weight:700; color:var(--text-light); text-transform:uppercase; margin-bottom:4px;">Término Principal del Error</div>
+                <div style="font-size:1.35rem; font-family:var(--font-mono); font-weight:700; color:var(--col-problem);">
+                  $$E_t = -\frac{h}{2} f''(\xi)$$
+                </div>
+                <p style="font-size:1.12rem; color:var(--text-muted); margin-top:6px; line-height:1.45;">
+                  El residuo asintótico decae linealmente con el espaciado de malla \(h\).
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- --------------------------------------------------------------------
+           DIAPOSITIVA 7: DIFERENCIA HACIA ATRÁS (BACKWARD)
+           -------------------------------------------------------------------- -->
+      <section class="slide" id="slide-7" data-index="7">
+        <div class="slide-top-header">
+          <div class="slide-header-left">
+            <div class="slide-meta-tag">
+              <span class="meta-tag-badge">ESQUEMA RETROSPECTIVO</span>
+              <span>Diapositiva 07</span>
+            </div>
+            <h2 class="slide-main-title">Diferencias Finitas Hacia Atrás (Backward)</h2>
+            <p class="slide-sub-desc">Muestreo unilateral retrospectivo o aguas arriba.</p>
+          </div>
+          <div class="slide-header-controls">
+            <span class="badge-counter">07 / 17</span>
+          </div>
+        </div>
+
+        <div class="slide-content-area" style="display:flex; justify-content:center; align-items:center;">
+          <div class="hero-col-card" style="max-width:1160px; width:100%; padding:34px 44px; border-top:5px solid var(--border-dark);">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+              <span style="font-family:var(--font-mono); font-size:1.05rem; font-weight:700; color:var(--text-main); text-transform:uppercase;">Esquema Unilateral a la Izquierda</span>
+              <span style="font-family:var(--font-mono); font-size:1.05rem; font-weight:700; color:var(--col-problem); background:#fef2f2; border:1px solid #fecaca; padding:4px 14px; border-radius:var(--radius-sm);">Primer Orden · \(\mathcal{O}(h)\)</span>
+            </div>
+
+            <div class="hero-formula-card dark-accent" style="padding:22px 34px; margin-bottom:20px;">
+              <div style="font-size:2.4rem;">
+                $$f'_i \approx \frac{f_i - f_{i-1}}{h}$$
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+              <div style="background:#f8fafc; border:1px solid var(--border-subtle); padding:18px 22px; border-radius:var(--radius-sm);">
+                <div style="font-family:var(--font-mono); font-size:0.86rem; font-weight:700; color:var(--text-light); text-transform:uppercase; margin-bottom:4px;">Stencil Computacional</div>
+                <div style="font-size:1.35rem; font-family:var(--font-mono); font-weight:700; color:var(--text-main);">
+                  \([x_{i-1}, x_i]\)
+                </div>
+                <p style="font-size:1.12rem; color:var(--text-muted); margin-top:6px; line-height:1.45;">
+                  Muestrea la función en el nodo actual y en el vecino aguas arriba (o hacia atrás).
+                </p>
+              </div>
+
+              <div style="background:#f8fafc; border:1px solid var(--border-subtle); padding:18px 22px; border-radius:var(--radius-sm);">
+                <div style="font-family:var(--font-mono); font-size:0.86rem; font-weight:700; color:var(--text-light); text-transform:uppercase; margin-bottom:4px;">Término Principal del Error</div>
+                <div style="font-size:1.35rem; font-family:var(--font-mono); font-weight:700; color:var(--col-problem);">
+                  $$E_t = +\frac{h}{2} f''(\xi)$$
+                </div>
+                <p style="font-size:1.12rem; color:var(--text-muted); margin-top:6px; line-height:1.45;">
+                  Idéntica tasa de convergencia asintótica que Forward, con signo invertido por simetría.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- --------------------------------------------------------------------
+           DIAPOSITIVA 8: DIFERENCIA CENTRAL
+           -------------------------------------------------------------------- -->
+      <section class="slide" id="slide-8" data-index="8">
+        <div class="slide-top-header">
+          <div class="slide-header-left">
+            <div class="slide-meta-tag">
+              <span class="meta-tag-badge">ESQUEMA BILATERAL</span>
+              <span>Diapositiva 08</span>
+            </div>
+            <h2 class="slide-main-title">Diferencia Central: El Salto a \(\mathcal{O}(h^2)\)</h2>
+            <p class="slide-sub-desc">Muestreo simétrico centrado en torno al nodo de interés \(x_i\).</p>
+          </div>
+          <div class="slide-header-controls">
+            <span class="badge-counter">08 / 17</span>
+          </div>
+        </div>
+
+        <div class="slide-content-area" style="display:flex; justify-content:center; align-items:center;">
+          <div class="hero-col-card yellow-accent" style="max-width:1160px; width:100%; padding:34px 44px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+              <span style="font-family:var(--font-mono); font-size:1.05rem; font-weight:700; color:var(--text-main); text-transform:uppercase;">Esquema Bilateral Simétrico</span>
+              <span style="font-family:var(--font-mono); font-size:1.05rem; font-weight:800; color:var(--text-on-yellow); background:var(--col-yellow); padding:4px 14px; border-radius:var(--radius-sm);">Segundo Orden · \(\mathcal{O}(h^2)\)</span>
+            </div>
+
+            <div class="hero-formula-card yellow-accent" style="padding:22px 34px; margin-bottom:20px;">
+              <div style="font-size:2.5rem;">
+                $$f'_i \approx \frac{f_{i+1} - f_{i-1}}{2h}$$
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+              <div style="background:#f8fafc; border:1px solid var(--border-subtle); padding:18px 22px; border-radius:var(--radius-sm);">
+                <div style="font-family:var(--font-mono); font-size:0.86rem; font-weight:700; color:var(--text-light); text-transform:uppercase; margin-bottom:4px;">Stencil Computacional</div>
+                <div style="font-size:1.35rem; font-family:var(--font-mono); font-weight:700; color:var(--text-main);">
+                  \([x_{i-1}, x_{i+1}]\)
+                </div>
+                <p style="font-size:1.12rem; color:var(--text-muted); margin-top:6px; line-height:1.45;">
+                  Muestrea a izquierda y derecha a distancia \(h\), omitiendo el valor local \(f_i\) en el numerador.
+                </p>
+              </div>
+
+              <div style="background:#f8fafc; border:1px solid var(--border-subtle); padding:18px 22px; border-radius:var(--radius-sm);">
+                <div style="font-family:var(--font-mono); font-size:0.86rem; font-weight:700; color:var(--text-light); text-transform:uppercase; margin-bottom:4px;">Término Principal del Error</div>
+                <div style="font-size:1.35rem; font-family:var(--font-mono); font-weight:700; color:var(--col-yellow-border);">
+                  $$E_t = -\frac{h^2}{6} f'''(\xi)$$
+                </div>
+                <p style="font-size:1.12rem; color:var(--text-muted); margin-top:6px; line-height:1.45;">
+                  El error escala cuadráticamente con \(h\). Al reducir la malla a la mitad, <strong>el error cae al 25%</strong>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- --------------------------------------------------------------------
+           DIAPOSITIVA 9: INSIGHT FUNDAMENTAL (BLANCO, NEGRO Y AMARILLO)
+           -------------------------------------------------------------------- -->
+      <section class="slide" id="slide-9" data-index="9">
+        <div class="slide-top-header">
+          <div class="slide-header-left">
+            <div class="slide-meta-tag">
+              <span class="meta-tag-badge">SIMETRÍA ALGEBRAICA</span>
+              <span>Diapositiva 09</span>
+            </div>
+            <h2 class="slide-main-title">Insight Fundamental: Cancelación Gratuita</h2>
+            <p class="slide-sub-desc">Por qué la simetría geométrica cuadruplica la velocidad de convergencia sin costo adicional.</p>
+          </div>
+          <div class="slide-header-controls">
+            <span class="badge-counter">09 / 17</span>
+          </div>
+        </div>
+
+        <div class="slide-content-area" style="display:flex; justify-content:center; align-items:center;">
+          <div style="max-width:1180px; width:100%; background:#ffffff; border:2px solid var(--border-dark); border-left:8px solid var(--col-yellow); padding:36px 46px; border-radius:var(--radius-sm); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;">
+              <span style="font-family:var(--font-mono); font-size:1.05rem; font-weight:800; color:var(--col-yellow-border); text-transform:uppercase; letter-spacing:0.08em;">Principio de Simetría en Diferencias Finitas</span>
+              <span style="font-family:var(--font-mono); font-size:1.05rem; font-weight:700; color:var(--text-on-dark); background:var(--bg-dark); padding:4px 14px; border-radius:var(--radius-sm);">Ganancia 4× por cada división de malla</span>
+            </div>
+
+            <h3 style="font-family:var(--font-serif); font-size:2.05rem; font-weight:700; color:var(--text-main); margin-bottom:14px; line-height:1.25;">
+              Cancelación Exacta de Términos Pares de la Serie de Taylor
+            </h3>
+
+            <p style="font-size:1.25rem; color:var(--text-muted); line-height:1.6; margin-bottom:18px;">
+              Al restar miembro a miembro el desarrollo hacia adelante \(f(x_i+h)\) y el desarrollo hacia atrás \(f(x_i-h)\), los términos cuadráticos asociados a la segunda derivada:
+            </p>
+
+            <div style="background:var(--bg-dark); color:var(--text-on-dark); border-left:5px solid var(--col-yellow); border-radius:var(--radius-sm); padding:18px 24px; font-size:2rem; text-align:center; margin-bottom:20px;">
+              $$\left[ +\frac{h^2}{2} f''(x_i) \right] - \left[ +\frac{h^2}{2} f''(x_i) \right] \equiv 0$$
+            </div>
+
+            <p style="font-size:1.2rem; color:var(--text-main); line-height:1.6;">
+              <strong>Conclusión de Ingeniería:</strong> Con exactamente el mismo costo de cómputo (1 resta y 1 división), la diferencia central salta de orden \(\mathcal{O}(h)\) a orden \(\mathcal{O}(h^2)\). Siempre que el punto no sea una frontera física, la diferencia central es la elección obligada en producción.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- --------------------------------------------------------------------
+           DIAPOSITIVA 10: EL PROBLEMA DE LAS FRONTERAS FÍSICAS
+           -------------------------------------------------------------------- -->
+      <section class="slide" id="slide-10" data-index="10">
+        <div class="slide-top-header">
+          <div class="slide-header-left">
+            <div class="slide-meta-tag">
+              <span class="meta-tag-badge">CONTORNOS IMPERMEABLES</span>
+              <span>Diapositiva 10</span>
+            </div>
             <h2 class="slide-main-title">El Problema de las Fronteras Físicas</h2>
             <p class="slide-sub-desc">En una pared sólida (\(y=0\)) no existen nodos exteriores: la diferencia central falla.</p>
           </div>
           <div class="slide-header-controls">
-            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
-            <span class="badge-counter">06 / 13</span>
-            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente">→</button>
+            <span class="badge-counter">10 / 17</span>
           </div>
         </div>
 
@@ -1095,7 +1298,7 @@
               </div>
               <div class="node-hero-item">
                 <div class="node-hero-dot wall"></div>
-                <div class="node-hero-label" style="color:var(--col-academic);">\(y_0\) (Pared Sólida)</div>
+                <div class="node-hero-label" style="color:var(--text-main);">\(y_0\) (Pared Sólida)</div>
               </div>
               <div class="node-hero-item">
                 <div class="node-hero-dot"></div>
@@ -1110,121 +1313,124 @@
 
           <div class="hero-concept-banner problem">
             <div class="banner-text-title problem">Restricción de Borde: La Trampa de Usar 2 Puntos en la Pared</div>
-            <div class="banner-text-desc">
-              Usar forward simple \(\frac{f_1 - f_0}{h}\) en el contorno <strong>degrada toda la simulación a orden \(\mathcal{O}(h)\)</strong> justo donde los esfuerzos cortantes y los flujos de calor son máximos.
+            <div class="banner-text-desc" style="font-size:1.2rem;">
+              Usar forward simple \(\frac{f_1 - f_0}{h}\) en el contorno <strong>degrada toda la simulación a orden \(\mathcal{O}(h)\)</strong> justo donde los esfuerzos cortantes y los gradientes térmicos son máximos y críticos para el diseño electromecánico.
             </div>
           </div>
         </div>
       </section>
 
       <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 7: LA SOLUCIÓN EN FRONTERA: FÓRMULA DE 3 PUNTOS
+           DIAPOSITIVA 11: LA SOLUCIÓN EN FRONTERA: FÓRMULA DE 3 PUNTOS
            -------------------------------------------------------------------- -->
-      <section class="slide" id="slide-7" data-index="7">
+      <section class="slide" id="slide-11" data-index="11">
         <div class="slide-top-header">
           <div class="slide-header-left">
-            <div class="slide-meta-tag">Fórmulas Asimétricas · Diapositiva 07</div>
+            <div class="slide-meta-tag">
+              <span class="meta-tag-badge">FÓRMULAS ASIMÉTRICAS</span>
+              <span>Diapositiva 11</span>
+            </div>
             <h2 class="slide-main-title">Fórmula Hacia Adelante de 3 Puntos (Nakamura)</h2>
             <p class="slide-sub-desc">Recuperar el orden cuadrático \(\mathcal{O}(h^2)\) en la pared mirando hacia el interior del fluido.</p>
           </div>
           <div class="slide-header-controls">
-            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
-            <span class="badge-counter">07 / 13</span>
-            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente">→</button>
+            <span class="badge-counter">11 / 17</span>
           </div>
         </div>
 
         <div class="slide-content-area">
-          <div class="hero-formula-card solution">
-            <span style="font-family:var(--font-mono); font-size:1rem; font-weight:700; color:var(--col-academic); text-transform:uppercase;">Fórmula de 3 Puntos en Pared (\(i=0\))</span>
-            <div class="hero-formula-box" style="font-size:2.2rem;">
+          <div class="hero-formula-card yellow-accent">
+            <span style="font-family:var(--font-mono); font-size:1rem; font-weight:700; color:var(--col-yellow-border); text-transform:uppercase;">Fórmula de 3 Puntos en Pared (\(i=0\))</span>
+            <div class="hero-formula-box" style="font-size:2.25rem;">
               $$f'_0 \approx \frac{-3 f_0 + 4 f_1 - f_2}{2h}$$
             </div>
-            <p style="font-size:1.25rem; color:var(--col-academic); font-weight:700;">
+            <p style="font-size:1.25rem; color:var(--text-main); font-weight:700;">
               Orden de Precisión Recuperado: \(\mathcal{O}(h^2)\)
             </p>
           </div>
 
           <div class="hero-concept-banner">
-            <div class="banner-text-title">Consistencia de Signos y Coeficientes \((-3, +4, -1)\)</div>
-            <div class="banner-text-desc">
-              Combinando las series de Taylor en \(f_1\) y \(f_2\) con pesos adecuados, el término cuadrático \(h^2 f''_0\) se cancela exactamente.<br>
-              <strong>Resultado:</strong> Segundo orden estricto en la frontera sin necesidad de inventar nodos fantasmas.
+            <div class="banner-text-title" style="font-size:1.25rem;">Consistencia de Signos y Coeficientes \((-3, +4, -1)\)</div>
+            <div class="banner-text-desc" style="font-size:1.15rem;">
+              Combinando las series de Taylor en \(f_1\) y \(f_2\) con pesos adecuados, el término cuadrático \(h^2 f''_0\) se cancela algebraicamente.<br>
+              <strong>Resultado:</strong> Segundo orden estricto en la frontera sin necesidad de inventar nodos fantasmas exteriores.
             </div>
           </div>
         </div>
       </section>
 
       <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 8: LA PARADOJA DEL ERROR: TRUNCAMIENTO VS REDONDEO
+           DIAPOSITIVA 12: LA PARADOJA DEL ERROR: TRUNCAMIENTO VS REDONDEO
            -------------------------------------------------------------------- -->
-      <section class="slide" id="slide-8" data-index="8">
+      <section class="slide" id="slide-12" data-index="12">
         <div class="slide-top-header">
           <div class="slide-header-left">
-            <div class="slide-meta-tag">Aritmética Computacional · Diapositiva 08</div>
+            <div class="slide-meta-tag">
+              <span class="meta-tag-badge">ARITMÉTICA COMPUTACIONAL</span>
+              <span>Diapositiva 12</span>
+            </div>
             <h2 class="slide-main-title">La Paradoja del Error: Truncamiento vs. Redondeo</h2>
             <p class="slide-sub-desc">El choque entre el modelo matemático continuo y los límites físicos del hardware IEEE-754.</p>
           </div>
           <div class="slide-header-controls">
-            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
-            <span class="badge-counter">08 / 13</span>
-            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente">→</button>
+            <span class="badge-counter">12 / 17</span>
           </div>
         </div>
 
         <div class="slide-content-area">
           <div class="two-cols-hero-grid">
             <!-- Truncamiento -->
-            <div class="hero-col-card left-accent">
+            <div class="hero-col-card problem-accent" style="padding:22px 26px;">
               <div>
-                <h3 class="hero-col-title" style="color:var(--col-problem);">1. Error de Truncamiento (\(E_t\))</h3>
-                <p class="hero-col-desc">
+                <h3 class="hero-col-title" style="color:var(--col-problem); font-size:1.6rem;">1. Error de Truncamiento (\(E_t\))</h3>
+                <p class="hero-col-desc" style="font-size:1.15rem; line-height:1.5;">
                   • <strong>Origen:</strong> Corte de la serie de Taylor (modelo matemático).<br>
                   • <strong>Comportamiento:</strong> \(E_t \propto h\) o \(E_t \propto h^2\).<br>
                   • <strong>Al achicar \(h\):</strong> <strong>DISMINUYE</strong> hacia cero.
                 </p>
               </div>
-              <div style="font-family:var(--font-mono); font-size:1.15rem; font-weight:700; color:var(--col-problem); text-align:center; padding:12px; background:#f8fafc; border:1px solid var(--border-subtle); border-radius:var(--radius-sm);">
+              <div style="font-family:var(--font-mono); font-size:1.15rem; font-weight:700; color:var(--col-problem); text-align:center; padding:10px; background:#fef2f2; border:1px solid #fecaca; border-radius:var(--radius-sm);">
                 \(\lim_{h \to 0} E_t(h) = 0\)
               </div>
             </div>
 
             <!-- Redondeo -->
-            <div class="hero-col-card" style="border-top:4px solid var(--col-academic);">
+            <div class="hero-col-card yellow-accent" style="padding:22px 26px;">
               <div>
-                <h3 class="hero-col-title" style="color:var(--col-academic);">2. Error de Redondeo (\(E_r\))</h3>
-                <p class="hero-col-desc">
+                <h3 class="hero-col-title" style="color:var(--col-yellow-border); font-size:1.6rem;">2. Error de Redondeo (\(E_r\))</h3>
+                <p class="hero-col-desc" style="font-size:1.15rem; line-height:1.5;">
                   • <strong>Origen:</strong> Precisión finita en coma flotante (53 bits de mantisa).<br>
                   • <strong>Cancelación:</strong> \(f(x+h) - f(x)\) resta dígitos significativos.<br>
                   • <strong>Al achicar \(h\):</strong> <strong>AUMENTA</strong> como \(\sim \frac{\varepsilon_m}{h}\).
                 </p>
               </div>
-              <div style="font-family:var(--font-mono); font-size:1.15rem; font-weight:700; color:var(--col-academic); text-align:center; padding:12px; background:#f8fafc; border:1px solid var(--border-subtle); border-radius:var(--radius-sm);">
+              <div style="font-family:var(--font-mono); font-size:1.15rem; font-weight:700; color:var(--text-on-dark); background:var(--bg-dark); text-align:center; padding:10px; border-radius:var(--radius-sm);">
                 \(\lim_{h \to 0} E_r(h) = \infty\)
               </div>
             </div>
           </div>
 
-          <div style="margin-top:22px; text-align:center; font-size:1.25rem; font-weight:700; color:var(--text-main); background:#ffffff; padding:16px; border-radius:var(--radius-sm); border:1px solid var(--border-dark);">
+          <div style="margin-top:16px; text-align:center; font-size:1.2rem; font-weight:700; color:var(--text-main); background:#ffffff; padding:14px; border-radius:var(--radius-sm); border:1px solid var(--border-dark);">
             Error Total: \(E_{\text{total}}(h) \approx C_1 h^p + \frac{C_2 \varepsilon_m}{h} \implies \text{Existe un paso óptimo } h^* \text{ finito}\)
           </div>
         </div>
       </section>
 
       <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 9: LABORATORIO INTERACTIVO 1 — LA CURVA EN 'V'
+           DIAPOSITIVA 13: LABORATORIO INTERACTIVO 1 (INTACTA EN CÓDIGO Y ELEMENTOS)
            -------------------------------------------------------------------- -->
-      <section class="slide" id="slide-9" data-index="9">
+      <section class="slide" id="slide-13" data-index="13">
         <div class="slide-top-header">
           <div class="slide-header-left">
-            <div class="slide-meta-tag">Laboratorio Interactivo I · Python en WebAssembly</div>
+            <div class="slide-meta-tag">
+              <span class="meta-tag-badge">LABORATORIO INTERACTIVO I</span>
+              <span>Python en WebAssembly</span>
+            </div>
             <h2 class="slide-main-title">La Curva en 'V': Visualización en Escala Log-Log</h2>
             <p class="slide-sub-desc">Código Python real ejecutado con Pyodide. Probá diferentes funciones y observá el mínimo óptimo.</p>
           </div>
           <div class="slide-header-controls">
-            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
-            <span class="badge-counter">09 / 13</span>
-            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente">→</button>
+            <span class="badge-counter">13 / 17</span>
           </div>
         </div>
 
@@ -1262,7 +1468,7 @@
                 </div>
 
                 <div class="ctrl-item-hero">
-                  <label for="inputX0S5">Punto \(x_0\): <span id="valX0S5" style="color:var(--col-academic); font-weight:700;">1.0</span></label>
+                  <label for="inputX0S5">Punto \(x_0\): <span id="valX0S5" style="color:var(--col-yellow-border); font-weight:700;">1.0</span></label>
                   <input type="range" id="inputX0S5" min="0.2" max="3.0" step="0.1" value="1.0" style="width:130px;">
                 </div>
 
@@ -1296,14 +1502,14 @@
                   <div id="metFwdOpt" style="font-family:var(--font-mono); font-weight:700; color:var(--col-problem); font-size:1.1rem;">h ≈ 1.0e-08</div>
                   <div style="font-size:0.78rem; color:var(--text-muted);">Error: ~1.2e-08</div>
                 </div>
-                <div style="background:#ffffff; border:1px solid var(--border-strong); border-left:3px solid var(--col-academic); padding:10px 16px; border-radius:var(--radius-sm);">
-                  <div style="font-size:0.78rem; font-family:var(--font-mono); text-transform:uppercase; color:var(--col-academic);">Óptimo Central</div>
-                  <div id="metCentOpt" style="font-family:var(--font-mono); font-weight:700; color:var(--col-academic); font-size:1.1rem;">h ≈ 2.1e-05</div>
+                <div style="background:#ffffff; border:1px solid var(--border-strong); border-left:3px solid var(--col-yellow); padding:10px 16px; border-radius:var(--radius-sm);">
+                  <div style="font-size:0.78rem; font-family:var(--font-mono); text-transform:uppercase; color:var(--col-yellow-border);">Óptimo Central</div>
+                  <div id="metCentOpt" style="font-family:var(--font-mono); font-weight:700; color:var(--text-main); font-size:1.1rem;">h ≈ 2.1e-05</div>
                   <div style="font-size:0.78rem; color:var(--text-muted);">Error: ~3.5e-12</div>
                 </div>
                 <div style="background:#ffffff; border:1px solid var(--border-strong); border-left:3px solid var(--border-dark); padding:10px 16px; border-radius:var(--radius-sm);">
                   <div style="font-size:0.78rem; font-family:var(--font-mono); text-transform:uppercase; color:var(--text-muted);">Ganancia Central</div>
-                  <div id="metGainOpt" style="font-family:var(--font-mono); font-weight:700; color:var(--col-academic); font-size:1.1rem;">3,400×</div>
+                  <div id="metGainOpt" style="font-family:var(--font-mono); font-weight:700; color:var(--text-main); font-size:1.1rem;">3,400×</div>
                   <div style="font-size:0.78rem; color:var(--text-muted);">Mayor precisión con paso más seguro</div>
                 </div>
               </div>
@@ -1313,46 +1519,47 @@
       </section>
 
       <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 10: APLICACIÓN ELECTROMECÁNICA: ESFUERZO DE CORTE
+           DIAPOSITIVA 14: APLICACIÓN ELECTROMECÁNICA (INTACTA EN FÓRMULAS Y DATOS)
            -------------------------------------------------------------------- -->
-      <section class="slide" id="slide-10" data-index="10">
+      <section class="slide" id="slide-14" data-index="14">
         <div class="slide-top-header">
           <div class="slide-header-left">
-            <div class="slide-meta-tag">Aplicación Electromecánica · Diapositiva 10</div>
+            <div class="slide-meta-tag">
+              <span class="meta-tag-badge">APLICACIÓN ELECTROMECÁNICA</span>
+              <span>Diapositiva 14</span>
+            </div>
             <h2 class="slide-main-title">Mecánica de Fluidos: Ley de Newton de la Viscosidad</h2>
             <p class="slide-sub-desc">Cálculo de arrastre viscoso en placa plana: \(\tau_w = \mu \left.\frac{du}{dy}\right|_{y=0}\).</p>
           </div>
           <div class="slide-header-controls">
-            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
-            <span class="badge-counter">10 / 13</span>
-            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente">→</button>
+            <span class="badge-counter">14 / 17</span>
           </div>
         </div>
 
         <div class="slide-content-area">
-          <div class="hero-formula-card solution" style="margin-bottom:22px;">
-            <span style="font-family:var(--font-mono); font-size:1rem; font-weight:700; color:var(--col-academic); text-transform:uppercase;">Ley Constitutiva de Newton</span>
-            <div class="hero-formula-box" style="font-size:2.2rem;">
+          <div class="hero-formula-card yellow-accent" style="margin-bottom:18px; padding:20px 30px;">
+            <span style="font-family:var(--font-mono); font-size:0.95rem; font-weight:700; color:var(--col-yellow-border); text-transform:uppercase;">Ley Constitutiva de Newton</span>
+            <div class="hero-formula-box" style="font-size:2rem; margin:10px 0;">
               $$\tau_w = \mu \left. \frac{du}{dy} \right|_{y=0}$$
             </div>
-            <p style="font-size:1.25rem; color:var(--text-main);">
+            <p style="font-size:1.2rem; color:var(--text-main);">
               El gradiente en la pared define la tensión de corte tangencial y la potencia de fricción disipada.
             </p>
           </div>
 
           <div class="two-cols-hero-grid" style="height:auto;">
-            <div class="hero-col-card" style="padding:28px 32px;">
-              <h4 class="hero-col-title" style="font-size:1.45rem; margin-bottom:12px;">Datos de Retícula Experimental</h4>
-              <p style="font-family:var(--font-mono); font-size:1.05rem; line-height:1.7; color:var(--text-main);">
+            <div class="hero-col-card" style="padding:24px 28px;">
+              <h4 class="hero-col-title" style="font-size:1.4rem; margin-bottom:10px;">Datos de Retícula Experimental</h4>
+              <p style="font-family:var(--font-mono); font-size:1.02rem; line-height:1.65; color:var(--text-main);">
                 y = [0.0, 0.002, 0.004, 0.006, 0.008] m<br>
                 u = [0.0, 0.006180, 0.011756, 0.016180, 0.019021] m/s<br>
                 h = 0.002 m (Espaciado de malla constante)
               </p>
             </div>
 
-            <div class="hero-col-card left-accent" style="padding:28px 32px;">
-              <h4 class="hero-col-title" style="font-size:1.45rem; color:var(--col-problem); margin-bottom:12px;">La Discrepancia del Modelo</h4>
-              <p style="font-size:1.15rem; color:var(--text-muted); line-height:1.65;">
+            <div class="hero-col-card problem-accent" style="padding:24px 28px;">
+              <h4 class="hero-col-title" style="font-size:1.4rem; color:var(--col-problem); margin-bottom:10px;">La Discrepancia del Modelo</h4>
+              <p style="font-size:1.12rem; color:var(--text-muted); line-height:1.6;">
                 • <strong>Forward 2 Puntos \(\mathcal{O}(h)\):</strong> \(du/dy = 3.0900 \text{ s}^{-1}\)<br>
                 • <strong>Forward 3 Puntos \(\mathcal{O}(h^2)\):</strong> \(du/dy = 3.2410 \text{ s}^{-1}\)<br>
                 <strong style="color:var(--col-problem);">¡Una subestimación de casi el 5% en la fuerza de arrastre!</strong>
@@ -1363,19 +1570,20 @@
       </section>
 
       <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 11: LABORATORIO INTERACTIVO 2 — CÁLCULO EN PARED
+           DIAPOSITIVA 15: LABORATORIO INTERACTIVO 2 (INTACTA EN CÓDIGO Y ELEMENTOS)
            -------------------------------------------------------------------- -->
-      <section class="slide" id="slide-11" data-index="11">
+      <section class="slide" id="slide-15" data-index="15">
         <div class="slide-top-header">
           <div class="slide-header-left">
-            <div class="slide-meta-tag">Laboratorio Interactivo II · Dinámica de Fluidos</div>
+            <div class="slide-meta-tag">
+              <span class="meta-tag-badge">LABORATORIO INTERACTIVO II</span>
+              <span>Dinámica de Fluidos</span>
+            </div>
             <h2 class="slide-main-title">Laboratorio: Cálculo de Gradientes y Tensión en Pared</h2>
             <p class="slide-sub-desc">Python en vivo con la tabla estilizada comparativa que demuestra por qué 3 puntos es el estándar CFD.</p>
           </div>
           <div class="slide-header-controls">
-            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
-            <span class="badge-counter">11 / 13</span>
-            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente">→</button>
+            <span class="badge-counter">15 / 17</span>
           </div>
         </div>
 
@@ -1424,11 +1632,11 @@
             <!-- TABLA ESTILIZADA + Gráfico -->
             <div class="display-column-hero">
               <div class="styled-table-card-hero">
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
-                  <h5 style="font-family:var(--font-serif); font-size:1.25rem; font-weight:700; color:var(--text-main);">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                  <h5 style="font-family:var(--font-serif); font-size:1.15rem; font-weight:700; color:var(--text-main);">
                     Resultados en la Pared (\(y=0\), paso \(h=0.002\) m)
                   </h5>
-                  <span id="labelViscosity" style="font-family:var(--font-mono); font-size:0.92rem; font-weight:700; color:var(--col-academic);">\(\mu = 0.290\) Pa·s</span>
+                  <span id="labelViscosity" style="font-family:var(--font-mono); font-size:0.88rem; font-weight:700; color:var(--col-yellow-border);">\(\mu = 0.290\) Pa·s</span>
                 </div>
 
                 <table class="cfd-results-table-hero">
@@ -1476,52 +1684,53 @@
       </section>
 
       <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 12: SÍNTESIS VISUAL: EL ORDEN SEGÚN LA POSICIÓN
+           DIAPOSITIVA 16: SÍNTESIS VISUAL: EL ORDEN SEGÚN LA POSICIÓN
            -------------------------------------------------------------------- -->
-      <section class="slide" id="slide-12" data-index="12">
+      <section class="slide" id="slide-16" data-index="16">
         <div class="slide-top-header">
           <div class="slide-header-left">
-            <div class="slide-meta-tag">Integración de Conceptos · Diapositiva 12</div>
+            <div class="slide-meta-tag">
+              <span class="meta-tag-badge">INTEGRACIÓN DE CONCEPTOS</span>
+              <span>Diapositiva 16</span>
+            </div>
             <h2 class="slide-main-title">Síntesis Visual: El Orden según la Posición en el Dominio</h2>
             <p class="slide-sub-desc">Mismo principio físico-computacional: adecuar el stencil a la geometría del problema.</p>
           </div>
           <div class="slide-header-controls">
-            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
-            <span class="badge-counter">12 / 13</span>
-            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente">→</button>
+            <span class="badge-counter">16 / 17</span>
           </div>
         </div>
 
         <div class="slide-content-area">
           <div class="two-cols-hero-grid">
             <!-- Zona Interior -->
-            <div class="hero-col-card right-accent">
+            <div class="hero-col-card yellow-accent">
               <div>
-                <span style="font-family:var(--font-mono); font-size:0.88rem; font-weight:700; color:var(--col-academic); text-transform:uppercase;">Zona I: Interior del Dominio</span>
-                <h3 class="hero-col-title" style="font-size:1.85rem; margin-top:8px;">Simetría & Selección del Paso \(h\)</h3>
-                <p class="hero-col-desc" style="font-size:1.2rem;">
+                <span style="font-family:var(--font-mono); font-size:0.85rem; font-weight:700; color:var(--col-yellow-border); text-transform:uppercase;">Zona I: Interior del Dominio</span>
+                <h3 class="hero-col-title" style="font-size:1.75rem; margin-top:6px;">Simetría & Selección del Paso \(h\)</h3>
+                <p class="hero-col-desc" style="font-size:1.15rem; line-height:1.55;">
                   • <strong>Operador:</strong> Diferencia Central \(\mathcal{O}(h^2)\).<br>
                   • <strong>Simetría:</strong> Existen vecinos a ambos lados (\(x_{i-1}, x_{i+1}\)). La cancelación par de Taylor es exacta.<br>
                   • <strong>Gestión del Paso:</strong> Trabajar en torno a \(h^* \approx 10^{-5}\). No achicar \(h\) por debajo de \(10^{-6}\) para evitar la explosión de redondeo (\(\varepsilon_m/h\)).
                 </p>
               </div>
-              <div style="font-family:var(--font-mono); font-size:1.05rem; font-weight:700; color:var(--col-academic); background:#f8fafc; padding:14px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
+              <div style="font-family:var(--font-mono); font-size:1rem; font-weight:700; color:var(--text-on-dark); background:var(--bg-dark); padding:12px; border-radius:var(--radius-sm); text-align:center;">
                 Máxima precisión con bajo costo de cálculo
               </div>
             </div>
 
             <!-- Zona Frontera -->
-            <div class="hero-col-card left-accent">
+            <div class="hero-col-card" style="border-top:4px solid var(--border-dark);">
               <div>
-                <span style="font-family:var(--font-mono); font-size:0.88rem; font-weight:700; color:var(--col-problem); text-transform:uppercase;">Zona II: Frontera Física</span>
-                <h3 class="hero-col-title" style="font-size:1.85rem; margin-top:8px;">Asimetría & Preservación del Orden</h3>
-                <p class="hero-col-desc" style="font-size:1.2rem;">
+                <span style="font-family:var(--font-mono); font-size:0.85rem; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Zona II: Frontera Física</span>
+                <h3 class="hero-col-title" style="font-size:1.75rem; margin-top:6px;">Asimetría & Preservación del Orden</h3>
+                <p class="hero-col-desc" style="font-size:1.15rem; line-height:1.55;">
                   • <strong>Operador:</strong> Fórmula Hacia Adelante de 3 Puntos \(\mathcal{O}(h^2)\).<br>
                   • <strong>Restricción:</strong> Pared sólida impermeable en \(y=0\). No hay nodos exteriores.<br>
                   • <strong>Preservación:</strong> Mirar 2 pasos hacia el interior (\(y_0, y_1, y_2\)) garantiza no degradar el orden global a \(\mathcal{O}(h)\).
                 </p>
               </div>
-              <div style="font-family:var(--font-mono); font-size:1.05rem; font-weight:700; color:var(--col-problem); background:#f8fafc; padding:14px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle);">
+              <div style="font-family:var(--font-mono); font-size:1rem; font-weight:700; color:var(--text-main); background:#f8fafc; border:1px solid var(--border-subtle); padding:12px; border-radius:var(--radius-sm); text-align:center;">
                 Leyes constitutivas de pared exactas (\(\tau = \mu \frac{du}{dy}\))
               </div>
             </div>
@@ -1530,52 +1739,53 @@
       </section>
 
       <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 13: CONCLUSIONES EJECUTIVAS
+           DIAPOSITIVA 17: CONCLUSIONES EJECUTIVAS
            -------------------------------------------------------------------- -->
-      <section class="slide" id="slide-13" data-index="13">
+      <section class="slide" id="slide-17" data-index="17">
         <div class="slide-top-header">
           <div class="slide-header-left">
-            <div class="slide-meta-tag">Conclusiones Ejecutivas · Diapositiva 13</div>
+            <div class="slide-meta-tag">
+              <span class="meta-tag-badge">CONCLUSIONES TÉCNICAS</span>
+              <span>Diapositiva 17</span>
+            </div>
             <h2 class="slide-main-title">Cuatro Mandamientos para la Práctica de la Ingeniería</h2>
             <p class="slide-sub-desc">Criterios fundamentales para simulación y cálculo diferencial robusto.</p>
           </div>
           <div class="slide-header-controls">
-            <button class="btn-header-nav" onclick="goPrevSlide()" title="Anterior">←</button>
-            <span class="badge-counter">13 / 13</span>
-            <button class="btn-header-nav" onclick="goNextSlide()" title="Siguiente" disabled>→</button>
+            <span class="badge-counter">17 / 17</span>
           </div>
         </div>
 
         <div class="slide-content-area">
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:30px; height:100%; align-content:center;">
-            <div class="hero-col-card" style="padding:28px 32px; border-top:4px solid var(--col-problem);">
-              <span style="font-family:var(--font-mono); font-size:0.85rem; font-weight:700; color:var(--col-problem); text-transform:uppercase;">Criterio 1</span>
-              <h4 style="font-family:var(--font-serif); font-size:1.55rem; margin:8px 0 10px 0;">El Mito Analítico de \(h \to 0\)</h4>
-              <p style="font-size:1.15rem; color:var(--text-muted); line-height:1.6;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; height:100%; align-content:center;">
+            <div class="hero-col-card" style="padding:22px 26px; border-top:4px solid var(--col-problem);">
+              <span style="font-family:var(--font-mono); font-size:0.82rem; font-weight:700; color:var(--col-problem); text-transform:uppercase;">Criterio 1</span>
+              <h4 style="font-family:var(--font-serif); font-size:1.45rem; margin:6px 0 8px 0;">El Mito Analítico de \(h \to 0\)</h4>
+              <p style="font-size:1.1rem; color:var(--text-muted); line-height:1.5;">
                 En hardware real, \(h \to 0\) destruye el cálculo por cancelación en coma flotante. El paso óptimo \(h^*\) siempre es finito y debe planificarse.
               </p>
             </div>
 
-            <div class="hero-col-card" style="padding:28px 32px; border-top:4px solid var(--col-academic);">
-              <span style="font-family:var(--font-mono); font-size:0.85rem; font-weight:700; color:var(--col-academic); text-transform:uppercase;">Criterio 2</span>
-              <h4 style="font-family:var(--font-serif); font-size:1.55rem; margin:8px 0 10px 0;">La Simetría es Precisión Gratuita</h4>
-              <p style="font-size:1.15rem; color:var(--text-main); line-height:1.6;">
+            <div class="hero-col-card yellow-accent" style="padding:22px 26px;">
+              <span style="font-family:var(--font-mono); font-size:0.82rem; font-weight:700; color:var(--col-yellow-border); text-transform:uppercase;">Criterio 2</span>
+              <h4 style="font-family:var(--font-serif); font-size:1.45rem; margin:6px 0 8px 0;">La Simetría es Precisión Gratuita</h4>
+              <p style="font-size:1.1rem; color:var(--text-main); line-height:1.5;">
                 La diferencia central cuadruplica la velocidad de convergencia (\(\mathcal{O}(h^2)\)) cancelando algebraicamente los términos pares sin costo extra.
               </p>
             </div>
 
-            <div class="hero-col-card" style="padding:28px 32px; border-top:4px solid var(--border-dark);">
-              <span style="font-family:var(--font-mono); font-size:0.85rem; font-weight:700; color:var(--col-academic); text-transform:uppercase;">Criterio 3</span>
-              <h4 style="font-family:var(--font-serif); font-size:1.55rem; margin:8px 0 10px 0;">La Frontera Preserva el Interior</h4>
-              <p style="font-size:1.15rem; color:var(--text-muted); line-height:1.6;">
+            <div class="hero-col-card" style="padding:22px 26px; border-top:4px solid var(--border-dark);">
+              <span style="font-family:var(--font-mono); font-size:0.82rem; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Criterio 3</span>
+              <h4 style="font-family:var(--font-serif); font-size:1.45rem; margin:6px 0 8px 0;">La Frontera Preserva el Interior</h4>
+              <p style="font-size:1.1rem; color:var(--text-muted); line-height:1.5;">
                 En paredes sólidas no se debe sacrificar el orden. La fórmula hacia adelante de 3 puntos rescata el orden \(\mathcal{O}(h^2)\) mirando hacia el interior del fluido.
               </p>
             </div>
 
-            <div class="hero-col-card" style="padding:28px 32px; border-top:4px solid var(--col-academic);">
-              <span style="font-family:var(--font-mono); font-size:0.85rem; font-weight:700; color:var(--col-academic); text-transform:uppercase;">Criterio 4</span>
-              <h4 style="font-family:var(--font-serif); font-size:1.55rem; margin:8px 0 10px 0;">Auditoría de Herramientas (`numpy`)</h4>
-              <p style="font-size:1.15rem; color:var(--text-muted); line-height:1.6;">
+            <div class="hero-col-card yellow-accent" style="padding:22px 26px;">
+              <span style="font-family:var(--font-mono); font-size:0.82rem; font-weight:700; color:var(--col-yellow-border); text-transform:uppercase;">Criterio 4</span>
+              <h4 style="font-family:var(--font-serif); font-size:1.45rem; margin:6px 0 8px 0;">Auditoría de Herramientas (`numpy`)</h4>
+              <p style="font-size:1.1rem; color:var(--text-muted); line-height:1.5;">
                 Las funciones de biblioteca como <code>np.gradient</code> no son cajas negras; aplican exactamente este diseño híbrido (Central interior + Nakamura en bordes).
               </p>
             </div>
@@ -1583,7 +1793,7 @@
         </div>
       </section>
 
-      <!-- Barra de progreso horizontal al pie del canvas 16:9 -->
+      <!-- Barra de progreso horizontal amarilla al pie -->
       <div class="slide-bottom-progress">
         <div id="slideProgressFill" class="slide-progress-fill"></div>
       </div>
@@ -1592,7 +1802,7 @@
   </div>
 
   <!-- ==========================================================================
-       SCRIPTS JAVASCRIPT: ESCALADO 16:9, NAVEGACIÓN & MOTOR PYODIDE
+       SCRIPTS JAVASCRIPT: ESCALADO 16:9, NAVEGACIÓN & MOTOR PYODIDE (INTACTOS)
        ========================================================================== -->
   <script>
     /* ==========================================================================
@@ -1619,7 +1829,7 @@
     /* ==========================================================================
        2. CÓDIGOS PYTHON POR DEFECTO PARA SLIDES INTERACTIVAS (EXACTOS SIN MODIFICAR)
        ========================================================================== */
-    const defaultPythonCodeS5 = `# Diapositiva 5: La Paradoja del Error - Curva en 'V' en Escala Log-Log
+    const defaultPythonCodeS5 = `# Diapositiva 13: La Paradoja del Error - Curva en 'V' en Escala Log-Log
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -1679,7 +1889,7 @@ print(f"Central: h_opt = {h_vals[idx_c]:.2e} | Error = {err_central[idx_c]:.2e}"
 print(f"Ganancia Central vs Forward: {err_forward[idx_f]/err_central[idx_c]:.0f}x veces más preciso")
 `;
 
-    const defaultPythonCodeS6 = `# Diapositiva 6: Esfuerzo de Corte tau = mu * (du/dy) en Capa Límite
+    const defaultPythonCodeS6 = `# Diapositiva 15: Esfuerzo de Corte tau = mu * (du/dy) en Capa Límite
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -1754,9 +1964,9 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimacion con 2 puntos")
     </svg>`;
 
     /* ==========================================================================
-       4. CONTROLADOR DE LA PRESENTACIÓN (13 DIAPOSITIVAS)
+       4. CONTROLADOR DE LA PRESENTACIÓN (17 DIAPOSITIVAS)
        ========================================================================== */
-    const totalSlidesCount = 13;
+    const totalSlidesCount = 17;
     let currentActiveSlide = 1;
 
     let editorInstanceS5 = null;
@@ -1777,7 +1987,7 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimacion con 2 puntos")
       document.getElementById('svgHostS6').innerHTML = precomputedSvgS6;
 
       resizePresentationDeck();
-      if (currentActiveSlide === 9 || currentActiveSlide === 11) ensurePyodideLoading();
+      if (currentActiveSlide === 13 || currentActiveSlide === 15) ensurePyodideLoading();
     }
 
     function updateSlideState() {
@@ -1792,17 +2002,12 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimacion con 2 puntos")
       const fillPercent = ((currentActiveSlide - 1) / (totalSlidesCount - 1)) * 100;
       document.getElementById('slideProgressFill').style.width = `${fillPercent}%`;
 
-      document.querySelectorAll('.btn-header-nav').forEach(btn => {
-        if (btn.title === "Anterior") btn.disabled = (currentActiveSlide === 1);
-        if (btn.title === "Siguiente") btn.disabled = (currentActiveSlide === totalSlidesCount);
-      });
-
       history.replaceState(null, null, `#slide-${currentActiveSlide}`);
 
-      if (currentActiveSlide === 9 && editorInstanceS5) setTimeout(() => editorInstanceS5.refresh(), 50);
-      if (currentActiveSlide === 11 && editorInstanceS6) setTimeout(() => editorInstanceS6.refresh(), 50);
+      if (currentActiveSlide === 13 && editorInstanceS5) setTimeout(() => editorInstanceS5.refresh(), 50);
+      if (currentActiveSlide === 15 && editorInstanceS6) setTimeout(() => editorInstanceS6.refresh(), 50);
 
-      if (currentActiveSlide === 9 || currentActiveSlide === 11) ensurePyodideLoading();
+      if (currentActiveSlide === 13 || currentActiveSlide === 15) ensurePyodideLoading();
 
       if (window.renderMathInElement) {
         const activeSlideEl = document.getElementById(`slide-${currentActiveSlide}`);
@@ -1894,15 +2099,15 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimacion con 2 puntos")
     }
 
     function getCode(slideNum) {
-      const editor = slideNum === 9 ? editorInstanceS5 : editorInstanceS6;
+      const editor = slideNum === 13 ? editorInstanceS5 : editorInstanceS6;
       if (editor) return editor.getValue();
-      return document.getElementById(slideNum === 9 ? 'codeEditorS5' : 'codeEditorS6').value;
+      return document.getElementById(slideNum === 13 ? 'codeEditorS5' : 'codeEditorS6').value;
     }
 
     function setCode(slideNum, value) {
-      const editor = slideNum === 9 ? editorInstanceS5 : editorInstanceS6;
+      const editor = slideNum === 13 ? editorInstanceS5 : editorInstanceS6;
       if (editor) editor.setValue(value);
-      else document.getElementById(slideNum === 9 ? 'codeEditorS5' : 'codeEditorS6').value = value;
+      else document.getElementById(slideNum === 13 ? 'codeEditorS5' : 'codeEditorS6').value = value;
     }
 
     function setupCodeMirrorInstances() {
@@ -1936,52 +2141,52 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimacion con 2 puntos")
         editorInstanceS6 = null;
       }
 
-      document.getElementById('btnRunS5').addEventListener('click', () => runPythonSlide(9));
+      document.getElementById('btnRunS5').addEventListener('click', () => runPythonSlide(13));
       document.getElementById('btnResetS5').addEventListener('click', () => {
-        setCode(9, defaultPythonCodeS5);
-        runPythonSlide(9);
+        setCode(13, defaultPythonCodeS5);
+        runPythonSlide(13);
       });
 
-      document.getElementById('btnRunS6').addEventListener('click', () => runPythonSlide(11));
+      document.getElementById('btnRunS6').addEventListener('click', () => runPythonSlide(15));
       document.getElementById('btnResetS6').addEventListener('click', () => {
-        setCode(11, defaultPythonCodeS6);
-        runPythonSlide(11);
+        setCode(15, defaultPythonCodeS6);
+        runPythonSlide(15);
       });
 
       document.getElementById('selectFuncS5').addEventListener('change', (e) => {
-        updateCodeParam(9, 'func_name', `'${e.target.value}'`);
-        runPythonSlide(9);
+        updateCodeParam(13, 'func_name', `'${e.target.value}'`);
+        runPythonSlide(13);
       });
 
       document.getElementById('inputX0S5').addEventListener('input', (e) => {
         document.getElementById('valX0S5').textContent = e.target.value;
-        updateCodeParam(9, 'x0', parseFloat(e.target.value).toFixed(1));
-        runPythonSlide(9);
+        updateCodeParam(13, 'x0', parseFloat(e.target.value).toFixed(1));
+        runPythonSlide(13);
       });
 
       document.getElementById('selectHRangeS5').addEventListener('change', (e) => {
-        let code = getCode(9);
+        let code = getCode(13);
         if (e.target.value === '1e-1_1e-15') code = code.replace(/np\.linspace\([^\)]+\)/, 'np.linspace(-1, -15, 120)');
         else if (e.target.value === '1e-1_1e-18') code = code.replace(/np\.linspace\([^\)]+\)/, 'np.linspace(-1, -18, 120)');
         else code = code.replace(/np\.linspace\([^\)]+\)/, 'np.linspace(-1, -8, 80)');
-        setCode(9, code);
-        runPythonSlide(9);
+        setCode(13, code);
+        runPythonSlide(13);
       });
 
       document.getElementById('selectFluidMu').addEventListener('change', (e) => {
         const newMu = e.target.value;
-        updateCodeParam(11, 'mu', newMu);
+        updateCodeParam(15, 'mu', newMu);
         document.getElementById('labelViscosity').textContent = `\\mu = ${parseFloat(newMu).toFixed(3)} Pa·s`;
         if (window.renderMathInElement) renderMathInElement(document.getElementById('labelViscosity'));
-        runPythonSlide(11);
+        runPythonSlide(15);
       });
 
       document.getElementById('inputU1Mod').addEventListener('input', (e) => {
         const newU1 = parseFloat(e.target.value).toFixed(6);
-        let code = getCode(11);
+        let code = getCode(15);
         code = code.replace(/(u\s*=\s*np\.array\(\[0\.0,\s*)([0-9\.]+)/, `$1${newU1}`);
-        setCode(11, code);
-        runPythonSlide(11);
+        setCode(15, code);
+        runPythonSlide(15);
       });
     }
 
@@ -2047,8 +2252,8 @@ def execute_user_script(script_code):
         pyodideReadyFlag = true;
         isPyodideLoadingFlag = false;
 
-        if (currentActiveSlide === 9) runPythonSlide(9);
-        if (currentActiveSlide === 11) runPythonSlide(11);
+        if (currentActiveSlide === 13) runPythonSlide(13);
+        if (currentActiveSlide === 15) runPythonSlide(15);
       } catch (err) {
         console.error("Pyodide no disponible:", err);
         isPyodideLoadingFlag = false;
@@ -2057,12 +2262,12 @@ def execute_user_script(script_code):
 
     async function runPythonSlide(slideNum) {
       const code = getCode(slideNum);
-      const isS9 = (slideNum === 9);
-      const loader = document.getElementById(isS9 ? 'loaderS5' : 'loaderS6');
-      const consoleEl = document.getElementById(isS9 ? 'consoleS5' : 'consoleS6');
-      const errorBox = document.getElementById(isS9 ? 'errorBoxS5' : 'errorBoxS6');
-      const svgHost = document.getElementById(isS9 ? 'svgHostS5' : 'svgHostS6');
-      const runBtn = document.getElementById(isS9 ? 'btnRunS5' : 'btnRunS6');
+      const isS13 = (slideNum === 13);
+      const loader = document.getElementById(isS13 ? 'loaderS5' : 'loaderS6');
+      const consoleEl = document.getElementById(isS13 ? 'consoleS5' : 'consoleS6');
+      const errorBox = document.getElementById(isS13 ? 'errorBoxS5' : 'errorBoxS6');
+      const svgHost = document.getElementById(isS13 ? 'svgHostS5' : 'svgHostS6');
+      const runBtn = document.getElementById(isS13 ? 'btnRunS5' : 'btnRunS6');
 
       errorBox.classList.remove('active');
       errorBox.textContent = '';
@@ -2088,7 +2293,7 @@ def execute_user_script(script_code):
         if (res.success) {
           if (res.svg) svgHost.innerHTML = res.svg;
 
-          if (isS9) {
+          if (isS13) {
             const out = res.stdout || "";
             const mFwd = out.match(/Forward:\s*h_opt\s*=\s*([^\s|]+)\s*\|\s*Error\s*=\s*([^\n]+)/);
             const mCent = out.match(/Central:\s*h_opt\s*=\s*([^\s|]+)\s*\|\s*Error\s*=\s*([^\n]+)/);
