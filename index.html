@@ -297,135 +297,175 @@
     }
 
     /* ==========================================================================
-       PORTADA TÉCNICA (SLIDE 1) CON ARCO ORGÁNICO
+       ESTILO EXCLUSIVO DE LA PORTADA (SLIDE 1) — GEOMETRÍA DIAGONAL CORPORATIVA
        ========================================================================== */
-    .cover-layout-minimal {
-      position: relative;
+    #slide-1 {
+      padding: 0 !important;
+      position: absolute !important;
+      top: 0; left: 0; width: 100%; height: 100%;
+      overflow: hidden !important;
+      background: #1C1A1C !important;
+    }
+
+    #slide-1.active {
+      display: block !important;
+    }
+
+    .cover-bg-wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1600px;
+      height: 900px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .cover-backdrop-svg {
       width: 100%;
       height: 100%;
+      display: block;
+    }
+
+    .cover-content-grid {
+      position: relative;
+      z-index: 5;
+      width: 1600px;
+      height: 900px;
+      display: grid;
+      grid-template-columns: 520px 1fr;
+      align-items: center;
+      padding: 0 40px 0 60px;
+      box-sizing: border-box;
+    }
+
+    /* Marco diagonal izquierdo para el logo UTN */
+    .cover-frame-col {
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
+      padding-left: 20px;
+    }
+
+    .cover-skewed-frame {
+      width: 420px;
+      height: 420px;
+      background: #FFFFFF;
+      border: 4px solid #1C1A1C;
+      outline: 5px solid #FCC10B;
+      transform: skewX(-14deg);
+      border-radius: 8px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .cover-skewed-inner {
+      transform: skewX(14deg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
       text-align: center;
     }
 
-    /* Elemento decorativo curvo en esquina superior derecha */
-    .cover-layout-minimal::before {
-      content: '';
-      position: absolute;
-      top: -120px;
-      right: -120px;
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(232, 179, 32, 0.09) 0%, rgba(232, 179, 32, 0.02) 65%, transparent 75%);
-      pointer-events: none;
-      z-index: 0;
+    .cover-frame-logo {
+      height: 180px;
+      width: auto;
+      object-fit: contain;
+      margin-bottom: 16px;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
     }
 
-    .cover-center-content {
+    .cover-frame-caption {
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #111111;
+      letter-spacing: 0.14em;
+      line-height: 1.45;
+      border-top: 2.5px solid #FCC10B;
+      padding-top: 10px;
+      margin-top: 4px;
+    }
+
+    /* Columna de texto derecha */
+    .cover-text-col {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin: auto 0;
-      position: relative;
-      z-index: 1;
+      text-align: center;
+      padding: 0 50px;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
-    .cover-univ-logo {
-      height: 100px;
-      width: auto;
-      object-fit: contain;
-      margin-bottom: 24px;
-      display: block;
-      opacity: 0.95;
-      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.05));
-    }
-
-    .cover-eyebrow-badge {
-      background: var(--col-yellow-light);
-      color: var(--col-yellow-border);
+    .cover-kicker-text {
       font-family: var(--font-mono);
-      font-size: 0.82rem;
+      font-size: 1.05rem;
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      padding: 5px 20px;
-      border: 1px solid rgba(232, 179, 32, 0.35);
-      border-radius: 999px;
-      margin-bottom: 24px;
-      box-shadow: none;
+      color: #3A3A3A;
+      margin-bottom: 18px;
     }
 
-    .cover-title-hero {
+    .cover-hero-main-title {
       font-family: var(--font-serif);
-      font-size: 4.2rem;
+      font-size: 3.6rem;
       font-weight: 700;
-      color: var(--text-main);
-      line-height: 1.1;
-      margin-bottom: 22px;
+      color: #111111;
+      line-height: 1.14;
       letter-spacing: -0.015em;
+      margin-bottom: 20px;
     }
 
-    .cover-subtitle-univ {
+    .cover-dotted-divider {
+      width: 82%;
+      border-bottom: 2.5px dotted #9E9E9E;
+      margin: 0 0 20px 0;
+    }
+
+    .cover-hero-subtitle {
       font-family: var(--font-serif);
       font-size: 1.45rem;
-      font-weight: 400;
-      font-style: italic;
-      color: var(--text-muted);
-      max-width: 1020px;
-      line-height: 1.45;
-    }
-
-    /* Tarjeta de integrantes con curvatura diagonal asimétrica */
-    .cover-bottom-left-integrantes {
-      position: absolute;
-      bottom: 40px;
-      left: 54px;
-      text-align: left;
-      background: #FFFFFF;
-      color: var(--text-main);
-      padding: 18px 30px;
-      border: 1px solid var(--border-subtle);
-      border-left: 5px solid var(--col-yellow);
-      border-radius: 22px 6px 22px 6px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-      z-index: 1;
-    }
-
-    .integrantes-heading {
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--col-yellow-border);
-      letter-spacing: 0.12em;
-      margin-bottom: 8px;
-      font-family: var(--font-mono);
-    }
-
-    .integrantes-list {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .integrantes-item {
-      font-size: 1.16rem;
       font-weight: 600;
-      color: var(--text-main);
-      font-family: var(--font-serif);
-      letter-spacing: 0.01em;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      line-height: 1.35;
+      letter-spacing: 0.04em;
+      color: #222222;
+      margin-bottom: 22px;
+      line-height: 1.4;
     }
 
-    .integrantes-dot {
-      color: var(--col-yellow);
-      font-size: 0.9rem;
+    .cover-tag-badge {
+      background: #FCC10B;
+      color: #111111;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 8px 34px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 22px;
+      box-shadow: 0 4px 16px rgba(252, 193, 11, 0.4);
+    }
+
+    .cover-byline-text {
+      font-family: var(--font-mono);
+      font-size: 0.98rem;
+      color: #444444;
+      letter-spacing: 0.04em;
+      line-height: 1.4;
+    }
+
+    .cover-byline-text strong {
+      color: #111111;
+      font-weight: 700;
     }
 
     /* ==========================================================================
@@ -949,20 +989,68 @@
            DIAPOSITIVA 1: PORTADA
            -------------------------------------------------------------------- -->
       <section class="slide active" id="slide-1" data-index="1">
-        <div class="cover-layout-minimal">
-          <div class="cover-center-content">
-            <img src="logo-utn.png" alt="UTN - Universidad Tecnológica Nacional" class="cover-univ-logo">
-            <div class="cover-eyebrow-badge">Universidad Tecnologica Nacional · FRSR</div>
-            <h1 class="cover-title-hero">Diferenciación Numérica<br>y Gestión del Error</h1>
-            <p class="cover-subtitle-univ">Catedra Matematica para ingenieria electromecanica</p>
+        <!-- Fondo geométrico dinámico inspirado en la plantilla (curvas y diagonales amarillo/negro) -->
+        <div class="cover-bg-wrap">
+          <svg class="cover-backdrop-svg" viewBox="0 0 1600 900" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+            <!-- Base oscura carbón -->
+            <rect width="1600" height="900" fill="#1C1A1C"/>
+            <!-- Sombra de la banda central blanca -->
+            <polygon points="340,195 1600,195 1600,735 250,735" fill="rgba(0,0,0,0.2)"/>
+            <!-- Banda central blanca dominante -->
+            <polygon points="350,200 1600,200 1600,730 260,730" fill="#FFFFFF"/>
+            <!-- Top-left acentos diagonales oscuros -->
+            <polygon points="0,0 480,0 360,200 0,200" fill="#151415"/>
+            <polygon points="120,0 240,0 120,200 0,200" fill="#252326"/>
+            <!-- Barra blanca y amarilla superior -->
+            <polygon points="370,178 820,178 805,190 355,190" fill="#FFFFFF"/>
+            <polygon points="835,178 920,178 912,190 827,190" fill="#FCC10B"/>
+
+            <!-- Esquina inferior izquierda (Cortes diagonales amarillos y negros a 45°) -->
+            <polygon points="0,680 0,900 440,900 0,680" fill="#FCC10B"/>
+            <polygon points="0,540 60,540 400,900 320,900 0,560" fill="#1C1A1C"/>
+            <polygon points="0,480 50,440 280,900 210,900" fill="#FCC10B"/>
+            <polygon points="20,440 32,440 252,900 240,900" fill="#FFFFFF"/>
+
+            <!-- Esquina superior derecha (Franjas amarillas y negras en abanico diagonal) -->
+            <polygon points="1120,0 1260,0 1600,340 1600,200" fill="#FCC10B"/>
+            <polygon points="1270,0 1340,0 1600,260 1600,190" fill="#1C1A1C"/>
+            <polygon points="1350,0 1480,0 1600,120 1600,0" fill="#FCC10B"/>
+            <polygon points="1500,0 1600,0 1600,100" fill="#151415"/>
+            <polygon points="1100,0 1115,0 1485,370 1470,370" fill="#FFFFFF"/>
+
+            <!-- Esquina inferior derecha (Corte diagonal amarillo ascendente) -->
+            <polygon points="1360,900 1600,660 1600,750 1450,900" fill="#FCC10B"/>
+            <polygon points="1470,900 1600,770 1600,900" fill="#151415"/>
+            <!-- Barra blanca y amarilla inferior flotante -->
+            <polygon points="1080,742 1520,742 1505,754 1065,754" fill="#FFFFFF"/>
+            <polygon points="1010,742 1060,742 1045,754 995,754" fill="#FCC10B"/>
+
+            <!-- Pequeño acento paralelogramo amarillo flotante bajo el marco -->
+            <polygon points="620,705 720,705 675,805 575,805" fill="#FCC10B"/>
+            <polygon points="690,725 730,725 695,805 655,805" fill="#1C1A1C"/>
+          </svg>
+        </div>
+
+        <!-- Contenido de la portada alineado con la estructura visual -->
+        <div class="cover-content-grid">
+          <!-- Columna izquierda: Marco diagonal que contiene el logo de la UTN -->
+          <div class="cover-frame-col">
+            <div class="cover-skewed-frame">
+              <div class="cover-skewed-inner">
+                <img src="logo-utn.png" alt="UTN - Universidad Tecnológica Nacional" class="cover-frame-logo">
+                <div class="cover-frame-caption">UNIVERSIDAD TECNOLÓGICA NACIONAL<br>FACULTAD REGIONAL SAN RAFAEL</div>
+              </div>
+            </div>
           </div>
 
-          <div class="cover-bottom-left-integrantes">
-            <div class="integrantes-heading">INTEGRANTES</div>
-            <div class="integrantes-list">
-              <div class="integrantes-item"><span class="integrantes-dot">▪</span> Adrián Arenas</div>
-              <div class="integrantes-item"><span class="integrantes-dot">▪</span> Ignacio Helbas</div>
-            </div>
+          <!-- Columna derecha: Tipografía, título y datos inspirados en la referencia -->
+          <div class="cover-text-col">
+            <div class="cover-kicker-text">Universidad Tecnológica Nacional · FRSR</div>
+            <h1 class="cover-hero-main-title">Diferenciación Numérica<br>y Gestión del Error</h1>
+            <div class="cover-dotted-divider"></div>
+            <p class="cover-hero-subtitle">Cátedra Matemática para Ingeniería Electromecánica</p>
+            <div class="cover-tag-badge">Unidad 5 · Métodos Numéricos</div>
+            <div class="cover-byline-text">Presentado por: <strong>Adrián Arenas</strong> &amp; <strong>Ignacio Helbas</strong></div>
           </div>
         </div>
       </section>
