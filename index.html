@@ -1055,15 +1055,150 @@
   
 
     /* ==========================================================================
-       AJUSTES ESPECÍFICOS SOLICITADOS POR EL USUARIO
+       NUEVO ESTILO VISUAL: BLANCO / MARFIL Y COMBINACIÓN DE NARANJAS
+       (Solicitado por el usuario conforme a observaciones de cátedra)
        ========================================================================== */
 
-    /* 1. Diapositiva 4: Corregir texto inferior que no se veía */
+    :root {
+      --bg-stage: #EAE8E3;
+      --bg-slide: #FFFFFF;
+      --bg-card: #FFFFFF;
+      --bg-card-subtle: #FAF9F6;
+      --bg-dark: #1E1E1E;
+      --bg-dark-card: #FAF8F5;
+
+      --text-main: #111111;
+      --text-muted: #333333;
+      --text-light: #666666;
+      --text-on-dark: #FFFFFF;
+      --text-on-yellow: #FFFFFF;
+
+      --border-subtle: #E5E2DA;
+      --border-strong: #1E1E1E;
+      --border-dark: #DCD8CF;
+
+      /* Paleta armónica de Naranjas (Referencias corporativas) */
+      --col-orange-dark: #E65100;
+      --col-orange-main: #FF7100;
+      --col-orange-amber: #FF9900;
+      --col-orange-gold: #FEB800;
+      --col-orange-light: #FFF4E6;
+
+      --col-yellow: #FF7100;
+      --col-yellow-bright: #FF9900;
+      --col-yellow-light: #FFF4E6;
+      --col-yellow-border: #E65100;
+
+      --col-accent: #FF7100;
+      --col-accent-light: #FFF4E6;
+      --col-accent-border: #E65100;
+    }
+
+    /* Estilo del Marco de Portada (Slide 1) */
+    .cover-skewed-frame {
+      background: #FFFFFF !important;
+      border: 3px solid #1E1E1E !important;
+      outline: 5px solid #FF7100 !important;
+      box-shadow: 0 16px 40px rgba(230, 81, 0, 0.15) !important;
+    }
+    .cover-frame-caption {
+      color: #111111 !important;
+      border-top: 2.5px solid #FF7100 !important;
+    }
+    .cover-tag-badge {
+      background: #FF7100 !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 4px 14px rgba(255, 113, 0, 0.35) !important;
+    }
+    .cover-dotted-divider {
+      border-bottom: 2.5px dotted #FF9900 !important;
+    }
+
+    /* Diapositivas 2 a 19: Fondo Blanco/Marfil con SVG geométrico naranja */
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16) {
+      background-color: #FFFFFF !important;
+      background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%201600%20900%27%20width%3D%271600%27%20height%3D%27900%27%20preserveAspectRatio%3D%27none%27%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%27slideIvory%27%20x1%3D%270%25%27%20y1%3D%270%25%27%20x2%3D%27100%25%27%20y2%3D%27100%25%27%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27%23FFFFFF%27/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%2770%25%27%20stop-color%3D%27%23FFFFFF%27/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%27100%25%27%20stop-color%3D%27%23FAF8F4%27/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%27orangeGrad%27%20x1%3D%270%25%27%20y1%3D%270%25%27%20x2%3D%27100%25%27%20y2%3D%270%25%27%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27%23E65100%27/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%2735%25%27%20stop-color%3D%27%23FF7100%27/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%2770%25%27%20stop-color%3D%27%23FF9900%27/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%27100%25%27%20stop-color%3D%27%23FEB800%27/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%0A%20%20%3C%21--%20Base%20Blanca%20Luminosa%20--%3E%0A%20%20%3Crect%20width%3D%271600%27%20height%3D%27900%27%20fill%3D%27url%28%23slideIvory%29%27/%3E%0A%0A%20%20%3C%21--%20ESQUINA%20SUPERIOR%20DERECHA%3A%20Franjas%20diagonales%20escalonadas%20en%20combinaci%C3%B3n%20de%20naranjas%20%28Referencia%20Imagen%202%29%20--%3E%0A%20%20%3Cg%20id%3D%27tr-stripes%27%20opacity%3D%270.95%27%3E%0A%20%20%20%20%3C%21--%20Banda%201%3A%20Naranja%20quemado%20exterior%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%271430%2C0%201600%2C0%201600%2C75%201475%2C0%27%20fill%3D%27%23E65100%27/%3E%0A%20%20%20%20%3C%21--%20Banda%202%3A%20Naranja%20vibrante%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%271355%2C0%201425%2C0%201600%2C175%201600%2C105%27%20fill%3D%27%23FF7100%27/%3E%0A%20%20%20%20%3C%21--%20Banda%203%3A%20%C3%81mbar%20c%C3%A1lido%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%271280%2C0%201350%2C0%201600%2C280%201600%2C210%27%20fill%3D%27%23FF9900%27/%3E%0A%20%20%20%20%3C%21--%20Banda%204%3A%20Dorado%20c%C3%A1lido%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%271205%2C0%201275%2C0%201600%2C385%201600%2C315%27%20fill%3D%27%23FEB800%27/%3E%0A%20%20%3C/g%3E%0A%0A%20%20%3C%21--%20ESQUINA%20INFERIOR%20IZQUIERDA%3A%20Franjas%20y%20facetas%20geom%C3%A9tricas%20%28Referencia%20Imagen%201%20y%202%29%20--%3E%0A%20%20%3Cg%20id%3D%27bl-stripes%27%20opacity%3D%270.95%27%3E%0A%20%20%20%20%3C%21--%20Facetas%20escalonadas%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%270%2C730%2065%2C730%200%2C795%27%20fill%3D%27%23FEB800%27/%3E%0A%20%20%20%20%3Cpolygon%20points%3D%270%2C795%2065%2C730%20135%2C795%2070%2C860%200%2C860%27%20fill%3D%27%23FF9900%27/%3E%0A%20%20%20%20%3Cpolygon%20points%3D%270%2C860%2070%2C860%20110%2C900%200%2C900%27%20fill%3D%27%23FF7100%27/%3E%0A%20%20%20%20%3Cpolygon%20points%3D%2770%2C860%20135%2C795%20210%2C870%20145%2C900%20110%2C900%27%20fill%3D%27%23E65100%27/%3E%0A%20%20%20%20%3Cpolygon%20points%3D%27135%2C795%20200%2C795%20275%2C870%20210%2C870%27%20fill%3D%27%23FF7100%27/%3E%0A%20%20%20%20%3Cpolygon%20points%3D%27210%2C870%20275%2C870%20305%2C900%20240%2C900%27%20fill%3D%27%23FF9900%27/%3E%0A%20%20%3C/g%3E%0A%0A%20%20%3C%21--%20ESQUINA%20INFERIOR%20DERECHA%3A%20Acento%20sutil%20en%20%C3%A1ngulo%20--%3E%0A%20%20%3Cg%20id%3D%27br-subtle%27%20opacity%3D%270.85%27%3E%0A%20%20%20%20%3Cpolygon%20points%3D%271535%2C900%201600%2C835%201600%2C900%27%20fill%3D%27%23FF7100%27/%3E%0A%20%20%20%20%3Cpolygon%20points%3D%271465%2C900%201600%2C765%201600%2C825%201525%2C900%27%20fill%3D%27%23FEB800%27/%3E%0A%20%20%3C/g%3E%0A%3C/svg%3E") !important;
+      background-size: 100% 100% !important;
+      background-repeat: no-repeat !important;
+    }
+
+    /* Desactivar pseudo-elementos superpuestos */
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16)::before,
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16)::after {
+      display: none !important;
+    }
+
+    /* Títulos y Encabezados corporativos sobre fondo blanco */
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .slide-main-title {
+      color: #111111 !important;
+      text-shadow: none !important;
+      font-weight: 700 !important;
+    }
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .slide-sub-desc {
+      color: #444444 !important;
+    }
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .slide-meta-tag {
+      color: #555555 !important;
+    }
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .meta-tag-badge {
+      background: #FF7100 !important;
+      color: #FFFFFF !important;
+      font-weight: 800 !important;
+      box-shadow: 0 2px 8px rgba(255, 113, 0, 0.25) !important;
+    }
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .slide-top-header {
+      border-bottom: 2px solid #E5E2DA !important;
+    }
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .slide-top-header::after {
+      background: linear-gradient(90deg, #E65100 0%, #FF7100 50%, #FEB800 100%) !important;
+      height: 4.5px !important;
+    }
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .badge-counter {
+      background: #FFFFFF !important;
+      color: #E65100 !important;
+      border: 1.5px solid #E5E2DA !important;
+      border-left: 4px solid #FF7100 !important;
+      box-shadow: 0 4px 12px rgba(230, 81, 0, 0.1) !important;
+    }
+
+    /* Tarjetas principales blancas en todas las diapositivas */
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .single-focus-card,
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .hero-col-card,
+    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .table-card-hero {
+      background: #FFFFFF !important;
+      border: 1.5px solid #1E1E1E !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    /* Píldora de fórmula general: Blanco/Marfil con borde naranja y texto negro */
+    .focus-formula-pill {
+      background: #FAF8F5 !important;
+      color: #111111 !important;
+      border: 1.5px solid #E5E2DA !important;
+      border-left: 6px solid #FF7100 !important;
+      box-shadow: 0 4px 16px rgba(255, 113, 0, 0.08) !important;
+    }
+    .focus-formula-pill > div {
+      color: #111111 !important;
+    }
+
+    /* Tags corporativos */
+    .focus-card-tag {
+      background: #FF7100 !important;
+      color: #FFFFFF !important;
+    }
+
+    /* Barra de progreso inferior con degradé naranja */
+    .slide-progress-fill {
+      background: linear-gradient(90deg, #E65100 0%, #FF7100 50%, #FEB800 100%) !important;
+    }
+
+    /* 1. Diapositiva 4: Banner de Lagrange blanco con acento naranja */
     #slide-4 .hero-concept-banner {
       background: #FFFFFF !important;
       border: 1.5px solid #1E1E1E !important;
-      border-left: 6px solid #FCC10B !important;
-      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.45) !important;
+      border-left: 6px solid #FF7100 !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
       border-radius: var(--radius-md) !important;
     }
     #slide-4 .hero-concept-banner .banner-text-title {
@@ -1083,16 +1218,19 @@
       font-size: 1.65rem !important;
     }
 
-    /* 2. Diapositiva 6: Texto desbordado en la píldora de fórmula */
+    /* 2. Diapositiva 6: Píldora de fórmula ajustada y clara */
     #slide-6 .focus-formula-pill {
       padding: 16px 24px !important;
+      background: #FAF8F5 !important;
+      border: 1.5px solid #FF9900 !important;
+      box-shadow: 0 6px 18px rgba(255, 113, 0, 0.08) !important;
     }
     #slide-6 .focus-formula-pill > div {
       font-size: 1.6rem !important;
+      color: #111111 !important;
     }
 
-    /* 3 y 4. Diapositivas 7, 8 y 9: Contenedor exterior blanco, 
-       y la caja de arriba con el MISMO color oscuro (#1E1C1D) que las de abajo */
+    /* 3 y 4. Diapositivas 7, 8 y 9: Todo fondo Blanco/Marfil (SIN FONDO NEGRO) */
     .slide:not(#slide-1):not(#slide-14):not(#slide-16)#slide-7 .hero-col-card,
     .slide:not(#slide-1):not(#slide-14):not(#slide-16)#slide-8 .hero-col-card,
     .slide:not(#slide-1):not(#slide-14):not(#slide-16)#slide-9 .hero-col-card,
@@ -1101,8 +1239,8 @@
     #slide-9 .hero-col-card {
       background: #FFFFFF !important;
       border: 1.5px solid #1E1E1E !important;
-      border-top: 6px solid #FCC10B !important;
-      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45) !important;
+      border-top: 6px solid #FF7100 !important;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08) !important;
     }
     #slide-7 .hero-col-card span[style*="uppercase"],
     #slide-8 .hero-col-card span[style*="uppercase"],
@@ -1114,67 +1252,69 @@
     #slide-7 .hero-col-card span[style*="background:#000000"],
     #slide-8 .hero-col-card span[style*="background:#000000"],
     #slide-9 .hero-col-card span[style*="background:var(--col-yellow)"] {
-      background: #FCC10B !important;
-      color: #111111 !important;
+      background: #FF7100 !important;
+      color: #FFFFFF !important;
       font-size: 1.15rem !important;
       font-weight: 800 !important;
     }
-    /* Caja de arriba (hero-formula-card): MISMO COLOR que los cuadros de abajo (#1E1C1D) */
+    /* Caja de arriba (hero-formula-card): Fondo Marfil tenue (#FAF8F5) con fórmula nítida en negro */
     #slide-7 .hero-formula-card,
     #slide-8 .hero-formula-card,
     #slide-9 .hero-formula-card {
-      background: #1E1C1D !important;
-      border: 1.5px solid #383637 !important;
-      border-left: 6px solid #FCC10B !important;
-      box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.4) !important;
+      background: #FAF8F5 !important;
+      border: 1.5px solid #E5E2DA !important;
+      border-left: 6px solid #FF7100 !important;
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.04) !important;
       padding: 24px 34px !important;
     }
     #slide-7 .hero-formula-card div,
     #slide-8 .hero-formula-card div,
     #slide-9 .hero-formula-card div {
-      color: #FFFFFF !important;
+      color: #111111 !important;
       font-size: 2.9rem !important;
     }
-    /* Cuadros de abajo: mismo color (#1E1C1D), tags amarillos y texto ampliado */
+    /* Cuadros de abajo: Fondo Marfil tenue (#FAF8F5), tags naranja y texto negro */
     #slide-7 .hero-col-card div[style*="display:grid"] > div,
     #slide-8 .hero-col-card div[style*="display:grid"] > div,
     #slide-9 .hero-col-card div[style*="display:grid"] > div {
-      background: #1E1C1D !important;
-      border: 1.5px solid #383637 !important;
-      border-top: 3.5px solid #FCC10B !important;
+      background: #FAF8F5 !important;
+      border: 1.5px solid #E5E2DA !important;
+      border-top: 3.5px solid #FF7100 !important;
       padding: 22px 26px !important;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25) !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05) !important;
     }
     #slide-7 .hero-col-card div[style*="display:grid"] > div > div:first-child,
     #slide-8 .hero-col-card div[style*="display:grid"] > div > div:first-child,
     #slide-9 .hero-col-card div[style*="display:grid"] > div > div:first-child {
-      color: #FCC10B !important;
+      color: #E65100 !important;
       font-size: 1.15rem !important;
       letter-spacing: 0.06em !important;
       margin-bottom: 8px !important;
+      font-weight: 700 !important;
     }
     #slide-7 .hero-col-card div[style*="display:grid"] > div > div:nth-child(2),
     #slide-8 .hero-col-card div[style*="display:grid"] > div > div:nth-child(2),
     #slide-9 .hero-col-card div[style*="display:grid"] > div > div:nth-child(2) {
-      color: #FFFFFF !important;
+      color: #111111 !important;
       font-size: 2.1rem !important;
       margin: 8px 0 !important;
     }
     #slide-7 .hero-col-card div[style*="display:grid"] > div > p,
     #slide-8 .hero-col-card div[style*="display:grid"] > div > p,
     #slide-9 .hero-col-card div[style*="display:grid"] > div > p {
-      color: #E6E6E6 !important;
+      color: #2A2A2A !important;
       font-size: 1.42rem !important;
       font-weight: 500 !important;
       line-height: 1.5 !important;
       margin-top: 10px !important;
     }
 
-    /* 5. Diapositiva 13: Agrandar fuente de textos */
+    /* 5. Diapositiva 13: Textos ampliados y limpios */
     #slide-13 .hero-col-card {
       background: #FFFFFF !important;
       padding: 28px 32px !important;
-      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.45) !important;
+      border-top: 5px solid #FF7100 !important;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08) !important;
     }
     #slide-13 .hero-col-title {
       font-size: 2.05rem !important;
@@ -1191,6 +1331,9 @@
       font-size: 1.65rem !important;
       padding: 14px 18px !important;
       margin-top: 14px !important;
+      background: #FAF8F5 !important;
+      color: #E65100 !important;
+      border: 1.5px solid #E5E2DA !important;
     }
     #slide-13 .slide-content-area > div:last-child {
       font-size: 1.45rem !important;
@@ -1198,25 +1341,34 @@
       margin-top: 20px !important;
       background: #FFFFFF !important;
       color: #111111 !important;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4) !important;
+      border: 1.5px solid #1E1E1E !important;
+      border-left: 6px solid #FF7100 !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
     }
 
-    /* 6. Diapositiva 18: Texto que se salía del cuadro */
+    /* 6. Diapositiva 18: Píldora de Nakamura limpia sin desbordes */
     #slide-18 .single-focus-card {
       padding: 28px 38px !important;
+      background: #FFFFFF !important;
+      border-top: 5px solid #FF7100 !important;
     }
     #slide-18 .focus-formula-pill {
       padding: 16px 24px !important;
+      background: #FAF8F5 !important;
+      border: 1.5px solid #FF9900 !important;
     }
     #slide-18 .focus-formula-pill > div {
       font-size: 1.6rem !important;
+      color: #111111 !important;
     }
     #slide-18 .single-focus-card div[style*="background:#ffffff"] {
       padding: 18px 24px !important;
+      border: 1.5px solid #E5E2DA !important;
     }
     #slide-18 .single-focus-card div[style*="background:#ffffff"] p {
       font-size: 1.25rem !important;
       line-height: 1.55 !important;
+      color: #222222 !important;
     }
 
     </style>
@@ -1234,43 +1386,60 @@
         <!-- Fondo geométrico dinámico inspirado en la plantilla (curvas y diagonales amarillo/negro) -->
         <div class="cover-bg-wrap">
           <svg class="cover-backdrop-svg" viewBox="0 0 1600 900" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <!-- Base oscura carbón -->
-            <rect width="1600" height="900" fill="#1C1A1C"/>
-            <!-- Sombra de la banda central blanca -->
-            <polygon points="340,195 1600,195 1600,735 250,735" fill="rgba(0,0,0,0.2)"/>
-            <!-- Banda central blanca dominante -->
-            <polygon points="350,200 1600,200 1600,730 260,730" fill="#FFFFFF"/>
-            <!-- Top-left acentos diagonales oscuros -->
-            <polygon points="0,0 480,0 360,200 0,200" fill="#151415"/>
-            <polygon points="120,0 240,0 120,200 0,200" fill="#252326"/>
-            <!-- Barra blanca y amarilla superior -->
-            <polygon points="370,178 820,178 805,190 355,190" fill="#FFFFFF"/>
-            <polygon points="835,178 920,178 912,190 827,190" fill="#FCC10B"/>
+  <defs>
+    <linearGradient id="ivoryBgCover" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="70%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FAF8F3"/>
+    </linearGradient>
+    <linearGradient id="coverOrangeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E65100"/>
+      <stop offset="35%" stop-color="#FF7100"/>
+      <stop offset="70%" stop-color="#FF9900"/>
+      <stop offset="100%" stop-color="#FEB800"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#E65100" flood-opacity="0.08"/>
+    </filter>
+  </defs>
 
-            <!-- Esquina inferior izquierda (Cortes diagonales amarillos y negros a 45°) -->
-            <polygon points="0,680 0,900 440,900 0,680" fill="#FCC10B"/>
-            <polygon points="0,540 60,540 400,900 320,900 0,560" fill="#1C1A1C"/>
-            <polygon points="0,480 50,440 280,900 210,900" fill="#FCC10B"/>
-            <polygon points="20,440 32,440 252,900 240,900" fill="#FFFFFF"/>
+  <!-- Fondo Blanco Puro con calidez Marfil -->
+  <rect width="1600" height="900" fill="url(#ivoryBgCover)"/>
 
-            <!-- Esquina superior derecha (Franjas amarillas y negras en abanico diagonal) -->
-            <polygon points="1120,0 1260,0 1600,340 1600,200" fill="#FCC10B"/>
-            <polygon points="1270,0 1340,0 1600,260 1600,190" fill="#1C1A1C"/>
-            <polygon points="1350,0 1480,0 1600,120 1600,0" fill="#FCC10B"/>
-            <polygon points="1500,0 1600,0 1600,100" fill="#151415"/>
-            <polygon points="1100,0 1115,0 1485,370 1470,370" fill="#FFFFFF"/>
+  <!-- ESQUINA SUPERIOR DERECHA (Franjas diagonales en combinación naranja) -->
+  <polygon points="1200,0 1600,0 1600,120 1300,0" fill="#E65100"/>
+  <polygon points="1260,0 1600,0 1600,210 1390,0" fill="#FF7100"/>
+  <polygon points="1350,0 1600,0 1600,310 1480,0" fill="#FF9900"/>
+  <polygon points="1440,0 1600,0 1600,410 1560,0" fill="#FEB800"/>
 
-            <!-- Esquina inferior derecha (Corte diagonal amarillo ascendente) -->
-            <polygon points="1360,900 1600,660 1600,750 1450,900" fill="#FCC10B"/>
-            <polygon points="1470,900 1600,770 1600,900" fill="#151415"/>
-            <!-- Barra blanca y amarilla inferior flotante -->
-            <polygon points="1080,742 1520,742 1505,754 1065,754" fill="#FFFFFF"/>
-            <polygon points="1010,742 1060,742 1045,754 995,754" fill="#FCC10B"/>
+  <!-- Facetas poligonales geométricas superiores (Referencia Imagen 1) -->
+  <polygon points="1380,0 1480,0 1540,110 1440,110" fill="#FFA726" opacity="0.9"/>
+  <polygon points="1440,110 1540,110 1600,220 1500,220" fill="#FF7100" opacity="0.95"/>
+  <polygon points="1500,220 1600,220 1600,330 1550,330" fill="#E65100"/>
 
-            <!-- Pequeño acento paralelogramo amarillo flotante bajo el marco -->
-            <polygon points="620,705 720,705 675,805 575,805" fill="#FCC10B"/>
-            <polygon points="690,725 730,725 695,805 655,805" fill="#1C1A1C"/>
-          </svg>
+  <!-- ESQUINA INFERIOR IZQUIERDA (Facetas y franjas escalonadas naranja) -->
+  <polygon points="0,600 180,600 90,730 0,730" fill="#FEB800" opacity="0.9"/>
+  <polygon points="0,730 90,730 240,900 0,900" fill="#FF9900"/>
+  <polygon points="90,730 220,730 360,900 240,900" fill="#FF7100"/>
+  <polygon points="220,730 340,730 480,900 360,900" fill="#E65100"/>
+  <polygon points="340,730 420,730 560,900 480,900" fill="#D84315"/>
+
+  <!-- ESQUINA SUPERIOR IZQUIERDA (Franjas sutiles) -->
+  <polygon points="0,0 140,0 0,140" fill="#E65100"/>
+  <polygon points="140,0 230,0 0,230 0,140" fill="#FF7100"/>
+  <polygon points="230,0 310,0 0,310 0,230" fill="#FF9900"/>
+  <polygon points="310,0 370,0 0,370 0,310" fill="#FEB800"/>
+
+  <!-- ESQUINA INFERIOR DERECHA (Franjas escalonadas ascendentes) -->
+  <polygon points="1440,900 1600,740 1600,820 1520,900" fill="#FEB800"/>
+  <polygon points="1520,900 1600,820 1600,900" fill="#FF7100"/>
+  <polygon points="1320,900 1600,620 1600,680 1380,900" fill="#FF9900"/>
+  <polygon points="1200,900 1600,500 1600,560 1260,900" fill="#E65100"/>
+
+  <!-- Marco central blanco limpio con sombra y borde superior naranja -->
+  <rect x="230" y="160" width="1140" height="580" rx="14" fill="#FFFFFF" filter="url(#cardShadow)" stroke="#EBE7DE" stroke-width="1.5"/>
+  <rect x="230" y="160" width="1140" height="8" rx="4" fill="url(#coverOrangeGrad)"/>
+</svg>
         </div>
 
         <!-- Contenido de la portada alineado con la estructura visual -->
