@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diferenciación Numérica y Gestión del Error | Ingeniería Electromecánica</title>
   
-  <!-- Tipografía estilo manuscrito escolar/técnico impreso (KG Primary Penmanship / Playpen Sans / Patrick Hand) -->
+  <!-- Tipografías de Ingeniería: STIX Two Text (cuerpo/títulos) y JetBrains Mono (técnico/código) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Patrick+Hand&family=Playpen+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 
   <!-- KaTeX para renderizado matemático nítido -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
@@ -24,43 +24,54 @@
   <!-- Pyodide para ejecución real de Python en WebAssembly -->
   <script defer src="https://cdn.jsdelivr.net/pyodide/v0.26.4/full/pyodide.js"></script>
 
-  <style>
+    <style>
     /* ==========================================================================
-       SISTEMA 16:9 — PALETA EXCLUSIVA: BLANCO, NEGRO Y AMARILLO (CERO GRIS / CERO ROJO)
+       ESTILO VISUAL: BLUEPRINT DE INGENIERÍA (ELECTROMECÁNICA UTN)
+       Tipografía: STIX Two Text (Cuerpo/Títulos) + JetBrains Mono (Técnico/Código)
+       Paleta: Papel técnico cálido (#F2F0E6), Azul Tinta (#12233C) y Cobre apagado (#C87F3B)
        ========================================================================== */
     :root {
-      --bg-stage: #05070a;          /* Fondo exterior de proyección */
-      --bg-slide: #ffffff;          /* Lienzo principal blanco puro */
-      --bg-card: #ffffff;
-      --bg-card-subtle: #fafaf9;    /* Apoyo blanco roto */
-      --bg-dark: #000000;           /* Negro sólido absoluto */
-      --bg-dark-card: #111827;      /* Negro carbón */
-      
-      /* Cero grises: texto negro sólido para máxima lectura y contraste */
-      --text-main: #000000;         /* Negro puro */
-      --text-muted: #000000;        /* Negro puro para párrafos y descripciones */
-      --text-light: #111827;        /* Negro para metadatos */
-      --text-on-dark: #ffffff;      /* Blanco sobre fondo negro */
-      --text-on-yellow: #000000;    /* Negro sólido sobre fondo amarillo */
-      
-      --border-subtle: #d1d5db;     /* Borde 1px */
-      --border-strong: #000000;     /* Borde negro 2px */
-      --border-dark: #000000;       /* Marco negro estructural */
-      
-      /* Amarillo corporativo e industrial cálido */
-      --col-yellow: #f59e0b;        /* Amarillo ámbar */
-      --col-yellow-bright: #fbbf24; /* Amarillo dorado vibrante */
-      --col-yellow-light: #fffbeb;  /* Fondo suave amarillo */
-      --col-yellow-border: #b45309; /* Borde amarillo oscuro */
+      /* Lienzo y superficies de plano de ingeniería */
+      --bg-stage: #12233C;          /* Azul tinta profundo para marco exterior */
+      --bg-slide: #F2F0E6;          /* Base de papel técnico cálido */
+      --bg-card: #FFFFFF;           /* Blanco puro de soporte documental */
+      --bg-card-subtle: #EBE7DC;    /* Panel técnico secundario */
+      --bg-dark: #12233C;           /* Azul tinta estructural */
+      --bg-dark-card: #182C4A;      /* Consola y editor */
 
-      /* Tipografía KG Primary Penmanship / Playpen Sans / Patrick Hand */
-      --font-penmanship: 'KG Primary Penmanship', 'Playpen Sans', 'Patrick Hand', sans-serif;
-      --font-sans: 'KG Primary Penmanship', 'Playpen Sans', 'Patrick Hand', sans-serif;
-      --font-serif: 'KG Primary Penmanship', 'Playpen Sans', 'Patrick Hand', sans-serif;
-      --font-mono: 'Fira Code', monospace;
-      
+      /* Tinta y legibilidad técnica (sin negros sintéticos ni grises lavados) */
+      --text-main: #141E28;         /* Tinta carbón técnica oscura */
+      --text-muted: #334155;        /* Azul pizarra técnico para descripciones */
+      --text-light: #5A6A80;        /* Metadatos y etiquetas secundarias */
+      --text-on-dark: #F2F0E6;      /* Off-white sobre azul tinta */
+      --text-on-accent: #FFFFFF;    /* Blanco sobre acento */
+      --text-on-yellow: #FFFFFF;
+
+      /* Trazos finos y precisos de dibujo de ingeniería */
+      --border-subtle: #D8D4C5;     /* Guía técnica de 1px */
+      --border-strong: #12233C;     /* Trazo azul tinta estructural */
+      --border-dark: #12233C;       /* Borde de plano */
+
+      /* Único color de acento: Cobre / Ámbar técnico apagado */
+      --col-accent: #C87F3B;        /* Cobre apagado */
+      --col-accent-light: #FAF5EE;  /* Resalte sutil de fórmulas */
+      --col-accent-border: #9E5D24; /* Trazo de énfasis */
+
+      /* Mapeos de compatibilidad con selectores existentes */
+      --col-yellow: #C87F3B;
+      --col-yellow-bright: #DDA15E;
+      --col-yellow-light: #FAF5EE;
+      --col-yellow-border: #9E5D24;
+
+      /* Solo 2 familias tipográficas (estricto) */
+      --font-serif: 'STIX Two Text', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-sans: 'STIX Two Text', Georgia, serif;
+      --font-penmanship: 'STIX Two Text', Georgia, serif;
+
+      /* Esquinas de plano técnico (sin redondeos excesivos de IA) */
       --radius-sm: 2px;
-      --radius-md: 4px;
+      --radius-md: 2px;
     }
 
     * {
@@ -75,7 +86,7 @@
       height: 100%;
       overflow: hidden;
       background-color: var(--bg-stage);
-      font-family: var(--font-penmanship);
+      font-family: var(--font-serif);
       color: var(--text-main);
       display: flex;
       align-items: center;
@@ -93,13 +104,13 @@
       overflow: hidden;
     }
 
-    /* Lienzo 16:9 estricto (1600 x 900) */
+    /* Lienzo 16:9 estricto (1600 x 900) con borde fino de plano */
     #slideDeck {
       width: 1600px;
       height: 900px;
       background-color: var(--bg-slide);
-      border: 3px solid var(--border-dark);
-      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.5);
+      border: 1.5px solid var(--border-dark);
+      box-shadow: 0 16px 45px rgba(10, 18, 30, 0.45);
       position: relative;
       overflow: hidden;
       transform-origin: center center;
@@ -114,7 +125,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      padding: 34px 56px 36px 56px;
+      padding: 36px 56px 40px 56px;
       display: none;
       flex-direction: column;
       justify-content: space-between;
@@ -132,67 +143,82 @@
       z-index: 10;
     }
 
-    /* Encabezado con pestaña amarilla y línea negra */
+    /* Encabezado técnico sobrio */
     .slide-top-header {
       position: relative;
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
-      border-bottom: 3px solid var(--border-dark);
-      padding-bottom: 12px;
-      margin-bottom: 18px;
+      align-items: flex-end;
+      border-bottom: 1.5px solid var(--border-subtle);
+      padding-bottom: 14px;
+      margin-bottom: 22px;
       flex-shrink: 0;
     }
 
     .slide-top-header::after {
       content: '';
       position: absolute;
-      bottom: -3px;
+      bottom: -1.5px;
       left: 0;
-      width: 160px;
-      height: 6px;
-      background: var(--col-yellow);
+      width: 120px;
+      height: 2.5px;
+      background: var(--col-accent);
     }
 
     .slide-header-left {
       max-width: 1350px;
     }
 
+    /* Eyebrow técnico sutil (sin cajas estridentes ni mayúsculas infladas) */
     .slide-meta-tag {
       font-family: var(--font-mono);
-      font-size: 0.84rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-main);
-      margin-bottom: 4px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: none;
+      color: var(--text-light);
+      margin-bottom: 6px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
     }
 
     .meta-tag-badge {
-      background: var(--col-yellow);
-      color: var(--text-on-yellow);
-      font-weight: 800;
-      padding: 2px 8px;
-      border-radius: var(--radius-sm);
-      letter-spacing: 0.08em;
+      background: transparent !important;
+      color: var(--col-accent) !important;
+      font-family: var(--font-mono) !important;
+      font-size: 0.8rem !important;
+      font-weight: 600 !important;
+      padding: 0 !important;
+      border: none !important;
+      border-radius: 0 !important;
+      letter-spacing: 0.04em !important;
+      text-transform: uppercase !important;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .meta-tag-badge::after {
+      content: " ·";
+      color: var(--border-subtle);
+      margin-left: 6px;
     }
 
     .slide-main-title {
-      font-family: var(--font-penmanship);
-      font-size: 2.35rem;
-      font-weight: 800;
+      font-family: var(--font-serif);
+      font-size: 2.3rem;
+      font-weight: 700;
       color: var(--text-main);
       line-height: 1.15;
       letter-spacing: -0.01em;
     }
 
     .slide-sub-desc {
+      font-family: var(--font-serif);
       font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--text-main);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-muted);
       margin-top: 4px;
       line-height: 1.35;
     }
@@ -204,16 +230,17 @@
       flex-shrink: 0;
     }
 
+    /* Contador técnico de lámina: 02 / 19 */
     .badge-counter {
       font-family: var(--font-mono);
-      font-size: 0.95rem;
-      font-weight: 800;
-      background: var(--bg-dark);
-      border: 2px solid var(--col-yellow);
-      padding: 5px 14px;
-      border-radius: var(--radius-sm);
-      color: var(--col-yellow-bright);
-      letter-spacing: 0.06em;
+      font-size: 0.86rem;
+      font-weight: 600;
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      padding: 4px 12px;
+      border-radius: 2px;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
     }
 
     .slide-content-area {
@@ -225,13 +252,13 @@
       min-height: 0;
     }
 
-    /* Barra de progreso inferior amarilla */
+    /* Barra de progreso inferior fina */
     .slide-bottom-progress {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
-      height: 5px;
+      height: 3px;
       background: var(--border-subtle);
       z-index: 20;
     }
@@ -239,7 +266,7 @@
     .slide-progress-fill {
       height: 100%;
       width: 5.2%;
-      background: var(--col-yellow);
+      background: var(--col-accent);
       transition: width 0.25s ease-out;
     }
 
@@ -266,35 +293,38 @@
     }
 
     .cover-eyebrow-badge {
-      background: var(--col-yellow);
-      color: var(--text-on-yellow);
+      background: transparent;
+      color: var(--col-accent);
       font-family: var(--font-mono);
-      font-size: 0.95rem;
-      font-weight: 800;
+      font-size: 0.85rem;
+      font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      padding: 6px 18px;
-      border-radius: var(--radius-sm);
-      margin-bottom: 22px;
-      box-shadow: 0 2px 8px rgba(245, 158, 11, 0.25);
+      padding: 4px 14px;
+      border: 1px solid var(--col-accent);
+      border-radius: 2px;
+      margin-bottom: 24px;
+      box-shadow: none;
     }
 
     .cover-title-hero {
-      font-family: var(--font-penmanship);
-      font-size: 4.2rem;
-      font-weight: 800;
+      font-family: var(--font-serif);
+      font-size: 4.1rem;
+      font-weight: 700;
       color: var(--text-main);
       line-height: 1.12;
       margin-bottom: 20px;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.01em;
     }
 
     .cover-subtitle-univ {
-      font-size: 1.55rem;
-      color: var(--text-main);
-      max-width: 1080px;
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-muted);
+      max-width: 1020px;
       line-height: 1.45;
-      font-weight: 700;
     }
 
     .cover-bottom-left-integrantes {
@@ -302,20 +332,20 @@
       bottom: 34px;
       left: 44px;
       text-align: left;
-      background: #0f172a;
-      color: #ffffff;
+      background: #FFFFFF;
+      color: var(--text-main);
       padding: 16px 26px;
-      border: 1px solid #1e293b;
-      border-left: 6px solid var(--col-yellow-bright);
-      border-radius: var(--radius-sm);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--col-accent);
+      border-radius: 2px;
+      box-shadow: none;
     }
 
     .integrantes-heading {
-      font-size: 0.82rem;
-      font-weight: 800;
+      font-size: 0.78rem;
+      font-weight: 700;
       text-transform: uppercase;
-      color: var(--col-yellow-bright);
+      color: var(--col-accent);
       letter-spacing: 0.12em;
       margin-bottom: 8px;
       font-family: var(--font-mono);
@@ -328,92 +358,98 @@
     }
 
     .integrantes-item {
-      font-size: 1.22rem;
-      font-weight: 700;
-      color: #ffffff;
-      font-family: var(--font-sans);
-      letter-spacing: 0.02em;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-main);
+      font-family: var(--font-serif);
+      letter-spacing: 0.01em;
       display: flex;
       align-items: center;
       gap: 10px;
-      line-height: 1.3;
+      line-height: 1.35;
     }
 
     .integrantes-dot {
-      color: var(--col-yellow-bright);
-      font-size: 0.9rem;
+      color: var(--col-accent);
+      font-size: 0.85rem;
     }
 
     /* ==========================================================================
-       TARJETAS Y CONTENEDORES (CERO DESBORDES, TEXTO NEGRO SÓLIDO)
+       TARJETAS Y CONTENEDORES (SIN SOMBRAS SAAS, TRAZO TÉCNICO LIMPIO)
        ========================================================================== */
     .single-focus-card {
-      background: #ffffff;
-      border: 2px solid var(--border-dark);
-      border-top: 6px solid var(--col-yellow);
-      border-radius: var(--radius-sm);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-top: 3.5px solid var(--col-accent);
+      border-radius: 2px;
       padding: 34px 44px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      box-shadow: none;
     }
 
     .focus-card-header {
       margin-bottom: 16px;
     }
 
+    /* Etiqueta técnica sobria en monoespaciada */
     .focus-card-tag {
-      font-family: var(--font-mono);
-      font-size: 0.88rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      background: var(--col-yellow-light);
-      color: #000000;
-      border: 1px solid var(--col-yellow);
-      padding: 3px 10px;
-      border-radius: var(--radius-sm);
+      font-family: var(--font-mono) !important;
+      font-size: 0.8rem !important;
+      font-weight: 600 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.05em !important;
+      background: transparent !important;
+      color: var(--col-accent) !important;
+      border: none !important;
+      border-left: 2px solid var(--col-accent) !important;
+      padding: 0 0 0 8px !important;
+      border-radius: 0 !important;
       display: inline-block;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .focus-card-title {
-      font-family: var(--font-penmanship);
-      font-size: 2.25rem;
-      font-weight: 800;
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 700;
       color: var(--text-main);
     }
 
     .focus-card-lead {
-      font-size: 1.3rem;
-      font-weight: 700;
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 400;
       color: var(--text-main);
       line-height: 1.5;
       margin-bottom: 14px;
     }
 
     .focus-formula-pill {
-      background: var(--bg-dark);
-      color: var(--text-on-dark);
-      border-left: 6px solid var(--col-yellow);
+      background: #FFFFFF;
+      color: var(--text-main);
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--col-accent);
       padding: 16px 24px;
       font-size: 1.65rem;
       text-align: center;
-      border-radius: var(--radius-sm);
+      border-radius: 2px;
       margin-bottom: 16px;
       overflow: hidden;
+      box-shadow: none;
     }
 
     .focus-card-desc {
-      font-size: 1.22rem;
-      font-weight: 600;
-      color: var(--text-main);
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--text-muted);
       line-height: 1.55;
     }
 
     .hero-formula-card {
-      background: #ffffff;
-      border: 2px solid var(--border-dark);
-      border-left: 6px solid var(--border-dark);
-      border-radius: var(--radius-sm);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--border-dark);
+      border-radius: 2px;
       padding: 22px 32px;
       display: flex;
       flex-direction: column;
@@ -421,10 +457,12 @@
       justify-content: center;
       text-align: center;
       margin-bottom: 16px;
+      box-shadow: none;
     }
 
     .hero-formula-card.yellow-accent {
-      border-left: 6px solid var(--col-yellow);
+      border-left: 4px solid var(--col-accent);
+      background: var(--col-accent-light);
     }
 
     .hero-formula-box {
@@ -434,27 +472,30 @@
     }
 
     .hero-concept-banner {
-      background: #ffffff;
-      border: 2px solid var(--border-dark);
-      border-left: 6px solid var(--col-yellow);
-      border-radius: var(--radius-sm);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--col-accent);
+      border-radius: 2px;
       padding: 18px 24px;
       display: flex;
       flex-direction: column;
       gap: 4px;
+      box-shadow: none;
     }
 
     .banner-text-title {
-      font-size: 1.3rem;
-      font-weight: 800;
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
       color: var(--text-main);
       margin-bottom: 3px;
     }
 
     .banner-text-desc {
-      font-size: 1.18rem;
-      font-weight: 600;
-      color: var(--text-main);
+      font-family: var(--font-serif);
+      font-size: 1.12rem;
+      font-weight: 400;
+      color: var(--text-muted);
       line-height: 1.5;
     }
 
@@ -467,45 +508,48 @@
     }
 
     .hero-col-card {
-      background: #ffffff;
-      border: 2px solid var(--border-dark);
-      border-top: 5px solid var(--border-dark);
-      border-radius: var(--radius-sm);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-top: 3px solid var(--border-dark);
+      border-radius: 2px;
       padding: 24px 28px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      box-shadow: none;
     }
 
     .hero-col-card.yellow-accent {
-      border-top: 5px solid var(--col-yellow);
+      border-top: 3px solid var(--col-accent);
     }
 
     .hero-col-title {
-      font-family: var(--font-penmanship);
-      font-size: 1.85rem;
-      font-weight: 800;
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      font-weight: 700;
       color: var(--text-main);
       margin-bottom: 8px;
     }
 
     .hero-col-desc {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--text-main);
+      font-family: var(--font-serif);
+      font-size: 1.12rem;
+      font-weight: 400;
+      color: var(--text-muted);
       line-height: 1.5;
       margin-bottom: 14px;
     }
 
-    /* Diagrama de pared */
+    /* Diagrama de pared y fluido */
     .wall-diagram-hero {
       height: 200px;
-      background: #ffffff;
-      border: 2px solid var(--border-dark);
-      border-radius: var(--radius-sm);
+      background: #FFFFFF;
+      border: 1px solid var(--border-dark);
+      border-radius: 2px;
       position: relative;
       overflow: hidden;
       margin-bottom: 18px;
+      box-shadow: none;
     }
 
     .solid-hatch-hero {
@@ -516,12 +560,12 @@
       width: 110px;
       background: repeating-linear-gradient(
         45deg,
-        #000000,
-        #000000 8px,
-        #262626 8px,
-        #262626 12px
+        #12233C,
+        #12233C 6px,
+        #1E3A5F 6px,
+        #1E3A5F 10px
       );
-      border-right: 3px solid var(--border-dark);
+      border-right: 2px solid var(--border-dark);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -531,10 +575,10 @@
       writing-mode: vertical-rl;
       transform: rotate(180deg);
       font-family: var(--font-mono);
-      font-size: 0.95rem;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: #F2F0E6;
       text-transform: uppercase;
     }
 
@@ -558,29 +602,29 @@
     }
 
     .node-hero-dot {
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
       background: var(--text-main);
-      border: 2px solid #ffffff;
-      outline: 2px solid var(--border-dark);
+      border: 2px solid #FFFFFF;
+      outline: 1.5px solid var(--border-dark);
     }
 
     .node-hero-dot.ghost {
-      background: #ffffff;
-      border: 2px dashed #000000;
-      outline: 2px solid #000000;
+      background: #FFFFFF;
+      border: 1.5px dashed var(--text-muted);
+      outline: 1.5px solid var(--border-subtle);
     }
 
     .node-hero-dot.wall {
-      background: var(--col-yellow);
-      outline: 2px solid var(--border-dark);
+      background: var(--col-accent);
+      outline: 1.5px solid var(--border-dark);
     }
 
     .node-hero-label {
       font-family: var(--font-mono);
-      font-size: 1.05rem;
-      font-weight: 800;
+      font-size: 1rem;
+      font-weight: 600;
       color: var(--text-main);
     }
 
@@ -596,16 +640,17 @@
     .editor-column-hero {
       display: flex;
       flex-direction: column;
-      background: #ffffff;
-      border: 2px solid var(--border-dark);
-      border-radius: var(--radius-sm);
+      background: #FFFFFF;
+      border: 1px solid var(--border-dark);
+      border-radius: 2px;
       overflow: hidden;
       height: 100%;
+      box-shadow: none;
     }
 
     .editor-header-hero {
-      background: #000000;
-      border-bottom: 2px solid var(--col-yellow);
+      background: #12233C;
+      border-bottom: 2px solid var(--col-accent);
       padding: 8px 16px;
       display: flex;
       justify-content: space-between;
@@ -614,43 +659,43 @@
 
     .editor-title-hero {
       font-family: var(--font-mono);
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--col-yellow-bright);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #F2F0E6;
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
     .btn-py-hero {
-      background: var(--col-yellow);
-      color: var(--text-on-yellow);
-      border: 1px solid var(--col-yellow-border);
-      font-family: var(--font-penmanship);
-      font-size: 0.95rem;
-      font-weight: 800;
-      padding: 6px 14px;
-      border-radius: var(--radius-sm);
+      background: var(--col-accent);
+      color: #FFFFFF;
+      border: 1px solid var(--col-accent-border);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 2px;
       cursor: pointer;
       display: flex;
       align-items: center;
       gap: 6px;
-      transition: background 0.15s ease;
+      transition: opacity 0.15s ease;
     }
 
     .btn-py-hero:hover {
-      background: #d97706;
-      color: #ffffff;
+      opacity: 0.9;
     }
 
     .btn-reset-hero {
-      background: #262626;
-      border: 1px solid #404040;
-      color: #ffffff;
-      font-size: 0.88rem;
-      font-weight: 700;
-      padding: 6px 12px;
-      border-radius: var(--radius-sm);
+      background: #1E3A5F;
+      border: 1px solid #2B4C7E;
+      color: #F2F0E6;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: 2px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -659,7 +704,7 @@
     }
 
     .btn-reset-hero:hover {
-      background: #404040;
+      background: #254670;
     }
 
     .cm-wrapper-hero {
@@ -672,12 +717,12 @@
       height: 100% !important;
       font-family: var(--font-mono) !important;
       font-size: 0.92rem !important;
-      background: #ffffff !important;
+      background: #FFFFFF !important;
       line-height: 1.48 !important;
     }
 
     .controls-shelf-hero {
-      background: #fafaf9;
+      background: #EBE7DC;
       padding: 10px 16px;
       display: flex;
       flex-wrap: wrap;
@@ -694,23 +739,23 @@
 
     .ctrl-item-hero label {
       font-family: var(--font-mono);
-      font-size: 0.82rem;
-      font-weight: 800;
+      font-size: 0.8rem;
+      font-weight: 600;
       color: var(--text-main);
     }
 
     .ctrl-item-hero select, .ctrl-item-hero input[type="range"] {
       font-family: var(--font-mono);
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       padding: 4px 8px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border-strong);
-      background: #ffffff;
+      border-radius: 2px;
+      border: 1px solid var(--border-subtle);
+      background: #FFFFFF;
     }
 
     .console-box-hero {
-      background: #000000;
-      color: #f9fafb;
+      background: #12233C;
+      color: #F2F0E6;
       font-family: var(--font-mono);
       font-size: 0.82rem;
       padding: 10px 14px;
@@ -721,11 +766,11 @@
     }
 
     .error-box-hero {
-      background: #ffffff;
-      border-top: 3px solid #000000;
-      color: #000000;
+      background: #FFFFFF;
+      border-top: 2px solid var(--border-dark);
+      color: var(--text-main);
       font-family: var(--font-mono);
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       padding: 10px 14px;
       display: none;
       white-space: pre-wrap;
@@ -744,15 +789,16 @@
 
     .plot-canvas-hero {
       flex: 1;
-      background: #ffffff;
-      border: 2px solid var(--border-dark);
-      border-radius: var(--radius-sm);
+      background: #FFFFFF;
+      border: 1px solid var(--border-dark);
+      border-radius: 2px;
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       overflow: hidden;
       padding: 8px;
+      box-shadow: none;
     }
 
     .plot-canvas-hero svg {
@@ -764,7 +810,7 @@
     .spinner-overlay-hero {
       position: absolute;
       inset: 0;
-      background: rgba(255, 255, 255, 0.94);
+      background: rgba(242, 240, 230, 0.92);
       display: none;
       flex-direction: column;
       align-items: center;
@@ -778,10 +824,10 @@
     }
 
     .spinner-ring-hero {
-      width: 34px;
-      height: 34px;
-      border: 3px solid var(--border-subtle);
-      border-top-color: var(--col-yellow);
+      width: 32px;
+      height: 32px;
+      border: 2px solid var(--border-subtle);
+      border-top-color: var(--col-accent);
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
     }
@@ -792,10 +838,11 @@
 
     /* Tabla CFD Slide 16 */
     .styled-table-card-hero {
-      background: #ffffff;
-      border: 2px solid var(--border-dark);
-      border-radius: var(--radius-sm);
+      background: #FFFFFF;
+      border: 1px solid var(--border-dark);
+      border-radius: 2px;
       padding: 12px 16px;
+      box-shadow: none;
     }
 
     .cfd-results-table-hero {
@@ -805,33 +852,33 @@
     }
 
     .cfd-results-table-hero th {
-      background: #000000;
+      background: #12233C;
       font-family: var(--font-mono);
-      font-size: 0.82rem;
-      font-weight: 800;
+      font-size: 0.8rem;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #ffffff;
+      letter-spacing: 0.04em;
+      color: #F2F0E6;
       padding: 8px 12px;
       text-align: left;
-      border-bottom: 2px solid var(--col-yellow);
+      border-bottom: 2px solid var(--col-accent);
     }
 
     .cfd-results-table-hero td {
       padding: 8px 12px;
       border-bottom: 1px solid var(--border-subtle);
       font-family: var(--font-mono);
-      font-size: 0.98rem;
-      color: #000000;
+      font-size: 0.95rem;
+      color: var(--text-main);
     }
 
     .cfd-results-table-hero tr.highlight-cfd {
-      background: #fffbeb;
-      font-weight: 800;
+      background: var(--col-accent-light);
+      font-weight: 600;
     }
 
     .cfd-results-table-hero tr.highlight-cfd td {
-      color: #000000;
+      color: var(--text-main);
     }
   </style>
 </head>
@@ -2008,7 +2055,7 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimacion con 2 puntos")
     /* ==========================================================================
        3. GRÁFICOS PRECALCULADOS VECTORIALES (EXACTOS SIN MODIFICAR)
        ========================================================================== */
-    const precomputedSvgS5 = `<svg viewBox="0 0 740 430" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="font-family:'Playpen Sans', sans-serif;">
+    const precomputedSvgS5 = `<svg viewBox="0 0 740 430" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="font-family:'STIX Two Text', Georgia, serif;">
       <rect width="740" height="430" fill="#ffffff"/>
       <rect x="75" y="38" width="620" height="322" fill="#fafaf9" stroke="#000000" stroke-width="1.5"/>
       <line x1="75" y1="340" x2="695" y2="340" stroke="#737373" stroke-width="1.5" stroke-dasharray="4,4"/>
@@ -2025,7 +2072,7 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimacion con 2 puntos")
       <text x="385" y="24" text-anchor="middle" font-size="13" font-weight="bold" fill="#000000">La Curva en "V" en sin(x)</text>
     </svg>`;
 
-    const precomputedSvgS6 = `<svg viewBox="0 0 680 340" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="font-family:'Playpen Sans', sans-serif;">
+    const precomputedSvgS6 = `<svg viewBox="0 0 680 340" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="font-family:'STIX Two Text', Georgia, serif;">
       <rect width="680" height="340" fill="#ffffff"/>
       <rect x="70" y="25" width="560" height="260" fill="#fafaf9" stroke="#000000" stroke-width="1.5"/>
       <line x1="70" y1="285" x2="630" y2="285" stroke="#000000" stroke-width="3"/>
