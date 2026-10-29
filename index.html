@@ -303,51 +303,40 @@
     /* ==========================================================================
        SECCIÓN 5: DIAGRAMA DE PARED Y BANNER CONCEPTUAL (SLIDE 12)
        ========================================================================== */
-    .hero-concept-banner {
-      background: #1E1E1E;
-      color: #FFFFFF;
-      border-left: 6px solid #FF7100;
-      border-radius: var(--radius-md);
-      padding: 20px 28px;
+    .s12-centered-content {
       display: flex;
       flex-direction: column;
-      gap: 5px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      max-width: 1360px;
+      margin: 0 auto;
+      flex-grow: 1;
+      padding-top: 15px;
+      padding-bottom: 30px;
+      box-sizing: border-box;
     }
 
-    .banner-text-title {
-      font-family: var(--font-title);
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #FF7100;
-      margin-bottom: 3px;
-    }
-
-    .banner-text-desc {
-      font-family: var(--font-serif);
-      font-size: 1.12rem;
-      font-weight: 400;
-      color: #E8E8E5;
-      line-height: 1.5;
-    }
-
-    .wall-diagram-hero {
-      height: 200px;
+    .s12-centered-content .wall-diagram-hero {
+      width: 100%;
+      max-width: 1360px;
+      height: 220px;
       background: #FFFFFF;
       border: 2px solid #1E1E1E;
-      border-radius: var(--radius-md);
+      border-radius: var(--radius-md, 10px);
       position: relative;
       overflow: hidden;
-      margin-bottom: 18px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+      margin-bottom: 0;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+      box-sizing: border-box;
     }
 
-    .solid-hatch-hero {
+    .s12-centered-content .solid-hatch-hero {
       position: absolute;
       left: 0;
       top: 0;
       bottom: 0;
-      width: 110px;
+      width: 130px;
       background: repeating-linear-gradient(
         45deg,
         #111111,
@@ -361,62 +350,102 @@
       justify-content: center;
     }
 
-    .solid-hatch-hero span {
+    .s12-centered-content .solid-hatch-hero span {
       writing-mode: vertical-rl;
       transform: rotate(180deg);
       font-family: var(--font-mono);
-      font-size: 0.85rem;
+      font-size: 0.95rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
-      color: var(--col-orange);
+      letter-spacing: 0.14em;
+      color: var(--col-orange, #FF7100);
       text-transform: uppercase;
     }
 
-    .fluid-nodes-hero-row {
+    .s12-centered-content .fluid-nodes-hero-row {
       position: absolute;
-      left: 110px;
+      left: 130px;
       right: 0;
       top: 0;
       bottom: 0;
       display: flex;
       align-items: center;
       justify-content: space-around;
-      padding: 0 34px;
+      padding: 0 45px;
     }
 
-    .node-hero-item {
+    .s12-centered-content .node-hero-item {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
-    .node-hero-dot {
-      width: 20px;
-      height: 20px;
+    .s12-centered-content .node-hero-dot {
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
-      background: var(--text-main);
+      background: #111111;
       border: 2px solid #FFFFFF;
-      outline: 1.5px solid var(--border-dark);
+      outline: 1.5px solid #333333;
     }
 
-    .node-hero-dot.ghost {
+    .s12-centered-content .node-hero-dot.ghost {
       background: #FFFFFF;
-      border: 1.5px dashed var(--text-muted);
-      outline: 1.5px solid var(--border-subtle);
+      border: 1.5px dashed #888888;
+      outline: 1.5px solid #CCCCCC;
     }
 
-    .node-hero-dot.wall {
-      background: var(--col-orange);
+    .s12-centered-content .node-hero-dot.wall {
+      background: #FF7100;
       outline: 2px solid #1E1E1E;
+      width: 24px;
+      height: 24px;
     }
 
-    .node-hero-label {
+    .s12-centered-content .node-hero-label {
       font-family: var(--font-mono);
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text-main);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #111111;
     }
+
+    /* Banner conceptual: mas abajo, mayor fuente y mayor espaciado entre letras */
+    .s12-centered-content .hero-concept-banner {
+      width: 100%;
+      max-width: 1360px;
+      background: #1E1E1E;
+      color: #FFFFFF;
+      border-left: 8px solid #FF7100;
+      border-radius: var(--radius-md, 10px);
+      padding: 28px 36px 30px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      box-sizing: border-box;
+      margin-top: 40px; /* Queda mas abajo */
+    }
+
+    .s12-centered-content .banner-text-title {
+      font-family: 'Merriweather', 'Playfair Display', Georgia, serif;
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #FF7100;
+      margin: 0;
+      line-height: 1.25;
+      letter-spacing: 0.03em; /* Espacio entre letras para lectura a distancia */
+    }
+
+    .s12-centered-content .banner-text-desc {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 1.50rem;
+      font-weight: 400;
+      color: #FFFFFF;
+      line-height: 1.65;
+      margin: 0;
+      letter-spacing: 0.02em; /* Espacio entre letras para lectura a distancia */
+    }
+  
 
     /* ==========================================================================
        SECCIÓN 6: ESPACIO INTERACTIVO CODEMIRROR Y PYODIDE (SLIDES 15 Y 17)
@@ -1622,26 +1651,26 @@
     /* Párrafo conductor centrado */
     .s5-lead-text {
       font-family: 'Merriweather', Georgia, serif;
-      font-size: 1.75rem;
+      font-size: 2.05rem;
       color: #1A1A1E;
-      line-height: 1.60;
+      line-height: 1.55;
       max-width: 1360px;
       width: 100%;
       text-align: center;
-      margin: 0 0 32px 0;
+      margin: 0 0 30px 0;
       font-weight: 400;
     }
 
     /* Vitrina de Fórmula Central Monumental */
     .s5-formula-monument {
-      width: 1360px;
+      width: 1220px;
       background: #FAF8F4;
       border: 1.5px solid #EAE5DB;
       border-top: 5px solid #FF7100;
       border-radius: 16px;
-      padding: 55px 45px 55px 45px;
+      padding: 24px 40px 26px 40px;
       box-sizing: border-box;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.035);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1850,12 +1879,12 @@
       background: #FFFFFF;
       padding: 5px 12px;
       border-radius: 6px;
-      border: 1px solid #FED7AA;
+      border: 1px solid #EAE5DB;
     }
 
     .s5b-indicator-warn {
       color: #C2410C;
-      border-color: #FED7AA;
+      border-color: #EAE5DB;
     }
 
     .s5b-twin-title {
@@ -1884,7 +1913,7 @@
       background: #FFFFFF;
       padding: 14px 18px;
       border-radius: 8px;
-      border: 1px solid #E2E8F0;
+      border: 1px solid #EAE5DB;
       margin-top: auto;
     }
 
@@ -3585,50 +3614,121 @@
         </div>
       </section>
 
-      <section class="slide" id="slide-12" data-index="12">
-        <div class="slide-top-header">
-          <div class="slide-header-left">
-            <div class="slide-meta-tag">
-              <span class="meta-tag-badge">CONTORNOS IMPERMEABLES</span>
-              <span>Diapositiva 12</span>
-            </div>
-            <h2 class="slide-main-title">El Problema de las Fronteras Físicas</h2>
-            <p class="slide-sub-desc">En una pared sólida (\(y=0\)) no existen nodos exteriores: la diferencia central falla.</p>
-          </div>
-          <div class="slide-header-controls">
-            <span class="badge-counter">12 / 20</span>
-          </div>
+      <section class="slide s-corp-slide" id="slide-12" data-index="12">
+        <div class="s-corp-bg-wrap">
+          <svg class="s-corp-decorado-svg" viewBox="0 0 1600 900" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <defs>
+    <filter id="s12_shadowTop" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+    <filter id="s12_shadowBot" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="-4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+
+    <linearGradient id="s12_orangeMain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF7100"/>
+      <stop offset="100%" stop-color="#FF5500"/>
+    </linearGradient>
+    <linearGradient id="s12_orangeAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF8800"/>
+      <stop offset="100%" stop-color="#FF6600"/>
+    </linearGradient>
+    <linearGradient id="s12_bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="85%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FAF8F3"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="900" fill="url(#s12_bgGlow)"/>
+
+  <g filter="url(#s12_shadowTop)">
+    <polygon points="0,0 233,0 276,66 0,66" fill="url(#s12_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="70,18 86,18 105,48 89,48"/>
+      <polygon points="98,18 114,18 133,48 117,48"/>
+      <polygon points="126,18 142,18 161,48 145,48"/>
+      <polygon points="154,18 170,18 189,48 173,48"/>
+      <polygon points="182,18 198,18 217,48 201,48"/>
+    </g>
+    <polygon points="260,0 353,0 421,105 328,105" fill="#0C0C0E"/>
+    <polygon points="378,0 438,0 493,85 433,85" fill="url(#s12_orangeAccent)"/>
+    <polygon points="468,0 502,0 542,62 508,62" fill="#0C0C0E"/>
+    <polygon points="548,33 578,33 591,53 561,53" fill="#0C0C0E"/>
+    <polygon points="608,33 638,33 651,53 621,53" fill="#0C0C0E"/>
+    <polygon points="668,33 698,33 711,53 681,53" fill="#0C0C0E"/>
+    <polygon points="728,33 1600,33 1600,53 741,53" fill="url(#s12_orangeMain)"/>
+  </g>
+
+  <g filter="url(#s12_shadowBot)">
+    <polygon points="872.0,867.0 0.0,867.0 0.0,847.0 859.0,847.0" fill="url(#s12_orangeMain)"/>
+    <polygon points="932.0,867.0 902.0,867.0 889.0,847.0 919.0,847.0" fill="#0C0C0E"/>
+    <polygon points="992.0,867.0 962.0,867.0 949.0,847.0 979.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1052.0,867.0 1022.0,867.0 1009.0,847.0 1039.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1132.0,900.0 1098.0,900.0 1058.0,838.0 1092.0,838.0" fill="#0C0C0E"/>
+    <polygon points="1222.0,900.0 1162.0,900.0 1107.0,815.0 1167.0,815.0" fill="url(#s12_orangeAccent)"/>
+    <polygon points="1340.0,900.0 1247.0,900.0 1179.0,795.0 1272.0,795.0" fill="#0C0C0E"/>
+    <polygon points="1600.0,900.0 1367.0,900.0 1324.0,834.0 1600.0,834.0" fill="url(#s12_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="1418.0,882.0 1402.0,882.0 1383.0,852.0 1399.0,852.0"/>
+      <polygon points="1446.0,882.0 1430.0,882.0 1411.0,852.0 1427.0,852.0"/>
+      <polygon points="1474.0,882.0 1458.0,882.0 1439.0,852.0 1455.0,852.0"/>
+      <polygon points="1502.0,882.0 1486.0,882.0 1467.0,852.0 1483.0,852.0"/>
+      <polygon points="1530.0,882.0 1514.0,882.0 1495.0,852.0 1511.0,852.0"/>
+    </g>
+  </g>
+</svg>
         </div>
 
-        <div class="slide-content-area">
-          <div class="wall-diagram-hero">
-            <div class="solid-hatch-hero">
-              <span>Sólido</span>
+        <div class="s-corp-container">
+          <!-- 1. Cabecera y Título Actual con Formato Institucional de la Presentación -->
+          <div class="s-corp-header">
+            <div class="s-corp-header-left">
+              <div class="s-corp-meta-tag">
+                <span class="s-corp-meta-badge">CONTORNOS IMPERMEABLES</span>
+                <span class="s-corp-meta-slide">Diapositiva 12</span>
+              </div>
+              <h2 class="s-corp-main-title">El Problema de las Fronteras Físicas</h2>
+              <p class="s-corp-sub-desc">En una pared sólida (\(y=0\)) no existen nodos exteriores: la diferencia central falla.</p>
             </div>
-            <div class="fluid-nodes-hero-row">
-              <div class="node-hero-item">
-                <div class="node-hero-dot ghost"></div>
-                <div class="node-hero-label" style="color:#000000;">\(y_{-1}\) (Inexistente)</div>
-              </div>
-              <div class="node-hero-item">
-                <div class="node-hero-dot wall"></div>
-                <div class="node-hero-label" style="color:var(--text-main);">\(y_0\) (Pared Sólida)</div>
-              </div>
-              <div class="node-hero-item">
-                <div class="node-hero-dot"></div>
-                <div class="node-hero-label">\(y_1\) (Interior 1)</div>
-              </div>
-              <div class="node-hero-item">
-                <div class="node-hero-dot"></div>
-                <div class="node-hero-label">\(y_2\) (Interior 2)</div>
-              </div>
+            <div class="s-corp-header-controls">
+              <span class="badge-counter">12 / 20</span>
             </div>
           </div>
 
-          <div class="hero-concept-banner">
-            <div class="banner-text-title">Restricción de Borde: La Trampa de Usar 2 Puntos en la Pared</div>
-            <div class="banner-text-desc" style="font-size:1.25rem;">
-              Usar forward simple \(\frac{f_1 - f_0}{h}\) en el contorno <strong>degrada toda la simulación a orden \(\mathcal{O}(h)\)</strong> justo donde los esfuerzos cortantes y los gradientes térmicos son máximos y críticos para el diseño electromecánico.
+          <!-- Contenido 100% Centrado -->
+          <div class="s12-centered-content">
+            <!-- 2. Diagrama de Stencil en Pared (Diseño original conservado intacto) -->
+            <div class="wall-diagram-hero">
+              <div class="solid-hatch-hero">
+                <span>Sólido</span>
+              </div>
+              <div class="fluid-nodes-hero-row">
+                <div class="node-hero-item">
+                  <div class="node-hero-dot ghost"></div>
+                  <div class="node-hero-label" style="color:#000000;">\(y_{-1}\) (Inexistente)</div>
+                </div>
+                <div class="node-hero-item">
+                  <div class="node-hero-dot wall"></div>
+                  <div class="node-hero-label" style="color:#111111;">\(y_0\) (Pared Sólida)</div>
+                </div>
+                <div class="node-hero-item">
+                  <div class="node-hero-dot"></div>
+                  <div class="node-hero-label">\(y_1\) (Interior 1)</div>
+                </div>
+                <div class="node-hero-item">
+                  <div class="node-hero-dot"></div>
+                  <div class="node-hero-label">\(y_2\) (Interior 2)</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Banner Conceptual Inferior (Fuente Aumentada y Centrado) -->
+            <div class="hero-concept-banner">
+              <div class="banner-text-title">Restricción de Borde: La Trampa de Usar 2 Puntos en la Pared</div>
+              <div class="banner-text-desc">
+                Usar forward simple \(\frac{f_1 - f_0}{h}\) en el contorno <strong>degrada toda la simulación a orden \(\mathcal{O}(h)\)</strong> justo donde los esfuerzos cortantes y los gradientes térmicos son máximos y críticos para el diseño electromecánico.
+              </div>
             </div>
           </div>
         </div>
