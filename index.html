@@ -149,7 +149,7 @@
     }
 
     /* Detalle geométrico diagonal en las esquinas para diapositivas 2 en adelante (excepto labs 14 y 16) */
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16)::before {
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17)::before {
       content: '';
       position: absolute;
       top: 0;
@@ -161,7 +161,7 @@
       z-index: 2;
     }
 
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16)::after {
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17)::after {
       content: '';
       position: absolute;
       bottom: 0;
@@ -1002,41 +1002,41 @@
        FONDO CORPORATIVO GEOMÉTRICO AMARILLO Y NEGRO (INSPIRADO EN PLANTILLA DE REFERENCIA)
        Aplicado a diapositivas 2 a 19 (EXCLUIDAS Diapositiva 14 y 16 por ser laboratorios interactivos)
        ========================================================================== */
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16) {
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17) {
       background-color: #201E1F !important;
       background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%201600%20900%27%20width%3D%271600%27%20height%3D%27900%27%20preserveAspectRatio%3D%27none%27%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%27bgDark%27%20x1%3D%270%25%27%20y1%3D%270%25%27%20x2%3D%27100%25%27%20y2%3D%27100%25%27%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27%23262425%27/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%2750%25%27%20stop-color%3D%27%23201E1F%27/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%27100%25%27%20stop-color%3D%27%23191819%27/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3Cfilter%20id%3D%27shadow%27%20x%3D%27-20%25%27%20y%3D%27-20%25%27%20width%3D%27140%25%27%20height%3D%27140%25%27%3E%0A%20%20%20%20%20%20%3CfeDropShadow%20dx%3D%27-8%27%20dy%3D%2710%27%20stdDeviation%3D%2712%27%20flood-color%3D%27%23000000%27%20flood-opacity%3D%270.65%27/%3E%0A%20%20%20%20%3C/filter%3E%0A%20%20%3C/defs%3E%0A%0A%20%20%3C%21--%20Deep%20dark%20base%20--%3E%0A%20%20%3Crect%20width%3D%271600%27%20height%3D%27900%27%20fill%3D%27url%28%23bgDark%29%27/%3E%0A%0A%20%20%3C%21--%20%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%20LEFT%20GEOMETRIC%20SLABS%20%28IMAGE%203%29%20%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%20--%3E%0A%20%20%3Cg%20id%3D%27left-group%27%3E%0A%20%20%20%20%3C%21--%20Dark%20background%20slab%20under%20yellow%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%27-120%2C-80%20180%2C-80%20-60%2C540%20-260%2C540%27%20fill%3D%27%23141314%27%20filter%3D%27url%28%23shadow%29%27/%3E%0A%0A%20%20%20%20%3C%21--%20Secondary%20dark%20gray%20slab%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%27-40%2C-80%20130%2C-80%20-110%2C500%20-220%2C500%27%20fill%3D%27%232A2829%27/%3E%0A%0A%20%20%20%20%3C%21--%20Primary%20bold%20yellow%20diagonal%20band%20%28narrowed%20at%20top%20to%20avoid%20title%20collision%29%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%27-90%2C-80%2042%2C-80%20-160%2C520%20-280%2C520%27%20fill%3D%27%23FCC10B%27%20filter%3D%27url%28%23shadow%29%27/%3E%0A%0A%20%20%20%20%3C%21--%20Overlapping%20charcoal%20accent%20polygon%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%27-60%2C-80%2015%2C-80%20-185%2C460%20-250%2C460%27%20fill%3D%27%231E1D1E%27/%3E%0A%0A%20%20%20%20%3C%21--%20Lower-left%20thin%20diagonal%20stripes%20from%20Image%203%20--%3E%0A%20%20%20%20%3Cline%20x1%3D%27-40%27%20y1%3D%27620%27%20x2%3D%27110%27%20y2%3D%27840%27%20stroke%3D%27%23FCC10B%27%20stroke-width%3D%274.5%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%27-15%27%20y1%3D%27660%27%20x2%3D%2785%27%20y2%3D%27810%27%20stroke%3D%27%23FCC10B%27%20stroke-width%3D%273.5%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%27-80%27%20y1%3D%27730%27%20x2%3D%2735%27%20y2%3D%27900%27%20stroke%3D%27%23706E70%27%20stroke-width%3D%272.5%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%27-50%27%20y1%3D%27780%27%20x2%3D%2750%27%20y2%3D%27930%27%20stroke%3D%27%23FCC10B%27%20stroke-width%3D%272%27/%3E%0A%20%20%3C/g%3E%0A%0A%20%20%3C%21--%20%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%20RIGHT%20GEOMETRIC%20SLABS%20%28IMAGE%203%29%20%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%20--%3E%0A%20%20%3Cg%20id%3D%27right-group%27%3E%0A%20%20%20%20%3C%21--%20Major%20dark%20underlay%20slab%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%271260%2C950%201720%2C950%201720%2C120%201440%2C120%27%20fill%3D%27%23131213%27%20filter%3D%27url%28%23shadow%29%27/%3E%0A%0A%20%20%20%20%3C%21--%20Upper%20right%20thin%20gray%20accent%20lines%20--%3E%0A%20%20%20%20%3Cline%20x1%3D%271420%27%20y1%3D%2740%27%20x2%3D%271550%27%20y2%3D%27220%27%20stroke%3D%27%237A7879%27%20stroke-width%3D%273%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%271455%27%20y1%3D%2730%27%20x2%3D%271580%27%20y2%3D%27205%27%20stroke%3D%27%23FCC10B%27%20stroke-width%3D%274.5%27/%3E%0A%0A%20%20%20%20%3C%21--%20Major%20bold%20yellow%20diagonal%20band%20running%20down%20right%20edge%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%271490%2C-60%201660%2C-60%201880%2C950%201700%2C950%27%20fill%3D%27%23FCC10B%27%20filter%3D%27url%28%23shadow%29%27/%3E%0A%0A%20%20%20%20%3C%21--%20Lower%20right%20yellow%20triangle%20/%20polygon%20filling%20bottom%20right%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%271370%2C950%201750%2C950%201750%2C380%201510%2C380%27%20fill%3D%27%23FCC10B%27%20filter%3D%27url%28%23shadow%29%27/%3E%0A%0A%20%20%20%20%3C%21--%20Charcoal%20slab%20overlay%20slicing%20through%20the%20yellow%20on%20right%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%271610%2C-40%201740%2C-40%201490%2C950%201350%2C950%27%20fill%3D%27%23242223%27%20filter%3D%27url%28%23shadow%29%27/%3E%0A%0A%20%20%20%20%3C%21--%20Lower%20right%20thin%20accent%20lines%20--%3E%0A%20%20%20%20%3Cline%20x1%3D%271240%27%20y1%3D%27780%27%20x2%3D%271360%27%20y2%3D%27950%27%20stroke%3D%27%23FCC10B%27%20stroke-width%3D%273.5%27/%3E%0A%20%20%20%20%3Cline%20x1%3D%271210%27%20y1%3D%27810%27%20x2%3D%271300%27%20y2%3D%27940%27%20stroke%3D%27%23686667%27%20stroke-width%3D%272.5%27/%3E%0A%20%20%3C/g%3E%0A%3C/svg%3E") !important;
       background-size: 100% 100% !important;
       background-repeat: no-repeat !important;
     }
 
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16)::before,
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16)::after {
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17)::before,
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17)::after {
       display: none !important;
     }
 
     /* Título de las páginas adaptado al fondo oscuro con máxima legibilidad */
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .slide-main-title {
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17) .slide-main-title {
       color: #FFFFFF !important;
       text-shadow: 0 2px 12px rgba(0,0,0,0.6);
     }
 
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .slide-sub-desc {
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17) .slide-sub-desc {
       color: #D6D6D6 !important;
     }
 
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .slide-meta-tag {
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17) .slide-meta-tag {
       color: #A4A4A4 !important;
     }
 
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .slide-top-header {
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17) .slide-top-header {
       border-bottom: 2px solid rgba(255, 255, 255, 0.22) !important;
     }
 
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .slide-top-header::after {
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17) .slide-top-header::after {
       background: #FCC10B !important;
     }
 
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .badge-counter {
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17) .badge-counter {
       background: #161516 !important;
       color: #FCC10B !important;
       border: 1px solid #383838 !important;
@@ -1045,9 +1045,9 @@
     }
 
     /* Cuadrados / Tarjetas preservados exactamente como están (blancos con acento amarillo y sombra flotante) */
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .single-focus-card,
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .hero-col-card,
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .table-card-hero {
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17) .single-focus-card,
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17) .hero-col-card,
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17) .table-card-hero {
       background: #FFFFFF !important;
       border: 1.5px solid #1E1E1E !important;
       box-shadow: 0 16px 45px rgba(0, 0, 0, 0.45) !important;
@@ -1115,7 +1115,7 @@
     }
 
     /* Diapositivas 2 a 19: Fondo Blanco/Marfil con SVG geométrico naranja */
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16) {
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17) {
       background-color: #FFFFFF !important;
       background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%201600%20900%27%20width%3D%271600%27%20height%3D%27900%27%20preserveAspectRatio%3D%27none%27%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%27slideIvory%27%20x1%3D%270%25%27%20y1%3D%270%25%27%20x2%3D%27100%25%27%20y2%3D%27100%25%27%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27%23FFFFFF%27/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%2770%25%27%20stop-color%3D%27%23FFFFFF%27/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%27100%25%27%20stop-color%3D%27%23FAF8F4%27/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%27orangeGrad%27%20x1%3D%270%25%27%20y1%3D%270%25%27%20x2%3D%27100%25%27%20y2%3D%270%25%27%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27%23E65100%27/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%2735%25%27%20stop-color%3D%27%23FF7100%27/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%2770%25%27%20stop-color%3D%27%23FF9900%27/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%27100%25%27%20stop-color%3D%27%23FEB800%27/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%0A%20%20%3C%21--%20Base%20Blanca%20Luminosa%20--%3E%0A%20%20%3Crect%20width%3D%271600%27%20height%3D%27900%27%20fill%3D%27url%28%23slideIvory%29%27/%3E%0A%0A%20%20%3C%21--%20ESQUINA%20SUPERIOR%20DERECHA%3A%20Franjas%20diagonales%20escalonadas%20en%20combinaci%C3%B3n%20de%20naranjas%20%28Referencia%20Imagen%202%29%20--%3E%0A%20%20%3Cg%20id%3D%27tr-stripes%27%20opacity%3D%270.95%27%3E%0A%20%20%20%20%3C%21--%20Banda%201%3A%20Naranja%20quemado%20exterior%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%271430%2C0%201600%2C0%201600%2C75%201475%2C0%27%20fill%3D%27%23E65100%27/%3E%0A%20%20%20%20%3C%21--%20Banda%202%3A%20Naranja%20vibrante%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%271355%2C0%201425%2C0%201600%2C175%201600%2C105%27%20fill%3D%27%23FF7100%27/%3E%0A%20%20%20%20%3C%21--%20Banda%203%3A%20%C3%81mbar%20c%C3%A1lido%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%271280%2C0%201350%2C0%201600%2C280%201600%2C210%27%20fill%3D%27%23FF9900%27/%3E%0A%20%20%20%20%3C%21--%20Banda%204%3A%20Dorado%20c%C3%A1lido%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%271205%2C0%201275%2C0%201600%2C385%201600%2C315%27%20fill%3D%27%23FEB800%27/%3E%0A%20%20%3C/g%3E%0A%0A%20%20%3C%21--%20ESQUINA%20INFERIOR%20IZQUIERDA%3A%20Franjas%20y%20facetas%20geom%C3%A9tricas%20%28Referencia%20Imagen%201%20y%202%29%20--%3E%0A%20%20%3Cg%20id%3D%27bl-stripes%27%20opacity%3D%270.95%27%3E%0A%20%20%20%20%3C%21--%20Facetas%20escalonadas%20--%3E%0A%20%20%20%20%3Cpolygon%20points%3D%270%2C730%2065%2C730%200%2C795%27%20fill%3D%27%23FEB800%27/%3E%0A%20%20%20%20%3Cpolygon%20points%3D%270%2C795%2065%2C730%20135%2C795%2070%2C860%200%2C860%27%20fill%3D%27%23FF9900%27/%3E%0A%20%20%20%20%3Cpolygon%20points%3D%270%2C860%2070%2C860%20110%2C900%200%2C900%27%20fill%3D%27%23FF7100%27/%3E%0A%20%20%20%20%3Cpolygon%20points%3D%2770%2C860%20135%2C795%20210%2C870%20145%2C900%20110%2C900%27%20fill%3D%27%23E65100%27/%3E%0A%20%20%20%20%3Cpolygon%20points%3D%27135%2C795%20200%2C795%20275%2C870%20210%2C870%27%20fill%3D%27%23FF7100%27/%3E%0A%20%20%20%20%3Cpolygon%20points%3D%27210%2C870%20275%2C870%20305%2C900%20240%2C900%27%20fill%3D%27%23FF9900%27/%3E%0A%20%20%3C/g%3E%0A%0A%20%20%3C%21--%20ESQUINA%20INFERIOR%20DERECHA%3A%20Acento%20sutil%20en%20%C3%A1ngulo%20--%3E%0A%20%20%3Cg%20id%3D%27br-subtle%27%20opacity%3D%270.85%27%3E%0A%20%20%20%20%3Cpolygon%20points%3D%271535%2C900%201600%2C835%201600%2C900%27%20fill%3D%27%23FF7100%27/%3E%0A%20%20%20%20%3Cpolygon%20points%3D%271465%2C900%201600%2C765%201600%2C825%201525%2C900%27%20fill%3D%27%23FEB800%27/%3E%0A%20%20%3C/g%3E%0A%3C/svg%3E") !important;
       background-size: 100% 100% !important;
@@ -1123,37 +1123,37 @@
     }
 
     /* Desactivar pseudo-elementos superpuestos */
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16)::before,
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16)::after {
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17)::before,
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17)::after {
       display: none !important;
     }
 
     /* Títulos y Encabezados corporativos sobre fondo blanco */
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .slide-main-title {
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17) .slide-main-title {
       color: #111111 !important;
       text-shadow: none !important;
       font-weight: 700 !important;
     }
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .slide-sub-desc {
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17) .slide-sub-desc {
       color: #444444 !important;
     }
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .slide-meta-tag {
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17) .slide-meta-tag {
       color: #555555 !important;
     }
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .meta-tag-badge {
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17) .meta-tag-badge {
       background: #FF7100 !important;
       color: #FFFFFF !important;
       font-weight: 800 !important;
       box-shadow: 0 2px 8px rgba(255, 113, 0, 0.25) !important;
     }
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .slide-top-header {
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17) .slide-top-header {
       border-bottom: 2px solid #E5E2DA !important;
     }
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .slide-top-header::after {
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17) .slide-top-header::after {
       background: linear-gradient(90deg, #E65100 0%, #FF7100 50%, #FEB800 100%) !important;
       height: 4.5px !important;
     }
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .badge-counter {
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17) .badge-counter {
       background: #FFFFFF !important;
       color: #E65100 !important;
       border: 1.5px solid #E5E2DA !important;
@@ -1162,9 +1162,9 @@
     }
 
     /* Tarjetas principales blancas en todas las diapositivas */
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .single-focus-card,
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .hero-col-card,
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16) .table-card-hero {
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17) .single-focus-card,
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17) .hero-col-card,
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17) .table-card-hero {
       background: #FFFFFF !important;
       border: 1.5px solid #1E1E1E !important;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
@@ -1231,9 +1231,9 @@
     }
 
     /* 3 y 4. Diapositivas 7, 8 y 9: Todo fondo Blanco/Marfil (SIN FONDO NEGRO) */
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16)#slide-7 .hero-col-card,
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16)#slide-8 .hero-col-card,
-    .slide:not(#slide-1):not(#slide-14):not(#slide-16)#slide-9 .hero-col-card,
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17)#slide-7 .hero-col-card,
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17)#slide-8 .hero-col-card,
+    .slide:not(#slide-1):not(#slide-15):not(#slide-17)#slide-9 .hero-col-card,
     #slide-7 .hero-col-card,
     #slide-8 .hero-col-card,
     #slide-9 .hero-col-card {
@@ -1570,6 +1570,1178 @@
     }
 
     </style>
+
+  <!-- ESTILOS CORPORATIVOS APROBADOS DIAPOSITIVAS 1 A 6 -->
+  
+  <style>
+    #slide-1 {
+      padding: 0 !important;
+      position: relative !important;
+      overflow: hidden !important;
+      background: #FFFFFF !important;
+    }
+
+    .cover-layout-v8 {
+      position: relative;
+      z-index: 10;
+      width: 1600px;
+      height: 900px;
+      display: grid;
+      grid-template-columns: 930px 670px;
+      box-sizing: border-box;
+    }
+
+    /* Columna de Información Izquierda */
+    .cover-info-col-v8 {
+      padding: 130px 40px 120px 95px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+      z-index: 12;
+    }
+
+    /* 1. Kicker: 1.20rem (19.2px) */
+    .cover-kicker-v8 {
+      font-family: var(--font-mono);
+      font-size: 1.20rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #FF7100;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cover-kicker-v8::before {
+      content: '';
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      background: #FF7100;
+      border-radius: 3px;
+    }
+
+    /* 2. Título Principal: 4.15rem (66.4px) */
+    .cover-headline-v8 {
+      font-family: var(--font-serif);
+      font-size: 4.15rem;
+      font-weight: 700;
+      color: #111111;
+      line-height: 1.12;
+      letter-spacing: -0.015em;
+      margin-bottom: 24px;
+    }
+
+    .cover-rule-v8 {
+      width: 210px;
+      height: 5px;
+      background: linear-gradient(90deg, #FF7100 0%, #FF9900 100%);
+      border-radius: 2.5px;
+      margin-bottom: 26px;
+    }
+
+    /* 3. Párrafo Descriptivo: 1.50rem (24.0px) */
+    .cover-desc-v8 {
+      font-family: var(--font-serif);
+      font-size: 1.50rem;
+      line-height: 1.62;
+      color: #2A2A2A;
+      max-width: 780px;
+      margin-bottom: 38px;
+    }
+
+    .cover-actions-row-v8 {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    /* 4. Botón Píldora: 1.10rem (17.6px) */
+    .cover-pill-v8 {
+      background: linear-gradient(135deg, #FF7100 0%, #FF5500 100%);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 1.10rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 13px 38px;
+      border-radius: 32px;
+      box-shadow: 0 6px 20px rgba(255, 113, 0, 0.35);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* 5. Autores: 1.20rem (19.2px) */
+    .cover-authors-v8 {
+      font-family: var(--font-mono);
+      font-size: 1.20rem;
+      color: #333333;
+      letter-spacing: 0.02em;
+    }
+
+    .cover-authors-v8 strong {
+      color: #111111;
+      font-weight: 700;
+    }
+
+    /* Columna Derecha: Logo UTN libre, tamaño agrandado a 340x410px */
+    .cover-logo-col-v8 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .cover-logo-holder-v8 {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    /* Sombra artística de profundidad agrandada */
+    .cover-logo-shadow-v8 {
+      position: absolute;
+      width: 340px;
+      height: 410px;
+      object-fit: contain;
+      opacity: 0.14;
+      filter: blur(5px) contrast(1.1);
+      transform: translate(16px, 18px);
+      pointer-events: none;
+    }
+
+    /* Logo principal con presencia majestuosa (~340px x 410px) */
+    .cover-logo-main-v8 {
+      position: relative;
+      width: 340px;
+      height: 410px;
+      object-fit: contain;
+      filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.10));
+      z-index: 2;
+    }
+
+    /* Línea naranja inferior más larga (280px) */
+    .cover-logo-accent-line-v8 {
+      width: 280px;
+      height: 4.5px;
+      background: linear-gradient(90deg, transparent 0%, #FF7100 15%, #FF7100 85%, transparent 100%);
+      border-radius: 2.5px;
+      margin-top: 24px;
+      z-index: 2;
+    }
+  </style>
+
+  
+  <style>
+    #slide-2 {
+      padding: 0 !important;
+      position: relative !important;
+      overflow: hidden !important;
+      background: #FFFFFF !important;
+    }
+
+    .s2-bg-wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1600px;
+      height: 900px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .s2-decorado-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .s2-container {
+      position: relative;
+      z-index: 10;
+      width: 1600px;
+      height: 900px;
+      /* Padding superior amplio para situar el título más abajo y despejado */
+      padding: 110px 95px 65px 95px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    /* Cabecera superior */
+    .s2-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 10px;
+      margin-bottom: 18px;
+      z-index: 12;
+    }
+
+    .s2-header-left {
+      text-align: left;
+    }
+
+    .s2-meta-tag {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #666666;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 6px;
+    }
+
+    .s2-meta-badge {
+      background: #FF7100;
+      color: #FFFFFF;
+      padding: 3px 12px;
+      border-radius: 4px;
+      font-weight: 800;
+    }
+
+    .s2-meta-slide {
+      color: #888888;
+    }
+
+    .s2-main-title {
+      font-family: var(--font-serif);
+      font-size: 2.85rem;
+      font-weight: 700;
+      color: #111111;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      margin: 0 0 4px 0;
+    }
+
+    .s2-sub-desc {
+      font-family: var(--font-sans);
+      font-size: 1.22rem;
+      font-weight: 600;
+      color: #FF7100;
+      letter-spacing: 0.04em;
+      margin: 0;
+    }
+
+    /* Contenido central libre (SIN CUADRO) */
+    .s2-content-free {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      margin-top: 2px;
+    }
+
+    .s2-section-heading {
+      margin-bottom: 6px;
+    }
+
+    /* Tag temático: 1.18rem (18.9px) */
+    .s2-topic-tag {
+      font-family: var(--font-mono);
+      font-size: 1.18rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      color: #FF7100;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* Título temático: 2.70rem (43.2px) */
+    .s2-topic-title {
+      font-family: var(--font-serif);
+      font-size: 2.70rem;
+      font-weight: 700;
+      color: #111111;
+      margin: 0;
+      letter-spacing: -0.015em;
+    }
+
+    /* Lead: 1.45rem (23.2px) */
+    .s2-lead-text {
+      font-family: var(--font-sans);
+      font-size: 1.45rem;
+      color: #3A3A3A;
+      margin: 8px 0 16px 0;
+    }
+
+    /* Vitrina de Fórmulas Matemáticas en 2 tarjetas gemelas */
+    .s2-formulas-dual-box {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 36px;
+      margin-bottom: 24px;
+      max-width: 1240px;
+      width: 100%;
+    }
+
+    .s2-formula-card {
+      flex: 1;
+      background: #FAF8F4;
+      border: 1.5px solid #EAE5DB;
+      border-top: 4.5px solid #FF7100;
+      border-radius: 12px;
+      padding: 16px 28px 14px 28px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .s2-formula-math {
+      font-size: 2.05rem;
+      color: #111111;
+      margin-bottom: 6px;
+    }
+
+    .s2-formula-caption {
+      font-family: var(--font-mono);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #FF7100;
+      letter-spacing: 0.06em;
+    }
+
+    /* Párrafo Principal a lo largo de la diapositiva (max-width: 1420px) */
+    .s2-main-paragraph-wrap {
+      max-width: 1420px;
+      width: 100%;
+      padding: 0 10px;
+      box-sizing: border-box;
+    }
+
+    /* Fuente sustancialmente agrandada a 1.68rem (26.9px) para máxima nitidez */
+    .s2-main-paragraph {
+      font-family: var(--font-serif);
+      font-size: 1.68rem;
+      line-height: 1.74;
+      color: #1A1A1E;
+      text-align: justify;
+      text-justify: inter-word;
+      margin: 0;
+      letter-spacing: -0.005em;
+    }
+  </style>
+
+  
+  <style>
+    #slide-3 {
+      padding: 0 !important;
+      position: relative !important;
+      overflow: hidden !important;
+      background: #FFFFFF !important;
+    }
+
+    .s3-bg-wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1600px;
+      height: 900px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .s3-decorado-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .s3-container {
+      position: relative;
+      z-index: 10;
+      width: 1600px;
+      height: 900px;
+      /* Padding superior amplio para situar el título más abajo y despejado */
+      padding: 105px 95px 65px 95px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    /* Cabecera superior */
+    .s3-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 10px;
+      margin-bottom: 16px;
+      z-index: 12;
+    }
+
+    .s3-header-left {
+      text-align: left;
+    }
+
+    .s3-meta-tag {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #666666;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 6px;
+    }
+
+    .s3-meta-badge {
+      background: #FF7100;
+      color: #FFFFFF;
+      padding: 3px 12px;
+      border-radius: 4px;
+      font-weight: 800;
+    }
+
+    .s3-meta-slide {
+      color: #888888;
+    }
+
+    .s3-main-title {
+      font-family: var(--font-serif);
+      font-size: 2.85rem;
+      font-weight: 700;
+      color: #111111;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      margin: 0 0 4px 0;
+    }
+
+    .s3-sub-desc {
+      font-family: var(--font-sans);
+      font-size: 1.22rem;
+      font-weight: 600;
+      color: #FF7100;
+      letter-spacing: 0.04em;
+      margin: 0;
+    }
+
+    /* Contenido central libre (SIN CUADRO CONTENEDOR EXTERNO) */
+    .s3-content-free {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      margin-top: 2px;
+    }
+
+    .s3-section-heading {
+      margin-bottom: 6px;
+    }
+
+    /* Tag temático: 1.18rem (18.9px) */
+    .s3-topic-tag {
+      font-family: var(--font-mono);
+      font-size: 1.18rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      color: #FF7100;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* Título temático: 2.70rem (43.2px) */
+    .s3-topic-title {
+      font-family: var(--font-serif);
+      font-size: 2.70rem;
+      font-weight: 700;
+      color: #111111;
+      margin: 0;
+      letter-spacing: -0.015em;
+    }
+
+    /* Lead contenedor y texto aumentado a 1.68rem (26.9px) para coincidir con el de abajo */
+    .s3-lead-wrap {
+      max-width: 1420px;
+      width: 100%;
+      padding: 0 10px;
+      box-sizing: border-box;
+      margin: 8px 0 16px 0;
+    }
+
+    .s3-lead-text {
+      font-family: var(--font-serif);
+      font-size: 1.68rem;
+      line-height: 1.62;
+      color: #1A1A1E;
+      margin: 0;
+      text-align: center;
+      letter-spacing: -0.005em;
+    }
+
+    /* Tarjeta de Fórmula Matemática centrada y elegante */
+    .s3-formula-box {
+      background: #FAF8F4;
+      border: 1.5px solid #EAE5DB;
+      border-top: 4.5px solid #FF7100;
+      border-radius: 12px;
+      padding: 18px 45px 16px 45px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      max-width: 1120px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+
+    .s3-formula-math {
+      font-size: 2.15rem;
+      color: #111111;
+      margin-bottom: 8px;
+    }
+
+    .s3-formula-caption {
+      font-family: var(--font-mono);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #FF7100;
+      letter-spacing: 0.04em;
+    }
+
+    /* Párrafo Principal a lo largo de la diapositiva (max-width: 1420px) */
+    .s3-main-paragraph-wrap {
+      max-width: 1420px;
+      width: 100%;
+      padding: 0 10px;
+      box-sizing: border-box;
+    }
+
+    /* Fuente sustancialmente agrandada a 1.68rem (26.9px) para máxima nitidez */
+    .s3-main-paragraph {
+      font-family: var(--font-serif);
+      font-size: 1.68rem;
+      line-height: 1.74;
+      color: #1A1A1E;
+      text-align: justify;
+      text-justify: inter-word;
+      margin: 0;
+      letter-spacing: -0.005em;
+    }
+
+    .s3-main-paragraph code {
+      background: #F0EDE5;
+      color: #FF7100;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 1.50rem;
+    }
+  </style>
+
+  
+  <style>
+    #slide-4 {
+      padding: 0 !important;
+      position: relative !important;
+      overflow: hidden !important;
+      background: #FFFFFF !important;
+    }
+
+    .s4-bg-wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1600px;
+      height: 900px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .s4-decorado-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .s4-container {
+      position: relative;
+      z-index: 10;
+      width: 1600px;
+      height: 900px;
+      padding: 95px 95px 65px 95px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    /* Cabecera superior */
+    .s4-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 10px;
+      margin-bottom: 16px;
+      z-index: 12;
+    }
+
+    .s4-header-left {
+      text-align: left;
+    }
+
+    .s4-meta-tag {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #666666;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 6px;
+    }
+
+    .s4-meta-badge {
+      background: #FF7100;
+      color: #FFFFFF;
+      padding: 3px 12px;
+      border-radius: 4px;
+      font-weight: 800;
+    }
+
+    .s4-meta-slide {
+      color: #888888;
+    }
+
+    .s4-main-title {
+      font-family: var(--font-serif);
+      font-size: 2.85rem;
+      font-weight: 700;
+      color: #111111;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      margin: 0 0 4px 0;
+    }
+
+    .s4-sub-desc {
+      font-family: var(--font-sans);
+      font-size: 1.20rem;
+      font-weight: 600;
+      color: #FF7100;
+      letter-spacing: 0.03em;
+      margin: 0;
+    }
+
+    /* Contenido central libre (SIN CUADRO CONTENEDOR RÍGIDO) */
+    .s4-content-free {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      margin-top: 4px;
+      gap: 14px;
+    }
+
+    /* BLOQUE 1: ESPACIO CONTINUO */
+    .s4-block-continuous {
+      width: 100%;
+      max-width: 1400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .s4-topic-tag {
+      font-family: var(--font-mono);
+      font-size: 1.10rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      color: #FF7100;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .s4-taylor-formula-card {
+      background: #FAF8F4;
+      border: 1.5px solid #EAE5DB;
+      border-top: 4px solid #FF7100;
+      border-radius: 12px;
+      padding: 12px 36px;
+      margin-bottom: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      width: 100%;
+      max-width: 1280px;
+      box-sizing: border-box;
+    }
+
+    .s4-taylor-math {
+      font-size: 2.10rem;
+      color: #111111;
+    }
+
+    .s4-taylor-desc {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      line-height: 1.55;
+      color: #2A2A2A;
+      margin: 0;
+      max-width: 1300px;
+    }
+
+    /* BLOQUE 2: OPERADOR DISCRETO (CORREGIDO PARA TOTAL VISIBILIDAD) */
+    .s4-block-discrete {
+      width: 100%;
+      max-width: 1400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-top: 2px;
+    }
+
+    .s4-discrete-title {
+      font-family: var(--font-serif);
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: #111111;
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+
+    .s4-discrete-lead {
+      font-family: var(--font-serif);
+      font-size: 1.45rem;
+      line-height: 1.55;
+      color: #2A2A2A;
+      margin: 0 0 8px 0;
+      max-width: 1300px;
+    }
+
+    .s4-discrete-formula-card {
+      background: #FAF8F4;
+      border: 1.5px solid #EAE5DB;
+      border-top: 4px solid #FF7100;
+      border-radius: 12px;
+      padding: 14px 30px 10px 30px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      width: 100%;
+      max-width: 1340px;
+      box-sizing: border-box;
+    }
+
+    .s4-discrete-math {
+      font-size: 1.85rem;
+      color: #111111;
+    }
+  </style>
+
+  
+  <style>
+    #slide-5 {
+      padding: 0 !important;
+      position: relative !important;
+      overflow: hidden !important;
+      background: #FFFFFF !important;
+    }
+
+    .s5-bg-wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1600px;
+      height: 900px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .s5-decorado-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .s5-container {
+      position: relative;
+      z-index: 10;
+      width: 1600px;
+      height: 900px;
+      /* BAJAMOS LA CABECERA CON ESPACIO HOLGADO */
+      padding: 135px 105px 75px 105px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    /* Cabecera superior */
+    .s5-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 40px;
+    }
+
+    .s5-header-left {
+      max-width: 1250px;
+    }
+
+    .s5-meta-tag {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 9px;
+    }
+
+    .s5-meta-badge {
+      background: #FF7100;
+      color: #FFFFFF;
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 11px;
+      border-radius: 4px;
+    }
+
+    .s5-meta-slide {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #666666;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .s5-main-title {
+      font-family: 'Merriweather', 'Playfair Display', Georgia, serif;
+      font-size: 2.80rem;
+      font-weight: 900;
+      color: #111111;
+      line-height: 1.15;
+      margin: 0 0 8px 0;
+      letter-spacing: -0.015em;
+    }
+
+    .s5-sub-desc {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: #D35400;
+      margin: 0;
+      line-height: 1.35;
+    }
+
+    /* Contenedor central equilibrado */
+    .s5-centered-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      flex-grow: 1;
+      padding-bottom: 40px;
+    }
+
+    /* Párrafo conductor centrado */
+    .s5-lead-text {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 1.75rem;
+      color: #1A1A1E;
+      line-height: 1.60;
+      max-width: 1360px;
+      width: 100%;
+      text-align: center;
+      margin: 0 0 32px 0;
+      font-weight: 400;
+    }
+
+    /* Vitrina de Fórmula Central Monumental */
+    .s5-formula-monument {
+      width: 1360px;
+      background: #FAF8F4;
+      border: 1.5px solid #EAE5DB;
+      border-top: 5px solid #FF7100;
+      border-radius: 16px;
+      padding: 55px 45px 55px 45px;
+      box-sizing: border-box;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .s5-monument-header {
+      margin-bottom: 24px;
+    }
+
+    .s5-monument-tag {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #FF7100;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: rgba(255, 113, 0, 0.08);
+      padding: 6px 18px;
+      border-radius: 6px;
+    }
+
+    .s5-formula-math {
+      font-size: 3.10rem;
+      color: #0C0C0E;
+      margin: 10px 0;
+      text-align: center;
+    }
+  </style>
+
+  
+  <style>
+    #slide-6 {
+      padding: 0 !important;
+      position: relative !important;
+      overflow: hidden !important;
+      background: #FFFFFF !important;
+    }
+
+    .s5b-bg-wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1600px;
+      height: 900px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .s5b-decorado-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .s5b-container {
+      position: relative;
+      z-index: 10;
+      width: 1600px;
+      height: 900px;
+      padding: 130px 105px 75px 105px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    /* Cabecera superior */
+    .s5b-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 25px;
+    }
+
+    .s5b-header-left {
+      max-width: 1250px;
+    }
+
+    .s5b-meta-tag {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 9px;
+    }
+
+    .s5b-meta-badge {
+      background: #FF7100;
+      color: #FFFFFF;
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 11px;
+      border-radius: 4px;
+    }
+
+    .s5b-meta-slide {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #666666;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .s5b-main-title {
+      font-family: 'Merriweather', 'Playfair Display', Georgia, serif;
+      font-size: 2.70rem;
+      font-weight: 900;
+      color: #111111;
+      line-height: 1.15;
+      margin: 0 0 8px 0;
+      letter-spacing: -0.015em;
+    }
+
+    .s5b-sub-desc {
+      font-size: 1.30rem;
+      font-weight: 600;
+      color: #D35400;
+      margin: 0;
+      line-height: 1.35;
+    }
+
+    /* Contenedor central equilibrado */
+    .s5b-centered-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      flex-grow: 1;
+      padding-bottom: 20px;
+    }
+
+    /* Párrafo conductor centrado */
+    .s5b-lead-text {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 1.65rem;
+      color: #1A1A1E;
+      line-height: 1.55;
+      max-width: 1410px;
+      width: 100%;
+      text-align: center;
+      margin: 0 0 30px 0;
+      font-weight: 400;
+    }
+
+    /* Doble Vitrina en Grid de 2 Columnas */
+    .s5b-twin-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      width: 1410px;
+    }
+
+    .s5b-twin-card {
+      background: #FAF8F4;
+      border: 1.5px solid #EAE5DB;
+      border-radius: 14px;
+      padding: 28px 32px;
+      box-sizing: border-box;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.035);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 380px;
+    }
+
+    .s5b-card-smooth {
+      border-top: 5px solid #FF7100; /* Naranja institucional */
+    }
+
+    .s5b-card-curvature {
+      border-top: 5px solid #FF7100; /* Naranja corporativo */
+    }
+
+    .s5b-twin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .s5b-twin-badge {
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .s5b-badge-smooth {
+      background: rgba(255, 113, 0, 0.12);
+      color: #D35400;
+    }
+
+    .s5b-badge-curvature {
+      background: rgba(255, 113, 0, 0.12);
+      color: #D35400;
+    }
+
+    .s5b-twin-math-indicator {
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 1.22rem;
+      font-weight: 700;
+      color: #D35400;
+      background: #FFFFFF;
+      padding: 5px 12px;
+      border-radius: 6px;
+      border: 1px solid #FED7AA;
+    }
+
+    .s5b-indicator-warn {
+      color: #C2410C;
+      border-color: #FED7AA;
+    }
+
+    .s5b-twin-title {
+      font-family: 'Merriweather', serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #111111;
+      margin: 0 0 14px 0;
+      line-height: 1.25;
+    }
+
+    .s5b-twin-desc {
+      font-family: 'Merriweather', Georgia, serif;
+      font-size: 1.35rem;
+      color: #2D3748;
+      line-height: 1.62;
+      margin: 0 0 20px 0;
+      font-weight: 400;
+      flex-grow: 1;
+    }
+
+    .s5b-twin-footer {
+      font-size: 1.12rem;
+      color: #4A5568;
+      line-height: 1.48;
+      background: #FFFFFF;
+      padding: 14px 18px;
+      border-radius: 8px;
+      border: 1px solid #E2E8F0;
+      margin-top: auto;
+    }
+
+    .s5b-footer-tag {
+      font-weight: 700;
+      color: #D35400;
+    }
+
+    .s5b-tag-warn {
+      color: #C2410C;
+    }
+  </style>
+
+
 </head>
 <body>
 
@@ -1580,138 +2752,280 @@
       <!-- --------------------------------------------------------------------
            DIAPOSITIVA 1: PORTADA
            -------------------------------------------------------------------- -->
+      
       <section class="slide active" id="slide-1" data-index="1">
+        
+        <!-- Fondo base con las cintas geométricas superior e inferior -->
         <div class="cover-bg-wrap">
           <svg class="cover-backdrop-svg" viewBox="0 0 1600 900" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
   <defs>
-    <!-- Sombra para la cinta 3D -->
-    <filter id="ribbonShadow" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="-8" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.16"/>
+    <!-- Filtros de sombra suave para dar profundidad 3D a las cintas -->
+    <filter id="v8_bannerShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#000000" flood-opacity="0.16"/>
     </filter>
-    <filter id="foldShadow" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="3" dy="5" stdDeviation="7" flood-color="#000000" flood-opacity="0.28"/>
+    <filter id="v8_bottomShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="-5" stdDeviation="7" flood-color="#000000" flood-opacity="0.14"/>
     </filter>
-    <!-- Gradiente para la cara frontal vibrante -->
-    <linearGradient id="frontRibbon" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF7600"/>
-      <stop offset="45%" stop-color="#FF6200"/>
-      <stop offset="100%" stop-color="#F55000"/>
+
+    <!-- Gradientes de tonos naranjas (claros, medios y oscuros) -->
+    <linearGradient id="v8_orangeLight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFB300"/>
+      <stop offset="100%" stop-color="#FF9100"/>
     </linearGradient>
-    <!-- Gradiente para el pliegue posterior (sombra 3D) -->
-    <linearGradient id="foldRibbon" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#C23800"/>
-      <stop offset="60%" stop-color="#A32B00"/>
-      <stop offset="100%" stop-color="#8A2200"/>
+    <linearGradient id="v8_orangeMed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF7100"/>
+      <stop offset="100%" stop-color="#FF5500"/>
     </linearGradient>
-    <linearGradient id="rightIvoryBg" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="v8_orangeDark" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D84315"/>
+      <stop offset="100%" stop-color="#BF360C"/>
+    </linearGradient>
+
+    <!-- Gradiente de fondo blanco a marfil suave -->
+    <linearGradient id="v8_canvasBg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="60%" stop-color="#FAF9F5"/>
-      <stop offset="100%" stop-color="#F5F3EC"/>
+      <stop offset="70%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FAF9F5"/>
     </linearGradient>
+
+    <!-- Trama técnica tenue para el sector derecho -->
+    <pattern id="v8_grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#EAE5DC" stroke-width="1" opacity="0.35"/>
+    </pattern>
   </defs>
 
-  <!-- 1. Mitad izquierda: Blanco puro (reemplaza al gris de la plantilla) -->
-  <rect x="0" y="0" width="1600" height="900" fill="#FFFFFF"/>
+  <!-- Lienzo base blanco / marfil suave -->
+  <rect x="0" y="0" width="1600" height="900" fill="url(#v8_canvasBg)"/>
 
-  <!-- 2. Mitad derecha: Fondo marfil técnico tenue donde se proyecta el logo -->
-  <polygon points="1075,0 1600,0 1600,900 870,900 1070,283" fill="url(#rightIvoryBg)"/>
+  <!-- Trama técnica en el sector del logo -->
+  <rect x="940" y="110" width="660" height="680" fill="url(#v8_grid)"/>
 
-  <!-- 3. CINTA PLEGADA 3D (GEOMETRÍA EXACTA DE LA IMAGEN DE REFERENCIA) -->
-  <!-- Pliegue oscuro posterior (Sombra 3D del doblez) -->
-  <polygon points="897,283 1075,0 1137,280 1070,283" fill="url(#foldRibbon)" filter="url(#foldShadow)"/>
+  <!-- =========================================================================
+       CINTA GEOMÉTRICA SUPERIOR (Top Banner)
+       ========================================================================= -->
+  <g id="top_banner_group" filter="url(#v8_bannerShadow)">
+    <!-- Barra superior pegada al borde superior (y = 0 a 34) -->
+    <!-- 1. Segmento Naranja Superior Izquierdo -->
+    <polygon points="0,0 540,0 500,34 0,34" fill="url(#v8_orangeMed)"/>
 
-  <!-- Franja diagonal inferior (desde el pliegue hasta el borde de abajo) -->
-  <polygon points="1070,283 1137,280 942,900 870,900" fill="url(#frontRibbon)" filter="url(#ribbonShadow)"/>
+    <!-- 2. Segmento Negro Profundo Central (#0C0C0E) -->
+    <polygon points="540,0 1250,0 1210,34 500,34" fill="#0C0C0E"/>
 
-  <!-- Triángulo superior frontal (Vértice superior en 700, 1075 y vértice inferior en 897, 283) -->
-  <polygon points="700,0 1075,0 897,283" fill="url(#frontRibbon)" filter="url(#ribbonShadow)"/>
+    <!-- 3. Bloque Esquina Superior Derecha (Negro Profundo, con corte a 45° y bisel de esquina) -->
+    <polygon points="1295,0 1600,0 1600,95 1555,140 1195,140" fill="#0C0C0E"/>
 
-  <!-- Trazos sutiles de relieve en aristas -->
-  <line x1="700" y1="0" x2="897" y2="283" stroke="#FFA726" stroke-width="2.5" opacity="0.85"/>
-  <line x1="897" y1="283" x2="1070" y2="283" stroke="#FFE082" stroke-width="2.5" opacity="0.9"/>
-  <line x1="1070" y1="283" x2="870" y2="900" stroke="#FFA726" stroke-width="2.5" opacity="0.85"/>
+    <!-- Pin-stripes técnicos horizontales y en diagonal hacia arriba -->
+    <!-- Línea negra superior -->
+    <polyline points="0,42 1218,42 1260,0" fill="none" stroke="#0C0C0E" stroke-width="2.5"/>
+    <!-- Línea blanca de separación -->
+    <polyline points="0,46 1222,46 1264,0" fill="none" stroke="#FFFFFF" stroke-width="2.5"/>
+    <!-- Línea naranja de acento -->
+    <polyline points="0,50 1226,50 1268,0" fill="none" stroke="#FF7100" stroke-width="3"/>
 
-  <!-- 4. PLIEGUE EN LA ESQUINA INFERIOR DERECHA (Idéntico a la referencia) -->
-  <polygon points="1383,747 1600,747 1430,900" fill="url(#foldRibbon)"/>
-  <polygon points="1430,900 1600,747 1600,900" fill="url(#frontRibbon)" filter="url(#ribbonShadow)"/>
-  <line x1="1383" y1="747" x2="1430" y2="900" stroke="#FFA726" stroke-width="2" opacity="0.85"/>
+    <!-- 4. Cinta Naranja Facetada Flotante (y = 70 a 138) -->
+    <!-- Faceta Izquierda: Naranja Claro -->
+    <polygon points="730,70 855,70 787,138 662,138" fill="url(#v8_orangeLight)"/>
+    <!-- Faceta Central: Naranja Medio Corporativo -->
+    <polygon points="855,70 1060,70 992,138 787,138" fill="url(#v8_orangeMed)"/>
+    <!-- Faceta Derecha: Naranja Oscuro Profundo -->
+    <polygon points="1060,70 1195,70 1127,138 992,138" fill="url(#v8_orangeDark)"/>
+    <!-- Bisel sutil de luz entre facetas -->
+    <line x1="855" y1="70" x2="787" y2="138" stroke="#FFE082" stroke-width="1.5" opacity="0.7"/>
+    <line x1="1060" y1="70" x2="992" y2="138" stroke="#FF8A65" stroke-width="1.5" opacity="0.6"/>
+  </g>
+
+  <!-- =========================================================================
+       CINTA GEOMÉTRICA INFERIOR (Bottom Banner)
+       ========================================================================= -->
+  <g id="bottom_banner_group" filter="url(#v8_bottomShadow)">
+    <!-- Bloque Esquina Inferior Izquierda (Negro Profundo #0C0C0E con bisel a 45°) -->
+    <polygon points="0,805 45,760 405,760 305,900 0,900" fill="#0C0C0E"/>
+
+    <!-- Cinta Naranja Facetada Flotante (y = 762 a 830) -->
+    <!-- Faceta Izquierda: Naranja Oscuro -->
+    <polygon points="475,762 610,762 542,830 407,830" fill="url(#v8_orangeDark)"/>
+    <!-- Faceta Central: Naranja Medio Corporativo -->
+    <polygon points="610,762 815,762 747,830 542,830" fill="url(#v8_orangeMed)"/>
+    <!-- Faceta Derecha: Naranja Claro -->
+    <polygon points="815,762 940,762 872,830 747,830" fill="url(#v8_orangeLight)"/>
+    <!-- Bisel sutil entre facetas -->
+    <line x1="610" y1="762" x2="542" y2="830" stroke="#FF8A65" stroke-width="1.5" opacity="0.6"/>
+    <line x1="815" y1="762" x2="872" y2="830" stroke="#FFE082" stroke-width="1.5" opacity="0.7"/>
+
+    <!-- Pin-stripes técnicos horizontales inferiores -->
+    <!-- Línea naranja inferior -->
+    <polyline points="332,900 374,850 1600,850" fill="none" stroke="#FF7100" stroke-width="3"/>
+    <!-- Línea blanca de separación -->
+    <polyline points="336,900 378,854 1600,854" fill="none" stroke="#FFFFFF" stroke-width="2.5"/>
+    <!-- Línea negra inferior -->
+    <polyline points="340,900 382,858 1600,858" fill="none" stroke="#0C0C0E" stroke-width="2.5"/>
+
+    <!-- Barra inferior pegada al borde inferior (y = 866 a 900) -->
+    <!-- Segmento Negro Central -->
+    <polygon points="390,866 1100,866 1060,900 350,900" fill="#0C0C0E"/>
+    <!-- Segmento Naranja Inferior Derecho -->
+    <polygon points="1100,866 1600,866 1600,900 1060,900" fill="url(#v8_orangeMed)"/>
+  </g>
 </svg>
         </div>
 
-        <div class="cover-new-layout">
-          <!-- Columna izquierda: Información sobre fondo Blanco (sustituye al gris) -->
-          <div class="cover-left-info">
-            <div class="cover-kicker-clean">UNIVERSIDAD TECNOLÓGICA NACIONAL · FRSR</div>
-            <h1 class="cover-main-headline">Diferenciación Numérica<br>y Gestión del Error</h1>
-            <div class="cover-orange-rule"></div>
-            <p class="cover-summary-paragraph">
+        <!-- Disposición en 2 columnas despejadas y equilibradas -->
+        <div class="cover-layout-v8">
+          <!-- Columna izquierda: Información con textos agrandados -->
+          <div class="cover-info-col-v8">
+            <div class="cover-kicker-v8">UNIVERSIDAD TECNOLÓGICA NACIONAL · FRSR</div>
+            <h1 class="cover-headline-v8">Diferenciación Numérica<br>y Gestión del Error</h1>
+            <div class="cover-rule-v8"></div>
+            <p class="cover-desc-v8">
               Cátedra Matemática para Ingeniería Electromecánica.<br>
               Aproximaciones discretas mediante desarrollos de Taylor, deducción analítica de esquemas en diferencias finitas y balance óptimo entre error de truncamiento y error de redondeo.
             </p>
-            <div class="cover-bottom-row">
-              <div class="cover-orange-pill-btn">UNIDAD 5 · MÉTODOS NUMÉRICOS</div>
-              <div class="cover-authors-text">
+            <div class="cover-actions-row-v8">
+              <div class="cover-pill-v8">UNIDAD 5 · MÉTODOS NUMÉRICOS</div>
+              <div class="cover-authors-v8">
                 Presentado por: <strong>Adrián Arenas</strong> &amp; <strong>Ignacio Helbas</strong>
               </div>
             </div>
           </div>
 
-          <!-- Columna derecha: El logo de la UTN cubre todo el espacio (reemplaza a la foto de la ciudad) -->
-          <div class="cover-right-stage">
-            <div class="cover-utn-showcase">
-              <!-- Marca de agua ambiental de fondo para cubrir todo el espacio -->
-              <img src="logo-utn.png" alt="" class="cover-utn-watermark" aria-hidden="true">
-              <!-- Logo UTN principal en primer plano, grande y nítido -->
-              <img src="logo-utn.png" alt="UTN - Universidad Tecnológica Nacional" class="cover-utn-hero-img">
-              <div class="cover-utn-hero-label">
-                <span class="utn-label-main">UNIVERSIDAD TECNOLÓGICA NACIONAL</span>
-                <span class="utn-label-sub">FACULTAD REGIONAL SAN RAFAEL</span>
-              </div>
+          <!-- Columna derecha: Logo agrandado (~340px x 410px) y línea naranja más larga (~280px) -->
+          <div class="cover-logo-col-v8">
+            <div class="cover-logo-holder-v8">
+              <!-- Sombra de profundidad artística -->
+              <img src="logo-utn.png" alt="" class="cover-logo-shadow-v8" aria-hidden="true">
+              <!-- Logo principal agrandado proporcionalmente -->
+              <img src="logo-utn.png" alt="UTN - Universidad Tecnológica Nacional" class="cover-logo-main-v8">
+              <!-- Línea naranja de base más larga -->
+              <div class="cover-logo-accent-line-v8"></div>
             </div>
           </div>
         </div>
-</section>
 
-      <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 2: PLANTEO FÍSICO-MATEMÁTICO (TEXTO NUNCA CORTADO)
-           -------------------------------------------------------------------- -->
+      </section>
+
+
+      
       <section class="slide" id="slide-2" data-index="2">
-        <div class="slide-top-header">
-          <div class="slide-header-left">
-            <div class="slide-meta-tag">
-              <span class="meta-tag-badge">FUNDAMENTO CONTINUO</span>
-              <span>Diapositiva 02</span>
-            </div>
-            <h2 class="slide-main-title">Planteo Físico-Matemático</h2>
-            <p class="slide-sub-desc">Fenómenos de Transporte y Operadores Continuos</p>
-          </div>
-          <div class="slide-header-controls">
-            <span class="badge-counter">02 / 19</span>
-          </div>
+        <!-- Decorado geométrico SVG de fondo con figuras separadas -->
+        <div class="s2-bg-wrap">
+          <svg class="s2-decorado-svg" viewBox="0 0 1600 900" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <defs>
+    <filter id="s2_shadowTop" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+    <filter id="s2_shadowBot" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="-4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+
+    <linearGradient id="s2_orangeMain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF7100"/>
+      <stop offset="100%" stop-color="#FF5500"/>
+    </linearGradient>
+    <linearGradient id="s2_orangeAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF8800"/>
+      <stop offset="100%" stop-color="#FF6600"/>
+    </linearGradient>
+    <linearGradient id="s2_bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="85%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FAF8F3"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fondo base blanco marfil -->
+  <rect x="0" y="0" width="1600" height="900" fill="url(#s2_bgGlow)"/>
+
+  <!-- =========================================================================
+       CINTA SUPERIOR IZQUIERDA (FIGURAS 100% SEPARADAS POR ESPACIOS BLANCOS)
+       ========================================================================= -->
+  <g filter="url(#s2_shadowTop)">
+    <polygon points="0,0 233,0 276,66 0,66" fill="url(#s2_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="70,18 86,18 105,48 89,48"/>
+      <polygon points="98,18 114,18 133,48 117,48"/>
+      <polygon points="126,18 142,18 161,48 145,48"/>
+      <polygon points="154,18 170,18 189,48 173,48"/>
+      <polygon points="182,18 198,18 217,48 201,48"/>
+    </g>
+    <polygon points="260,0 353,0 421,105 328,105" fill="#0C0C0E"/>
+    <polygon points="378,0 438,0 493,85 433,85" fill="url(#s2_orangeAccent)"/>
+    <polygon points="468,0 502,0 542,62 508,62" fill="#0C0C0E"/>
+    <polygon points="548,33 578,33 591,53 561,53" fill="#0C0C0E"/>
+    <polygon points="608,33 638,33 651,53 621,53" fill="#0C0C0E"/>
+    <polygon points="668,33 698,33 711,53 681,53" fill="#0C0C0E"/>
+    <polygon points="728,33 1600,33 1600,53 741,53" fill="url(#s2_orangeMain)"/>
+  </g>
+
+  <!-- =========================================================================
+       CINTA INFERIOR DERECHA (SIMETRÍA 180° EXACTA Y SEPARACIÓN LIMPIA)
+       ========================================================================= -->
+  <g filter="url(#s2_shadowBot)">
+    <polygon points="872.0,867.0 0.0,867.0 0.0,847.0 859.0,847.0" fill="url(#s2_orangeMain)"/>
+    <polygon points="932.0,867.0 902.0,867.0 889.0,847.0 919.0,847.0" fill="#0C0C0E"/>
+    <polygon points="992.0,867.0 962.0,867.0 949.0,847.0 979.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1052.0,867.0 1022.0,867.0 1009.0,847.0 1039.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1132.0,900.0 1098.0,900.0 1058.0,838.0 1092.0,838.0" fill="#0C0C0E"/>
+    <polygon points="1222.0,900.0 1162.0,900.0 1107.0,815.0 1167.0,815.0" fill="url(#s2_orangeAccent)"/>
+    <polygon points="1340.0,900.0 1247.0,900.0 1179.0,795.0 1272.0,795.0" fill="#0C0C0E"/>
+    <polygon points="1600.0,900.0 1367.0,900.0 1324.0,834.0 1600.0,834.0" fill="url(#s2_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="1418.0,882.0 1402.0,882.0 1383.0,852.0 1399.0,852.0"/>
+      <polygon points="1446.0,882.0 1430.0,882.0 1411.0,852.0 1427.0,852.0"/>
+      <polygon points="1474.0,882.0 1458.0,882.0 1439.0,852.0 1455.0,852.0"/>
+      <polygon points="1502.0,882.0 1486.0,882.0 1467.0,852.0 1483.0,852.0"/>
+      <polygon points="1530.0,882.0 1514.0,882.0 1495.0,852.0 1511.0,852.0"/>
+    </g>
+  </g>
+</svg>
         </div>
 
-        <div class="slide-content-area" style="display:flex; justify-content:center; align-items:center;">
-          <div class="single-focus-card" style="max-width:1180px; width:100%;">
-            <div class="focus-card-header">
-              <span class="focus-card-tag">Modelado Continuo en Ingeniería</span>
-              <h3 class="focus-card-title">Leyes Constitutivas y Conservación</h3>
+        <div class="s2-container">
+          <!-- Cabecera de la diapositiva traída más abajo con amplio margen -->
+          <div class="s2-header">
+            <div class="s2-header-left">
+              <div class="s2-meta-tag">
+                <span class="s2-meta-badge">FUNDAMENTO CONTINUO</span>
+                <span class="s2-meta-slide">Diapositiva 02</span>
+              </div>
+              <h2 class="s2-main-title">Planteo Físico-Matemático</h2>
+              <p class="s2-sub-desc">Fenómenos de Transporte y Operadores Continuos</p>
             </div>
-            <div class="focus-card-body">
-              <p class="focus-card-lead">
-                Formulación analítica de leyes constitutivas continuas en ingeniería electromecánica:
-              </p>
-              
-              <!-- Ecuaciones separadas en dos filas limpias para evitar cualquier desborde -->
-              <div class="focus-formula-pill">
-                <div style="font-size:1.75rem; margin-bottom:8px;">
-                  $$\tau = \mu \frac{\partial u}{\partial y} \quad \text{\large [Viscosidad de Newton]}$$
+            <div class="s2-header-controls">
+              <span class="badge-counter">02 / 20</span>
+            </div>
+          </div>
+
+          <!-- Contenido Central Libre (TOTALMENTE SIN CUADRO CONTENEDOR) -->
+          <div class="s2-content-free">
+            <div class="s2-section-heading">
+              <span class="s2-topic-tag">MODELADO CONTINUO EN INGENIERÍA</span>
+              <h3 class="s2-topic-title">Leyes Constitutivas y Conservación</h3>
+            </div>
+
+            <p class="s2-lead-text">
+              Formulación analítica de leyes constitutivas continuas en ingeniería electromecánica:
+            </p>
+
+            <!-- Vitrina de fórmulas en dos columnas limpias y equilibradas -->
+            <div class="s2-formulas-dual-box">
+              <div class="s2-formula-card">
+                <div class="s2-formula-math">
+                  $$\tau = \mu \frac{\partial u}{\partial y}$$
                 </div>
-                <div style="font-size:1.75rem;">
-                  $$q = -k \frac{\partial T}{\partial n} \quad \text{\large [Conducción de Fourier]}$$
-                </div>
+                <div class="s2-formula-caption">[Viscosidad de Newton]</div>
               </div>
 
-              <p class="focus-card-desc">
+              <div class="s2-formula-card">
+                <div class="s2-formula-math">
+                  $$q = -k \frac{\partial T}{\partial n}$$
+                </div>
+                <div class="s2-formula-caption">[Conducción de Fourier]</div>
+              </div>
+            </div>
+
+            <!-- Texto descriptivo principal: extendido a lo largo y con fuente sustancialmente aumentada -->
+            <div class="s2-main-paragraph-wrap">
+              <p class="s2-main-paragraph">
                 En los modelos analíticos de transferencia de calor y mecánica de fluidos, las variables físicas son campos continuos diferenciables. El desafío ingenieril surge al transformar estos operadores diferenciales en aproximaciones discretas evaluables en mallas de nodos finitos, garantizando la preservación estricta del orden de convergencia en los contornos físicos y paredes sólidas impermeables.
               </p>
             </div>
@@ -1719,46 +3033,121 @@
         </div>
       </section>
 
-      <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 3: MODELADO COMPUTACIONAL (TEXTO NUNCA CORTADO)
-           -------------------------------------------------------------------- -->
+
+      
       <section class="slide" id="slide-3" data-index="3">
-        <div class="slide-top-header">
-          <div class="slide-header-left">
-            <div class="slide-meta-tag">
-              <span class="meta-tag-badge">ARITMÉTICA DE MÁQUINA</span>
-              <span>Diapositiva 03</span>
-            </div>
-            <h2 class="slide-main-title">Modelado Computacional</h2>
-            <p class="slide-sub-desc">Aritmética IEEE-754 y Algoritmos Industriales</p>
-          </div>
-          <div class="slide-header-controls">
-            <span class="badge-counter">03 / 19</span>
-          </div>
+        <!-- Decorado geométrico SVG de fondo con las cintas corporativas -->
+        <div class="s3-bg-wrap">
+          <svg class="s3-decorado-svg" viewBox="0 0 1600 900" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <defs>
+    <filter id="s3_shadowTop" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+    <filter id="s3_shadowBot" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="-4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+
+    <linearGradient id="s3_orangeMain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF7100"/>
+      <stop offset="100%" stop-color="#FF5500"/>
+    </linearGradient>
+    <linearGradient id="s3_orangeAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF8800"/>
+      <stop offset="100%" stop-color="#FF6600"/>
+    </linearGradient>
+    <linearGradient id="s3_bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="85%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FAF8F3"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fondo base blanco marfil -->
+  <rect x="0" y="0" width="1600" height="900" fill="url(#s3_bgGlow)"/>
+
+  <!-- Cinta superior izquierda -->
+  <g filter="url(#s3_shadowTop)">
+    <polygon points="0,0 233,0 276,66 0,66" fill="url(#s3_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="70,18 86,18 105,48 89,48"/>
+      <polygon points="98,18 114,18 133,48 117,48"/>
+      <polygon points="126,18 142,18 161,48 145,48"/>
+      <polygon points="154,18 170,18 189,48 173,48"/>
+      <polygon points="182,18 198,18 217,48 201,48"/>
+    </g>
+    <polygon points="260,0 353,0 421,105 328,105" fill="#0C0C0E"/>
+    <polygon points="378,0 438,0 493,85 433,85" fill="url(#s3_orangeAccent)"/>
+    <polygon points="468,0 502,0 542,62 508,62" fill="#0C0C0E"/>
+    <polygon points="548,33 578,33 591,53 561,53" fill="#0C0C0E"/>
+    <polygon points="608,33 638,33 651,53 621,53" fill="#0C0C0E"/>
+    <polygon points="668,33 698,33 711,53 681,53" fill="#0C0C0E"/>
+    <polygon points="728,33 1600,33 1600,53 741,53" fill="url(#s3_orangeMain)"/>
+  </g>
+
+  <!-- Cinta inferior derecha (Simetría 180°) -->
+  <g filter="url(#s3_shadowBot)">
+    <polygon points="872.0,867.0 0.0,867.0 0.0,847.0 859.0,847.0" fill="url(#s3_orangeMain)"/>
+    <polygon points="932.0,867.0 902.0,867.0 889.0,847.0 919.0,847.0" fill="#0C0C0E"/>
+    <polygon points="992.0,867.0 962.0,867.0 949.0,847.0 979.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1052.0,867.0 1022.0,867.0 1009.0,847.0 1039.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1132.0,900.0 1098.0,900.0 1058.0,838.0 1092.0,838.0" fill="#0C0C0E"/>
+    <polygon points="1222.0,900.0 1162.0,900.0 1107.0,815.0 1167.0,815.0" fill="url(#s3_orangeAccent)"/>
+    <polygon points="1340.0,900.0 1247.0,900.0 1179.0,795.0 1272.0,795.0" fill="#0C0C0E"/>
+    <polygon points="1600.0,900.0 1367.0,900.0 1324.0,834.0 1600.0,834.0" fill="url(#s3_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="1418.0,882.0 1402.0,882.0 1383.0,852.0 1399.0,852.0"/>
+      <polygon points="1446.0,882.0 1430.0,882.0 1411.0,852.0 1427.0,852.0"/>
+      <polygon points="1474.0,882.0 1458.0,882.0 1439.0,852.0 1455.0,852.0"/>
+      <polygon points="1502.0,882.0 1486.0,882.0 1467.0,852.0 1483.0,852.0"/>
+      <polygon points="1530.0,882.0 1514.0,882.0 1495.0,852.0 1511.0,852.0"/>
+    </g>
+  </g>
+</svg>
         </div>
 
-        <div class="slide-content-area" style="display:flex; justify-content:center; align-items:center;">
-          <div class="single-focus-card" style="max-width:1180px; width:100%; border-top-color:var(--border-dark);">
-            <div class="focus-card-header">
-              <span class="focus-card-tag" style="background:#000000; color:#fbbf24; border-color:#f59e0b;">Límites Físicos del Hardware</span>
-              <h3 class="focus-card-title">Precisión Finita y Cancelación Catastrófica</h3>
+        <div class="s3-container">
+          <!-- Cabecera de la diapositiva traída más abajo con amplio margen -->
+          <div class="s3-header">
+            <div class="s3-header-left">
+              <div class="s3-meta-tag">
+                <span class="s3-meta-badge">ARITMÉTICA DE MÁQUINA</span>
+                <span class="s3-meta-slide">Diapositiva 03</span>
+              </div>
+              <h2 class="s3-main-title">Modelado Computacional</h2>
+              <p class="s3-sub-desc">Aritmética IEEE-754 y Algoritmos Industriales</p>
             </div>
-            <div class="focus-card-body">
-              <p class="focus-card-lead">
+            <div class="s3-header-controls">
+              <span class="badge-counter">03 / 20</span>
+            </div>
+          </div>
+
+          <!-- Contenido Central Libre (TOTALMENTE SIN CUADRO CONTENEDOR) -->
+          <div class="s3-content-free">
+            <div class="s3-section-heading">
+              <span class="s3-topic-tag">LÍMITES FÍSICOS DEL HARDWARE</span>
+              <h3 class="s3-topic-title">Precisión Finita y Cancelación Catastrófica</h3>
+            </div>
+
+            <!-- Lead con fuente ampliada a 1.68rem para coincidir exactamente con el texto de abajo -->
+            <div class="s3-lead-wrap">
+              <p class="s3-lead-text">
                 La computadora real no procesa infinitos decimales, sino números representados en coma flotante estándar IEEE-754 (doble precisión de 64 bits):
               </p>
-              
-              <!-- Ecuación + leyenda clara abajo para evitar truncamiento -->
-              <div class="focus-formula-pill">
-                <div style="font-size:1.95rem; margin-bottom:6px;">
-                  $$f(x+h) \approx f(x) \implies f(x+h) - f(x) \approx 0$$
-                </div>
-                <div style="font-size:1.15rem; color:var(--col-yellow-bright); font-family:var(--font-mono); font-weight:700;">
-                  [Destrucción crítica de hasta 15 dígitos significativos por cancelación sustractiva]
-                </div>
-              </div>
+            </div>
 
-              <p class="focus-card-desc">
+            <!-- Tarjeta de fórmula de cancelación catastrófica amplia y destacada -->
+            <div class="s3-formula-box">
+              <div class="s3-formula-math">
+                $$f(x+h) \approx f(x) \implies f(x+h) - f(x) \approx 0$$
+              </div>
+              <div class="s3-formula-caption">
+                [Destrucción crítica de hasta 15 dígitos significativos por cancelación sustractiva]
+              </div>
+            </div>
+
+            <!-- Texto descriptivo principal: extendido a lo largo con fuente de 1.68rem -->
+            <div class="s3-main-paragraph-wrap">
+              <p class="s3-main-paragraph">
                 El análisis computacional exige determinar el paso de discretización óptimo \(h^*\) donde se balancean el residuo matemático y el ruido de cuantización del procesador. Es el criterio riguroso que gobierna la arquitectura de solvers industriales y bibliotecas científicas como <code>numpy.gradient</code> y paquetes CFD.
               </p>
             </div>
@@ -1766,110 +3155,394 @@
         </div>
       </section>
 
-      <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 4: EL MOTOR TEÓRICO: SERIE DE TAYLOR
-           -------------------------------------------------------------------- -->
+
+      
       <section class="slide" id="slide-4" data-index="4">
-        <div class="slide-top-header">
-          <div class="slide-header-left">
-            <div class="slide-meta-tag">
-              <span class="meta-tag-badge">DESARROLLO ASINTÓTICO</span>
-              <span>Diapositiva 04</span>
-            </div>
-            <h2 class="slide-main-title">El Motor Teórico: Serie de Taylor</h2>
-            <p class="slide-sub-desc">La diferenciación numérica nace formalmente de truncar la serie infinita de Taylor.</p>
-          </div>
-          <div class="slide-header-controls">
-            <span class="badge-counter">04 / 19</span>
-          </div>
+        <!-- Decorado geométrico SVG de fondo con las cintas corporativas -->
+        <div class="s4-bg-wrap">
+          <svg class="s4-decorado-svg" viewBox="0 0 1600 900" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <defs>
+    <filter id="s4_shadowTop" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+    <filter id="s4_shadowBot" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="-4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+
+    <linearGradient id="s4_orangeMain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF7100"/>
+      <stop offset="100%" stop-color="#FF5500"/>
+    </linearGradient>
+    <linearGradient id="s4_orangeAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF8800"/>
+      <stop offset="100%" stop-color="#FF6600"/>
+    </linearGradient>
+    <linearGradient id="s4_bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="85%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FAF8F3"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fondo base blanco marfil -->
+  <rect x="0" y="0" width="1600" height="900" fill="url(#s4_bgGlow)"/>
+
+  <!-- Cinta superior izquierda -->
+  <g filter="url(#s4_shadowTop)">
+    <polygon points="0,0 233,0 276,66 0,66" fill="url(#s4_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="70,18 86,18 105,48 89,48"/>
+      <polygon points="98,18 114,18 133,48 117,48"/>
+      <polygon points="126,18 142,18 161,48 145,48"/>
+      <polygon points="154,18 170,18 189,48 173,48"/>
+      <polygon points="182,18 198,18 217,48 201,48"/>
+    </g>
+    <polygon points="260,0 353,0 421,105 328,105" fill="#0C0C0E"/>
+    <polygon points="378,0 438,0 493,85 433,85" fill="url(#s4_orangeAccent)"/>
+    <polygon points="468,0 502,0 542,62 508,62" fill="#0C0C0E"/>
+    <polygon points="548,33 578,33 591,53 561,53" fill="#0C0C0E"/>
+    <polygon points="608,33 638,33 651,53 621,53" fill="#0C0C0E"/>
+    <polygon points="668,33 698,33 711,53 681,53" fill="#0C0C0E"/>
+    <polygon points="728,33 1600,33 1600,53 741,53" fill="url(#s4_orangeMain)"/>
+  </g>
+
+  <!-- Cinta inferior derecha (Simetría 180°) -->
+  <g filter="url(#s4_shadowBot)">
+    <polygon points="872.0,867.0 0.0,867.0 0.0,847.0 859.0,847.0" fill="url(#s4_orangeMain)"/>
+    <polygon points="932.0,867.0 902.0,867.0 889.0,847.0 919.0,847.0" fill="#0C0C0E"/>
+    <polygon points="992.0,867.0 962.0,867.0 949.0,847.0 979.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1052.0,867.0 1022.0,867.0 1009.0,847.0 1039.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1132.0,900.0 1098.0,900.0 1058.0,838.0 1092.0,838.0" fill="#0C0C0E"/>
+    <polygon points="1222.0,900.0 1162.0,900.0 1107.0,815.0 1167.0,815.0" fill="url(#s4_orangeAccent)"/>
+    <polygon points="1340.0,900.0 1247.0,900.0 1179.0,795.0 1272.0,795.0" fill="#0C0C0E"/>
+    <polygon points="1600.0,900.0 1367.0,900.0 1324.0,834.0 1600.0,834.0" fill="url(#s4_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="1418.0,882.0 1402.0,882.0 1383.0,852.0 1399.0,852.0"/>
+      <polygon points="1446.0,882.0 1430.0,882.0 1411.0,852.0 1427.0,852.0"/>
+      <polygon points="1474.0,882.0 1458.0,882.0 1439.0,852.0 1455.0,852.0"/>
+      <polygon points="1502.0,882.0 1486.0,882.0 1467.0,852.0 1483.0,852.0"/>
+      <polygon points="1530.0,882.0 1514.0,882.0 1495.0,852.0 1511.0,852.0"/>
+    </g>
+  </g>
+</svg>
         </div>
 
-        <div class="slide-content-area" style="display:flex; flex-direction:column; justify-content:center; align-items:center; gap:18px;">
-          <div class="hero-formula-card yellow-accent" style="max-width:1180px; width:100%; padding:26px 36px;">
-            <span style="font-family:var(--font-mono); font-size:1rem; font-weight:800; color:#000000; text-transform:uppercase; letter-spacing:0.06em;">Ecuación Base en el Espacio Continuo</span>
-            <div class="hero-formula-box" style="font-size:2.2rem; margin:14px 0;">
-              $$f(x_i + h) = f(x_i) + h f'(x_i) + \frac{h^2}{2!} f''(x_i) + \frac{h^3}{3!} f'''(x_i) + \dots$$
-            </div>
-            <p style="font-size:1.25rem; font-weight:600; color:var(--text-main); line-height:1.5; text-align:center;">
-              Permite predecir el estado de la variable en el nodo contiguo \(x_{i+1}\) conociendo el valor y las infinitas derivadas en el nodo local \(x_i\).
-            </p>
-          </div>
-
-          <div class="hero-concept-banner" style="max-width:1180px; width:100%; padding:20px 30px;">
-            <div class="banner-text-title" style="font-size:1.35rem;">El Aislamiento Algebraico del Operador Discreto</div>
-            <div class="banner-text-desc" style="font-size:1.2rem;">
-              Al despejar formalmente la derivada primera \(f'(x_i)\), la suma residual de potencias de \(h\) se agrupa en el residuo de Lagrange:
-              <div style="font-size:1.75rem; margin:12px 0 6px 0; text-align:center; color:var(--text-main);">
-                $$f'_i = \underbrace{\frac{f_{i+1} - f_i}{h}}_{\text{Cociente Incremental}} - \underbrace{\frac{h}{2} f''(\xi)}_{\text{Error de Truncamiento } E(h)} \implies f'_i = \frac{f_{i+1} - f_i}{h} + \mathcal{O}(h)$$
+        <div class="s4-container">
+          <!-- Cabecera de la diapositiva traída más abajo con amplio margen -->
+          <div class="s4-header">
+            <div class="s4-header-left">
+              <div class="s4-meta-tag">
+                <span class="s4-meta-badge">DESARROLLO ASINTÓTICO</span>
+                <span class="s4-meta-slide">Diapositiva 04</span>
               </div>
+              <h2 class="s4-main-title">El Motor Teórico: Serie de Taylor</h2>
+              <p class="s4-sub-desc">La diferenciación numérica nace formalmente de truncar la serie infinita de Taylor.</p>
+            </div>
+            <div class="s4-header-controls">
+              <span class="badge-counter">04 / 20</span>
             </div>
           </div>
-        </div>
-      </section>
 
-      <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 5: PROPIEDADES DEL ERROR: PARTE 1 (DEPENDENCIA DE LA CURVATURA)
-           -------------------------------------------------------------------- -->
-      <section class="slide" id="slide-5" data-index="5">
-        <div class="slide-top-header">
-          <div class="slide-header-left">
-            <div class="slide-meta-tag">
-              <span class="meta-tag-badge">FÍSICA DEL FENÓMENO</span>
-              <span>Diapositiva 05</span>
-            </div>
-            <h2 class="slide-main-title">Propiedades del Error: Dependencia de la Curvatura</h2>
-            <p class="slide-sub-desc">Por qué la segunda derivada \(f''(\xi)\) condiciona la precisión en ingeniería.</p>
-          </div>
-          <div class="slide-header-controls">
-            <span class="badge-counter">05 / 19</span>
-          </div>
-        </div>
+          <!-- Contenido Central Libre (DOS BLOQUES MATEMÁTICOS INTEGRADOS) -->
+          <div class="s4-content-free">
+            
+            <!-- BLOQUE 1: SERIE DE TAYLOR EN EL CONTINUO -->
+            <div class="s4-block-continuous">
+              <div class="s4-block-header">
+                <span class="s4-topic-tag">ECUACIÓN BASE EN EL ESPACIO CONTINUO</span>
+              </div>
 
-        <div class="slide-content-area" style="display:flex; justify-content:center; align-items:center;">
-          <div class="single-focus-card" style="max-width:1180px; width:100%; border-top:6px solid var(--col-yellow);">
-            <div class="focus-card-header">
-              <span class="focus-card-tag">Física del Modelo Matemático</span>
-              <h3 class="focus-card-title">Impacto Directo de la Segunda Derivada \(f''(\xi)\)</h3>
-            </div>
-            <div class="focus-card-body">
-              <p class="focus-card-lead">
-                El error de truncamiento no es una constante abstracta: depende explícitamente de la curvatura local del campo físico:
-              </p>
-
-              <div class="focus-formula-pill">
-                <div style="font-size:2.2rem;">
-                  $$E_t(h) = -\frac{h}{2} f''(\xi) \propto \text{Curvatura del Fenómeno}$$
+              <!-- Tarjeta de fórmula de la serie de Taylor infinita -->
+              <div class="s4-taylor-formula-card">
+                <div class="s4-taylor-math">
+                  $$f(x_i + h) = f(x_i) + h f'(x_i) + \frac{h^2}{2!} f''(x_i) + \frac{h^3}{3!} f'''(x_i) + \dots$$
                 </div>
               </div>
 
-              <div style="background:#ffffff; border:2px solid var(--border-dark); border-radius:var(--radius-sm); padding:22px 28px; margin-top:14px;">
-                <p style="font-size:1.3rem; font-weight:700; color:#000000; line-height:1.6; margin-bottom:12px;">
-                  • <strong>Zonas de Gradiente Suave:</strong> En regiones de flujo uniforme o perfiles térmicos lineales, \(f''(\xi) \approx 0\), resultando en errores prácticamente nulos aun con mallas gruesas.
-                </p>
-                <p style="font-size:1.3rem; font-weight:700; color:#000000; line-height:1.6;">
-                  • <strong>Zonas de Alta Curvatura:</strong> En capas límite aerodinámicas, ondas de choque o frentes de llama, \(f''(\xi)\) es enorme. El error se dispara bruscamente, haciendo indispensable refinar la retícula (\(h \to 0\)) localmente.
-                </p>
+              <p class="s4-taylor-desc">
+                Permite predecir el estado de la variable en el nodo contiguo \(x_{i+1}\) conociendo el valor y las infinitas derivadas en el nodo local \(x_i\).
+              </p>
+            </div>
+
+            <!-- BLOQUE 2: AISLAMIENTO ALGEBRAICO Y OPERADOR DISCRETO (100% VISIBLE Y DESPEJADO) -->
+            <div class="s4-block-discrete">
+              <div class="s4-discrete-title">El Aislamiento Algebraico del Operador Discreto</div>
+              <p class="s4-discrete-lead">
+                Al despejar formalmente la derivada primera \(f'(x_i)\), la suma residual de potencias de \(h\) se agrupa en el residuo de Lagrange:
+              </p>
+
+              <!-- Tarjeta de fórmula del cociente incremental y error de truncamiento -->
+              <div class="s4-discrete-formula-card">
+                <div class="s4-discrete-math">
+                  $$f'_i = \underbrace{\frac{f_{i+1} - f_i}{h}}_{\text{Cociente Incremental}} - \underbrace{\frac{h}{2} f''(\xi)}_{\text{Error de Truncamiento } E(h)} \implies f'_i = \frac{f_{i+1} - f_i}{h} + \mathcal{O}(h)$$
+                </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
-      <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 6: PROPIEDADES DEL ERROR: PARTE 2 (CONVERGENCIA LINEAL O(h))
-           -------------------------------------------------------------------- -->
+
+      
+      <section class="slide" id="slide-5" data-index="5">
+        <!-- Decorado geométrico SVG de fondo con las cintas corporativas -->
+        <div class="s5-bg-wrap">
+          <svg class="s5-decorado-svg" viewBox="0 0 1600 900" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <defs>
+    <filter id="s5_shadowTop" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+    <filter id="s5_shadowBot" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="-4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+
+    <linearGradient id="s5_orangeMain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF7100"/>
+      <stop offset="100%" stop-color="#FF5500"/>
+    </linearGradient>
+    <linearGradient id="s5_orangeAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF8800"/>
+      <stop offset="100%" stop-color="#FF6600"/>
+    </linearGradient>
+    <linearGradient id="s5_bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="85%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FAF8F3"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fondo base blanco marfil -->
+  <rect x="0" y="0" width="1600" height="900" fill="url(#s5_bgGlow)"/>
+
+  <!-- Cinta superior izquierda -->
+  <g filter="url(#s5_shadowTop)">
+    <polygon points="0,0 233,0 276,66 0,66" fill="url(#s5_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="70,18 86,18 105,48 89,48"/>
+      <polygon points="98,18 114,18 133,48 117,48"/>
+      <polygon points="126,18 142,18 161,48 145,48"/>
+      <polygon points="154,18 170,18 189,48 173,48"/>
+      <polygon points="182,18 198,18 217,48 201,48"/>
+    </g>
+    <polygon points="260,0 353,0 421,105 328,105" fill="#0C0C0E"/>
+    <polygon points="378,0 438,0 493,85 433,85" fill="url(#s5_orangeAccent)"/>
+    <polygon points="468,0 502,0 542,62 508,62" fill="#0C0C0E"/>
+    <polygon points="548,33 578,33 591,53 561,53" fill="#0C0C0E"/>
+    <polygon points="608,33 638,33 651,53 621,53" fill="#0C0C0E"/>
+    <polygon points="668,33 698,33 711,53 681,53" fill="#0C0C0E"/>
+    <polygon points="728,33 1600,33 1600,53 741,53" fill="url(#s5_orangeMain)"/>
+  </g>
+
+  <!-- Cinta inferior derecha (Simetría 180°) -->
+  <g filter="url(#s5_shadowBot)">
+    <polygon points="872.0,867.0 0.0,867.0 0.0,847.0 859.0,847.0" fill="url(#s5_orangeMain)"/>
+    <polygon points="932.0,867.0 902.0,867.0 889.0,847.0 919.0,847.0" fill="#0C0C0E"/>
+    <polygon points="992.0,867.0 962.0,867.0 949.0,847.0 979.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1052.0,867.0 1022.0,867.0 1009.0,847.0 1039.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1132.0,900.0 1098.0,900.0 1058.0,838.0 1092.0,838.0" fill="#0C0C0E"/>
+    <polygon points="1222.0,900.0 1162.0,900.0 1107.0,815.0 1167.0,815.0" fill="url(#s5_orangeAccent)"/>
+    <polygon points="1340.0,900.0 1247.0,900.0 1179.0,795.0 1272.0,795.0" fill="#0C0C0E"/>
+    <polygon points="1600.0,900.0 1367.0,900.0 1324.0,834.0 1600.0,834.0" fill="url(#s5_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="1418.0,882.0 1402.0,882.0 1383.0,852.0 1399.0,852.0"/>
+      <polygon points="1446.0,882.0 1430.0,882.0 1411.0,852.0 1427.0,852.0"/>
+      <polygon points="1474.0,882.0 1458.0,882.0 1439.0,852.0 1455.0,852.0"/>
+      <polygon points="1502.0,882.0 1486.0,882.0 1467.0,852.0 1483.0,852.0"/>
+      <polygon points="1530.0,882.0 1514.0,882.0 1495.0,852.0 1511.0,852.0"/>
+    </g>
+  </g>
+</svg>
+        </div>
+
+        <div class="s5-container">
+          <!-- Cabecera de la diapositiva traída holgadamente hacia abajo -->
+          <div class="s5-header">
+            <div class="s5-header-left">
+              <div class="s5-meta-tag">
+                <span class="s5-meta-badge">FÍSICA DEL FENÓMENO</span>
+                <span class="s5-meta-slide">Diapositiva 05</span>
+              </div>
+              <h2 class="s5-main-title">Propiedades del Error: Dependencia de la Curvatura</h2>
+              <p class="s5-sub-desc">Por qué la segunda derivada \(f''(\xi)\) condiciona la precisión en ingeniería.</p>
+            </div>
+            <div class="s5-header-controls">
+              <span class="badge-counter">05 / 20</span>
+            </div>
+          </div>
+
+          <!-- Contenido Central 100% Equilibrado y Centrado -->
+          <div class="s5-centered-body">
+            
+            <!-- Párrafo conductor centrado y nítido -->
+            <p class="s5-lead-text">
+              El error de truncamiento no es una constante abstracta: depende explícitamente de la curvatura local del campo físico:
+            </p>
+
+            <!-- Vitrina de Fórmula Central Monumental -->
+            <div class="s5-formula-monument">
+              <div class="s5-monument-header">
+                <span class="s5-monument-tag">VINCULACIÓN DEL ERROR CON LA CURVATURA LOCAL</span>
+              </div>
+              
+              <div class="s5-formula-math">
+                $$E_t(h) = -\frac{h}{2} f''(\xi) \propto \text{Curvatura del Fenómeno}$$
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      
       <section class="slide" id="slide-6" data-index="6">
+        <div class="s5b-bg-wrap">
+          <svg class="s5b-decorado-svg" viewBox="0 0 1600 900" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <defs>
+    <filter id="s5b_shadowTop" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+    <filter id="s5b_shadowBot" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="-4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+
+    <linearGradient id="s5b_orangeMain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF7100"/>
+      <stop offset="100%" stop-color="#FF5500"/>
+    </linearGradient>
+    <linearGradient id="s5b_orangeAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF8800"/>
+      <stop offset="100%" stop-color="#FF6600"/>
+    </linearGradient>
+    <linearGradient id="s5b_bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="85%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FAF8F3"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="900" fill="url(#s5b_bgGlow)"/>
+
+  <g filter="url(#s5b_shadowTop)">
+    <polygon points="0,0 233,0 276,66 0,66" fill="url(#s5b_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="70,18 86,18 105,48 89,48"/>
+      <polygon points="98,18 114,18 133,48 117,48"/>
+      <polygon points="126,18 142,18 161,48 145,48"/>
+      <polygon points="154,18 170,18 189,48 173,48"/>
+      <polygon points="182,18 198,18 217,48 201,48"/>
+    </g>
+    <polygon points="260,0 353,0 421,105 328,105" fill="#0C0C0E"/>
+    <polygon points="378,0 438,0 493,85 433,85" fill="url(#s5b_orangeAccent)"/>
+    <polygon points="468,0 502,0 542,62 508,62" fill="#0C0C0E"/>
+    <polygon points="548,33 578,33 591,53 561,53" fill="#0C0C0E"/>
+    <polygon points="608,33 638,33 651,53 621,53" fill="#0C0C0E"/>
+    <polygon points="668,33 698,33 711,53 681,53" fill="#0C0C0E"/>
+    <polygon points="728,33 1600,33 1600,53 741,53" fill="url(#s5b_orangeMain)"/>
+  </g>
+
+  <g filter="url(#s5b_shadowBot)">
+    <polygon points="872.0,867.0 0.0,867.0 0.0,847.0 859.0,847.0" fill="url(#s5b_orangeMain)"/>
+    <polygon points="932.0,867.0 902.0,867.0 889.0,847.0 919.0,847.0" fill="#0C0C0E"/>
+    <polygon points="992.0,867.0 962.0,867.0 949.0,847.0 979.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1052.0,867.0 1022.0,867.0 1009.0,847.0 1039.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1132.0,900.0 1098.0,900.0 1058.0,838.0 1092.0,838.0" fill="#0C0C0E"/>
+    <polygon points="1222.0,900.0 1162.0,900.0 1107.0,815.0 1167.0,815.0" fill="url(#s5b_orangeAccent)"/>
+    <polygon points="1340.0,900.0 1247.0,900.0 1179.0,795.0 1272.0,795.0" fill="#0C0C0E"/>
+    <polygon points="1600.0,900.0 1367.0,900.0 1324.0,834.0 1600.0,834.0" fill="url(#s5b_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="1418.0,882.0 1402.0,882.0 1383.0,852.0 1399.0,852.0"/>
+      <polygon points="1446.0,882.0 1430.0,882.0 1411.0,852.0 1427.0,852.0"/>
+      <polygon points="1474.0,882.0 1458.0,882.0 1439.0,852.0 1455.0,852.0"/>
+      <polygon points="1502.0,882.0 1486.0,882.0 1467.0,852.0 1483.0,852.0"/>
+      <polygon points="1530.0,882.0 1514.0,882.0 1495.0,852.0 1511.0,852.0"/>
+    </g>
+  </g>
+</svg>
+        </div>
+
+        <div class="s5b-container">
+          <!-- Cabecera de la diapositiva bajada y espaciosa -->
+          <div class="s5b-header">
+            <div class="s5b-header-left">
+              <div class="s5b-meta-tag">
+                <span class="s5b-meta-badge">FÍSICA DEL MODELO MATEMÁTICO</span>
+                <span class="s5b-meta-slide">Diapositiva 06</span>
+              </div>
+              <h2 class="s5b-main-title">Regímenes Físicos: Gradiente Suave vs. Alta Curvatura</h2>
+              <p class="s5b-sub-desc">Impacto de la segunda derivada en la selección del paso de discretización espacial \(h\).</p>
+            </div>
+            <div class="s5b-header-controls">
+              <span class="badge-counter">06 / 20</span>
+            </div>
+          </div>
+
+          <!-- Contenido Central 100% Centrado -->
+          <div class="s5b-centered-body">
+            
+            <p class="s5b-lead-text">
+              El comportamiento del error numérico define dos regímenes operativos críticos para el diseño de mallas computacionales:
+            </p>
+
+            <!-- Doble Vitrina Gemela Centrada y Espaciosa -->
+            <div class="s5b-twin-grid">
+              
+              <!-- Tarjeta 1: Zonas de Gradiente Suave -->
+              <div class="s5b-twin-card s5b-card-smooth">
+                <div class="s5b-twin-header">
+                  <span class="s5b-twin-badge s5b-badge-smooth">FLUJO UNIFORME Y PERFILES SUAVES</span>
+                  <div class="s5b-twin-math-indicator">\(f''(\xi) \approx 0 \implies E_t(h) \approx 0\)</div>
+                </div>
+                
+                <h3 class="s5b-twin-title">Zonas de Gradiente Suave</h3>
+                
+                <p class="s5b-twin-desc">
+                  En regiones de flujo uniforme o perfiles térmicos lineales, \(f''(\xi) \approx 0\text{,}\) resultando en errores prácticamente nulos aun con mallas gruesas.
+                </p>
+
+                <div class="s5b-twin-footer">
+                  <span class="s5b-footer-tag">✓ Consecuencia Práctica:</span> Permite mallas espaciales amplias reduciendo el costo computacional sin comprometer la convergencia.
+                </div>
+              </div>
+
+              <!-- Tarjeta 2: Zonas de Alta Curvatura -->
+              <div class="s5b-twin-card s5b-card-curvature">
+                <div class="s5b-twin-header">
+                  <span class="s5b-twin-badge s5b-badge-curvature">CAPAS LÍMITE Y ONDAS DE CHOQUE</span>
+                  <div class="s5b-twin-math-indicator s5b-indicator-warn">\(|f''(\xi)| \gg 1 \implies |E_t(h)| \uparrow\uparrow\)</div>
+                </div>
+                
+                <h3 class="s5b-twin-title">Zonas de Alta Curvatura</h3>
+                
+                <p class="s5b-twin-desc">
+                  En capas límite aerodinámicas, ondas de choque o frentes de llama, \(f''(\xi)\) es enorme. El error se dispara bruscamente, haciendo indispensable refinar la retícula (\(h \to 0\)) localmente.
+                </p>
+
+                <div class="s5b-twin-footer">
+                  <span class="s5b-footer-tag s5b-tag-warn">⚠ Consecuencia Práctica:</span> Exige esquemas adaptativos de malla (AMR) y pasos espaciales infinitesimales en las paredes sólidas.
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <section class="slide" id="slide-7" data-index="7">
         <div class="slide-top-header">
           <div class="slide-header-left">
             <div class="slide-meta-tag">
               <span class="meta-tag-badge">COSTO COMPUTACIONAL</span>
-              <span>Diapositiva 06</span>
+              <span>Diapositiva 07</span>
             </div>
             <h2 class="slide-main-title">Propiedades del Error: Convergencia Lineal \(\mathcal{O}(h)\)</h2>
             <p class="slide-sub-desc">La limitación algorítmica y el costo prohibitivo de los esquemas de primer orden.</p>
           </div>
           <div class="slide-header-controls">
-            <span class="badge-counter">06 / 19</span>
+            <span class="badge-counter">07 / 20</span>
           </div>
         </div>
 
@@ -1903,21 +3576,18 @@
         </div>
       </section>
 
-      <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 7: DIFERENCIA HACIA ADELANTE (FORWARD)
-           -------------------------------------------------------------------- -->
-      <section class="slide" id="slide-7" data-index="7">
+      <section class="slide" id="slide-8" data-index="8">
         <div class="slide-top-header">
           <div class="slide-header-left">
             <div class="slide-meta-tag">
               <span class="meta-tag-badge">ESQUEMA UNILATERAL</span>
-              <span>Diapositiva 07</span>
+              <span>Diapositiva 08</span>
             </div>
             <h2 class="slide-main-title">Diferencias Finitas Hacia Adelante (Forward)</h2>
             <p class="slide-sub-desc">Muestreo unilateral hacia adelante en el dominio discretizado.</p>
           </div>
           <div class="slide-header-controls">
-            <span class="badge-counter">07 / 19</span>
+            <span class="badge-counter">08 / 20</span>
           </div>
         </div>
 
@@ -1959,21 +3629,18 @@
         </div>
       </section>
 
-      <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 8: DIFERENCIA HACIA ATRÁS (BACKWARD)
-           -------------------------------------------------------------------- -->
-      <section class="slide" id="slide-8" data-index="8">
+      <section class="slide" id="slide-9" data-index="9">
         <div class="slide-top-header">
           <div class="slide-header-left">
             <div class="slide-meta-tag">
               <span class="meta-tag-badge">ESQUEMA RETROSPECTIVO</span>
-              <span>Diapositiva 08</span>
+              <span>Diapositiva 09</span>
             </div>
             <h2 class="slide-main-title">Diferencias Finitas Hacia Atrás (Backward)</h2>
             <p class="slide-sub-desc">Muestreo unilateral retrospectivo o aguas arriba.</p>
           </div>
           <div class="slide-header-controls">
-            <span class="badge-counter">08 / 19</span>
+            <span class="badge-counter">09 / 20</span>
           </div>
         </div>
 
@@ -2015,21 +3682,18 @@
         </div>
       </section>
 
-      <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 9: DIFERENCIA CENTRAL
-           -------------------------------------------------------------------- -->
-      <section class="slide" id="slide-9" data-index="9">
+      <section class="slide" id="slide-10" data-index="10">
         <div class="slide-top-header">
           <div class="slide-header-left">
             <div class="slide-meta-tag">
               <span class="meta-tag-badge">ESQUEMA BILATERAL</span>
-              <span>Diapositiva 09</span>
+              <span>Diapositiva 10</span>
             </div>
             <h2 class="slide-main-title">Diferencia Central: El Salto a \(\mathcal{O}(h^2)\)</h2>
             <p class="slide-sub-desc">Muestreo simétrico centrado en torno al nodo de interés \(x_i\).</p>
           </div>
           <div class="slide-header-controls">
-            <span class="badge-counter">09 / 19</span>
+            <span class="badge-counter">10 / 20</span>
           </div>
         </div>
 
@@ -2071,21 +3735,18 @@
         </div>
       </section>
 
-      <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 10: INSIGHT FUNDAMENTAL
-           -------------------------------------------------------------------- -->
-      <section class="slide" id="slide-10" data-index="10">
+      <section class="slide" id="slide-11" data-index="11">
         <div class="slide-top-header">
           <div class="slide-header-left">
             <div class="slide-meta-tag">
               <span class="meta-tag-badge">SIMETRÍA ALGEBRAICA</span>
-              <span>Diapositiva 10</span>
+              <span>Diapositiva 11</span>
             </div>
             <h2 class="slide-main-title">Insight Fundamental: Cancelación Gratuita</h2>
             <p class="slide-sub-desc">Por qué la simetría geométrica cuadruplica la velocidad de convergencia sin costo adicional.</p>
           </div>
           <div class="slide-header-controls">
-            <span class="badge-counter">10 / 19</span>
+            <span class="badge-counter">11 / 20</span>
           </div>
         </div>
 
@@ -2115,21 +3776,18 @@
         </div>
       </section>
 
-      <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 11: EL PROBLEMA DE LAS FRONTERAS FÍSICAS
-           -------------------------------------------------------------------- -->
-      <section class="slide" id="slide-11" data-index="11">
+      <section class="slide" id="slide-12" data-index="12">
         <div class="slide-top-header">
           <div class="slide-header-left">
             <div class="slide-meta-tag">
               <span class="meta-tag-badge">CONTORNOS IMPERMEABLES</span>
-              <span>Diapositiva 11</span>
+              <span>Diapositiva 12</span>
             </div>
             <h2 class="slide-main-title">El Problema de las Fronteras Físicas</h2>
             <p class="slide-sub-desc">En una pared sólida (\(y=0\)) no existen nodos exteriores: la diferencia central falla.</p>
           </div>
           <div class="slide-header-controls">
-            <span class="badge-counter">11 / 19</span>
+            <span class="badge-counter">12 / 20</span>
           </div>
         </div>
 
@@ -2167,21 +3825,18 @@
         </div>
       </section>
 
-      <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 12: LA SOLUCIÓN EN FRONTERA: FÓRMULA DE 3 PUNTOS
-           -------------------------------------------------------------------- -->
-      <section class="slide" id="slide-12" data-index="12">
+      <section class="slide" id="slide-13" data-index="13">
         <div class="slide-top-header">
           <div class="slide-header-left">
             <div class="slide-meta-tag">
               <span class="meta-tag-badge">FÓRMULAS ASIMÉTRICAS</span>
-              <span>Diapositiva 12</span>
+              <span>Diapositiva 13</span>
             </div>
             <h2 class="slide-main-title">Fórmula Hacia Adelante de 3 Puntos (Nakamura)</h2>
             <p class="slide-sub-desc">Recuperar el orden cuadrático \(\mathcal{O}(h^2)\) en la pared mirando hacia el interior del fluido.</p>
           </div>
           <div class="slide-header-controls">
-            <span class="badge-counter">12 / 19</span>
+            <span class="badge-counter">13 / 20</span>
           </div>
         </div>
 
@@ -2206,21 +3861,18 @@
         </div>
       </section>
 
-      <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 13: LA PARADOJA DEL ERROR: TRUNCAMIENTO VS REDONDEO
-           -------------------------------------------------------------------- -->
-      <section class="slide" id="slide-13" data-index="13">
+      <section class="slide" id="slide-14" data-index="14">
         <div class="slide-top-header">
           <div class="slide-header-left">
             <div class="slide-meta-tag">
               <span class="meta-tag-badge">ARITMÉTICA COMPUTACIONAL</span>
-              <span>Diapositiva 13</span>
+              <span>Diapositiva 14</span>
             </div>
             <h2 class="slide-main-title">La Paradoja del Error: Truncamiento vs. Redondeo</h2>
             <p class="slide-sub-desc">El choque entre el modelo matemático continuo y los límites físicos del hardware IEEE-754.</p>
           </div>
           <div class="slide-header-controls">
-            <span class="badge-counter">13 / 19</span>
+            <span class="badge-counter">14 / 20</span>
           </div>
         </div>
 
@@ -2263,10 +3915,7 @@
         </div>
       </section>
 
-      <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 14: LABORATORIO INTERACTIVO 1 (INTACTA EN CÓDIGO Y ELEMENTOS)
-           -------------------------------------------------------------------- -->
-      <section class="slide" id="slide-14" data-index="14">
+      <section class="slide" id="slide-15" data-index="15">
         <div class="slide-top-header">
           <div class="slide-header-left">
             <div class="slide-meta-tag">
@@ -2277,7 +3926,7 @@
             <p class="slide-sub-desc">Código Python real ejecutado con Pyodide. Probá diferentes funciones y observá el mínimo óptimo.</p>
           </div>
           <div class="slide-header-controls">
-            <span class="badge-counter">14 / 19</span>
+            <span class="badge-counter">15 / 20</span>
           </div>
         </div>
 
@@ -2365,21 +4014,18 @@
         </div>
       </section>
 
-      <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 15: APLICACIÓN ELECTROMECÁNICA (INTACTA EN FÓRMULAS Y DATOS)
-           -------------------------------------------------------------------- -->
-      <section class="slide" id="slide-15" data-index="15">
+      <section class="slide" id="slide-16" data-index="16">
         <div class="slide-top-header">
           <div class="slide-header-left">
             <div class="slide-meta-tag">
               <span class="meta-tag-badge">APLICACIÓN ELECTROMECÁNICA</span>
-              <span>Diapositiva 15</span>
+              <span>Diapositiva 16</span>
             </div>
             <h2 class="slide-main-title">Mecánica de Fluidos: Ley de Newton de la Viscosidad</h2>
             <p class="slide-sub-desc">Cálculo de arrastre viscoso en placa plana: \(\tau_w = \mu \left.\frac{du}{dy}\right|_{y=0}\).</p>
           </div>
           <div class="slide-header-controls">
-            <span class="badge-counter">15 / 19</span>
+            <span class="badge-counter">16 / 20</span>
           </div>
         </div>
 
@@ -2416,10 +4062,7 @@
         </div>
       </section>
 
-      <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 16: LABORATORIO INTERACTIVO 2 (INTACTA EN CÓDIGO Y ELEMENTOS)
-           -------------------------------------------------------------------- -->
-      <section class="slide" id="slide-16" data-index="16">
+      <section class="slide" id="slide-17" data-index="17">
         <div class="slide-top-header">
           <div class="slide-header-left">
             <div class="slide-meta-tag">
@@ -2430,7 +4073,7 @@
             <p class="slide-sub-desc">Python en vivo con la tabla estilizada comparativa que demuestra por qué 3 puntos es el estándar CFD.</p>
           </div>
           <div class="slide-header-controls">
-            <span class="badge-counter">16 / 19</span>
+            <span class="badge-counter">17 / 20</span>
           </div>
         </div>
 
@@ -2530,21 +4173,18 @@
         </div>
       </section>
 
-      <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 17: SÍNTESIS EN EL DOMINIO: PARTE 1 (ZONA INTERIOR)
-           -------------------------------------------------------------------- -->
-      <section class="slide" id="slide-17" data-index="17">
+      <section class="slide" id="slide-18" data-index="18">
         <div class="slide-top-header">
           <div class="slide-header-left">
             <div class="slide-meta-tag">
               <span class="meta-tag-badge">ZONA I: INTERIOR DEL DOMINIO</span>
-              <span>Diapositiva 17</span>
+              <span>Diapositiva 18</span>
             </div>
             <h2 class="slide-main-title">Síntesis en el Dominio: Simetría y Gestión del Paso</h2>
             <p class="slide-sub-desc">Cómo optimizar la precisión y el tiempo de cálculo lejos de las fronteras físicas.</p>
           </div>
           <div class="slide-header-controls">
-            <span class="badge-counter">17 / 19</span>
+            <span class="badge-counter">18 / 20</span>
           </div>
         </div>
 
@@ -2578,21 +4218,18 @@
         </div>
       </section>
 
-      <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 18: SÍNTESIS EN EL DOMINIO: PARTE 2 (ZONA FRONTERA)
-           -------------------------------------------------------------------- -->
-      <section class="slide" id="slide-18" data-index="18">
+      <section class="slide" id="slide-19" data-index="19">
         <div class="slide-top-header">
           <div class="slide-header-left">
             <div class="slide-meta-tag">
               <span class="meta-tag-badge">ZONA II: FRONTERA FÍSICA</span>
-              <span>Diapositiva 18</span>
+              <span>Diapositiva 19</span>
             </div>
             <h2 class="slide-main-title">Síntesis en el Dominio: Paredes Sólidas y Contornos</h2>
             <p class="slide-sub-desc">Preservación estricta del orden cuadrático donde actúan las leyes constitutivas.</p>
           </div>
           <div class="slide-header-controls">
-            <span class="badge-counter">18 / 19</span>
+            <span class="badge-counter">19 / 20</span>
           </div>
         </div>
 
@@ -2626,21 +4263,18 @@
         </div>
       </section>
 
-      <!-- --------------------------------------------------------------------
-           DIAPOSITIVA 19: CONCLUSIONES EJECUTIVAS
-           -------------------------------------------------------------------- -->
-      <section class="slide" id="slide-19" data-index="19">
+      <section class="slide" id="slide-20" data-index="20">
         <div class="slide-top-header">
           <div class="slide-header-left">
             <div class="slide-meta-tag">
               <span class="meta-tag-badge">CONCLUSIONES TÉCNICAS</span>
-              <span>Diapositiva 19</span>
+              <span>Diapositiva 20</span>
             </div>
             <h2 class="slide-main-title">Cuatro Mandamientos para la Práctica de la Ingeniería</h2>
             <p class="slide-sub-desc">Criterios fundamentales para simulación y cálculo diferencial robusto.</p>
           </div>
           <div class="slide-header-controls">
-            <span class="badge-counter">19 / 19</span>
+            <span class="badge-counter">20 / 20</span>
           </div>
         </div>
 
@@ -2854,7 +4488,7 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimacion con 2 puntos")
     /* ==========================================================================
        4. CONTROLADOR DE LA PRESENTACIÓN (19 DIAPOSITIVAS)
        ========================================================================== */
-    const totalSlidesCount = 19;
+    const totalSlidesCount = 20;
     let currentActiveSlide = 1;
 
     let editorInstanceS5 = null;
@@ -2875,7 +4509,7 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimacion con 2 puntos")
       document.getElementById('svgHostS6').innerHTML = precomputedSvgS6;
 
       resizePresentationDeck();
-      if (currentActiveSlide === 14 || currentActiveSlide === 16) ensurePyodideLoading();
+      if (currentActiveSlide === 15 || currentActiveSlide === 17) ensurePyodideLoading();
     }
 
     function updateSlideState() {
@@ -2892,10 +4526,10 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimacion con 2 puntos")
 
       history.replaceState(null, null, `#slide-${currentActiveSlide}`);
 
-      if (currentActiveSlide === 14 && editorInstanceS5) setTimeout(() => editorInstanceS5.refresh(), 50);
-      if (currentActiveSlide === 16 && editorInstanceS6) setTimeout(() => editorInstanceS6.refresh(), 50);
+      if (currentActiveSlide === 15 && editorInstanceS5) setTimeout(() => editorInstanceS5.refresh(), 50);
+      if (currentActiveSlide === 17 && editorInstanceS6) setTimeout(() => editorInstanceS6.refresh(), 50);
 
-      if (currentActiveSlide === 14 || currentActiveSlide === 16) ensurePyodideLoading();
+      if (currentActiveSlide === 15 || currentActiveSlide === 17) ensurePyodideLoading();
 
       if (window.renderMathInElement) {
         const activeSlideEl = document.getElementById(`slide-${currentActiveSlide}`);
@@ -2987,15 +4621,15 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimacion con 2 puntos")
     }
 
     function getCode(slideNum) {
-      const editor = slideNum === 14 ? editorInstanceS5 : editorInstanceS6;
+      const editor = slideNum === 15 ? editorInstanceS5 : editorInstanceS6;
       if (editor) return editor.getValue();
-      return document.getElementById(slideNum === 14 ? 'codeEditorS5' : 'codeEditorS6').value;
+      return document.getElementById(slideNum === 15 ? 'codeEditorS5' : 'codeEditorS6').value;
     }
 
     function setCode(slideNum, value) {
-      const editor = slideNum === 14 ? editorInstanceS5 : editorInstanceS6;
+      const editor = slideNum === 15 ? editorInstanceS5 : editorInstanceS6;
       if (editor) editor.setValue(value);
-      else document.getElementById(slideNum === 14 ? 'codeEditorS5' : 'codeEditorS6').value = value;
+      else document.getElementById(slideNum === 15 ? 'codeEditorS5' : 'codeEditorS6').value = value;
     }
 
     function setupCodeMirrorInstances() {
@@ -3029,27 +4663,27 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimacion con 2 puntos")
         editorInstanceS6 = null;
       }
 
-      document.getElementById('btnRunS5').addEventListener('click', () => runPythonSlide(14));
+      document.getElementById('btnRunS5').addEventListener('click', () => runPythonSlide(15));
       document.getElementById('btnResetS5').addEventListener('click', () => {
         setCode(14, defaultPythonCodeS5);
-        runPythonSlide(14);
+        runPythonSlide(15);
       });
 
-      document.getElementById('btnRunS6').addEventListener('click', () => runPythonSlide(16));
+      document.getElementById('btnRunS6').addEventListener('click', () => runPythonSlide(17));
       document.getElementById('btnResetS6').addEventListener('click', () => {
         setCode(16, defaultPythonCodeS6);
-        runPythonSlide(16);
+        runPythonSlide(17);
       });
 
       document.getElementById('selectFuncS5').addEventListener('change', (e) => {
         updateCodeParam(14, 'func_name', `'${e.target.value}'`);
-        runPythonSlide(14);
+        runPythonSlide(15);
       });
 
       document.getElementById('inputX0S5').addEventListener('input', (e) => {
         document.getElementById('valX0S5').textContent = e.target.value;
         updateCodeParam(14, 'x0', parseFloat(e.target.value).toFixed(1));
-        runPythonSlide(14);
+        runPythonSlide(15);
       });
 
       document.getElementById('selectHRangeS5').addEventListener('change', (e) => {
@@ -3058,7 +4692,7 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimacion con 2 puntos")
         else if (e.target.value === '1e-1_1e-18') code = code.replace(/np\.linspace\([^\)]+\)/, 'np.linspace(-1, -18, 120)');
         else code = code.replace(/np\.linspace\([^\)]+\)/, 'np.linspace(-1, -8, 80)');
         setCode(14, code);
-        runPythonSlide(14);
+        runPythonSlide(15);
       });
 
       document.getElementById('selectFluidMu').addEventListener('change', (e) => {
@@ -3066,7 +4700,7 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimacion con 2 puntos")
         updateCodeParam(16, 'mu', newMu);
         document.getElementById('labelViscosity').textContent = `\\mu = ${parseFloat(newMu).toFixed(3)} Pa·s`;
         if (window.renderMathInElement) renderMathInElement(document.getElementById('labelViscosity'));
-        runPythonSlide(16);
+        runPythonSlide(17);
       });
 
       document.getElementById('inputU1Mod').addEventListener('input', (e) => {
@@ -3074,7 +4708,7 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimacion con 2 puntos")
         let code = getCode(16);
         code = code.replace(/(u\s*=\s*np\.array\(\[0\.0,\s*)([0-9\.]+)/, `$1${newU1}`);
         setCode(16, code);
-        runPythonSlide(16);
+        runPythonSlide(17);
       });
     }
 
@@ -3140,8 +4774,8 @@ def execute_user_script(script_code):
         pyodideReadyFlag = true;
         isPyodideLoadingFlag = false;
 
-        if (currentActiveSlide === 14) runPythonSlide(14);
-        if (currentActiveSlide === 16) runPythonSlide(16);
+        if (currentActiveSlide === 15) runPythonSlide(15);
+        if (currentActiveSlide === 17) runPythonSlide(17);
       } catch (err) {
         console.error("Pyodide no disponible:", err);
         isPyodideLoadingFlag = false;
