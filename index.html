@@ -828,22 +828,42 @@
       flex: 1;
       height: 380px;
       border-bottom: 1px solid var(--border-subtle);
+      overflow: hidden;
     }
 
     .CodeMirror {
       height: 100% !important;
       font-family: var(--font-mono) !important;
-      font-size: 0.92rem !important;
+      font-size: 0.95rem !important;
       background: #FFFFFF !important;
-      line-height: 1.48 !important;
+      line-height: 1.65 !important;
+    }
+
+    .CodeMirror-lines {
+      padding: 12px 0 !important;
+    }
+
+    .CodeMirror pre.CodeMirror-line,
+    .CodeMirror pre.CodeMirror-line-like {
+      padding: 0 10px !important;
+    }
+
+    .CodeMirror-gutters {
+      background: #F9F9F6 !important;
+      border-right: 1px solid var(--border-subtle) !important;
+      padding-right: 4px !important;
+    }
+
+    .CodeMirror-cursor {
+      border-left: 2px solid #FF7100 !important;
     }
 
     .controls-shelf-hero {
       background: #F9F9F6;
-      padding: 10px 18px;
+      padding: 14px 18px;
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 20px;
       align-items: center;
       border-bottom: 1px solid var(--border-subtle);
     }
@@ -874,12 +894,12 @@
       background: #1E1E1E;
       color: #F5F5F0;
       font-family: var(--font-mono);
-      font-size: 0.82rem;
-      padding: 12px 16px;
+      font-size: 0.85rem;
+      padding: 14px 18px;
       max-height: 95px;
       overflow-y: auto;
       white-space: pre-wrap;
-      line-height: 1.35;
+      line-height: 1.55;
     }
 
     .error-box-hero {
@@ -4526,8 +4546,12 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimacion con 2 puntos")
 
       history.replaceState(null, null, `#slide-${currentActiveSlide}`);
 
-      if (currentActiveSlide === 15 && editorInstanceS5) setTimeout(() => editorInstanceS5.refresh(), 50);
-      if (currentActiveSlide === 17 && editorInstanceS6) setTimeout(() => editorInstanceS6.refresh(), 50);
+      if (currentActiveSlide === 15 && editorInstanceS5) {
+        requestAnimationFrame(() => requestAnimationFrame(() => editorInstanceS5.refresh()));
+      }
+      if (currentActiveSlide === 17 && editorInstanceS6) {
+        requestAnimationFrame(() => requestAnimationFrame(() => editorInstanceS6.refresh()));
+      }
 
       if (currentActiveSlide === 15 || currentActiveSlide === 17) ensurePyodideLoading();
 
@@ -4710,6 +4734,16 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimacion con 2 puntos")
         setCode(17, code);
         runPythonSlide(17);
       });
+
+      // Arregla el desfase: CodeMirror mide el ancho de letra apenas se crea,
+      // pero JetBrains Mono puede terminar de cargar después (Google Fonts es async).
+      // Cuando la fuente está lista, forzamos refresh() en los dos editores.
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => {
+          if (editorInstanceS5) editorInstanceS5.refresh();
+          if (editorInstanceS6) editorInstanceS6.refresh();
+        });
+      }
     }
 
     function updateCodeParam(slideNum, paramName, newValue) {
