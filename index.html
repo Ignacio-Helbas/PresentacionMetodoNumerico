@@ -4665,39 +4665,39 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimacion con 2 puntos")
 
       document.getElementById('btnRunS5').addEventListener('click', () => runPythonSlide(15));
       document.getElementById('btnResetS5').addEventListener('click', () => {
-        setCode(14, defaultPythonCodeS5);
+        setCode(15, defaultPythonCodeS5);
         runPythonSlide(15);
       });
 
       document.getElementById('btnRunS6').addEventListener('click', () => runPythonSlide(17));
       document.getElementById('btnResetS6').addEventListener('click', () => {
-        setCode(16, defaultPythonCodeS6);
+        setCode(17, defaultPythonCodeS6);
         runPythonSlide(17);
       });
 
       document.getElementById('selectFuncS5').addEventListener('change', (e) => {
-        updateCodeParam(14, 'func_name', `'${e.target.value}'`);
+        updateCodeParam(15, 'func_name', `'${e.target.value}'`);
         runPythonSlide(15);
       });
 
       document.getElementById('inputX0S5').addEventListener('input', (e) => {
         document.getElementById('valX0S5').textContent = e.target.value;
-        updateCodeParam(14, 'x0', parseFloat(e.target.value).toFixed(1));
+        updateCodeParam(15, 'x0', parseFloat(e.target.value).toFixed(1));
         runPythonSlide(15);
       });
 
       document.getElementById('selectHRangeS5').addEventListener('change', (e) => {
-        let code = getCode(14);
+        let code = getCode(15);
         if (e.target.value === '1e-1_1e-15') code = code.replace(/np\.linspace\([^\)]+\)/, 'np.linspace(-1, -15, 120)');
         else if (e.target.value === '1e-1_1e-18') code = code.replace(/np\.linspace\([^\)]+\)/, 'np.linspace(-1, -18, 120)');
         else code = code.replace(/np\.linspace\([^\)]+\)/, 'np.linspace(-1, -8, 80)');
-        setCode(14, code);
+        setCode(15, code);
         runPythonSlide(15);
       });
 
       document.getElementById('selectFluidMu').addEventListener('change', (e) => {
         const newMu = e.target.value;
-        updateCodeParam(16, 'mu', newMu);
+        updateCodeParam(17, 'mu', newMu);
         document.getElementById('labelViscosity').textContent = `\\mu = ${parseFloat(newMu).toFixed(3)} Pa·s`;
         if (window.renderMathInElement) renderMathInElement(document.getElementById('labelViscosity'));
         runPythonSlide(17);
@@ -4705,9 +4705,9 @@ print(f"Discrepancia relativa: {diff_rel:.2f}% de subestimacion con 2 puntos")
 
       document.getElementById('inputU1Mod').addEventListener('input', (e) => {
         const newU1 = parseFloat(e.target.value).toFixed(6);
-        let code = getCode(16);
+        let code = getCode(17);
         code = code.replace(/(u\s*=\s*np\.array\(\[0\.0,\s*)([0-9\.]+)/, `$1${newU1}`);
-        setCode(16, code);
+        setCode(17, code);
         runPythonSlide(17);
       });
     }
@@ -4784,12 +4784,12 @@ def execute_user_script(script_code):
 
     async function runPythonSlide(slideNum) {
       const code = getCode(slideNum);
-      const isS14 = (slideNum === 14);
-      const loader = document.getElementById(isS14 ? 'loaderS5' : 'loaderS6');
-      const consoleEl = document.getElementById(isS14 ? 'consoleS5' : 'consoleS6');
-      const errorBox = document.getElementById(isS14 ? 'errorBoxS5' : 'errorBoxS6');
-      const svgHost = document.getElementById(isS14 ? 'svgHostS5' : 'svgHostS6');
-      const runBtn = document.getElementById(isS14 ? 'btnRunS5' : 'btnRunS6');
+      const isS15 = (slideNum === 15);
+      const loader = document.getElementById(isS15 ? 'loaderS5' : 'loaderS6');
+      const consoleEl = document.getElementById(isS15 ? 'consoleS5' : 'consoleS6');
+      const errorBox = document.getElementById(isS15 ? 'errorBoxS5' : 'errorBoxS6');
+      const svgHost = document.getElementById(isS15 ? 'svgHostS5' : 'svgHostS6');
+      const runBtn = document.getElementById(isS15 ? 'btnRunS5' : 'btnRunS6');
 
       errorBox.classList.remove('active');
       errorBox.textContent = '';
