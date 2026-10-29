@@ -1371,6 +1371,204 @@
       color: #222222 !important;
     }
 
+    
+    /* ==========================================================================
+       NUEVO FORMATO DE CARÁTULA (SLIDE 1)
+       Fondo blanco en la izquierda, cinta plegada en tonos naranja y
+       Logo de la UTN cubriendo todo el espacio derecho.
+       ========================================================================== */
+
+    #slide-1 {
+      padding: 0 !important;
+      position: relative !important;
+      overflow: hidden !important;
+      background: #FFFFFF !important;
+    }
+
+    .cover-new-layout {
+      position: relative;
+      z-index: 10;
+      width: 1600px;
+      height: 900px;
+      display: grid;
+      grid-template-columns: 810px 790px;
+      box-sizing: border-box;
+    }
+
+    /* Columna Izquierda: Fondo blanco, tipografía nítida y jerarquía de la referencia */
+    .cover-left-info {
+      padding: 110px 60px 90px 90px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+      z-index: 12;
+    }
+
+    .cover-kicker-clean {
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #FF7100;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cover-kicker-clean::before {
+      content: '';
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      background: #FF7100;
+      border-radius: 2px;
+    }
+
+    .cover-main-headline {
+      font-family: var(--font-serif);
+      font-size: 3.85rem;
+      font-weight: 700;
+      color: #111111;
+      line-height: 1.12;
+      letter-spacing: -0.015em;
+      margin-bottom: 24px;
+    }
+
+    .cover-orange-rule {
+      width: 180px;
+      height: 4.5px;
+      background: linear-gradient(90deg, #FF7100 0%, #FF9900 100%);
+      border-radius: 2px;
+      margin-bottom: 26px;
+    }
+
+    .cover-summary-paragraph {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      line-height: 1.6;
+      color: #333333;
+      max-width: 660px;
+      margin-bottom: 38px;
+    }
+
+    .cover-bottom-row {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    /* Botón píldora naranja idéntico a la referencia ("nombre de empresa") */
+    .cover-orange-pill-btn {
+      background: linear-gradient(135deg, #FF7100 0%, #FF5500 100%);
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 12px 34px;
+      border-radius: 30px;
+      box-shadow: 0 6px 20px rgba(255, 113, 0, 0.35);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cover-authors-text {
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      color: #444444;
+      letter-spacing: 0.02em;
+    }
+
+    .cover-authors-text strong {
+      color: #111111;
+      font-weight: 700;
+    }
+
+    /* Columna Derecha: El logo de la UTN cubre todo el espacio */
+    .cover-right-stage {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 50px 80px 50px 40px;
+      z-index: 10;
+      overflow: hidden;
+    }
+
+    .cover-utn-showcase {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    /* Marca de agua ambiental que cubre todo el espacio derecho */
+    .cover-utn-watermark {
+      position: absolute;
+      width: 680px;
+      height: 680px;
+      object-fit: contain;
+      opacity: 0.06;
+      filter: blur(1px);
+      pointer-events: none;
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Logo principal en primer plano: grande, nítido y dominante */
+    .cover-utn-hero-img {
+      max-width: 530px;
+      max-height: 570px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 16px 36px rgba(0, 0, 0, 0.12));
+      position: relative;
+      z-index: 2;
+      margin-bottom: 22px;
+    }
+
+    .cover-utn-hero-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border-top: 2.5px solid #FF7100;
+      padding-top: 14px;
+      width: 500px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .utn-label-main {
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #111111;
+      letter-spacing: 0.14em;
+      margin-bottom: 4px;
+    }
+
+    .utn-label-sub {
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #555555;
+      letter-spacing: 0.1em;
+    }
+
     </style>
 </head>
 <body>
@@ -1383,88 +1581,96 @@
            DIAPOSITIVA 1: PORTADA
            -------------------------------------------------------------------- -->
       <section class="slide active" id="slide-1" data-index="1">
-        <!-- Fondo geométrico dinámico inspirado en la plantilla (curvas y diagonales amarillo/negro) -->
         <div class="cover-bg-wrap">
           <svg class="cover-backdrop-svg" viewBox="0 0 1600 900" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
   <defs>
-    <linearGradient id="ivoryBgCover" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="70%" stop-color="#FFFFFF"/>
-      <stop offset="100%" stop-color="#FAF8F3"/>
-    </linearGradient>
-    <linearGradient id="coverOrangeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#E65100"/>
-      <stop offset="35%" stop-color="#FF7100"/>
-      <stop offset="70%" stop-color="#FF9900"/>
-      <stop offset="100%" stop-color="#FEB800"/>
-    </linearGradient>
-    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#E65100" flood-opacity="0.08"/>
+    <!-- Sombra para la cinta 3D -->
+    <filter id="ribbonShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="-8" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.16"/>
     </filter>
+    <filter id="foldShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="3" dy="5" stdDeviation="7" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+    <!-- Gradiente para la cara frontal vibrante -->
+    <linearGradient id="frontRibbon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF7600"/>
+      <stop offset="45%" stop-color="#FF6200"/>
+      <stop offset="100%" stop-color="#F55000"/>
+    </linearGradient>
+    <!-- Gradiente para el pliegue posterior (sombra 3D) -->
+    <linearGradient id="foldRibbon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C23800"/>
+      <stop offset="60%" stop-color="#A32B00"/>
+      <stop offset="100%" stop-color="#8A2200"/>
+    </linearGradient>
+    <linearGradient id="rightIvoryBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#FAF9F5"/>
+      <stop offset="100%" stop-color="#F5F3EC"/>
+    </linearGradient>
   </defs>
 
-  <!-- Fondo Blanco Puro con calidez Marfil -->
-  <rect width="1600" height="900" fill="url(#ivoryBgCover)"/>
+  <!-- 1. Mitad izquierda: Blanco puro (reemplaza al gris de la plantilla) -->
+  <rect x="0" y="0" width="1600" height="900" fill="#FFFFFF"/>
 
-  <!-- ESQUINA SUPERIOR DERECHA (Franjas diagonales en combinación naranja) -->
-  <polygon points="1200,0 1600,0 1600,120 1300,0" fill="#E65100"/>
-  <polygon points="1260,0 1600,0 1600,210 1390,0" fill="#FF7100"/>
-  <polygon points="1350,0 1600,0 1600,310 1480,0" fill="#FF9900"/>
-  <polygon points="1440,0 1600,0 1600,410 1560,0" fill="#FEB800"/>
+  <!-- 2. Mitad derecha: Fondo marfil técnico tenue donde se proyecta el logo -->
+  <polygon points="1075,0 1600,0 1600,900 870,900 1070,283" fill="url(#rightIvoryBg)"/>
 
-  <!-- Facetas poligonales geométricas superiores (Referencia Imagen 1) -->
-  <polygon points="1380,0 1480,0 1540,110 1440,110" fill="#FFA726" opacity="0.9"/>
-  <polygon points="1440,110 1540,110 1600,220 1500,220" fill="#FF7100" opacity="0.95"/>
-  <polygon points="1500,220 1600,220 1600,330 1550,330" fill="#E65100"/>
+  <!-- 3. CINTA PLEGADA 3D (GEOMETRÍA EXACTA DE LA IMAGEN DE REFERENCIA) -->
+  <!-- Pliegue oscuro posterior (Sombra 3D del doblez) -->
+  <polygon points="897,283 1075,0 1137,280 1070,283" fill="url(#foldRibbon)" filter="url(#foldShadow)"/>
 
-  <!-- ESQUINA INFERIOR IZQUIERDA (Facetas y franjas escalonadas naranja) -->
-  <polygon points="0,600 180,600 90,730 0,730" fill="#FEB800" opacity="0.9"/>
-  <polygon points="0,730 90,730 240,900 0,900" fill="#FF9900"/>
-  <polygon points="90,730 220,730 360,900 240,900" fill="#FF7100"/>
-  <polygon points="220,730 340,730 480,900 360,900" fill="#E65100"/>
-  <polygon points="340,730 420,730 560,900 480,900" fill="#D84315"/>
+  <!-- Franja diagonal inferior (desde el pliegue hasta el borde de abajo) -->
+  <polygon points="1070,283 1137,280 942,900 870,900" fill="url(#frontRibbon)" filter="url(#ribbonShadow)"/>
 
-  <!-- ESQUINA SUPERIOR IZQUIERDA (Franjas sutiles) -->
-  <polygon points="0,0 140,0 0,140" fill="#E65100"/>
-  <polygon points="140,0 230,0 0,230 0,140" fill="#FF7100"/>
-  <polygon points="230,0 310,0 0,310 0,230" fill="#FF9900"/>
-  <polygon points="310,0 370,0 0,370 0,310" fill="#FEB800"/>
+  <!-- Triángulo superior frontal (Vértice superior en 700, 1075 y vértice inferior en 897, 283) -->
+  <polygon points="700,0 1075,0 897,283" fill="url(#frontRibbon)" filter="url(#ribbonShadow)"/>
 
-  <!-- ESQUINA INFERIOR DERECHA (Franjas escalonadas ascendentes) -->
-  <polygon points="1440,900 1600,740 1600,820 1520,900" fill="#FEB800"/>
-  <polygon points="1520,900 1600,820 1600,900" fill="#FF7100"/>
-  <polygon points="1320,900 1600,620 1600,680 1380,900" fill="#FF9900"/>
-  <polygon points="1200,900 1600,500 1600,560 1260,900" fill="#E65100"/>
+  <!-- Trazos sutiles de relieve en aristas -->
+  <line x1="700" y1="0" x2="897" y2="283" stroke="#FFA726" stroke-width="2.5" opacity="0.85"/>
+  <line x1="897" y1="283" x2="1070" y2="283" stroke="#FFE082" stroke-width="2.5" opacity="0.9"/>
+  <line x1="1070" y1="283" x2="870" y2="900" stroke="#FFA726" stroke-width="2.5" opacity="0.85"/>
 
-  <!-- Marco central blanco limpio con sombra y borde superior naranja -->
-  <rect x="230" y="160" width="1140" height="580" rx="14" fill="#FFFFFF" filter="url(#cardShadow)" stroke="#EBE7DE" stroke-width="1.5"/>
-  <rect x="230" y="160" width="1140" height="8" rx="4" fill="url(#coverOrangeGrad)"/>
+  <!-- 4. PLIEGUE EN LA ESQUINA INFERIOR DERECHA (Idéntico a la referencia) -->
+  <polygon points="1383,747 1600,747 1430,900" fill="url(#foldRibbon)"/>
+  <polygon points="1430,900 1600,747 1600,900" fill="url(#frontRibbon)" filter="url(#ribbonShadow)"/>
+  <line x1="1383" y1="747" x2="1430" y2="900" stroke="#FFA726" stroke-width="2" opacity="0.85"/>
 </svg>
         </div>
 
-        <!-- Contenido de la portada alineado con la estructura visual -->
-        <div class="cover-content-grid">
-          <!-- Columna izquierda: Marco diagonal que contiene el logo de la UTN -->
-          <div class="cover-frame-col">
-            <div class="cover-skewed-frame">
-              <div class="cover-skewed-inner">
-                <img src="logo-utn.png" alt="UTN - Universidad Tecnológica Nacional" class="cover-frame-logo">
-                <div class="cover-frame-caption">UNIVERSIDAD TECNOLÓGICA NACIONAL<br>FACULTAD REGIONAL SAN RAFAEL</div>
+        <div class="cover-new-layout">
+          <!-- Columna izquierda: Información sobre fondo Blanco (sustituye al gris) -->
+          <div class="cover-left-info">
+            <div class="cover-kicker-clean">UNIVERSIDAD TECNOLÓGICA NACIONAL · FRSR</div>
+            <h1 class="cover-main-headline">Diferenciación Numérica<br>y Gestión del Error</h1>
+            <div class="cover-orange-rule"></div>
+            <p class="cover-summary-paragraph">
+              Cátedra Matemática para Ingeniería Electromecánica.<br>
+              Aproximaciones discretas mediante desarrollos de Taylor, deducción analítica de esquemas en diferencias finitas y balance óptimo entre error de truncamiento y error de redondeo.
+            </p>
+            <div class="cover-bottom-row">
+              <div class="cover-orange-pill-btn">UNIDAD 5 · MÉTODOS NUMÉRICOS</div>
+              <div class="cover-authors-text">
+                Presentado por: <strong>Adrián Arenas</strong> &amp; <strong>Ignacio Helbas</strong>
               </div>
             </div>
           </div>
 
-          <!-- Columna derecha: Tipografía, título y datos inspirados en la referencia -->
-          <div class="cover-text-col">
-            <div class="cover-kicker-text">Universidad Tecnológica Nacional · FRSR</div>
-            <h1 class="cover-hero-main-title">Diferenciación Numérica<br>y Gestión del Error</h1>
-            <div class="cover-dotted-divider"></div>
-            <p class="cover-hero-subtitle">Cátedra Matemática para Ingeniería Electromecánica</p>
-            <div class="cover-tag-badge">Unidad 5 · Métodos Numéricos</div>
-            <div class="cover-byline-text">Presentado por: <strong>Adrián Arenas</strong> &amp; <strong>Ignacio Helbas</strong></div>
+          <!-- Columna derecha: El logo de la UTN cubre todo el espacio (reemplaza a la foto de la ciudad) -->
+          <div class="cover-right-stage">
+            <div class="cover-utn-showcase">
+              <!-- Marca de agua ambiental de fondo para cubrir todo el espacio -->
+              <img src="logo-utn.png" alt="" class="cover-utn-watermark" aria-hidden="true">
+              <!-- Logo UTN principal en primer plano, grande y nítido -->
+              <img src="logo-utn.png" alt="UTN - Universidad Tecnológica Nacional" class="cover-utn-hero-img">
+              <div class="cover-utn-hero-label">
+                <span class="utn-label-main">UNIVERSIDAD TECNOLÓGICA NACIONAL</span>
+                <span class="utn-label-sub">FACULTAD REGIONAL SAN RAFAEL</span>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
+</section>
 
       <!-- --------------------------------------------------------------------
            DIAPOSITIVA 2: PLANTEO FÍSICO-MATEMÁTICO (TEXTO NUNCA CORTADO)
