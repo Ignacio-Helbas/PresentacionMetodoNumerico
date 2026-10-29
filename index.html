@@ -2779,6 +2779,298 @@
   </style>
 
 
+
+  <!-- =========================================================================
+       SISTEMA VISUAL CORPORATIVO INSTITUCIONAL (DIAPOSITIVAS 7 A 20)
+       Blanco/Marfil #FAF8F3 + Naranja UTN #FF7100 + Negro Profundo #0C0C0E
+       ========================================================================= -->
+  <style id="corporate-shared-styles">
+    .s-corp-slide {
+      padding: 0 !important;
+      position: relative !important;
+      overflow: hidden !important;
+      background: #FFFFFF !important;
+    }
+
+    .s-corp-bg-wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1600px;
+      height: 900px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .s-corp-decorado-svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .s-corp-container {
+      position: relative;
+      z-index: 10;
+      width: 1600px;
+      height: 900px;
+      padding: 125px 105px 70px 105px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    /* Cabecera superior */
+    .s-corp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .s-corp-header-left {
+      max-width: 1250px;
+    }
+
+    .s-corp-meta-tag {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .s-corp-meta-badge {
+      background: #FF7100;
+      color: #FFFFFF;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+    }
+
+    .s-corp-meta-slide {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #666666;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+    }
+
+    .s-corp-main-title {
+      font-family: 'Merriweather', 'Playfair Display', Georgia, serif;
+      font-size: 2.70rem;
+      font-weight: 900;
+      color: #111111;
+      line-height: 1.15;
+      margin: 0 0 6px 0;
+      letter-spacing: -0.015em;
+    }
+
+    .s-corp-sub-desc {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #D35400;
+      margin: 0;
+      line-height: 1.35;
+      font-family: var(--font-sans);
+    }
+
+    /* Contenido central equilibrado */
+    .s-corp-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 1;
+      width: 100%;
+      gap: 20px;
+    }
+
+    /* Tarjeta de Fórmula Hero */
+    .s-corp-formula-card {
+      background: #FAF8F4;
+      border: 1.5px solid #EAE5DB;
+      border-top: 4px solid #FF7100;
+      border-radius: 12px;
+      padding: 12px 36px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      width: 100%;
+      max-width: 1360px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .s-corp-formula-card .katex-display {
+      margin: 6px 0 !important;
+    }
+
+    .s-corp-formula-tag {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #FF7100;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: rgba(255, 113, 0, 0.08);
+      padding: 3px 12px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      margin-bottom: 6px;
+    }
+
+    .s-corp-formula-math {
+      font-size: 2.10rem;
+      color: #111111;
+      text-align: center;
+    }
+
+    .s-corp-formula-desc {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      line-height: 1.5;
+      color: #2A2A2A;
+      text-align: center;
+      margin-top: 6px;
+      margin-bottom: 0;
+    }
+
+    /* Cuadrícula Gemela (Twin Grid) */
+    .s-corp-twin-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      width: 100%;
+      max-width: 1360px;
+    }
+
+    .s-corp-twin-card {
+      background: #FAF8F4;
+      border: 1.5px solid #EAE5DB;
+      border-top: 4px solid #FF7100;
+      border-radius: 12px;
+      padding: 20px 26px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .s-corp-twin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .s-corp-twin-badge {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #FF7100;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      background: rgba(255, 113, 0, 0.08);
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
+    .s-corp-twin-indicator {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #FF7100;
+      border: 1px solid #FFD8B3;
+      background: #FFF5EB;
+      padding: 2px 10px;
+      border-radius: 6px;
+    }
+
+    .s-corp-twin-title {
+      font-family: 'Merriweather', 'Playfair Display', Georgia, serif;
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #111111;
+      margin: 0 0 8px 0;
+      line-height: 1.25;
+    }
+
+    .s-corp-twin-desc {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      line-height: 1.55;
+      color: #2A2A2A;
+      margin: 0 0 12px 0;
+    }
+
+    .s-corp-twin-desc .katex-display {
+      margin: 8px 0 !important;
+    }
+
+    .s-corp-twin-footer {
+      background: #FFFFFF;
+      border: 1px solid #EAE5DB;
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      line-height: 1.45;
+      color: #333333;
+    }
+
+    /* Cuadrícula 2x2 para Slide 20 (Mandamientos) */
+    .s-corp-quad-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 22px;
+      width: 100%;
+      max-width: 1360px;
+    }
+
+    .s-corp-quad-card {
+      background: #FAF8F4;
+      border: 1.5px solid #EAE5DB;
+      border-top: 4px solid #FF7100;
+      border-radius: 12px;
+      padding: 18px 24px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .s-corp-quad-tag {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #FF7100;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .s-corp-quad-title {
+      font-family: 'Merriweather', 'Playfair Display', Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #111111;
+      margin: 0 0 8px 0;
+    }
+
+    .s-corp-quad-desc {
+      font-family: var(--font-serif);
+      font-size: 1.20rem;
+      line-height: 1.5;
+      color: #2A2A2A;
+      margin: 0;
+    }
+  </style>
+
 </head>
 <body>
 
@@ -3568,247 +3860,607 @@
       </section>
 
 
-      <section class="slide" id="slide-7" data-index="7">
-        <div class="slide-top-header">
-          <div class="slide-header-left">
-            <div class="slide-meta-tag">
-              <span class="meta-tag-badge">COSTO COMPUTACIONAL</span>
-              <span>Diapositiva 07</span>
-            </div>
-            <h2 class="slide-main-title">Propiedades del Error: Convergencia Lineal \(\mathcal{O}(h)\)</h2>
-            <p class="slide-sub-desc">La limitación algorítmica y el costo prohibitivo de los esquemas de primer orden.</p>
-          </div>
-          <div class="slide-header-controls">
-            <span class="badge-counter">07 / 20</span>
-          </div>
+      <section class="slide s-corp-slide" id="slide-7" data-index="7">
+        <div class="s-corp-bg-wrap">
+          <svg class="s-corp-decorado-svg" viewBox="0 0 1600 900" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <defs>
+    <filter id="s7_shadowTop" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+    <filter id="s7_shadowBot" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="-4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+
+    <linearGradient id="s7_orangeMain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF7100"/>
+      <stop offset="100%" stop-color="#FF5500"/>
+    </linearGradient>
+    <linearGradient id="s7_orangeAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF8800"/>
+      <stop offset="100%" stop-color="#FF6600"/>
+    </linearGradient>
+    <linearGradient id="s7_bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="85%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FAF8F3"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="900" fill="url(#s7_bgGlow)"/>
+
+  <g filter="url(#s7_shadowTop)">
+    <polygon points="0,0 233,0 276,66 0,66" fill="url(#s7_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="70,18 86,18 105,48 89,48"/>
+      <polygon points="98,18 114,18 133,48 117,48"/>
+      <polygon points="126,18 142,18 161,48 145,48"/>
+      <polygon points="154,18 170,18 189,48 173,48"/>
+      <polygon points="182,18 198,18 217,48 201,48"/>
+    </g>
+    <polygon points="260,0 353,0 421,105 328,105" fill="#0C0C0E"/>
+    <polygon points="378,0 438,0 493,85 433,85" fill="url(#s7_orangeAccent)"/>
+    <polygon points="468,0 502,0 542,62 508,62" fill="#0C0C0E"/>
+    <polygon points="548,33 578,33 591,53 561,53" fill="#0C0C0E"/>
+    <polygon points="608,33 638,33 651,53 621,53" fill="#0C0C0E"/>
+    <polygon points="668,33 698,33 711,53 681,53" fill="#0C0C0E"/>
+    <polygon points="728,33 1600,33 1600,53 741,53" fill="url(#s7_orangeMain)"/>
+  </g>
+
+  <g filter="url(#s7_shadowBot)">
+    <polygon points="872.0,867.0 0.0,867.0 0.0,847.0 859.0,847.0" fill="url(#s7_orangeMain)"/>
+    <polygon points="932.0,867.0 902.0,867.0 889.0,847.0 919.0,847.0" fill="#0C0C0E"/>
+    <polygon points="992.0,867.0 962.0,867.0 949.0,847.0 979.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1052.0,867.0 1022.0,867.0 1009.0,847.0 1039.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1132.0,900.0 1098.0,900.0 1058.0,838.0 1092.0,838.0" fill="#0C0C0E"/>
+    <polygon points="1222.0,900.0 1162.0,900.0 1107.0,815.0 1167.0,815.0" fill="url(#s7_orangeAccent)"/>
+    <polygon points="1340.0,900.0 1247.0,900.0 1179.0,795.0 1272.0,795.0" fill="#0C0C0E"/>
+    <polygon points="1600.0,900.0 1367.0,900.0 1324.0,834.0 1600.0,834.0" fill="url(#s7_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="1418.0,882.0 1402.0,882.0 1383.0,852.0 1399.0,852.0"/>
+      <polygon points="1446.0,882.0 1430.0,882.0 1411.0,852.0 1427.0,852.0"/>
+      <polygon points="1474.0,882.0 1458.0,882.0 1439.0,852.0 1455.0,852.0"/>
+      <polygon points="1502.0,882.0 1486.0,882.0 1467.0,852.0 1483.0,852.0"/>
+      <polygon points="1530.0,882.0 1514.0,882.0 1495.0,852.0 1511.0,852.0"/>
+    </g>
+  </g>
+</svg>
         </div>
-
-        <div class="slide-content-area" style="display:flex; justify-content:center; align-items:center;">
-          <div class="single-focus-card" style="max-width:1180px; width:100%; border-top:6px solid var(--border-dark);">
-            <div class="focus-card-header">
-              <span class="focus-card-tag" style="background:#000000; color:#ffffff; border-color:#000000;">Escalabilidad Algorítmica</span>
-              <h3 class="focus-card-title">La Lentitud de la Convergencia de Primer Orden</h3>
+        <div class="s-corp-container">
+          <div class="s-corp-header">
+            <div class="s-corp-header-left">
+              <div class="s-corp-meta-tag">
+                <span class="s-corp-meta-badge">COSTO COMPUTACIONAL</span>
+                <span class="s-corp-meta-slide">Diapositiva 07</span>
+              </div>
+              <h2 class="s-corp-main-title">Propiedades del Error: Convergencia Lineal \(\mathcal{O}(h)\)</h2>
+              <p class="s-corp-sub-desc">La limitación algorítmica y el costo prohibitivo de los esquemas de primer orden.</p>
             </div>
-            <div class="focus-card-body">
-              <p class="focus-card-lead">
-                Un orden \(\mathcal{O}(h)\) significa que el error disminuye con la misma lentitud con que se achica el paso de malla:
+            <div class="s-corp-header-controls">
+              <span class="badge-counter">07 / 20</span>
+            </div>
+          </div>
+          <div class="s-corp-content">
+            <div class="s-corp-formula-card">
+              <span class="s-corp-formula-tag">ESCALABILIDAD ALGORÍTMICA Y COSTO COMPUTACIONAL</span>
+              <div class="s-corp-formula-math" style="font-size: 1.85rem;">
+                $$E(h/2) = \frac{1}{2} E(h) \implies \text{Para ganar 1 dígito decimal se requiere } 10\times \text{ más nodos}$$
+              </div>
+              <p class="s-corp-formula-desc">
+                Un orden \(\mathcal{O}(h)\) significa que el error disminuye con la misma lentitud con que se achica el paso de malla.
               </p>
-
-              <div class="focus-formula-pill">
-                <div style="font-size:2.2rem;">
-                  $$E(h/2) = \frac{1}{2} E(h) \implies \text{Para ganar 1 dígito decimal se requiere } 10\times \text{ más nodos}$$
+            </div>
+            <div class="s-corp-twin-grid">
+              <div class="s-corp-twin-card">
+                <div class="s-corp-twin-header">
+                  <span class="s-corp-twin-badge">EXPLOSIÓN DIMENSIONAL 2D / 3D</span>
+                  <div class="s-corp-twin-indicator">\(h \to h/2 \implies E \to 50\%\)</div>
+                </div>
+                <h3 class="s-corp-twin-title">Consumo de Recursos en Ingeniería</h3>
+                <p class="s-corp-twin-desc">
+                  Si reducís el paso a la mitad (\(h \to h/2\)), el error decae apenas al 50%. En problemas 2D o 3D, multiplicar los nodos por 10 multiplica la matriz por 100 o 1000.
+                </p>
+                <div class="s-corp-twin-footer">
+                  <strong>⚠ Costo Dimensional:</strong> Exige matrices de rigidez masivas con millones de grados de libertad para alcanzar una precisión aceptable.
                 </div>
               </div>
-
-              <div style="background:#ffffff; border:2px solid var(--border-dark); border-radius:var(--radius-sm); padding:22px 28px; margin-top:14px;">
-                <p style="font-size:1.3rem; font-weight:700; color:#000000; line-height:1.6; margin-bottom:12px;">
-                  • <strong>Consumo de Recursos en Ingeniería:</strong> Si reducís el paso a la mitad (\(h \to h/2\)), el error decae apenas al 50%. En problemas 2D o 3D, multiplicar los nodos por 10 multiplica la matriz por 100 o 1000.
+              <div class="s-corp-twin-card">
+                <div class="s-corp-twin-header">
+                  <span class="s-corp-twin-badge">IMPERATIVO ALGORÍTMICO</span>
+                  <div class="s-corp-twin-indicator">\(\text{Migración } \to \mathcal{O}(h^2)\)</div>
+                </div>
+                <h3 class="s-corp-twin-title">Conclusión Crítica</h3>
+                <p class="s-corp-twin-desc">
+                  En simulaciones electromecánicas reales, los esquemas de primer orden resultan prohibitivos para alta precisión. Se vuelve mandatorio migrar a operadores de segundo orden \(\mathcal{O}(h^2)\).
                 </p>
-                <p style="font-size:1.3rem; font-weight:700; color:#000000; line-height:1.6;">
-                  • <strong>Conclusión Crítica:</strong> En simulaciones electromecánicas reales, los esquemas de primer orden resultan prohibitivos para alta precisión. Se vuelve mandatorio migrar a operadores de segundo orden \(\mathcal{O}(h^2)\).
-                </p>
+                <div class="s-corp-twin-footer">
+                  <strong>✓ Regla de Diseño:</strong> Ningún código de producción en diferencias finitas debe operar en primer orden en el interior del dominio.
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="slide" id="slide-8" data-index="8">
-        <div class="slide-top-header">
-          <div class="slide-header-left">
-            <div class="slide-meta-tag">
-              <span class="meta-tag-badge">ESQUEMA UNILATERAL</span>
-              <span>Diapositiva 08</span>
-            </div>
-            <h2 class="slide-main-title">Diferencias Finitas Hacia Adelante (Forward)</h2>
-            <p class="slide-sub-desc">Muestreo unilateral hacia adelante en el dominio discretizado.</p>
-          </div>
-          <div class="slide-header-controls">
-            <span class="badge-counter">08 / 20</span>
-          </div>
-        </div>
+      <section class="slide s-corp-slide" id="slide-8" data-index="8">
+        <div class="s-corp-bg-wrap">
+          <svg class="s-corp-decorado-svg" viewBox="0 0 1600 900" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <defs>
+    <filter id="s8_shadowTop" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+    <filter id="s8_shadowBot" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="-4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
 
-        <div class="slide-content-area" style="display:flex; justify-content:center; align-items:center;">
-          <div class="hero-col-card" style="max-width:1180px; width:100%; padding:34px 44px; border-top:6px solid var(--border-dark);">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-              <span style="font-family:var(--font-mono); font-size:1.1rem; font-weight:800; color:var(--text-main); text-transform:uppercase;">Esquema Unilateral a la Derecha</span>
-              <span style="font-family:var(--font-mono); font-size:1.1rem; font-weight:800; color:var(--text-on-dark); background:#000000; padding:4px 14px; border-radius:var(--radius-sm);">Primer Orden · \(\mathcal{O}(h)\)</span>
+    <linearGradient id="s8_orangeMain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF7100"/>
+      <stop offset="100%" stop-color="#FF5500"/>
+    </linearGradient>
+    <linearGradient id="s8_orangeAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF8800"/>
+      <stop offset="100%" stop-color="#FF6600"/>
+    </linearGradient>
+    <linearGradient id="s8_bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="85%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FAF8F3"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="900" fill="url(#s8_bgGlow)"/>
+
+  <g filter="url(#s8_shadowTop)">
+    <polygon points="0,0 233,0 276,66 0,66" fill="url(#s8_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="70,18 86,18 105,48 89,48"/>
+      <polygon points="98,18 114,18 133,48 117,48"/>
+      <polygon points="126,18 142,18 161,48 145,48"/>
+      <polygon points="154,18 170,18 189,48 173,48"/>
+      <polygon points="182,18 198,18 217,48 201,48"/>
+    </g>
+    <polygon points="260,0 353,0 421,105 328,105" fill="#0C0C0E"/>
+    <polygon points="378,0 438,0 493,85 433,85" fill="url(#s8_orangeAccent)"/>
+    <polygon points="468,0 502,0 542,62 508,62" fill="#0C0C0E"/>
+    <polygon points="548,33 578,33 591,53 561,53" fill="#0C0C0E"/>
+    <polygon points="608,33 638,33 651,53 621,53" fill="#0C0C0E"/>
+    <polygon points="668,33 698,33 711,53 681,53" fill="#0C0C0E"/>
+    <polygon points="728,33 1600,33 1600,53 741,53" fill="url(#s8_orangeMain)"/>
+  </g>
+
+  <g filter="url(#s8_shadowBot)">
+    <polygon points="872.0,867.0 0.0,867.0 0.0,847.0 859.0,847.0" fill="url(#s8_orangeMain)"/>
+    <polygon points="932.0,867.0 902.0,867.0 889.0,847.0 919.0,847.0" fill="#0C0C0E"/>
+    <polygon points="992.0,867.0 962.0,867.0 949.0,847.0 979.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1052.0,867.0 1022.0,867.0 1009.0,847.0 1039.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1132.0,900.0 1098.0,900.0 1058.0,838.0 1092.0,838.0" fill="#0C0C0E"/>
+    <polygon points="1222.0,900.0 1162.0,900.0 1107.0,815.0 1167.0,815.0" fill="url(#s8_orangeAccent)"/>
+    <polygon points="1340.0,900.0 1247.0,900.0 1179.0,795.0 1272.0,795.0" fill="#0C0C0E"/>
+    <polygon points="1600.0,900.0 1367.0,900.0 1324.0,834.0 1600.0,834.0" fill="url(#s8_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="1418.0,882.0 1402.0,882.0 1383.0,852.0 1399.0,852.0"/>
+      <polygon points="1446.0,882.0 1430.0,882.0 1411.0,852.0 1427.0,852.0"/>
+      <polygon points="1474.0,882.0 1458.0,882.0 1439.0,852.0 1455.0,852.0"/>
+      <polygon points="1502.0,882.0 1486.0,882.0 1467.0,852.0 1483.0,852.0"/>
+      <polygon points="1530.0,882.0 1514.0,882.0 1495.0,852.0 1511.0,852.0"/>
+    </g>
+  </g>
+</svg>
+        </div>
+        <div class="s-corp-container">
+          <div class="s-corp-header">
+            <div class="s-corp-header-left">
+              <div class="s-corp-meta-tag">
+                <span class="s-corp-meta-badge">ESQUEMA UNILATERAL</span>
+                <span class="s-corp-meta-slide">Diapositiva 08</span>
+              </div>
+              <h2 class="s-corp-main-title">Diferencias Finitas Hacia Adelante (Forward)</h2>
+              <p class="s-corp-sub-desc">Muestreo unilateral hacia adelante en el dominio discretizado.</p>
             </div>
-            
-            <div class="hero-formula-card" style="padding:22px 34px; margin-bottom:20px; border-left:6px solid var(--border-dark);">
-              <div style="font-size:2.5rem;">
+            <div class="s-corp-header-controls">
+              <span class="badge-counter">08 / 20</span>
+            </div>
+          </div>
+          <div class="s-corp-content">
+            <div class="s-corp-formula-card">
+              <span class="s-corp-formula-tag">ESQUEMA UNILATERAL A LA DERECHA · PRIMER ORDEN \(\mathcal{O}(h)\)</span>
+              <div class="s-corp-formula-math">
                 $$f'_i \approx \frac{f_{i+1} - f_i}{h}$$
               </div>
+              <p class="s-corp-formula-desc">
+                Aproximación de la derivada primera utilizando el nodo actual y el nodo contiguo hacia adelante.
+              </p>
             </div>
-
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
-              <div style="background:#ffffff; border:2px solid var(--border-dark); padding:18px 22px; border-radius:var(--radius-sm);">
-                <div style="font-family:var(--font-mono); font-size:0.9rem; font-weight:800; color:var(--text-main); text-transform:uppercase; margin-bottom:4px;">Stencil Computacional</div>
-                <div style="font-size:1.45rem; font-family:var(--font-mono); font-weight:800; color:var(--text-main);">
-                  \([x_i, x_{i+1}]\)
+            <div class="s-corp-twin-grid">
+              <div class="s-corp-twin-card">
+                <div class="s-corp-twin-header">
+                  <span class="s-corp-twin-badge">TOPOLOGÍA DE MALLA</span>
+                  <div class="s-corp-twin-indicator">\([x_i, x_{i+1}]\)</div>
                 </div>
-                <p style="font-size:1.18rem; font-weight:600; color:var(--text-main); margin-top:6px; line-height:1.45;">
-                  Muestrea la función en el nodo actual y en el vecino aguas abajo (o hacia adelante).
+                <h3 class="s-corp-twin-title">Stencil Computacional</h3>
+                <p class="s-corp-twin-desc">
+                  Muestrea la función en el nodo actual y en el vecino aguas abajo (o hacia adelante). Requiere únicamente dos lecturas de memoria consecutivas.
                 </p>
+                <div class="s-corp-twin-footer">
+                  <strong>Dominio de Aplicación:</strong> Fronteras izquierdas y problemas transitorios hiperbólicos de avance temporal.
+                </div>
               </div>
-
-              <div style="background:#ffffff; border:2px solid var(--border-dark); padding:18px 22px; border-radius:var(--radius-sm);">
-                <div style="font-family:var(--font-mono); font-size:0.9rem; font-weight:800; color:var(--text-main); text-transform:uppercase; margin-bottom:4px;">Término Principal del Error</div>
-                <div style="font-size:1.45rem; font-family:var(--font-mono); font-weight:800; color:var(--text-main);">
+              <div class="s-corp-twin-card">
+                <div class="s-corp-twin-header">
+                  <span class="s-corp-twin-badge">RESIDUO ASINTÓTICO</span>
+                  <div class="s-corp-twin-indicator">\(\mathcal{O}(h)\)</div>
+                </div>
+                <h3 class="s-corp-twin-title">Término Principal del Error</h3>
+                <div class="s-corp-twin-desc">
                   $$E_t = -\frac{h}{2} f''(\xi)$$
                 </div>
-                <p style="font-size:1.18rem; font-weight:600; color:var(--text-main); margin-top:6px; line-height:1.45;">
-                  El residuo asintótico decae linealmente con el espaciado de malla \(h\).
-                </p>
+                <div class="s-corp-twin-footer">
+                  <strong>Comportamiento del Error:</strong> El residuo asintótico decae linealmente con el espaciado de malla \(h\).
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="slide" id="slide-9" data-index="9">
-        <div class="slide-top-header">
-          <div class="slide-header-left">
-            <div class="slide-meta-tag">
-              <span class="meta-tag-badge">ESQUEMA RETROSPECTIVO</span>
-              <span>Diapositiva 09</span>
-            </div>
-            <h2 class="slide-main-title">Diferencias Finitas Hacia Atrás (Backward)</h2>
-            <p class="slide-sub-desc">Muestreo unilateral retrospectivo o aguas arriba.</p>
-          </div>
-          <div class="slide-header-controls">
-            <span class="badge-counter">09 / 20</span>
-          </div>
+      <section class="slide s-corp-slide" id="slide-9" data-index="9">
+        <div class="s-corp-bg-wrap">
+          <svg class="s-corp-decorado-svg" viewBox="0 0 1600 900" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <defs>
+    <filter id="s9_shadowTop" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+    <filter id="s9_shadowBot" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="-4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+
+    <linearGradient id="s9_orangeMain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF7100"/>
+      <stop offset="100%" stop-color="#FF5500"/>
+    </linearGradient>
+    <linearGradient id="s9_orangeAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF8800"/>
+      <stop offset="100%" stop-color="#FF6600"/>
+    </linearGradient>
+    <linearGradient id="s9_bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="85%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FAF8F3"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="900" fill="url(#s9_bgGlow)"/>
+
+  <g filter="url(#s9_shadowTop)">
+    <polygon points="0,0 233,0 276,66 0,66" fill="url(#s9_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="70,18 86,18 105,48 89,48"/>
+      <polygon points="98,18 114,18 133,48 117,48"/>
+      <polygon points="126,18 142,18 161,48 145,48"/>
+      <polygon points="154,18 170,18 189,48 173,48"/>
+      <polygon points="182,18 198,18 217,48 201,48"/>
+    </g>
+    <polygon points="260,0 353,0 421,105 328,105" fill="#0C0C0E"/>
+    <polygon points="378,0 438,0 493,85 433,85" fill="url(#s9_orangeAccent)"/>
+    <polygon points="468,0 502,0 542,62 508,62" fill="#0C0C0E"/>
+    <polygon points="548,33 578,33 591,53 561,53" fill="#0C0C0E"/>
+    <polygon points="608,33 638,33 651,53 621,53" fill="#0C0C0E"/>
+    <polygon points="668,33 698,33 711,53 681,53" fill="#0C0C0E"/>
+    <polygon points="728,33 1600,33 1600,53 741,53" fill="url(#s9_orangeMain)"/>
+  </g>
+
+  <g filter="url(#s9_shadowBot)">
+    <polygon points="872.0,867.0 0.0,867.0 0.0,847.0 859.0,847.0" fill="url(#s9_orangeMain)"/>
+    <polygon points="932.0,867.0 902.0,867.0 889.0,847.0 919.0,847.0" fill="#0C0C0E"/>
+    <polygon points="992.0,867.0 962.0,867.0 949.0,847.0 979.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1052.0,867.0 1022.0,867.0 1009.0,847.0 1039.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1132.0,900.0 1098.0,900.0 1058.0,838.0 1092.0,838.0" fill="#0C0C0E"/>
+    <polygon points="1222.0,900.0 1162.0,900.0 1107.0,815.0 1167.0,815.0" fill="url(#s9_orangeAccent)"/>
+    <polygon points="1340.0,900.0 1247.0,900.0 1179.0,795.0 1272.0,795.0" fill="#0C0C0E"/>
+    <polygon points="1600.0,900.0 1367.0,900.0 1324.0,834.0 1600.0,834.0" fill="url(#s9_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="1418.0,882.0 1402.0,882.0 1383.0,852.0 1399.0,852.0"/>
+      <polygon points="1446.0,882.0 1430.0,882.0 1411.0,852.0 1427.0,852.0"/>
+      <polygon points="1474.0,882.0 1458.0,882.0 1439.0,852.0 1455.0,852.0"/>
+      <polygon points="1502.0,882.0 1486.0,882.0 1467.0,852.0 1483.0,852.0"/>
+      <polygon points="1530.0,882.0 1514.0,882.0 1495.0,852.0 1511.0,852.0"/>
+    </g>
+  </g>
+</svg>
         </div>
-
-        <div class="slide-content-area" style="display:flex; justify-content:center; align-items:center;">
-          <div class="hero-col-card" style="max-width:1180px; width:100%; padding:34px 44px; border-top:6px solid var(--border-dark);">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-              <span style="font-family:var(--font-mono); font-size:1.1rem; font-weight:800; color:var(--text-main); text-transform:uppercase;">Esquema Unilateral a la Izquierda</span>
-              <span style="font-family:var(--font-mono); font-size:1.1rem; font-weight:800; color:var(--text-on-dark); background:#000000; padding:4px 14px; border-radius:var(--radius-sm);">Primer Orden · \(\mathcal{O}(h)\)</span>
+        <div class="s-corp-container">
+          <div class="s-corp-header">
+            <div class="s-corp-header-left">
+              <div class="s-corp-meta-tag">
+                <span class="s-corp-meta-badge">ESQUEMA RETROSPECTIVO</span>
+                <span class="s-corp-meta-slide">Diapositiva 09</span>
+              </div>
+              <h2 class="s-corp-main-title">Diferencias Finitas Hacia Atrás (Backward)</h2>
+              <p class="s-corp-sub-desc">Muestreo unilateral retrospectivo o aguas arriba.</p>
             </div>
-
-            <div class="hero-formula-card" style="padding:22px 34px; margin-bottom:20px; border-left:6px solid var(--border-dark);">
-              <div style="font-size:2.5rem;">
+            <div class="s-corp-header-controls">
+              <span class="badge-counter">09 / 20</span>
+            </div>
+          </div>
+          <div class="s-corp-content">
+            <div class="s-corp-formula-card">
+              <span class="s-corp-formula-tag">ESQUEMA UNILATERAL A LA IZQUIERDA · PRIMER ORDEN \(\mathcal{O}(h)\)</span>
+              <div class="s-corp-formula-math">
                 $$f'_i \approx \frac{f_i - f_{i-1}}{h}$$
               </div>
+              <p class="s-corp-formula-desc">
+                Aproximación de la derivada primera utilizando el nodo actual y el nodo contiguo retrospectivo.
+              </p>
             </div>
-
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
-              <div style="background:#ffffff; border:2px solid var(--border-dark); padding:18px 22px; border-radius:var(--radius-sm);">
-                <div style="font-family:var(--font-mono); font-size:0.9rem; font-weight:800; color:var(--text-main); text-transform:uppercase; margin-bottom:4px;">Stencil Computacional</div>
-                <div style="font-size:1.45rem; font-family:var(--font-mono); font-weight:800; color:var(--text-main);">
-                  \([x_{i-1}, x_i]\)
+            <div class="s-corp-twin-grid">
+              <div class="s-corp-twin-card">
+                <div class="s-corp-twin-header">
+                  <span class="s-corp-twin-badge">TOPOLOGÍA DE MALLA</span>
+                  <div class="s-corp-twin-indicator">\([x_{i-1}, x_i]\)</div>
                 </div>
-                <p style="font-size:1.18rem; font-weight:600; color:var(--text-main); margin-top:6px; line-height:1.45;">
-                  Muestrea la función en el nodo actual y en el vecino aguas arriba (o hacia atrás).
+                <h3 class="s-corp-twin-title">Stencil Computacional</h3>
+                <p class="s-corp-twin-desc">
+                  Muestrea la función en el nodo actual y en el vecino aguas arriba (o hacia atrás). Stencil unilateral retrospectivo.
                 </p>
+                <div class="s-corp-twin-footer">
+                  <strong>Dominio de Aplicación:</strong> Fronteras derechas impermeables y esquemas implícitos incondicionalmente estables.
+                </div>
               </div>
-
-              <div style="background:#ffffff; border:2px solid var(--border-dark); padding:18px 22px; border-radius:var(--radius-sm);">
-                <div style="font-family:var(--font-mono); font-size:0.9rem; font-weight:800; color:var(--text-main); text-transform:uppercase; margin-bottom:4px;">Término Principal del Error</div>
-                <div style="font-size:1.45rem; font-family:var(--font-mono); font-weight:800; color:var(--text-main);">
+              <div class="s-corp-twin-card">
+                <div class="s-corp-twin-header">
+                  <span class="s-corp-twin-badge">RESIDUO ASINTÓTICO</span>
+                  <div class="s-corp-twin-indicator">\(\mathcal{O}(h)\)</div>
+                </div>
+                <h3 class="s-corp-twin-title">Término Principal del Error</h3>
+                <div class="s-corp-twin-desc">
                   $$E_t = +\frac{h}{2} f''(\xi)$$
                 </div>
-                <p style="font-size:1.18rem; font-weight:600; color:var(--text-main); margin-top:6px; line-height:1.45;">
-                  Idéntica tasa de convergencia asintótica que Forward, con signo invertido por simetría.
-                </p>
+                <div class="s-corp-twin-footer">
+                  <strong>Comportamiento del Error:</strong> Idéntica tasa de convergencia asintótica que Forward, con signo invertido por simetría.
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="slide" id="slide-10" data-index="10">
-        <div class="slide-top-header">
-          <div class="slide-header-left">
-            <div class="slide-meta-tag">
-              <span class="meta-tag-badge">ESQUEMA BILATERAL</span>
-              <span>Diapositiva 10</span>
-            </div>
-            <h2 class="slide-main-title">Diferencia Central: El Salto a \(\mathcal{O}(h^2)\)</h2>
-            <p class="slide-sub-desc">Muestreo simétrico centrado en torno al nodo de interés \(x_i\).</p>
-          </div>
-          <div class="slide-header-controls">
-            <span class="badge-counter">10 / 20</span>
-          </div>
+      <section class="slide s-corp-slide" id="slide-10" data-index="10">
+        <div class="s-corp-bg-wrap">
+          <svg class="s-corp-decorado-svg" viewBox="0 0 1600 900" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <defs>
+    <filter id="s10_shadowTop" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+    <filter id="s10_shadowBot" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="-4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+
+    <linearGradient id="s10_orangeMain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF7100"/>
+      <stop offset="100%" stop-color="#FF5500"/>
+    </linearGradient>
+    <linearGradient id="s10_orangeAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF8800"/>
+      <stop offset="100%" stop-color="#FF6600"/>
+    </linearGradient>
+    <linearGradient id="s10_bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="85%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FAF8F3"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="900" fill="url(#s10_bgGlow)"/>
+
+  <g filter="url(#s10_shadowTop)">
+    <polygon points="0,0 233,0 276,66 0,66" fill="url(#s10_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="70,18 86,18 105,48 89,48"/>
+      <polygon points="98,18 114,18 133,48 117,48"/>
+      <polygon points="126,18 142,18 161,48 145,48"/>
+      <polygon points="154,18 170,18 189,48 173,48"/>
+      <polygon points="182,18 198,18 217,48 201,48"/>
+    </g>
+    <polygon points="260,0 353,0 421,105 328,105" fill="#0C0C0E"/>
+    <polygon points="378,0 438,0 493,85 433,85" fill="url(#s10_orangeAccent)"/>
+    <polygon points="468,0 502,0 542,62 508,62" fill="#0C0C0E"/>
+    <polygon points="548,33 578,33 591,53 561,53" fill="#0C0C0E"/>
+    <polygon points="608,33 638,33 651,53 621,53" fill="#0C0C0E"/>
+    <polygon points="668,33 698,33 711,53 681,53" fill="#0C0C0E"/>
+    <polygon points="728,33 1600,33 1600,53 741,53" fill="url(#s10_orangeMain)"/>
+  </g>
+
+  <g filter="url(#s10_shadowBot)">
+    <polygon points="872.0,867.0 0.0,867.0 0.0,847.0 859.0,847.0" fill="url(#s10_orangeMain)"/>
+    <polygon points="932.0,867.0 902.0,867.0 889.0,847.0 919.0,847.0" fill="#0C0C0E"/>
+    <polygon points="992.0,867.0 962.0,867.0 949.0,847.0 979.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1052.0,867.0 1022.0,867.0 1009.0,847.0 1039.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1132.0,900.0 1098.0,900.0 1058.0,838.0 1092.0,838.0" fill="#0C0C0E"/>
+    <polygon points="1222.0,900.0 1162.0,900.0 1107.0,815.0 1167.0,815.0" fill="url(#s10_orangeAccent)"/>
+    <polygon points="1340.0,900.0 1247.0,900.0 1179.0,795.0 1272.0,795.0" fill="#0C0C0E"/>
+    <polygon points="1600.0,900.0 1367.0,900.0 1324.0,834.0 1600.0,834.0" fill="url(#s10_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="1418.0,882.0 1402.0,882.0 1383.0,852.0 1399.0,852.0"/>
+      <polygon points="1446.0,882.0 1430.0,882.0 1411.0,852.0 1427.0,852.0"/>
+      <polygon points="1474.0,882.0 1458.0,882.0 1439.0,852.0 1455.0,852.0"/>
+      <polygon points="1502.0,882.0 1486.0,882.0 1467.0,852.0 1483.0,852.0"/>
+      <polygon points="1530.0,882.0 1514.0,882.0 1495.0,852.0 1511.0,852.0"/>
+    </g>
+  </g>
+</svg>
         </div>
-
-        <div class="slide-content-area" style="display:flex; justify-content:center; align-items:center;">
-          <div class="hero-col-card yellow-accent" style="max-width:1180px; width:100%; padding:34px 44px;">
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
-              <span style="font-family:var(--font-mono); font-size:1.1rem; font-weight:800; color:var(--text-main); text-transform:uppercase;">Esquema Bilateral Simétrico</span>
-              <span style="font-family:var(--font-mono); font-size:1.1rem; font-weight:800; color:var(--text-on-yellow); background:var(--col-yellow); padding:4px 14px; border-radius:var(--radius-sm);">Segundo Orden · \(\mathcal{O}(h^2)\)</span>
+        <div class="s-corp-container">
+          <div class="s-corp-header">
+            <div class="s-corp-header-left">
+              <div class="s-corp-meta-tag">
+                <span class="s-corp-meta-badge">ESQUEMA BILATERAL</span>
+                <span class="s-corp-meta-slide">Diapositiva 10</span>
+              </div>
+              <h2 class="s-corp-main-title">Diferencia Central: El Salto a \(\mathcal{O}(h^2)\)</h2>
+              <p class="s-corp-sub-desc">Muestreo simétrico centrado en torno al nodo de interés \(x_i\).</p>
             </div>
-
-            <div class="hero-formula-card yellow-accent" style="padding:22px 34px; margin-bottom:20px;">
-              <div style="font-size:2.6rem;">
+            <div class="s-corp-header-controls">
+              <span class="badge-counter">10 / 20</span>
+            </div>
+          </div>
+          <div class="s-corp-content">
+            <div class="s-corp-formula-card">
+              <span class="s-corp-formula-tag">ESQUEMA BILATERAL SIMÉTRICO · SEGUNDO ORDEN \(\mathcal{O}(h^2)\)</span>
+              <div class="s-corp-formula-math">
                 $$f'_i \approx \frac{f_{i+1} - f_{i-1}}{2h}$$
               </div>
+              <p class="s-corp-formula-desc">
+                Aproximación simétrica centrada que omite el valor local \(f_i\) en el numerador.
+              </p>
             </div>
-
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
-              <div style="background:#ffffff; border:2px solid var(--border-dark); padding:18px 22px; border-radius:var(--radius-sm);">
-                <div style="font-family:var(--font-mono); font-size:0.9rem; font-weight:800; color:var(--text-main); text-transform:uppercase; margin-bottom:4px;">Stencil Computacional</div>
-                <div style="font-size:1.45rem; font-family:var(--font-mono); font-weight:800; color:var(--text-main);">
-                  \([x_{i-1}, x_{i+1}]\)
+            <div class="s-corp-twin-grid">
+              <div class="s-corp-twin-card">
+                <div class="s-corp-twin-header">
+                  <span class="s-corp-twin-badge">TOPOLOGÍA DE MALLA</span>
+                  <div class="s-corp-twin-indicator">\([x_{i-1}, x_{i+1}]\)</div>
                 </div>
-                <p style="font-size:1.18rem; font-weight:600; color:var(--text-main); margin-top:6px; line-height:1.45;">
-                  Muestrea a izquierda y derecha a distancia \(h\), omitiendo el valor local \(f_i\) en el numerador.
+                <h3 class="s-corp-twin-title">Stencil Computacional</h3>
+                <p class="s-corp-twin-desc">
+                  Muestrea a izquierda y derecha a distancia \(h\), omitiendo el valor local \(f_i\). Extiende la base de interpolación a una parábola centrada.
                 </p>
+                <div class="s-corp-twin-footer">
+                  <strong>Ventaja Operativa:</strong> Mismo número de operaciones aritméticas (1 resta, 1 división) que los esquemas unilaterales.
+                </div>
               </div>
-
-              <div style="background:#ffffff; border:2px solid var(--border-dark); padding:18px 22px; border-radius:var(--radius-sm);">
-                <div style="font-family:var(--font-mono); font-size:0.9rem; font-weight:800; color:var(--text-main); text-transform:uppercase; margin-bottom:4px;">Término Principal del Error</div>
-                <div style="font-size:1.45rem; font-family:var(--font-mono); font-weight:800; color:var(--text-main);">
+              <div class="s-corp-twin-card">
+                <div class="s-corp-twin-header">
+                  <span class="s-corp-twin-badge">RESIDUO CUADRÁTICO</span>
+                  <div class="s-corp-twin-indicator">\(\mathcal{O}(h^2)\)</div>
+                </div>
+                <h3 class="s-corp-twin-title">Término Principal del Error</h3>
+                <div class="s-corp-twin-desc">
                   $$E_t = -\frac{h^2}{6} f'''(\xi)$$
                 </div>
-                <p style="font-size:1.18rem; font-weight:600; color:var(--text-main); margin-top:6px; line-height:1.45;">
-                  El error escala cuadráticamente con \(h\). Al reducir la malla a la mitad, <strong>el error cae al 25%</strong>.
-                </p>
+                <div class="s-corp-twin-footer">
+                  <strong>Ganancia Cuadrática:</strong> Al reducir la malla a la mitad (\(h \to h/2\)), <strong>el error cae drásticamente al 25%</strong>.
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="slide" id="slide-11" data-index="11">
-        <div class="slide-top-header">
-          <div class="slide-header-left">
-            <div class="slide-meta-tag">
-              <span class="meta-tag-badge">SIMETRÍA ALGEBRAICA</span>
-              <span>Diapositiva 11</span>
-            </div>
-            <h2 class="slide-main-title">Insight Fundamental: Cancelación Gratuita</h2>
-            <p class="slide-sub-desc">Por qué la simetría geométrica cuadruplica la velocidad de convergencia sin costo adicional.</p>
-          </div>
-          <div class="slide-header-controls">
-            <span class="badge-counter">11 / 20</span>
-          </div>
+      <section class="slide s-corp-slide" id="slide-11" data-index="11">
+        <div class="s-corp-bg-wrap">
+          <svg class="s-corp-decorado-svg" viewBox="0 0 1600 900" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <defs>
+    <filter id="s11_shadowTop" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+    <filter id="s11_shadowBot" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="-4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+
+    <linearGradient id="s11_orangeMain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF7100"/>
+      <stop offset="100%" stop-color="#FF5500"/>
+    </linearGradient>
+    <linearGradient id="s11_orangeAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF8800"/>
+      <stop offset="100%" stop-color="#FF6600"/>
+    </linearGradient>
+    <linearGradient id="s11_bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="85%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FAF8F3"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="900" fill="url(#s11_bgGlow)"/>
+
+  <g filter="url(#s11_shadowTop)">
+    <polygon points="0,0 233,0 276,66 0,66" fill="url(#s11_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="70,18 86,18 105,48 89,48"/>
+      <polygon points="98,18 114,18 133,48 117,48"/>
+      <polygon points="126,18 142,18 161,48 145,48"/>
+      <polygon points="154,18 170,18 189,48 173,48"/>
+      <polygon points="182,18 198,18 217,48 201,48"/>
+    </g>
+    <polygon points="260,0 353,0 421,105 328,105" fill="#0C0C0E"/>
+    <polygon points="378,0 438,0 493,85 433,85" fill="url(#s11_orangeAccent)"/>
+    <polygon points="468,0 502,0 542,62 508,62" fill="#0C0C0E"/>
+    <polygon points="548,33 578,33 591,53 561,53" fill="#0C0C0E"/>
+    <polygon points="608,33 638,33 651,53 621,53" fill="#0C0C0E"/>
+    <polygon points="668,33 698,33 711,53 681,53" fill="#0C0C0E"/>
+    <polygon points="728,33 1600,33 1600,53 741,53" fill="url(#s11_orangeMain)"/>
+  </g>
+
+  <g filter="url(#s11_shadowBot)">
+    <polygon points="872.0,867.0 0.0,867.0 0.0,847.0 859.0,847.0" fill="url(#s11_orangeMain)"/>
+    <polygon points="932.0,867.0 902.0,867.0 889.0,847.0 919.0,847.0" fill="#0C0C0E"/>
+    <polygon points="992.0,867.0 962.0,867.0 949.0,847.0 979.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1052.0,867.0 1022.0,867.0 1009.0,847.0 1039.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1132.0,900.0 1098.0,900.0 1058.0,838.0 1092.0,838.0" fill="#0C0C0E"/>
+    <polygon points="1222.0,900.0 1162.0,900.0 1107.0,815.0 1167.0,815.0" fill="url(#s11_orangeAccent)"/>
+    <polygon points="1340.0,900.0 1247.0,900.0 1179.0,795.0 1272.0,795.0" fill="#0C0C0E"/>
+    <polygon points="1600.0,900.0 1367.0,900.0 1324.0,834.0 1600.0,834.0" fill="url(#s11_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="1418.0,882.0 1402.0,882.0 1383.0,852.0 1399.0,852.0"/>
+      <polygon points="1446.0,882.0 1430.0,882.0 1411.0,852.0 1427.0,852.0"/>
+      <polygon points="1474.0,882.0 1458.0,882.0 1439.0,852.0 1455.0,852.0"/>
+      <polygon points="1502.0,882.0 1486.0,882.0 1467.0,852.0 1483.0,852.0"/>
+      <polygon points="1530.0,882.0 1514.0,882.0 1495.0,852.0 1511.0,852.0"/>
+    </g>
+  </g>
+</svg>
         </div>
-
-        <div class="slide-content-area" style="display:flex; justify-content:center; align-items:center;">
-          <div style="max-width:1180px; width:100%; background:#ffffff; border:3px solid var(--border-dark); border-left:10px solid var(--col-yellow); padding:36px 46px; border-radius:var(--radius-sm); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
-            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;">
-              <span style="font-family:var(--font-mono); font-size:1.1rem; font-weight:800; color:#000000; text-transform:uppercase; letter-spacing:0.08em;">Principio de Simetría en Diferencias Finitas</span>
-              <span style="font-family:var(--font-mono); font-size:1.1rem; font-weight:800; color:var(--text-on-dark); background:var(--bg-dark); padding:4px 14px; border-radius:var(--radius-sm);">Ganancia 4× por cada división de malla</span>
+        <div class="s-corp-container">
+          <div class="s-corp-header">
+            <div class="s-corp-header-left">
+              <div class="s-corp-meta-tag">
+                <span class="s-corp-meta-badge">SIMETRÍA ALGEBRAICA</span>
+                <span class="s-corp-meta-slide">Diapositiva 11</span>
+              </div>
+              <h2 class="s-corp-main-title">Insight Fundamental: Cancelación Gratuita</h2>
+              <p class="s-corp-sub-desc">Por qué la simetría geométrica cuadruplica la velocidad de convergencia sin costo adicional.</p>
             </div>
-
-            <h3 style="font-family:var(--font-penmanship); font-size:2.2rem; font-weight:800; color:var(--text-main); margin-bottom:14px; line-height:1.25;">
-              Cancelación Exacta de Términos Pares de la Serie de Taylor
-            </h3>
-
-            <p style="font-size:1.3rem; font-weight:700; color:var(--text-main); line-height:1.6; margin-bottom:18px;">
-              Al restar miembro a miembro el desarrollo hacia adelante \(f(x_i+h)\) y el desarrollo hacia atrás \(f(x_i-h)\), los términos cuadráticos asociados a la segunda derivada:
-            </p>
-
-            <div style="background:var(--bg-dark); color:var(--text-on-dark); border-left:6px solid var(--col-yellow); border-radius:var(--radius-sm); padding:18px 24px; font-size:2.2rem; text-align:center; margin-bottom:20px;">
-              $$\left[ +\frac{h^2}{2} f''(x_i) \right] - \left[ +\frac{h^2}{2} f''(x_i) \right] \equiv 0$$
+            <div class="s-corp-header-controls">
+              <span class="badge-counter">11 / 20</span>
             </div>
-
-            <p style="font-size:1.25rem; font-weight:700; color:var(--text-main); line-height:1.6;">
-              <strong>Conclusión de Ingeniería:</strong> Con exactamente el mismo costo de cómputo (1 resta y 1 división), la diferencia central salta de orden \(\mathcal{O}(h)\) a orden \(\mathcal{O}(h^2)\). Siempre que el punto no sea una frontera física, la diferencia central es la elección obligada en producción.
-            </p>
+          </div>
+          <div class="s-corp-content">
+            <div class="s-corp-formula-card">
+              <span class="s-corp-formula-tag">CANCELACIÓN EXACTA DE TÉRMINOS PARES EN TAYLOR</span>
+              <div class="s-corp-formula-math">
+                $$\left[ +\frac{h^2}{2} f''(x_i) \right] - \left[ +\frac{h^2}{2} f''(x_i) \right] \equiv 0$$
+              </div>
+              <p class="s-corp-formula-desc">
+                Al restar miembro a miembro el desarrollo hacia adelante \(f(x_i+h)\) y el desarrollo hacia atrás \(f(x_i-h)\), los términos de curvatura par desaparecen idénticamente.
+              </p>
+            </div>
+            <div class="s-corp-twin-grid">
+              <div class="s-corp-twin-card">
+                <div class="s-corp-twin-header">
+                  <span class="s-corp-twin-badge">MECANISMO ANALÍTICO</span>
+                  <div class="s-corp-twin-indicator">\(\Delta E = 0\)</div>
+                </div>
+                <h3 class="s-corp-twin-title">Principio de Simetría en Diferencias Finitas</h3>
+                <p class="s-corp-twin-desc">
+                  Los errores de truncamiento de segundo orden generados a la derecha y a la izquierda tienen igual magnitud pero signos opuestos. Al restar ambas expansiones, se cancelan mutuamente.
+                </p>
+                <div class="s-corp-twin-footer">
+                  <strong>Ganancia 4×:</strong> Cuadruplica la velocidad de convergencia por cada división de malla sin evaluar derivadas adicionales.
+                </div>
+              </div>
+              <div class="s-corp-twin-card">
+                <div class="s-corp-twin-header">
+                  <span class="s-corp-twin-badge">IMPLICANCIA PRÁCTICA</span>
+                  <div class="s-corp-twin-indicator">\(\mathcal{O}(h) \to \mathcal{O}(h^2)\)</div>
+                </div>
+                <h3 class="s-corp-twin-title">Conclusión de Ingeniería</h3>
+                <p class="s-corp-twin-desc">
+                  Con exactamente el mismo costo de cómputo (1 resta y 1 división), la diferencia central salta de orden \(\mathcal{O}(h)\) a orden \(\mathcal{O}(h^2)\).
+                </p>
+                <div class="s-corp-twin-footer">
+                  <strong>Estándar de Producción:</strong> Siempre que el punto no sea una frontera física, la diferencia central es la elección obligada en producción.
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -3862,92 +4514,248 @@
         </div>
       </section>
 
-      <section class="slide" id="slide-13" data-index="13">
-        <div class="slide-top-header">
-          <div class="slide-header-left">
-            <div class="slide-meta-tag">
-              <span class="meta-tag-badge">FÓRMULAS ASIMÉTRICAS</span>
-              <span>Diapositiva 13</span>
-            </div>
-            <h2 class="slide-main-title">Fórmula Hacia Adelante de 3 Puntos (Nakamura)</h2>
-            <p class="slide-sub-desc">Recuperar el orden cuadrático \(\mathcal{O}(h^2)\) en la pared mirando hacia el interior del fluido.</p>
-          </div>
-          <div class="slide-header-controls">
-            <span class="badge-counter">13 / 20</span>
-          </div>
+      <section class="slide s-corp-slide" id="slide-13" data-index="13">
+        <div class="s-corp-bg-wrap">
+          <svg class="s-corp-decorado-svg" viewBox="0 0 1600 900" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <defs>
+    <filter id="s13_shadowTop" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+    <filter id="s13_shadowBot" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="-4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+
+    <linearGradient id="s13_orangeMain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF7100"/>
+      <stop offset="100%" stop-color="#FF5500"/>
+    </linearGradient>
+    <linearGradient id="s13_orangeAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF8800"/>
+      <stop offset="100%" stop-color="#FF6600"/>
+    </linearGradient>
+    <linearGradient id="s13_bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="85%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FAF8F3"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="900" fill="url(#s13_bgGlow)"/>
+
+  <g filter="url(#s13_shadowTop)">
+    <polygon points="0,0 233,0 276,66 0,66" fill="url(#s13_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="70,18 86,18 105,48 89,48"/>
+      <polygon points="98,18 114,18 133,48 117,48"/>
+      <polygon points="126,18 142,18 161,48 145,48"/>
+      <polygon points="154,18 170,18 189,48 173,48"/>
+      <polygon points="182,18 198,18 217,48 201,48"/>
+    </g>
+    <polygon points="260,0 353,0 421,105 328,105" fill="#0C0C0E"/>
+    <polygon points="378,0 438,0 493,85 433,85" fill="url(#s13_orangeAccent)"/>
+    <polygon points="468,0 502,0 542,62 508,62" fill="#0C0C0E"/>
+    <polygon points="548,33 578,33 591,53 561,53" fill="#0C0C0E"/>
+    <polygon points="608,33 638,33 651,53 621,53" fill="#0C0C0E"/>
+    <polygon points="668,33 698,33 711,53 681,53" fill="#0C0C0E"/>
+    <polygon points="728,33 1600,33 1600,53 741,53" fill="url(#s13_orangeMain)"/>
+  </g>
+
+  <g filter="url(#s13_shadowBot)">
+    <polygon points="872.0,867.0 0.0,867.0 0.0,847.0 859.0,847.0" fill="url(#s13_orangeMain)"/>
+    <polygon points="932.0,867.0 902.0,867.0 889.0,847.0 919.0,847.0" fill="#0C0C0E"/>
+    <polygon points="992.0,867.0 962.0,867.0 949.0,847.0 979.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1052.0,867.0 1022.0,867.0 1009.0,847.0 1039.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1132.0,900.0 1098.0,900.0 1058.0,838.0 1092.0,838.0" fill="#0C0C0E"/>
+    <polygon points="1222.0,900.0 1162.0,900.0 1107.0,815.0 1167.0,815.0" fill="url(#s13_orangeAccent)"/>
+    <polygon points="1340.0,900.0 1247.0,900.0 1179.0,795.0 1272.0,795.0" fill="#0C0C0E"/>
+    <polygon points="1600.0,900.0 1367.0,900.0 1324.0,834.0 1600.0,834.0" fill="url(#s13_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="1418.0,882.0 1402.0,882.0 1383.0,852.0 1399.0,852.0"/>
+      <polygon points="1446.0,882.0 1430.0,882.0 1411.0,852.0 1427.0,852.0"/>
+      <polygon points="1474.0,882.0 1458.0,882.0 1439.0,852.0 1455.0,852.0"/>
+      <polygon points="1502.0,882.0 1486.0,882.0 1467.0,852.0 1483.0,852.0"/>
+      <polygon points="1530.0,882.0 1514.0,882.0 1495.0,852.0 1511.0,852.0"/>
+    </g>
+  </g>
+</svg>
         </div>
-
-        <div class="slide-content-area">
-          <div class="hero-formula-card yellow-accent">
-            <span style="font-family:var(--font-mono); font-size:1.05rem; font-weight:800; color:#000000; text-transform:uppercase;">Fórmula de 3 Puntos en Pared (\(i=0\))</span>
-            <div class="hero-formula-box" style="font-size:2.35rem;">
-              $$f'_0 \approx \frac{-3 f_0 + 4 f_1 - f_2}{2h}$$
+        <div class="s-corp-container">
+          <div class="s-corp-header">
+            <div class="s-corp-header-left">
+              <div class="s-corp-meta-tag">
+                <span class="s-corp-meta-badge">FÓRMULAS ASIMÉTRICAS</span>
+                <span class="s-corp-meta-slide">Diapositiva 13</span>
+              </div>
+              <h2 class="s-corp-main-title">Fórmula Hacia Adelante de 3 Puntos (Nakamura)</h2>
+              <p class="s-corp-sub-desc">Recuperar el orden cuadrático \(\mathcal{O}(h^2)\) en la pared mirando hacia el interior del fluido.</p>
             </div>
-            <p style="font-size:1.35rem; color:var(--text-main); font-weight:800;">
-              Orden de Precisión Recuperado: \(\mathcal{O}(h^2)\)
-            </p>
+            <div class="s-corp-header-controls">
+              <span class="badge-counter">13 / 20</span>
+            </div>
           </div>
-
-          <div class="hero-concept-banner">
-            <div class="banner-text-title" style="font-size:1.35rem;">Consistencia de Signos y Coeficientes \((-3, +4, -1)\)</div>
-            <div class="banner-text-desc" style="font-size:1.22rem;">
-              Combinando las series de Taylor en \(f_1\) y \(f_2\) con pesos adecuados, el término cuadrático \(h^2 f''_0\) se cancela algebraicamente.<br>
-              <strong>Resultado:</strong> Segundo orden estricto en la frontera sin necesidad de inventar nodos fantasmas exteriores.
+          <div class="s-corp-content">
+            <div class="s-corp-formula-card">
+              <span class="s-corp-formula-tag">FÓRMULA DE 3 PUNTOS EN PARED (i=0) · ORDEN \(\mathcal{O}(h^2)\)</span>
+              <div class="s-corp-formula-math">
+                $$f'_0 \approx \frac{-3 f_0 + 4 f_1 - f_2}{2h}$$
+              </div>
+              <p class="s-corp-formula-desc">
+                Operador asimétrico de segundo orden en la frontera física utilizando los tres primeros nodos del dominio.
+              </p>
+            </div>
+            <div class="s-corp-twin-grid">
+              <div class="s-corp-twin-card">
+                <div class="s-corp-twin-header">
+                  <span class="s-corp-twin-badge">ÁLGEBRA DE TAYLOR</span>
+                  <div class="s-corp-twin-indicator">(-3, +4, -1)</div>
+                </div>
+                <h3 class="s-corp-twin-title">Consistencia de Coeficientes</h3>
+                <p class="s-corp-twin-desc">
+                  Combinando las series de Taylor en \(f_1\) y \(f_2\) con pesos adecuados, el término cuadrático \(h^2 f''_0\) se cancela algebraicamente sin necesidad de simetría física.
+                </p>
+                <div class="s-corp-twin-footer">
+                  <strong>Eliminación de Nodos Fantasma:</strong> No requiere inventar valores fuera del dominio físico ni extrapolaciones artificiales.
+                </div>
+              </div>
+              <div class="s-corp-twin-card">
+                <div class="s-corp-twin-header">
+                  <span class="s-corp-twin-badge">ORDEN RECUPERADO</span>
+                  <div class="s-corp-twin-indicator">\(\mathcal{O}(h^2)\)</div>
+                </div>
+                <h3 class="s-corp-twin-title">Preservación del Orden Cuadrático</h3>
+                <p class="s-corp-twin-desc">
+                  Garantiza segundo orden estricto en la frontera. Evita que la aproximación en la pared degrade la convergencia global de toda la simulación computacional.
+                </p>
+                <div class="s-corp-twin-footer">
+                  <strong>Resultado:</strong> Segundo orden estricto en la frontera sin comprometer la estabilidad del resolvedor.
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="slide" id="slide-14" data-index="14">
-        <div class="slide-top-header">
-          <div class="slide-header-left">
-            <div class="slide-meta-tag">
-              <span class="meta-tag-badge">ARITMÉTICA COMPUTACIONAL</span>
-              <span>Diapositiva 14</span>
-            </div>
-            <h2 class="slide-main-title">La Paradoja del Error: Truncamiento vs. Redondeo</h2>
-            <p class="slide-sub-desc">El choque entre el modelo matemático continuo y los límites físicos del hardware IEEE-754.</p>
-          </div>
-          <div class="slide-header-controls">
-            <span class="badge-counter">14 / 20</span>
-          </div>
+      <section class="slide s-corp-slide" id="slide-14" data-index="14">
+        <div class="s-corp-bg-wrap">
+          <svg class="s-corp-decorado-svg" viewBox="0 0 1600 900" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <defs>
+    <filter id="s14_shadowTop" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+    <filter id="s14_shadowBot" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="-4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+
+    <linearGradient id="s14_orangeMain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF7100"/>
+      <stop offset="100%" stop-color="#FF5500"/>
+    </linearGradient>
+    <linearGradient id="s14_orangeAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF8800"/>
+      <stop offset="100%" stop-color="#FF6600"/>
+    </linearGradient>
+    <linearGradient id="s14_bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="85%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FAF8F3"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="900" fill="url(#s14_bgGlow)"/>
+
+  <g filter="url(#s14_shadowTop)">
+    <polygon points="0,0 233,0 276,66 0,66" fill="url(#s14_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="70,18 86,18 105,48 89,48"/>
+      <polygon points="98,18 114,18 133,48 117,48"/>
+      <polygon points="126,18 142,18 161,48 145,48"/>
+      <polygon points="154,18 170,18 189,48 173,48"/>
+      <polygon points="182,18 198,18 217,48 201,48"/>
+    </g>
+    <polygon points="260,0 353,0 421,105 328,105" fill="#0C0C0E"/>
+    <polygon points="378,0 438,0 493,85 433,85" fill="url(#s14_orangeAccent)"/>
+    <polygon points="468,0 502,0 542,62 508,62" fill="#0C0C0E"/>
+    <polygon points="548,33 578,33 591,53 561,53" fill="#0C0C0E"/>
+    <polygon points="608,33 638,33 651,53 621,53" fill="#0C0C0E"/>
+    <polygon points="668,33 698,33 711,53 681,53" fill="#0C0C0E"/>
+    <polygon points="728,33 1600,33 1600,53 741,53" fill="url(#s14_orangeMain)"/>
+  </g>
+
+  <g filter="url(#s14_shadowBot)">
+    <polygon points="872.0,867.0 0.0,867.0 0.0,847.0 859.0,847.0" fill="url(#s14_orangeMain)"/>
+    <polygon points="932.0,867.0 902.0,867.0 889.0,847.0 919.0,847.0" fill="#0C0C0E"/>
+    <polygon points="992.0,867.0 962.0,867.0 949.0,847.0 979.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1052.0,867.0 1022.0,867.0 1009.0,847.0 1039.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1132.0,900.0 1098.0,900.0 1058.0,838.0 1092.0,838.0" fill="#0C0C0E"/>
+    <polygon points="1222.0,900.0 1162.0,900.0 1107.0,815.0 1167.0,815.0" fill="url(#s14_orangeAccent)"/>
+    <polygon points="1340.0,900.0 1247.0,900.0 1179.0,795.0 1272.0,795.0" fill="#0C0C0E"/>
+    <polygon points="1600.0,900.0 1367.0,900.0 1324.0,834.0 1600.0,834.0" fill="url(#s14_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="1418.0,882.0 1402.0,882.0 1383.0,852.0 1399.0,852.0"/>
+      <polygon points="1446.0,882.0 1430.0,882.0 1411.0,852.0 1427.0,852.0"/>
+      <polygon points="1474.0,882.0 1458.0,882.0 1439.0,852.0 1455.0,852.0"/>
+      <polygon points="1502.0,882.0 1486.0,882.0 1467.0,852.0 1483.0,852.0"/>
+      <polygon points="1530.0,882.0 1514.0,882.0 1495.0,852.0 1511.0,852.0"/>
+    </g>
+  </g>
+</svg>
         </div>
-
-        <div class="slide-content-area">
-          <div class="two-cols-hero-grid">
-            <!-- Truncamiento -->
-            <div class="hero-col-card" style="padding:24px 28px; border-top:6px solid var(--border-dark);">
-              <div>
-                <h3 class="hero-col-title" style="color:var(--text-main); font-size:1.75rem;">1. Error de Truncamiento (\(E_t\))</h3>
-                <p class="hero-col-desc" style="font-size:1.2rem; line-height:1.55;">
-                  • <strong>Origen:</strong> Corte de la serie de Taylor (modelo matemático).<br>
-                  • <strong>Comportamiento:</strong> \(E_t \propto h\) o \(E_t \propto h^2\).<br>
-                  • <strong>Al achicar \(h\):</strong> <strong>DISMINUYE</strong> hacia cero.
-                </p>
+        <div class="s-corp-container">
+          <div class="s-corp-header">
+            <div class="s-corp-header-left">
+              <div class="s-corp-meta-tag">
+                <span class="s-corp-meta-badge">ARITMÉTICA COMPUTACIONAL</span>
+                <span class="s-corp-meta-slide">Diapositiva 14</span>
               </div>
-              <div style="font-family:var(--font-mono); font-size:1.2rem; font-weight:800; color:#000000; text-align:center; padding:12px; background:#ffffff; border:2px solid var(--border-dark); border-radius:var(--radius-sm);">
-                \(\lim_{h \to 0} E_t(h) = 0\)
-              </div>
+              <h2 class="s-corp-main-title">La Paradoja del Error: Truncamiento vs. Redondeo</h2>
+              <p class="s-corp-sub-desc">El choque entre el modelo matemático continuo y los límites físicos del hardware IEEE-754.</p>
             </div>
-
-            <!-- Redondeo -->
-            <div class="hero-col-card yellow-accent" style="padding:24px 28px; border-top:6px solid var(--col-yellow);">
-              <div>
-                <h3 class="hero-col-title" style="color:var(--text-main); font-size:1.75rem;">2. Error de Redondeo (\(E_r\))</h3>
-                <p class="hero-col-desc" style="font-size:1.2rem; line-height:1.55;">
-                  • <strong>Origen:</strong> Precisión finita en coma flotante (53 bits de mantisa).<br>
+            <div class="s-corp-header-controls">
+              <span class="badge-counter">14 / 20</span>
+            </div>
+          </div>
+          <div class="s-corp-content">
+            <div class="s-corp-formula-card">
+              <span class="s-corp-formula-tag">ERROR TOTAL COMBINADO Y EXISTENCIA DE PASO ÓPTIMO</span>
+              <div class="s-corp-formula-math">
+                $$E_{\text{total}}(h) \approx C_1 h^p + \frac{C_2 \varepsilon_m}{h} \implies \text{Existe un paso óptimo } h^* \text{ finito}$$
+              </div>
+              <p class="s-corp-formula-desc">
+                El error total es la superposición del error de truncamiento decreciente y el error de redondeo creciente.
+              </p>
+            </div>
+            <div class="s-corp-twin-grid">
+              <div class="s-corp-twin-card">
+                <div class="s-corp-twin-header">
+                  <span class="s-corp-twin-badge">MODELO CONTINUO</span>
+                  <div class="s-corp-twin-indicator">\(\lim_{h \to 0} E_t(h) = 0\)</div>
+                </div>
+                <h3 class="s-corp-twin-title">1. Error de Truncamiento (\(E_t\))</h3>
+                <p class="s-corp-twin-desc">
+                  • <strong>Origen:</strong> Corte de la serie infinita de Taylor.<br>
+                  • <strong>Comportamiento:</strong> \(E_t \propto h\) o \(E_t \propto h^2\).<br>
+                  • <strong>Al achicar \(h\):</strong> <strong>DISMINUYE</strong> asintóticamente hacia cero.
+                </p>
+                <div class="s-corp-twin-footer">
+                  <strong>Zona de Truncamiento:</strong> Para pasos grandes, el error está dominado puramente por la matemática.
+                </div>
+              </div>
+              <div class="s-corp-twin-card">
+                <div class="s-corp-twin-header">
+                  <span class="s-corp-twin-badge">LÍMITES DEL HARDWARE</span>
+                  <div class="s-corp-twin-indicator">\(\lim_{h \to 0} E_r(h) = \infty\)</div>
+                </div>
+                <h3 class="s-corp-twin-title">2. Error de Redondeo (\(E_r\))</h3>
+                <p class="s-corp-twin-desc">
+                  • <strong>Origen:</strong> Precisión finita en coma flotante IEEE-754 (53 bits).<br>
                   • <strong>Cancelación:</strong> \(f(x+h) - f(x)\) resta dígitos significativos.<br>
                   • <strong>Al achicar \(h\):</strong> <strong>AUMENTA</strong> como \(\sim \frac{\varepsilon_m}{h}\).
                 </p>
-              </div>
-              <div style="font-family:var(--font-mono); font-size:1.2rem; font-weight:800; color:var(--text-on-dark); background:var(--bg-dark); text-align:center; padding:12px; border-radius:var(--radius-sm);">
-                \(\lim_{h \to 0} E_r(h) = \infty\)
+                <div class="s-corp-twin-footer">
+                  <strong>Zona de Cancelación Catastrófica:</strong> Pasos infinitesimales destruyen la solución por ruido numérico.
+                </div>
               </div>
             </div>
-          </div>
-
-          <div style="margin-top:16px; text-align:center; font-size:1.25rem; font-weight:800; color:var(--text-main); background:#ffffff; padding:16px; border-radius:var(--radius-sm); border:2px solid var(--border-dark);">
-            Error Total: \(E_{\text{total}}(h) \approx C_1 h^p + \frac{C_2 \varepsilon_m}{h} \implies \text{Existe un paso óptimo } h^* \text{ finito}\)
           </div>
         </div>
       </section>
@@ -4051,49 +4859,127 @@
         </div>
       </section>
 
-      <section class="slide" id="slide-16" data-index="16">
-        <div class="slide-top-header">
-          <div class="slide-header-left">
-            <div class="slide-meta-tag">
-              <span class="meta-tag-badge">APLICACIÓN ELECTROMECÁNICA</span>
-              <span>Diapositiva 16</span>
-            </div>
-            <h2 class="slide-main-title">Mecánica de Fluidos: Ley de Newton de la Viscosidad</h2>
-            <p class="slide-sub-desc">Cálculo de arrastre viscoso en placa plana: \(\tau_w = \mu \left.\frac{du}{dy}\right|_{y=0}\).</p>
-          </div>
-          <div class="slide-header-controls">
-            <span class="badge-counter">16 / 20</span>
-          </div>
+      <section class="slide s-corp-slide" id="slide-16" data-index="16">
+        <div class="s-corp-bg-wrap">
+          <svg class="s-corp-decorado-svg" viewBox="0 0 1600 900" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <defs>
+    <filter id="s16_shadowTop" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+    <filter id="s16_shadowBot" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="-4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+
+    <linearGradient id="s16_orangeMain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF7100"/>
+      <stop offset="100%" stop-color="#FF5500"/>
+    </linearGradient>
+    <linearGradient id="s16_orangeAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF8800"/>
+      <stop offset="100%" stop-color="#FF6600"/>
+    </linearGradient>
+    <linearGradient id="s16_bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="85%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FAF8F3"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="900" fill="url(#s16_bgGlow)"/>
+
+  <g filter="url(#s16_shadowTop)">
+    <polygon points="0,0 233,0 276,66 0,66" fill="url(#s16_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="70,18 86,18 105,48 89,48"/>
+      <polygon points="98,18 114,18 133,48 117,48"/>
+      <polygon points="126,18 142,18 161,48 145,48"/>
+      <polygon points="154,18 170,18 189,48 173,48"/>
+      <polygon points="182,18 198,18 217,48 201,48"/>
+    </g>
+    <polygon points="260,0 353,0 421,105 328,105" fill="#0C0C0E"/>
+    <polygon points="378,0 438,0 493,85 433,85" fill="url(#s16_orangeAccent)"/>
+    <polygon points="468,0 502,0 542,62 508,62" fill="#0C0C0E"/>
+    <polygon points="548,33 578,33 591,53 561,53" fill="#0C0C0E"/>
+    <polygon points="608,33 638,33 651,53 621,53" fill="#0C0C0E"/>
+    <polygon points="668,33 698,33 711,53 681,53" fill="#0C0C0E"/>
+    <polygon points="728,33 1600,33 1600,53 741,53" fill="url(#s16_orangeMain)"/>
+  </g>
+
+  <g filter="url(#s16_shadowBot)">
+    <polygon points="872.0,867.0 0.0,867.0 0.0,847.0 859.0,847.0" fill="url(#s16_orangeMain)"/>
+    <polygon points="932.0,867.0 902.0,867.0 889.0,847.0 919.0,847.0" fill="#0C0C0E"/>
+    <polygon points="992.0,867.0 962.0,867.0 949.0,847.0 979.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1052.0,867.0 1022.0,867.0 1009.0,847.0 1039.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1132.0,900.0 1098.0,900.0 1058.0,838.0 1092.0,838.0" fill="#0C0C0E"/>
+    <polygon points="1222.0,900.0 1162.0,900.0 1107.0,815.0 1167.0,815.0" fill="url(#s16_orangeAccent)"/>
+    <polygon points="1340.0,900.0 1247.0,900.0 1179.0,795.0 1272.0,795.0" fill="#0C0C0E"/>
+    <polygon points="1600.0,900.0 1367.0,900.0 1324.0,834.0 1600.0,834.0" fill="url(#s16_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="1418.0,882.0 1402.0,882.0 1383.0,852.0 1399.0,852.0"/>
+      <polygon points="1446.0,882.0 1430.0,882.0 1411.0,852.0 1427.0,852.0"/>
+      <polygon points="1474.0,882.0 1458.0,882.0 1439.0,852.0 1455.0,852.0"/>
+      <polygon points="1502.0,882.0 1486.0,882.0 1467.0,852.0 1483.0,852.0"/>
+      <polygon points="1530.0,882.0 1514.0,882.0 1495.0,852.0 1511.0,852.0"/>
+    </g>
+  </g>
+</svg>
         </div>
-
-        <div class="slide-content-area">
-          <div class="hero-formula-card yellow-accent" style="margin-bottom:18px; padding:20px 30px;">
-            <span style="font-family:var(--font-mono); font-size:0.95rem; font-weight:800; color:#000000; text-transform:uppercase;">Ley Constitutiva de Newton</span>
-            <div class="hero-formula-box" style="font-size:2rem; margin:10px 0;">
-              $$\tau_w = \mu \left. \frac{du}{dy} \right|_{y=0}$$
+        <div class="s-corp-container">
+          <div class="s-corp-header">
+            <div class="s-corp-header-left">
+              <div class="s-corp-meta-tag">
+                <span class="s-corp-meta-badge">APLICACIÓN ELECTROMECÁNICA</span>
+                <span class="s-corp-meta-slide">Diapositiva 16</span>
+              </div>
+              <h2 class="s-corp-main-title">Mecánica de Fluidos: Ley de Newton de la Viscosidad</h2>
+              <p class="s-corp-sub-desc">Cálculo de arrastre viscoso en placa plana: \(\tau_w = \mu \left.\frac{du}{dy}\right|_{y=0}\).</p>
             </div>
-            <p style="font-size:1.25rem; font-weight:700; color:var(--text-main);">
-              El gradiente en la pared define la tensión de corte tangencial y la potencia de fricción disipada.
-            </p>
+            <div class="s-corp-header-controls">
+              <span class="badge-counter">16 / 20</span>
+            </div>
           </div>
-
-          <div class="two-cols-hero-grid" style="height:auto;">
-            <div class="hero-col-card" style="padding:24px 28px;">
-              <h4 class="hero-col-title" style="font-size:1.45rem; margin-bottom:10px;">Datos de Retícula Experimental</h4>
-              <p style="font-family:var(--font-mono); font-size:1.05rem; line-height:1.65; color:var(--text-main); font-weight:700;">
-                y = [0.0, 0.002, 0.004, 0.006, 0.008] m<br>
-                u = [0.0, 0.006180, 0.011756, 0.016180, 0.019021] m/s<br>
-                h = 0.002 m (Espaciado de malla constante)
+          <div class="s-corp-content">
+            <div class="s-corp-formula-card">
+              <span class="s-corp-formula-tag">LEY CONSTITUTIVA DE NEWTON EN LA PARED</span>
+              <div class="s-corp-formula-math">
+                $$\tau_w = \mu \left. \frac{du}{dy} \right|_{y=0}$$
+              </div>
+              <p class="s-corp-formula-desc">
+                El gradiente de velocidad en la pared sólida define directamente la tensión de corte tangencial y la disipación de potencia.
               </p>
             </div>
-
-            <div class="hero-col-card" style="padding:24px 28px; border-top:5px solid var(--border-dark);">
-              <h4 class="hero-col-title" style="font-size:1.45rem; color:#000000; margin-bottom:10px;">La Discrepancia del Modelo</h4>
-              <p style="font-size:1.2rem; color:var(--text-main); line-height:1.6; font-weight:700;">
-                • <strong>Forward 2 Puntos \(\mathcal{O}(h)\):</strong> \(du/dy = 3.0900 \text{ s}^{-1}\)<br>
-                • <strong>Forward 3 Puntos \(\mathcal{O}(h^2)\):</strong> \(du/dy = 3.2410 \text{ s}^{-1}\)<br>
-                <strong style="color:#000000; background:var(--col-yellow-light); padding:2px 6px;">¡Una subestimación de casi el 5% en la fuerza de arrastre!</strong>
-              </p>
+            <div class="s-corp-twin-grid">
+              <div class="s-corp-twin-card">
+                <div class="s-corp-twin-header">
+                  <span class="s-corp-twin-badge">MALLA ESPACIAL DISCRETA</span>
+                  <div class="s-corp-twin-indicator">\(h = 0.002\text{ m}\)</div>
+                </div>
+                <h3 class="s-corp-twin-title">Datos de Retícula Experimental</h3>
+                <p class="s-corp-twin-desc">
+                  Malla experimental unidimensional perpendicular a la placa:<br>
+                  • \(y = [0.0, 0.002, 0.004, 0.006, 0.008]\text{ m}\)<br>
+                  • \(u = [0.0, 0.006180, 0.011756, 0.016180, 0.019021]\text{ m/s}\)<br>
+                  • \(h = 0.002\text{ m}\) (Espaciado de malla constante).
+                </p>
+                <div class="s-corp-twin-footer">
+                  <strong>Condición de No Deslizamiento:</strong> Velocidad nula en la pared (\(u(0) = 0\)).
+                </div>
+              </div>
+              <div class="s-corp-twin-card">
+                <div class="s-corp-twin-header">
+                  <span class="s-corp-twin-badge">IMPACTO DEL ORDEN NUMÉRICO</span>
+                  <div class="s-corp-twin-indicator">\(\Delta \approx 5\%\)</div>
+                </div>
+                <h3 class="s-corp-twin-title">La Discrepancia del Modelo</h3>
+                <p class="s-corp-twin-desc">
+                  • <strong>Forward 2 Puntos \(\mathcal{O}(h)\):</strong> \(du/dy = 3.0900 \text{ s}^{-1}\)<br>
+                  • <strong>Forward 3 Puntos \(\mathcal{O}(h^2)\):</strong> \(du/dy = 3.2410 \text{ s}^{-1}\)<br>
+                  • <strong>Subestimación:</strong> ¡Casi 5% de error en la fuerza de arrastre calculada!
+                </p>
+                <div class="s-corp-twin-footer">
+                  <strong>Lección Crítica:</strong> Un esquema de primer orden subestima el dimensionamiento térmico y mecánico del sistema.
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -4210,143 +5096,357 @@
         </div>
       </section>
 
-      <section class="slide" id="slide-18" data-index="18">
-        <div class="slide-top-header">
-          <div class="slide-header-left">
-            <div class="slide-meta-tag">
-              <span class="meta-tag-badge">ZONA I: INTERIOR DEL DOMINIO</span>
-              <span>Diapositiva 18</span>
-            </div>
-            <h2 class="slide-main-title">Síntesis en el Dominio: Simetría y Gestión del Paso</h2>
-            <p class="slide-sub-desc">Cómo optimizar la precisión y el tiempo de cálculo lejos de las fronteras físicas.</p>
-          </div>
-          <div class="slide-header-controls">
-            <span class="badge-counter">18 / 20</span>
-          </div>
+      <section class="slide s-corp-slide" id="slide-18" data-index="18">
+        <div class="s-corp-bg-wrap">
+          <svg class="s-corp-decorado-svg" viewBox="0 0 1600 900" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <defs>
+    <filter id="s18_shadowTop" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+    <filter id="s18_shadowBot" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="-4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+
+    <linearGradient id="s18_orangeMain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF7100"/>
+      <stop offset="100%" stop-color="#FF5500"/>
+    </linearGradient>
+    <linearGradient id="s18_orangeAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF8800"/>
+      <stop offset="100%" stop-color="#FF6600"/>
+    </linearGradient>
+    <linearGradient id="s18_bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="85%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FAF8F3"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="900" fill="url(#s18_bgGlow)"/>
+
+  <g filter="url(#s18_shadowTop)">
+    <polygon points="0,0 233,0 276,66 0,66" fill="url(#s18_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="70,18 86,18 105,48 89,48"/>
+      <polygon points="98,18 114,18 133,48 117,48"/>
+      <polygon points="126,18 142,18 161,48 145,48"/>
+      <polygon points="154,18 170,18 189,48 173,48"/>
+      <polygon points="182,18 198,18 217,48 201,48"/>
+    </g>
+    <polygon points="260,0 353,0 421,105 328,105" fill="#0C0C0E"/>
+    <polygon points="378,0 438,0 493,85 433,85" fill="url(#s18_orangeAccent)"/>
+    <polygon points="468,0 502,0 542,62 508,62" fill="#0C0C0E"/>
+    <polygon points="548,33 578,33 591,53 561,53" fill="#0C0C0E"/>
+    <polygon points="608,33 638,33 651,53 621,53" fill="#0C0C0E"/>
+    <polygon points="668,33 698,33 711,53 681,53" fill="#0C0C0E"/>
+    <polygon points="728,33 1600,33 1600,53 741,53" fill="url(#s18_orangeMain)"/>
+  </g>
+
+  <g filter="url(#s18_shadowBot)">
+    <polygon points="872.0,867.0 0.0,867.0 0.0,847.0 859.0,847.0" fill="url(#s18_orangeMain)"/>
+    <polygon points="932.0,867.0 902.0,867.0 889.0,847.0 919.0,847.0" fill="#0C0C0E"/>
+    <polygon points="992.0,867.0 962.0,867.0 949.0,847.0 979.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1052.0,867.0 1022.0,867.0 1009.0,847.0 1039.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1132.0,900.0 1098.0,900.0 1058.0,838.0 1092.0,838.0" fill="#0C0C0E"/>
+    <polygon points="1222.0,900.0 1162.0,900.0 1107.0,815.0 1167.0,815.0" fill="url(#s18_orangeAccent)"/>
+    <polygon points="1340.0,900.0 1247.0,900.0 1179.0,795.0 1272.0,795.0" fill="#0C0C0E"/>
+    <polygon points="1600.0,900.0 1367.0,900.0 1324.0,834.0 1600.0,834.0" fill="url(#s18_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="1418.0,882.0 1402.0,882.0 1383.0,852.0 1399.0,852.0"/>
+      <polygon points="1446.0,882.0 1430.0,882.0 1411.0,852.0 1427.0,852.0"/>
+      <polygon points="1474.0,882.0 1458.0,882.0 1439.0,852.0 1455.0,852.0"/>
+      <polygon points="1502.0,882.0 1486.0,882.0 1467.0,852.0 1483.0,852.0"/>
+      <polygon points="1530.0,882.0 1514.0,882.0 1495.0,852.0 1511.0,852.0"/>
+    </g>
+  </g>
+</svg>
         </div>
-
-        <div class="slide-content-area" style="display:flex; justify-content:center; align-items:center;">
-          <div class="single-focus-card" style="max-width:1180px; width:100%; border-top:6px solid var(--col-yellow);">
-            <div class="focus-card-header">
-              <span class="focus-card-tag">Interior de la Malla Computacional</span>
-              <h3 class="focus-card-title">Simetría Bilateral & Selección Óptima del Paso \(h^*\)</h3>
+        <div class="s-corp-container">
+          <div class="s-corp-header">
+            <div class="s-corp-header-left">
+              <div class="s-corp-meta-tag">
+                <span class="s-corp-meta-badge">ZONA I: INTERIOR DEL DOMINIO</span>
+                <span class="s-corp-meta-slide">Diapositiva 18</span>
+              </div>
+              <h2 class="s-corp-main-title">Síntesis en el Dominio: Simetría y Gestión del Paso</h2>
+              <p class="s-corp-sub-desc">Cómo optimizar la precisión y el tiempo de cálculo lejos de las fronteras físicas.</p>
             </div>
-            <div class="focus-card-body">
-              <p class="focus-card-lead">
-                En el interior del dominio físico existen nodos vecinos tanto a izquierda como a derecha (\(x_{i-1}, x_{i+1}\)):
+            <div class="s-corp-header-controls">
+              <span class="badge-counter">18 / 20</span>
+            </div>
+          </div>
+          <div class="s-corp-content">
+            <div class="s-corp-formula-card">
+              <span class="s-corp-formula-tag">INTERIOR DE LA MALLA COMPUTACIONAL · SIMETRÍA BILATERAL</span>
+              <div class="s-corp-formula-math">
+                $$f'_i \approx \frac{f_{i+1} - f_{i-1}}{2h} \implies \text{Error } \mathcal{O}(h^2) = -\frac{h^2}{6}f'''(\xi)$$
+              </div>
+              <p class="s-corp-formula-desc">
+                En el interior del dominio existen nodos vecinos simétricos a izquierda y derecha (\(x_{i-1}, x_{i+1}\)).
               </p>
-
-              <div class="focus-formula-pill">
-                <div style="font-size:2.2rem;">
-                  $$f'_i \approx \frac{f_{i+1} - f_{i-1}}{2h} \implies \text{Error } \mathcal{O}(h^2) = -\frac{h^2}{6}f'''(\xi)$$
+            </div>
+            <div class="s-corp-twin-grid">
+              <div class="s-corp-twin-card">
+                <div class="s-corp-twin-header">
+                  <span class="s-corp-twin-badge">SIMETRÍA EXACTA</span>
+                  <div class="s-corp-twin-indicator">\(\mathcal{O}(h^2)\)</div>
+                </div>
+                <h3 class="s-corp-twin-title">Aprovechamiento de la Simetría</h3>
+                <p class="s-corp-twin-desc">
+                  La cancelación par de Taylor es exacta. Con solo 2 evaluaciones funcionales se cuadruplica la velocidad de convergencia sin costo de cómputo adicional.
+                </p>
+                <div class="s-corp-twin-footer">
+                  <strong>Eficiencia:</strong> Máxima precisión por ciclo de reloj de CPU.
                 </div>
               </div>
-
-              <div style="background:#ffffff; border:2px solid var(--border-dark); border-radius:var(--radius-sm); padding:22px 28px; margin-top:14px;">
-                <p style="font-size:1.3rem; font-weight:700; color:#000000; line-height:1.6; margin-bottom:12px;">
-                  • <strong>Aprovechamiento de la Simetría:</strong> La cancelación par de Taylor es exacta. Con solo 2 evaluaciones se cuadruplica la velocidad de convergencia sin costo adicional.
+              <div class="s-corp-twin-card">
+                <div class="s-corp-twin-header">
+                  <span class="s-corp-twin-badge">PASO SEGURO</span>
+                  <div class="s-corp-twin-indicator">\(h^* \approx 10^{-5}\)</div>
+                </div>
+                <h3 class="s-corp-twin-title">Gestión Segura del Paso \(h^*\)</h3>
+                <p class="s-corp-twin-desc">
+                  Trabajar en torno a \(h^* \approx 10^{-5}\). No forzar pasos inferiores a \(10^{-6}\) para evitar ingresar a la zona destructiva del error de redondeo (\(\varepsilon_m/h\)).
                 </p>
-                <p style="font-size:1.3rem; font-weight:700; color:#000000; line-height:1.6;">
-                  • <strong>Gestión Segura del Paso:</strong> Trabajar en torno a \(h^* \approx 10^{-5}\). No forzar pasos inferiores a \(10^{-6}\) para evitar ingresar a la zona destructiva del error de redondeo (\(\varepsilon_m/h\)).
-                </p>
+                <div class="s-corp-twin-footer">
+                  <strong>Regla de Oro:</strong> Refinar mallas en forma adaptativa, nunca con pasos menores al umbral de cancelación.
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="slide" id="slide-19" data-index="19">
-        <div class="slide-top-header">
-          <div class="slide-header-left">
-            <div class="slide-meta-tag">
-              <span class="meta-tag-badge">ZONA II: FRONTERA FÍSICA</span>
-              <span>Diapositiva 19</span>
-            </div>
-            <h2 class="slide-main-title">Síntesis en el Dominio: Paredes Sólidas y Contornos</h2>
-            <p class="slide-sub-desc">Preservación estricta del orden cuadrático donde actúan las leyes constitutivas.</p>
-          </div>
-          <div class="slide-header-controls">
-            <span class="badge-counter">19 / 20</span>
-          </div>
+      <section class="slide s-corp-slide" id="slide-19" data-index="19">
+        <div class="s-corp-bg-wrap">
+          <svg class="s-corp-decorado-svg" viewBox="0 0 1600 900" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <defs>
+    <filter id="s19_shadowTop" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+    <filter id="s19_shadowBot" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="-4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+
+    <linearGradient id="s19_orangeMain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF7100"/>
+      <stop offset="100%" stop-color="#FF5500"/>
+    </linearGradient>
+    <linearGradient id="s19_orangeAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF8800"/>
+      <stop offset="100%" stop-color="#FF6600"/>
+    </linearGradient>
+    <linearGradient id="s19_bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="85%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FAF8F3"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="900" fill="url(#s19_bgGlow)"/>
+
+  <g filter="url(#s19_shadowTop)">
+    <polygon points="0,0 233,0 276,66 0,66" fill="url(#s19_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="70,18 86,18 105,48 89,48"/>
+      <polygon points="98,18 114,18 133,48 117,48"/>
+      <polygon points="126,18 142,18 161,48 145,48"/>
+      <polygon points="154,18 170,18 189,48 173,48"/>
+      <polygon points="182,18 198,18 217,48 201,48"/>
+    </g>
+    <polygon points="260,0 353,0 421,105 328,105" fill="#0C0C0E"/>
+    <polygon points="378,0 438,0 493,85 433,85" fill="url(#s19_orangeAccent)"/>
+    <polygon points="468,0 502,0 542,62 508,62" fill="#0C0C0E"/>
+    <polygon points="548,33 578,33 591,53 561,53" fill="#0C0C0E"/>
+    <polygon points="608,33 638,33 651,53 621,53" fill="#0C0C0E"/>
+    <polygon points="668,33 698,33 711,53 681,53" fill="#0C0C0E"/>
+    <polygon points="728,33 1600,33 1600,53 741,53" fill="url(#s19_orangeMain)"/>
+  </g>
+
+  <g filter="url(#s19_shadowBot)">
+    <polygon points="872.0,867.0 0.0,867.0 0.0,847.0 859.0,847.0" fill="url(#s19_orangeMain)"/>
+    <polygon points="932.0,867.0 902.0,867.0 889.0,847.0 919.0,847.0" fill="#0C0C0E"/>
+    <polygon points="992.0,867.0 962.0,867.0 949.0,847.0 979.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1052.0,867.0 1022.0,867.0 1009.0,847.0 1039.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1132.0,900.0 1098.0,900.0 1058.0,838.0 1092.0,838.0" fill="#0C0C0E"/>
+    <polygon points="1222.0,900.0 1162.0,900.0 1107.0,815.0 1167.0,815.0" fill="url(#s19_orangeAccent)"/>
+    <polygon points="1340.0,900.0 1247.0,900.0 1179.0,795.0 1272.0,795.0" fill="#0C0C0E"/>
+    <polygon points="1600.0,900.0 1367.0,900.0 1324.0,834.0 1600.0,834.0" fill="url(#s19_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="1418.0,882.0 1402.0,882.0 1383.0,852.0 1399.0,852.0"/>
+      <polygon points="1446.0,882.0 1430.0,882.0 1411.0,852.0 1427.0,852.0"/>
+      <polygon points="1474.0,882.0 1458.0,882.0 1439.0,852.0 1455.0,852.0"/>
+      <polygon points="1502.0,882.0 1486.0,882.0 1467.0,852.0 1483.0,852.0"/>
+      <polygon points="1530.0,882.0 1514.0,882.0 1495.0,852.0 1511.0,852.0"/>
+    </g>
+  </g>
+</svg>
         </div>
-
-        <div class="slide-content-area" style="display:flex; justify-content:center; align-items:center;">
-          <div class="single-focus-card" style="max-width:1180px; width:100%; border-top:6px solid var(--border-dark);">
-            <div class="focus-card-header">
-              <span class="focus-card-tag" style="background:#000000; color:#ffffff; border-color:#000000;">Fronteras Impermeables</span>
-              <h3 class="focus-card-title">Asimetría & Preservación del Orden Cuadrático</h3>
+        <div class="s-corp-container">
+          <div class="s-corp-header">
+            <div class="s-corp-header-left">
+              <div class="s-corp-meta-tag">
+                <span class="s-corp-meta-badge">ZONA II: FRONTERA FÍSICA</span>
+                <span class="s-corp-meta-slide">Diapositiva 19</span>
+              </div>
+              <h2 class="s-corp-main-title">Síntesis en el Dominio: Paredes Sólidas y Contornos</h2>
+              <p class="s-corp-sub-desc">Preservación estricta del orden cuadrático donde actúan las leyes constitutivas.</p>
             </div>
-            <div class="focus-card-body">
-              <p class="focus-card-lead">
-                En una pared física (\(y=0\)) no existen nodos exteriores, pero aquí ocurren los fenómenos más críticos:
+            <div class="s-corp-header-controls">
+              <span class="badge-counter">19 / 20</span>
+            </div>
+          </div>
+          <div class="s-corp-content">
+            <div class="s-corp-formula-card">
+              <span class="s-corp-formula-tag">FRONTERAS IMPERMEABLES · PRESERVACIÓN CUADRÁTICA EN PARED</span>
+              <div class="s-corp-formula-math">
+                $$f'_0 \approx \frac{-3f_0 + 4f_1 - f_2}{2h} \implies \text{Orden } \mathcal{O}(h^2) \text{ Preservado en Pared}$$
+              </div>
+              <p class="s-corp-formula-desc">
+                En una pared física (\(y=0\)) no existen nodos exteriores, pero aquí se concentran los gradientes más pronunciados.
               </p>
-
-              <div class="focus-formula-pill">
-                <div style="font-size:2.2rem;">
-                  $$f'_0 \approx \frac{-3f_0 + 4f_1 - f_2}{2h} \implies \text{Orden } \mathcal{O}(h^2) \text{ Preservado en Pared}$$
+            </div>
+            <div class="s-corp-twin-grid">
+              <div class="s-corp-twin-card">
+                <div class="s-corp-twin-header">
+                  <span class="s-corp-twin-badge">VULNERABILIDAD TÍPICA</span>
+                  <div class="s-corp-twin-indicator">\(\text{Degradación } \mathcal{O}(h)\)</div>
+                </div>
+                <h3 class="s-corp-twin-title">Nunca Usar 2 Puntos en Borde</h3>
+                <p class="s-corp-twin-desc">
+                  Usar Forward de 2 puntos contamina toda la solución numérica, degradándola globalmente a primer orden justo donde se calculan las fuerzas de fricción (\(\tau = \mu \frac{du}{dy}\)).
+                </p>
+                <div class="s-corp-twin-footer">
+                  <strong>Alerta Numérica:</strong> El peor error del dominio no debe ubicarse en la pared física.
                 </div>
               </div>
-
-              <div style="background:#ffffff; border:2px solid var(--border-dark); border-radius:var(--radius-sm); padding:22px 28px; margin-top:14px;">
-                <p style="font-size:1.3rem; font-weight:700; color:#000000; line-height:1.6; margin-bottom:12px;">
-                  • <strong>Nunca Usar 2 Puntos en Borde:</strong> Usar Forward de 2 puntos contamina toda la solución numérica degradándola globalmente a \(\mathcal{O}(h)\) justo donde se calcula la tensión cortante (\(\tau = \mu \frac{du}{dy}\)).
+              <div class="s-corp-twin-card">
+                <div class="s-corp-twin-header">
+                  <span class="s-corp-twin-badge">SOLUCIÓN ROBUSTA</span>
+                  <div class="s-corp-twin-indicator">\(\text{Nakamura 3 Puntos}\)</div>
+                </div>
+                <h3 class="s-corp-twin-title">Solución Asimétrica Nakamura</h3>
+                <p class="s-corp-twin-desc">
+                  Muestrear hacia el interior del fluido (\(y_0, y_1, y_2\)) garantiza segundo orden uniforme en toda la malla sin inventar nodos fantasmas ni alterar las matrices de cálculo.
                 </p>
-                <p style="font-size:1.3rem; font-weight:700; color:#000000; line-height:1.6;">
-                  • <strong>Solución Nakamura:</strong> Muestrear hacia el interior del fluido (\(y_0, y_1, y_2\)) garantiza segundo orden uniforme en toda la malla sin inventar nodos fantasmas.
-                </p>
+                <div class="s-corp-twin-footer">
+                  <strong>Resultado:</strong> Exactitud y estabilidad acopladas a lo largo de todo el contorno.
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="slide" id="slide-20" data-index="20">
-        <div class="slide-top-header">
-          <div class="slide-header-left">
-            <div class="slide-meta-tag">
-              <span class="meta-tag-badge">CONCLUSIONES TÉCNICAS</span>
-              <span>Diapositiva 20</span>
-            </div>
-            <h2 class="slide-main-title">Cuatro Mandamientos para la Práctica de la Ingeniería</h2>
-            <p class="slide-sub-desc">Criterios fundamentales para simulación y cálculo diferencial robusto.</p>
-          </div>
-          <div class="slide-header-controls">
-            <span class="badge-counter">20 / 20</span>
-          </div>
+      <section class="slide s-corp-slide" id="slide-20" data-index="20">
+        <div class="s-corp-bg-wrap">
+          <svg class="s-corp-decorado-svg" viewBox="0 0 1600 900" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <defs>
+    <filter id="s20_shadowTop" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+    <filter id="s20_shadowBot" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="-4" stdDeviation="5" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+
+    <linearGradient id="s20_orangeMain" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF7100"/>
+      <stop offset="100%" stop-color="#FF5500"/>
+    </linearGradient>
+    <linearGradient id="s20_orangeAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF8800"/>
+      <stop offset="100%" stop-color="#FF6600"/>
+    </linearGradient>
+    <linearGradient id="s20_bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="85%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FAF8F3"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="900" fill="url(#s20_bgGlow)"/>
+
+  <g filter="url(#s20_shadowTop)">
+    <polygon points="0,0 233,0 276,66 0,66" fill="url(#s20_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="70,18 86,18 105,48 89,48"/>
+      <polygon points="98,18 114,18 133,48 117,48"/>
+      <polygon points="126,18 142,18 161,48 145,48"/>
+      <polygon points="154,18 170,18 189,48 173,48"/>
+      <polygon points="182,18 198,18 217,48 201,48"/>
+    </g>
+    <polygon points="260,0 353,0 421,105 328,105" fill="#0C0C0E"/>
+    <polygon points="378,0 438,0 493,85 433,85" fill="url(#s20_orangeAccent)"/>
+    <polygon points="468,0 502,0 542,62 508,62" fill="#0C0C0E"/>
+    <polygon points="548,33 578,33 591,53 561,53" fill="#0C0C0E"/>
+    <polygon points="608,33 638,33 651,53 621,53" fill="#0C0C0E"/>
+    <polygon points="668,33 698,33 711,53 681,53" fill="#0C0C0E"/>
+    <polygon points="728,33 1600,33 1600,53 741,53" fill="url(#s20_orangeMain)"/>
+  </g>
+
+  <g filter="url(#s20_shadowBot)">
+    <polygon points="872.0,867.0 0.0,867.0 0.0,847.0 859.0,847.0" fill="url(#s20_orangeMain)"/>
+    <polygon points="932.0,867.0 902.0,867.0 889.0,847.0 919.0,847.0" fill="#0C0C0E"/>
+    <polygon points="992.0,867.0 962.0,867.0 949.0,847.0 979.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1052.0,867.0 1022.0,867.0 1009.0,847.0 1039.0,847.0" fill="#0C0C0E"/>
+    <polygon points="1132.0,900.0 1098.0,900.0 1058.0,838.0 1092.0,838.0" fill="#0C0C0E"/>
+    <polygon points="1222.0,900.0 1162.0,900.0 1107.0,815.0 1167.0,815.0" fill="url(#s20_orangeAccent)"/>
+    <polygon points="1340.0,900.0 1247.0,900.0 1179.0,795.0 1272.0,795.0" fill="#0C0C0E"/>
+    <polygon points="1600.0,900.0 1367.0,900.0 1324.0,834.0 1600.0,834.0" fill="url(#s20_orangeMain)"/>
+    <g fill="#FFFFFF" opacity="0.95">
+      <polygon points="1418.0,882.0 1402.0,882.0 1383.0,852.0 1399.0,852.0"/>
+      <polygon points="1446.0,882.0 1430.0,882.0 1411.0,852.0 1427.0,852.0"/>
+      <polygon points="1474.0,882.0 1458.0,882.0 1439.0,852.0 1455.0,852.0"/>
+      <polygon points="1502.0,882.0 1486.0,882.0 1467.0,852.0 1483.0,852.0"/>
+      <polygon points="1530.0,882.0 1514.0,882.0 1495.0,852.0 1511.0,852.0"/>
+    </g>
+  </g>
+</svg>
         </div>
-
-        <div class="slide-content-area">
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; height:100%; align-content:center;">
-            <div class="hero-col-card" style="padding:22px 26px; border-top:5px solid var(--border-dark);">
-              <span style="font-family:var(--font-mono); font-size:0.84rem; font-weight:800; color:#000000; text-transform:uppercase;">Criterio 1</span>
-              <h4 style="font-family:var(--font-penmanship); font-size:1.55rem; font-weight:800; margin:6px 0 8px 0; color:#000000;">El Mito Analítico de \(h \to 0\)</h4>
-              <p style="font-size:1.15rem; color:#000000; font-weight:700; line-height:1.5;">
-                En hardware real, \(h \to 0\) destruye el cálculo por cancelación en coma flotante. El paso óptimo \(h^*\) siempre es finito y debe planificarse.
-              </p>
+        <div class="s-corp-container">
+          <div class="s-corp-header">
+            <div class="s-corp-header-left">
+              <div class="s-corp-meta-tag">
+                <span class="s-corp-meta-badge">CONCLUSIONES TÉCNICAS</span>
+                <span class="s-corp-meta-slide">Diapositiva 20</span>
+              </div>
+              <h2 class="s-corp-main-title">Cuatro Mandamientos para la Práctica de la Ingeniería</h2>
+              <p class="s-corp-sub-desc">Criterios fundamentales para simulación y cálculo diferencial robusto.</p>
             </div>
-
-            <div class="hero-col-card yellow-accent" style="padding:22px 26px; border-top:5px solid var(--col-yellow);">
-              <span style="font-family:var(--font-mono); font-size:0.84rem; font-weight:800; color:#000000; text-transform:uppercase;">Criterio 2</span>
-              <h4 style="font-family:var(--font-penmanship); font-size:1.55rem; font-weight:800; margin:6px 0 8px 0; color:#000000;">La Simetría es Precisión Gratuita</h4>
-              <p style="font-size:1.15rem; color:#000000; font-weight:700; line-height:1.5;">
-                La diferencia central cuadruplica la velocidad de convergencia (\(\mathcal{O}(h^2)\)) cancelando algebraicamente los términos pares sin costo extra.
-              </p>
+            <div class="s-corp-header-controls">
+              <span class="badge-counter">20 / 20</span>
             </div>
-
-            <div class="hero-col-card" style="padding:22px 26px; border-top:5px solid var(--border-dark);">
-              <span style="font-family:var(--font-mono); font-size:0.84rem; font-weight:800; color:#000000; text-transform:uppercase;">Criterio 3</span>
-              <h4 style="font-family:var(--font-penmanship); font-size:1.55rem; font-weight:800; margin:6px 0 8px 0; color:#000000;">La Frontera Preserva el Interior</h4>
-              <p style="font-size:1.15rem; color:#000000; font-weight:700; line-height:1.5;">
-                En paredes sólidas no se debe sacrificar el orden. La fórmula hacia adelante de 3 puntos rescata el orden \(\mathcal{O}(h^2)\) mirando hacia el interior del fluido.
-              </p>
-            </div>
-
-            <div class="hero-col-card yellow-accent" style="padding:22px 26px; border-top:5px solid var(--col-yellow);">
-              <span style="font-family:var(--font-mono); font-size:0.84rem; font-weight:800; color:#000000; text-transform:uppercase;">Criterio 4</span>
-              <h4 style="font-family:var(--font-penmanship); font-size:1.55rem; font-weight:800; margin:6px 0 8px 0; color:#000000;">Auditoría de Herramientas (`numpy`)</h4>
-              <p style="font-size:1.15rem; color:#000000; font-weight:700; line-height:1.5;">
-                Las funciones de biblioteca como <code>np.gradient</code> no son cajas negras; aplican exactamente este diseño híbrido (Central interior + Nakamura en bordes).
-              </p>
+          </div>
+          <div class="s-corp-content">
+            <div class="s-corp-quad-grid">
+              <div class="s-corp-quad-card">
+                <span class="s-corp-quad-tag">MANDAMIENTO 1 · HARDWARE FINITO</span>
+                <h4 class="s-corp-quad-title">El Mito Analítico de \(h \to 0\)</h4>
+                <p class="s-corp-quad-desc">
+                  En hardware real, \(h \to 0\) destruye el cálculo por cancelación en coma flotante. El paso óptimo \(h^*\) siempre es finito y debe planificarse cuidadosamente.
+                </p>
+              </div>
+              <div class="s-corp-quad-card">
+                <span class="s-corp-quad-tag">MANDAMIENTO 2 · EFICIENCIA COMPUTACIONAL</span>
+                <h4 class="s-corp-quad-title">La Simetría es Precisión Gratuita</h4>
+                <p class="s-corp-quad-desc">
+                  La diferencia central cuadruplica la velocidad de convergencia (\(\mathcal{O}(h^2)\)) cancelando algebraicamente los términos pares sin costo extra de cálculo.
+                </p>
+              </div>
+              <div class="s-corp-quad-card">
+                <span class="s-corp-quad-tag">MANDAMIENTO 3 · INTEGRIDAD EN CONTORNOS</span>
+                <h4 class="s-corp-quad-title">La Frontera Preserva el Interior</h4>
+                <p class="s-corp-quad-desc">
+                  En paredes sólidas no se debe sacrificar el orden. La fórmula hacia adelante de 3 puntos rescata el orden \(\mathcal{O}(h^2)\) mirando hacia el interior del fluido.
+                </p>
+              </div>
+              <div class="s-corp-quad-card">
+                <span class="s-corp-quad-tag">MANDAMIENTO 4 · AUDITORÍA DE SOFTWARE</span>
+                <h4 class="s-corp-quad-title">Auditoría de Herramientas (NumPy)</h4>
+                <p class="s-corp-quad-desc">
+                  Las funciones de biblioteca como <code>np.gradient</code> no son cajas negras; aplican exactamente este diseño híbrido (Central interior + Nakamura en bordes).
+                </p>
+              </div>
             </div>
           </div>
         </div>
