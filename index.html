@@ -2206,7 +2206,7 @@
       z-index: 10;
       width: 1600px;
       height: 900px;
-      padding: 95px 95px 65px 95px;
+      padding: 125px 105px 70px 105px;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
@@ -2218,89 +2218,93 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-top: 10px;
-      margin-bottom: 16px;
-      z-index: 12;
+      margin-bottom: 20px;
     }
 
     .s4-header-left {
-      text-align: left;
+      max-width: 1250px;
     }
 
     .s4-meta-tag {
       display: flex;
       align-items: center;
       gap: 12px;
-      font-family: var(--font-mono);
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #666666;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     .s4-meta-badge {
       background: #FF7100;
       color: #FFFFFF;
-      padding: 3px 12px;
-      border-radius: 4px;
+      font-size: 0.85rem;
       font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
     }
 
     .s4-meta-slide {
-      color: #888888;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #666666;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .s4-main-title {
-      font-family: var(--font-serif);
-      font-size: 2.85rem;
-      font-weight: 700;
+      font-family: 'Merriweather', 'Playfair Display', Georgia, serif;
+      font-size: 2.70rem;
+      font-weight: 900;
       color: #111111;
       line-height: 1.15;
+      margin: 0 0 6px 0;
       letter-spacing: -0.015em;
-      margin: 0 0 4px 0;
     }
 
     .s4-sub-desc {
-      font-family: var(--font-sans);
-      font-size: 1.20rem;
+      font-size: 1.25rem;
       font-weight: 600;
-      color: #FF7100;
-      letter-spacing: 0.03em;
+      color: #D35400;
       margin: 0;
+      line-height: 1.35;
     }
 
-    /* Contenido central libre (SIN CUADRO CONTENEDOR RÍGIDO) */
+    /* CONTENIDO CENTRAL EQUILIBRADO Y CENTRADO EN LA PANTALLA */
     .s4-content-free {
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
       align-items: center;
+      justify-content: center;
+      flex-grow: 1;
       width: 100%;
-      margin-top: 4px;
-      gap: 14px;
+      gap: 22px;
+      padding-bottom: 15px;
     }
 
-    /* BLOQUE 1: ESPACIO CONTINUO */
+    /* BLOQUE 1: CONTINUO */
     .s4-block-continuous {
       width: 100%;
-      max-width: 1400px;
+      max-width: 1360px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
+    }
+
+    .s4-block-header {
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: center;
     }
 
     .s4-topic-tag {
-      font-family: var(--font-mono);
-      font-size: 1.10rem;
+      font-size: 0.82rem;
       font-weight: 800;
-      letter-spacing: 0.16em;
       color: #FF7100;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      margin-bottom: 6px;
-      display: block;
+      background: rgba(255, 113, 0, 0.08);
+      padding: 4px 12px;
+      border-radius: 4px;
     }
 
     .s4-taylor-formula-card {
@@ -2312,17 +2316,19 @@
       margin-bottom: 8px;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
       width: 100%;
-      max-width: 1280px;
       box-sizing: border-box;
+      display: flex;
+      justify-content: center;
     }
 
     .s4-taylor-formula-card .katex-display {
-      margin: 4px 0 !important;
+      margin: 6px 0 !important;
     }
 
     .s4-taylor-math {
       font-size: 2.10rem;
       color: #111111;
+      text-align: center;
     }
 
     .s4-taylor-desc {
@@ -2332,25 +2338,25 @@
       color: #2A2A2A;
       margin: 0;
       max-width: 1300px;
+      text-align: center;
     }
 
-    /* BLOQUE 2: OPERADOR DISCRETO (CORREGIDO PARA TOTAL VISIBILIDAD) */
+    /* BLOQUE 2: DISCRETO */
     .s4-block-discrete {
       width: 100%;
-      max-width: 1400px;
+      max-width: 1360px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
-      margin-top: 2px;
     }
 
     .s4-discrete-title {
       font-family: var(--font-serif);
-      font-size: 1.85rem;
-      font-weight: 700;
+      font-size: 1.75rem;
+      font-weight: 800;
       color: #111111;
       margin-bottom: 4px;
+      text-align: center;
       letter-spacing: -0.01em;
     }
 
@@ -2361,6 +2367,7 @@
       color: #2A2A2A;
       margin: 0 0 8px 0;
       max-width: 1300px;
+      text-align: center;
     }
 
     .s4-discrete-formula-card {
@@ -2368,11 +2375,12 @@
       border: 1.5px solid #EAE5DB;
       border-top: 4px solid #FF7100;
       border-radius: 12px;
-      padding: 4px 30px 4px 30px;
+      padding: 4px 30px;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
       width: 100%;
-      max-width: 1340px;
       box-sizing: border-box;
+      display: flex;
+      justify-content: center;
     }
 
     .s4-discrete-formula-card .katex-display {
@@ -2382,6 +2390,7 @@
     .s4-discrete-math {
       font-size: 1.85rem;
       color: #111111;
+      text-align: center;
     }
   </style>
 
